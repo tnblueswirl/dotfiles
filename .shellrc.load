@@ -6,7 +6,7 @@ if [ -f ~/.env.sh ]; then
   . ~/.env.sh
 fi
 
-if [-f ~/.aliases.sh ]; then
+if [ -f ~/.aliases.sh ]; then
   . ~/.aliases.sh
 fi
 
