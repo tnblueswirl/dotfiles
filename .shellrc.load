@@ -1,5 +1,3 @@
-# include what you want
-
 export PATH=$PATH:$HOME/bin
 
 if [ -f ~/.env.sh ]; then
@@ -13,6 +11,3 @@ fi
 for file in $(ls ~/.bash); do
   . ~/.bash/$file
 done
-
-# add this to the .bashrc or .zshrc (done automatically by dfm):
-# . $HOME/.shellrc.load
