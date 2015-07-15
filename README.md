@@ -6,7 +6,7 @@ This repo contains dotfiles for a simple development environment setup.  It incl
 
 ## Using this repo
 
-### If you just want to use the dotifles...
+### If you just want to use the dotfiles...
 
 ```bash
 $ git clone https://github.com/tiyd-python-2015-08/dotfiles.git
