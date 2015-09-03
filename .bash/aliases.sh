@@ -1,5 +1,6 @@
 # aliases go here, e.g.
 # alias g='git'
+
 # CONVENIENCE SHORTCUTS
 alias ll='ls -lahG'
 #alias home='cd ~'
