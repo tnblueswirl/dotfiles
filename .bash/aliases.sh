@@ -3,6 +3,7 @@
 
 # CONVENIENCE SHORTCUTS
 alias ll='ls -lahG'
+alias lll='ls -lahG | less'
 #alias home='cd ~'
 #alias up='cd ..'
 alias irb='irb --simple-prompt'
