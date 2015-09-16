@@ -2,7 +2,7 @@
 # export ENV_VARIABLE='foo'
 
 # SETTING ENVIORNMENT VARIABLES
-export LESS='-M'
+# export LESS='-M'
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
 export HISTSIZE=2000				# 500 is default
