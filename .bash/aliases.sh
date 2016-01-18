@@ -2,7 +2,7 @@
 # alias g='git'
 
 # CONVENIENCE SHORTCUTS
-alias ll='ls -lahG'
+alias ll='ls -lahGF'
 alias lll='ls -lahG | less'
 #alias home='cd ~'
 #alias up='cd ..'
