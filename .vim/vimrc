@@ -19,6 +19,15 @@ Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 " python-mode plugin
 Plugin 'klen/python-mode'
 
+" Airline (alternate vim-only version of now depricated vim-powerline)
+Plugin 'vim-airline/vim-airline'
+
+" Git plugin to allow branch info to show
+Plugin 'tpope/vim-fugitive'
+
+" Git plugin to indicate lines with changes
+Plugin 'airblade/vim-gitgutter'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -106,6 +115,9 @@ filetype plugin indent on
 " Set the actual tab key to 4 spaces
 set softtabstop=4
 
+
+" NERDTree Settings -----------------------------
+"
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
@@ -116,3 +128,23 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+" Airline Settings ------------------------------
+
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'solarized'
+let g:airline#extensions#whitespace#enabled = 0
+
+" to use fancy symbols for airline, uncomment the following lines and use a
+" patched font (more info on the README.rst)
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
