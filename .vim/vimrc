@@ -108,7 +108,7 @@ set shiftwidth=4
 set expandtab
 
 " Set minimum window width to 90 (a.k.a. 'wiw')
-set winwidth=90
+set winwidth=88
 
 filetype plugin indent on
 
