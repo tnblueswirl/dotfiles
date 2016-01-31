@@ -107,8 +107,8 @@ set shiftwidth=4
 " Expand tabs into spaces
 set expandtab
 
-" Set the autoindent feature to off
-" set noautoindent
+" Set minimum window width to 90 (a.k.a. 'wiw')
+set winwidth=90
 
 filetype plugin indent on
 
