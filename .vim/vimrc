@@ -28,6 +28,12 @@ Plugin 'tpope/vim-fugitive'
 " Git plugin to indicate lines with changes
 Plugin 'airblade/vim-gitgutter'
 
+" vim-surround to work with HTML, XML, etc.
+Plugin 'tpope/vim-surround'
+
+" syntastic linter
+Plugin 'scrooloose/syntastic'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -115,6 +121,11 @@ filetype plugin indent on
 " Set the actual tab key to 4 spaces
 set softtabstop=4
 
+" tab length exceptions on some file types
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 
 " NERDTree Settings -----------------------------
 "
@@ -148,3 +159,15 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
+
+
+" Syntastic Settings ----------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
