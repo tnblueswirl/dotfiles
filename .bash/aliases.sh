@@ -2,8 +2,8 @@
 # alias g='git'
 
 # CONVENIENCE SHORTCUTS
-alias ll='ls -lahGF'
-alias lll='ls -lahG | less'
+alias ll='ls -lAhGF'
+alias lll='ls -lAhG | less'
 #alias home='cd ~'
 #alias up='cd ..'
 alias irb='irb --simple-prompt'
