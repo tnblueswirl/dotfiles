@@ -3,6 +3,7 @@
 
 # CONVENIENCE SHORTCUTS
 alias ll='ls -lAhGF'
+alias lls='ls -FGA'
 alias lll='ls -lAhG | less'
 #alias home='cd ~'
 #alias up='cd ..'
