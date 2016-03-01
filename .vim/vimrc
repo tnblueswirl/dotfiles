@@ -16,6 +16,9 @@ Plugin 'scrooloose/nerdTree'
 " Solarized color scheme
 Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 
+" Solarized color scheme for Airline
+Plugin 'vim-airline/vim-airline-themes'
+
 " python-mode plugin
 Plugin 'klen/python-mode'
 
