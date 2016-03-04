@@ -37,6 +37,9 @@ Plugin 'tpope/vim-surround'
 " syntastic linter
 Plugin 'scrooloose/syntastic'
 
+" CtrlP Fuzzy Finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -74,7 +77,7 @@ set t_Co=256
 " colorscheme onedark
 set background=dark
 colorscheme solarized
-let g:zenburn_high_Contrast=1
+" let g:zenburn_high_Contrast=1
 " colorscheme zenburn
 " let python_highlight_all=1
 syntax on
@@ -110,14 +113,20 @@ set scrolloff=3
 " Use highlighting for search matches (:nohlsearch to clear [or :noh])
 set hlsearch
 
+" Show tabs as '>' followed by spaces
+set listchars=tab:>\ 
+
+" Show hidden characters
+set list
+
 " Set tabstop to 8 spaces
 set tabstop=8
 
 " Set tab width to 4 spaces
-set shiftwidth=4
+" set shiftwidth=4
 
 " Expand tabs into spaces
-set expandtab
+" set expandtab
 
 " Set minimum window width to 90 (a.k.a. 'wiw')
 set winwidth=88
@@ -128,9 +137,12 @@ filetype plugin indent on
 set softtabstop=4
 
 " tab length exceptions on some file types
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal softtabstop=2
+autocmd FileType htmldjango setlocal softtabstop=2
+autocmd FileType javascript setlocal expandtab! tabstop=2 softtabstop=2
+" autocmd FileType javascript setlocal expandtab! shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType php setlocal expandtab!
+autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4
 
 
 " NERDTree Settings -----------------------------
