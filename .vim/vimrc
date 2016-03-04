@@ -116,9 +116,6 @@ set hlsearch
 " Show tabs as '>' followed by spaces
 set listchars=tab:>\ 
 
-" Show hidden characters
-set list
-
 " Set tabstop to 8 spaces
 set tabstop=8
 
@@ -133,16 +130,26 @@ set winwidth=88
 
 filetype plugin indent on
 
-" Set the actual tab key to 4 spaces
+" Set the default actual tab key to 4 spaces
 set softtabstop=4
 
-" tab length exceptions on some file types
+
+" File Specific Settings ------------------------
 autocmd FileType html setlocal softtabstop=2
 autocmd FileType htmldjango setlocal softtabstop=2
 autocmd FileType javascript setlocal expandtab! tabstop=2 softtabstop=2
 " autocmd FileType javascript setlocal expandtab! shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType php setlocal expandtab!
 autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4
+
+
+" Set Key Mappings ------------------------------
+
+" Set <Leader> to ',' (comma)
+let mapleader=","
+
+" Toggle display of hidden characters
+nmap <Leader>l :set list!<CR>
 
 
 " NERDTree Settings -----------------------------
