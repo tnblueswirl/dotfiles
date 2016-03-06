@@ -113,11 +113,12 @@ set scrolloff=3
 " Use highlighting for search matches (:nohlsearch to clear [or :noh])
 set hlsearch
 
-" Show tabs as '>' followed by spaces
-set listchars=tab:>\ 
+" Show tabs as '▸' followed by spaces
+" set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ 
 
-" Set tabstop to 8 spaces
-set tabstop=8
+" Set tabstop to 4 spaces
+set tabstop=4
 
 " Set tab width to 4 spaces
 " set shiftwidth=4
@@ -135,22 +136,30 @@ set softtabstop=4
 
 
 " File Specific Settings ------------------------
-autocmd FileType html setlocal softtabstop=2
-autocmd FileType htmldjango setlocal softtabstop=2
+"
+autocmd FileType html       setlocal            tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal                      softtabstop=2
 autocmd FileType javascript setlocal expandtab! tabstop=2 softtabstop=2
-" autocmd FileType javascript setlocal expandtab! shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType php setlocal expandtab!
-autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4
+autocmd FileType php        setlocal expandtab! tabstop=4 softtabstop=4
+autocmd FileType python     setlocal expandtab  tabstop=8 softtabstop=4 shiftwidth=4
 
 
-" Set Key Mappings ------------------------------
-
-" Set <Leader> to ',' (comma)
+" Key Mappings ----------------------------------
+"
+" Change <Leader> to ',' (comma)
 let mapleader=","
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
 
+
+" Gvim Settings ---------------------------------
+"
+" Prevent blinking cursor
+set guicursor+=a:blinkon0
+
+" Make cursor shape an underline
+set guicursor+=a:hor10
 
 " NERDTree Settings -----------------------------
 "
