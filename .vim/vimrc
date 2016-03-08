@@ -158,6 +158,7 @@ let mapleader=","
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
+map <silent> <F2> :set paste!<CR>
 
 
 " Gvim Settings ---------------------------------
@@ -171,7 +172,7 @@ set guicursor+=a:hor10
 " NERDTree Settings -----------------------------
 "
 " toggle nerdtree display
-map <F3> :NERDTreeToggle<CR>
+map <silent> <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
 " nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
