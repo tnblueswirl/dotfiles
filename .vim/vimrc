@@ -89,7 +89,7 @@ syntax on
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
-        set undodir=~/.vim/undo
+	set undodir=~/.vim/undo
 endif
 
 " Make default clipboard the OS X clipboard
@@ -118,7 +118,7 @@ set hlsearch
 
 " Show tabs as '▸' followed by spaces
 " set listchars=tab:▸\ ,eol:¬
-set listchars=tab:▸\ 
+set listchars=tab:▸\ ,trail:-
 
 " Set tabstop to 4 spaces
 set tabstop=4
@@ -177,7 +177,7 @@ map <silent> <F3> :NERDTreeToggle<CR>
 " nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
+let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -192,7 +192,7 @@ let g:airline#extensions#whitespace#enabled = 0
 " to use fancy symbols for airline, uncomment the following lines and use a
 " patched font (more info on the README.rst)
 if !exists('g:airline_symbols')
-   let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
@@ -214,13 +214,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["python"]}
+	\ 'mode': 'active',
+	\ 'passive_filetypes': ['python', 'html']}
 let g:syntastic_html_tidy_ignore_errors = [
 	\  '<html> attribute "lang" lacks value',
 	\  '<a> attribute "href" lacks value',
 	\  'trimming empty <span>',
-	\  'trimming empty <h1>'
+	\  'trimming empty <h1>',
+	\  '<div> attribute "{{^" lacks value',
+	\  '<div> attribute "}}" lacks value',
+	\  '<div> attribute "{{/" lacks value',
 	\ ]
 
 
