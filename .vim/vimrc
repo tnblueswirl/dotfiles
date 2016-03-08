@@ -40,6 +40,9 @@ Plugin 'scrooloose/syntastic'
 " CtrlP Fuzzy Finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Vim Mustache
+Plugin 'mustache/vim-mustache-handlebars'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -137,11 +140,15 @@ set softtabstop=4
 
 " File Specific Settings ------------------------
 "
-autocmd FileType html       setlocal            tabstop=2 softtabstop=2
-autocmd FileType htmldjango setlocal                      softtabstop=2
-autocmd FileType javascript setlocal expandtab! tabstop=2 softtabstop=2
-autocmd FileType php        setlocal expandtab! tabstop=4 softtabstop=4
-autocmd FileType python     setlocal expandtab  tabstop=8 softtabstop=4 shiftwidth=4
+" To force hard tabs, set noexpandtab and don't set softtabstop
+"   tabstop and shiftwidth should be set to the same value
+" To force spaces instead of tabs, set expandtab and softtabstop
+"   shiftwidth and softtabstop should be set to the same value
+autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
+autocmd FileType javascript setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
 
 
 " Key Mappings ----------------------------------
@@ -208,3 +215,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["python"]}
+let g:syntastic_filetype_map = {
+    \ "mustache.html": "mustache"}
+
+
+" Vim Mustache Settings -------------------------
+let g:mustache_abbreviations = 1
