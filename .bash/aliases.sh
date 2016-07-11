@@ -29,3 +29,5 @@ alias browsertestsafari='console/func_tests_safari.sh'
 alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
 alias codeception='php lib/vendor/managed-packages/bin/codecept run'
 alias testall='unit tests; apitest; browsertest'
+alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
+
