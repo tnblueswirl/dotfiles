@@ -31,3 +31,6 @@ alias codeception='php lib/vendor/managed-packages/bin/codecept run'
 alias testall='unit tests; apitest; browsertest'
 alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
 
+# PERSONAL SCRIPT ALIASES
+alias php_location='. ~/.dotfiles/myscripts/php_locations.sh'
+
