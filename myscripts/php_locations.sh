@@ -30,6 +30,6 @@ for f in [^V]*
 	do find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PHP_VERSION"
 done
 
-echo -e "\n" --returning to original directory--
+echo -e "\n"--returning to original directory--
 cd -
 
