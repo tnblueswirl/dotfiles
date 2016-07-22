@@ -147,6 +147,7 @@ set softtabstop=4
 autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
 autocmd FileType javascript setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
 
@@ -160,6 +161,16 @@ let mapleader=","
 nmap <Leader>l :set list!<CR>
 map <silent> <F2> :set paste!<CR>
 
+" Commenting blocks of code
+autocmd FileType c,cpp,java,scala,php let b:comment_leader = '// '
+autocmd FileType sh,ruby,python       let b:comment_leader = '# '
+autocmd FileType conf,fstab           let b:comment_leader = '# '
+autocmd FileType tex                  let b:comment_leader = '% '
+autocmd FileType mail                 let b:comment_leader = '> '
+autocmd FileType vim                  let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
 
 " Gvim Settings ---------------------------------
 "
@@ -168,6 +179,7 @@ set guicursor+=a:blinkon0
 
 " Make cursor shape an underline
 set guicursor+=a:hor10
+
 
 " NERDTree Settings -----------------------------
 "
@@ -229,3 +241,4 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 " Vim Mustache Settings -------------------------
 let g:mustache_abbreviations = 1
+
