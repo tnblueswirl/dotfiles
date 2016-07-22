@@ -16,11 +16,9 @@ else
 	SEARCH_TERM=$1
 fi
 
-echo
 # Parse the system's php version
 PHP_VERSION=`php --version | sed -E -e 's/^PHP ([0-9.]*) .*/\1/' -e 's/^[CZ].*//'`
-echo System PHP Version: "$PHP_VERSION"
-echo
+echo -e "\n" System PHP Version: "$PHP_VERSION" "\n"
 
 echo ----switching to root directory----
 cd /
@@ -32,6 +30,6 @@ for f in [^V]*
 	do find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PHP_VERSION"
 done
 
-echo
-echo --returning to original directory--
+echo -e "\n" --returning to original directory--
 cd -
+
