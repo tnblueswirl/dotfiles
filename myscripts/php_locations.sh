@@ -16,7 +16,8 @@
 ################################################################################
 
 # Check for command-line arguments and set PL_SEARCH_TERM accordingly
-if [ $# -eq 0 ]; then
+if [ $# -eq 0 ]
+then
 	PL_SEARCH_TERM=php.ini
 else
 	PL_SEARCH_TERM=$1
