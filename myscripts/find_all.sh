@@ -14,6 +14,8 @@
 #
 ################################################################################
 
+# Check how many command-line arguments were supplied. If none, exit.
+# Otherwise set variables accordingly
 case $# in
 	0)  echo No argument supplied. Exiting... 
 		return 1
@@ -28,6 +30,7 @@ esac
 # Change to root directory
 cd / 
 
+# Perform search in each folder in the root directory, except `/Volumes`
 for f in *
 do
 	if [ "$f" != 'Volumes' ]
@@ -36,10 +39,10 @@ do
 	fi
 done
 
-# Change back to original directory (and suppress output of directory to stdout)
+# Change back to original directory (suppress output)
 cd - >/dev/null
 
-# Clean up our variables
+# Clean up variables
 unset FA_SEARCH_TERM
 unset FA_PATH_CONTAINS
 

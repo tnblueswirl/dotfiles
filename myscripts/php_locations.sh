@@ -15,7 +15,7 @@
 #
 ################################################################################
 
-# Check if we got any command-line arguments and set PL_SEARCH_TERM accordingly
+# Check for command-line arguments and set PL_SEARCH_TERM accordingly
 if [ $# -eq 0 ]; then
 	PL_SEARCH_TERM=php.ini
 else
@@ -39,10 +39,10 @@ do
 	fi
 done
 
-# Change back to original directory (and suppress output of directory to stdout)
+# Change back to original directory (suppress output)
 cd - >/dev/null
 
-# Clean up our variables
+# Clean up variables
 unset PL_SEARCH_TERM
 unset PL_PHP_VERSION
 
