@@ -4,12 +4,10 @@
 #
 #                               PHP_LOCATIONS         
 #
-# By default, this script shows the location of all of the `config.ini` files on
-# this machine whose path includes the system php version. You can also specify
-# any other filename on the command line when calling the script.
-#
-# Folders at the root level that start with 'V' are skipped. This is to avoid
-# searching the `/Volumes` folder.
+# By default, search the entire disc (except the `Volumes` directory) for the
+# location of all `config.ini` files whose path includes the system php
+# version. You can also specify any other filename on the command line when
+# calling the script.
 #
 # @param string SEARCH_TERM (optional) String that must appear in filename
 #
@@ -32,10 +30,13 @@ echo ----switching to root directory----
 cd /
 echo "$SEARCH_TERM" locations:
 
-# For each folder in the root directory, except those that start with 'V',
-# perform search
-for f in [^V]*
-	do find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PHP_VERSION"
+# Perform search in each folder in the root directory, except `/Volumes`
+for f in *
+do
+	if [ "$f" != 'Volumes' ]
+	then
+		find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PHP_VERSION"
+	fi
 done
 
 echo -e "\n"--returning to original directory--
