@@ -4,7 +4,7 @@
 #
 #                               PHP_LOCATIONS         
 #
-# By default, search the entire disc (except the `Volumes` directory) for the
+# By default, search the entire disc (except `/Volumes` directory) for the
 # location of all `config.ini` files whose path includes the system php
 # version. You can also specify any other filename on the command line when
 # calling the script.

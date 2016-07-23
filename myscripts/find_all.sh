@@ -4,9 +4,8 @@
 #
 #                                   FIND_ALL 
 #
-# Search entire disc (except root `/Volumes` directory) for a filename
-# containing the supplied string. Optionally add string that must also be in
-# path.
+# Search entire disc (except `/Volumes` directory) for a filename containing
+# the supplied string. Optionally add string that must also be in path.
 #
 # @param string SEARCH_TERM   (required) String that must appear in filename
 # @param string PATH_CONTAINS (optional) String that must appear in path
