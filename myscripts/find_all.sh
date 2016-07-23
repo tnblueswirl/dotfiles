@@ -11,7 +11,7 @@
 # @param string SEARCH_TERM   (required) String that must appear in filename
 # @param string PATH_CONTAINS (optional) String that must appear in path
 #
-# Example call: `. find_all.sh php.ini /MAMP/
+# Example call: `. find_all.sh php.ini /MAMP/`
 #
 ################################################################################
 
