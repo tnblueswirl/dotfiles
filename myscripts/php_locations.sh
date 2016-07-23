@@ -46,4 +46,3 @@ cd -
 unset PL_SEARCH_TERM
 unset PL_PHP_VERSION
 
-
