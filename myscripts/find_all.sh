@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Search entire computer, except root folders that start with 'V' (to avoid
-# `/Volumes`), for a filename containing supplied string. Optionally add string that
-# must also be in path.
+################################################################################
 #
-# Example call: `. find_all.sh php.ini /MAMP/
-
+#                                   FIND_ALL 
+#
+# Search entire computer, except root folders that start with 'V' (to avoid    
+# `/Volumes`), for a filename containing supplied string. Optionally add string
+# that must also be in path.
+#
 # @param string SEARCH_TERM   (required) String that must appear in filename
 # @param string PATH_CONTAINS (optional) String that must appear in path
+#
+# Example call: `. find_all.sh php.ini /MAMP/
+#
+################################################################################
 
 case $# in
 	0)  echo No argument supplied. Exiting... 
