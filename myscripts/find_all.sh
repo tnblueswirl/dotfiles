@@ -25,8 +25,7 @@ case $# in
 		;;
 esac
 
-
-echo ----switching to root directory----
+# Change to root directory
 cd / 
 
 for f in *
@@ -37,8 +36,8 @@ do
 	fi
 done
 
-echo -e "\n"--returning to original directory--
-cd -
+# Change back to original directory (and suppress output of directory to stdout)
+cd - >/dev/null
 
 # Clean up our variables
 unset FA_SEARCH_TERM
