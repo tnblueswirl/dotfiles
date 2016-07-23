@@ -1,22 +1,29 @@
 #!/bin/bash
 
-# This script looks for the filename given on the command line throughout the
-# system, except for in directories at the root level that start with 'V' (to
-# avoid Volumes).
+# Search entire computer, except root folders that start with 'V' (to avoid
+# `/Volumes`), for a filename containing supplied string. Optionally add string that
+# must also be in path.
 
-if [ $# -eq 0 ]; then
-	echo No argument supplied. Exiting...
-# 	kill -INT $$
-	return 1
-else
-	SEARCH_TERM=$1
-fi
+# @param string SEARCH_TERM   (required) String that must appear in path
+# @param string PATH_CONTAINS (optional) String that must appear in path
+
+case $# in
+	0)  echo No argument supplied. Exiting... 
+		return 1
+		;;
+	1)  SEARCH_TERM=$1
+		;;
+	*)  SEARCH_TERM=$1
+		PATH_CONTAINS=$2
+		;;
+esac
+
 
 echo ----switching to root directory----
 cd / 
 
 for f in [^V]*
-	do find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:"
+	do find "$f" -name "$SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PATH_CONTAINS"
 done
 
 echo -e "\n"--returning to original directory--
