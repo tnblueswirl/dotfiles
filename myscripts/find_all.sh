@@ -3,6 +3,8 @@
 # Search entire computer, except root folders that start with 'V' (to avoid
 # `/Volumes`), for a filename containing supplied string. Optionally add string that
 # must also be in path.
+#
+# Example call: `. find_all.sh php.ini /MAMP/
 
 # @param string SEARCH_TERM   (required) String that must appear in path
 # @param string PATH_CONTAINS (optional) String that must appear in path
