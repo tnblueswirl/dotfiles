@@ -30,7 +30,7 @@ esac
 # Change to root directory
 cd / 
 
-# Perform search in each folder in the root directory, except `/Volumes`
+# Perform search in each directory, except `/Volumes`
 for f in *
 do
 	if [ "$f" != 'Volumes' ]

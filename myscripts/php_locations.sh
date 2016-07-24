@@ -31,7 +31,7 @@ echo -e "\n"System PHP Version: "$PL_PHP_VERSION""\n"
 cd /
 echo "$PL_SEARCH_TERM" locations:
 
-# Perform search in each folder in the root directory, except `/Volumes`
+# Perform search in each directory, except `/Volumes`
 for f in *
 do
 	if [ "$f" != 'Volumes' ]
