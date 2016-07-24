@@ -9,8 +9,9 @@ This repo contains dotfiles for a simple development environment setup.  It incl
 ### If you just want to use the dotfiles...
 
 ```bash
-$ git clone https://github.com/tiyd-python-2015-08/dotfiles.git
-$ ./dotfiles/bin/dfm install # creates symlinks to install files
+$ cd ~
+$ git clone https://github.com/ahartz1/dotfiles.git .dotfiles
+$ ./.dotfiles/bin/dfm install  # creates symlinks to install files
 ```
 
 ### If you want to make changes...
@@ -20,8 +21,9 @@ First, fork this repo.
 Then, add your dotfiles:
 
 ```bash
-$ git clone git@github.com:username/dotfiles.git dotfiles
-$ cd dotfiles
+$ cd ~
+$ git clone git@github.com:username/dotfiles.git .dotfiles
+$ cd .dotfiles
 $  # edit files
 $  # edit files
 $ git push origin master
@@ -30,9 +32,9 @@ $ git push origin master
 Finally, to install your dotfiles onto a new system:
 
 ```bash
-$ cd $HOME
-$ git clone git@github.com:username/dotfiles.git dotfiles
-$ ./dotfiles/bin/dfm install # creates symlinks to install files
+$ cd ~
+$ git clone git@github.com:username/dotfiles.git .dotfiles
+$ ./.dotfiles/bin/dfm install  # creates symlinks to install files
 ```
 
 ## Full documentation
