@@ -9,34 +9,34 @@
 # version. You can also specify any other filename on the command line when
 # calling the script.
 #
-# @param string PL_SEARCH_TERM (optional) String that must appear in filename
+# @param string searchTerm (optional) String that must appear in filename
 #
 # Example call: `. php_locations.sh xdebug.so`
 #
 ################################################################################
 
-# Check for command-line arguments and set PL_SEARCH_TERM accordingly
+# Check for command-line arguments and set searchTerm accordingly
 if [ $# -eq 0 ]
 then
-	PL_SEARCH_TERM=php.ini
+	searchTerm=php.ini
 else
-	PL_SEARCH_TERM=$1
+	searchTerm=$1
 fi
 
 # Parse the system's php version
-PL_PHP_VERSION=`php --version | sed -E -e 's/^PHP ([0-9.]*) .*/\1/' -e 's/^[CZ].*//'`
-echo -e "\n"System PHP Version: "$PL_PHP_VERSION""\n"
+phpVersion=`php --version | sed -E -e 's/^PHP ([0-9.]*) .*/\1/' -e 's/^[CZ].*//'`
+echo -e "\n"System PHP Version: "$phpVersion""\n"
 
 # Change to root directory
 cd /
-echo "$PL_SEARCH_TERM" locations:
+echo "$searchTerm" locations:
 
 # Perform search in each directory, except `/Volumes`
 for f in *
 do
 	if [ "$f" != 'Volumes' ]
 	then
-		find "$f" -name "$PL_SEARCH_TERM" 2>&1 | grep -v "find:" | grep --color=never "$PL_PHP_VERSION"
+		find "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$phpVersion"
 	fi
 done
 
@@ -44,6 +44,6 @@ done
 cd - >/dev/null
 
 # Clean up variables
-unset PL_SEARCH_TERM
-unset PL_PHP_VERSION
+unset searchTerm
+unset phpVersion
 
