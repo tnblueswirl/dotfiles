@@ -52,7 +52,7 @@ You can also run `dfm --help`.
  * For the solarized theme to work best in iTerm2, download the [iTerm2 color settings](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized) and load them in iTerm2. Note that once it is loaded, you must then select it.
  * Install Vundle, the vim plugin manager:
 
-```$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim```
+&#9;```$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim```
 
  * Then launch Vim and type `:PluginInstall`
  * For syntastic to perform syntax checks on JavaScript, you will need to `$ sudo npm install -g jshint` ([npm](http://npmjs.com))
