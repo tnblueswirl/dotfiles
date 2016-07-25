@@ -16,6 +16,9 @@
 #
 ################################################################################
 
+(  # Run as subprocess by enclosing in parentheses
+
+
 # Check how many command-line arguments were supplied. If none, exit.
 # Otherwise set variables accordingly
 case $# in
@@ -42,9 +45,7 @@ do
 done
 
 # Change back to original directory (suppress output)
-cd - >/dev/null
+cd - > /dev/null
 
-# Clean up variables
-unset searchTerm
-unset pathContains
+)  # End of script
 

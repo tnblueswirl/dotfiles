@@ -17,6 +17,8 @@
 #
 ################################################################################
 
+(  # Run as subprocess by enclosing in parentheses
+
 # Check for command-line arguments and set searchTerm accordingly
 if [ $# -eq 0 ]
 then
@@ -43,9 +45,7 @@ do
 done
 
 # Change back to original directory (suppress output)
-cd - >/dev/null
+cd - > /dev/null
 
-# Clean up variables
-unset searchTerm
-unset phpVersion
+)  # End of script
 
