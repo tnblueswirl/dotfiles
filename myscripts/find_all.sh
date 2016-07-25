@@ -16,7 +16,7 @@
 #
 ################################################################################
 
-(  # Run as subprocess by enclosing in parentheses
+(  # Run as subprocess to avoid variable persistence
 
 
 # Check how many command-line arguments were supplied. If none, exit.

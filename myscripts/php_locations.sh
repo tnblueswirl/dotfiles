@@ -17,7 +17,7 @@
 #
 ################################################################################
 
-(  # Run as subprocess by enclosing in parentheses
+(  # Run as subprocess to avoid variable persistence
 
 # Check for command-line arguments and set searchTerm accordingly
 if [ $# -eq 0 ]
