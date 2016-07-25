@@ -181,20 +181,6 @@ set guicursor+=a:blinkon0
 set guicursor+=a:hor10
 
 
-" NERDTree Settings -----------------------------
-"
-" toggle nerdtree display
-map <silent> <F3> :NERDTreeToggle<CR>
-" open nerdtree with the current file selected
-" nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-let g:NERDTreeWinSize = 40
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-
 " Airline Settings ------------------------------
 
 let g:airline_powerline_fonts = 0
@@ -213,6 +199,25 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
+
+
+" CtrlP Settings --------------------------------
+let g:ctrlp_extensions = ['autoignore']
+" let g:ctrl_show_hidden = 1
+
+
+" NERDTree Settings -----------------------------
+"
+" toggle nerdtree display
+map <silent> <F3> :NERDTreeToggle<CR>
+" open nerdtree with the current file selected
+" nmap ,t :NERDTreeFind<CR>
+" don;t show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:NERDTreeWinSize = 40
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 " Syntastic Settings ----------------------------
