@@ -10,8 +10,10 @@
 # calling the script.
 #
 # @param string searchTerm (optional) String that must appear in filename
+#     or a shell pattern surrounded in quotes
 #
-# Example call: `. php_locations.sh xdebug.so`
+# Example calls: `. php_locations.sh xdebug.so`
+#                `. php_locations.sh '*.ini'`
 #
 ################################################################################
 
@@ -36,7 +38,7 @@ for f in *
 do
 	if [ "$f" != 'Volumes' ]
 	then
-		find "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$phpVersion"
+		find -E "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$phpVersion"
 	fi
 done
 

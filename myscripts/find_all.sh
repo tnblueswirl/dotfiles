@@ -8,9 +8,11 @@
 # the supplied string. Optionally add string that must also be in path.
 #
 # @param string searchTerm   (required) String that must appear in filename
+#     or a shell pattern surrounded in quotes
 # @param string pathContains (optional) String that must appear in path
 #
-# Example call: `. find_all.sh php.ini /MAMP/`
+# Example calls: `. find_all.sh php.ini /MAMP/`
+#                `. find_all.sh '*.sh' /myscripts/` 
 #
 ################################################################################
 
@@ -35,7 +37,7 @@ for f in *
 do
 	if [ "$f" != 'Volumes' ]
 	then
-		find "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$pathContains"
+		find -E "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$pathContains"
 	fi
 done
 
