@@ -202,6 +202,7 @@ let g:airline_symbols.linenr = '⭡'
 
 
 " CtrlP Settings --------------------------------
+" Note: Refresh cache with <F5>
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
 
