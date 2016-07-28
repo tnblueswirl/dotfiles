@@ -34,6 +34,9 @@ Plugin 'airblade/vim-gitgutter'
 " vim-surround to work with HTML, XML, etc.
 Plugin 'tpope/vim-surround'
 
+" vim-unimpaired to quickly toggle and navigate
+Plugin 'tpope/vim-unimpaired'
+
 " syntastic linter
 Plugin 'scrooloose/syntastic'
 
@@ -180,6 +183,9 @@ set guicursor+=a:blinkon0
 " Make cursor shape an underline
 set guicursor+=a:hor10
 
+" Hide scrollbars
+set guioptions-=r
+set guioptions-=L
 
 " Airline Settings ------------------------------
 
