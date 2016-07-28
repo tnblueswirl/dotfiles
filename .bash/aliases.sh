@@ -18,6 +18,8 @@ alias df='df -h'
 alias du='du -h'
 alias mkdir='mkdir -p'
 alias nano='nano -z'
+alias phantomjs='phantomjs --webdriver=4444'
+alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 
 # TESTING ALIASES
 alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
