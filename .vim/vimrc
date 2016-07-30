@@ -43,6 +43,9 @@ Plugin 'scrooloose/syntastic'
 " CtrlP Fuzzy Finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" phpcomplete for improved omni-completion in PHP
+Plugin 'shawncplus/phpcomplete.vim'
+
 " Vim Mustache
 Plugin 'mustache/vim-mustache-handlebars'
 
@@ -183,6 +186,12 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <silent> <leader>n :noh<CR>
 
+" Search in PHP files
+command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
+
+" Search in all files
+command -nargs=+ Agrep grep -rn <args>
+
 
 " Gvim Settings ---------------------------------
 "
@@ -195,6 +204,7 @@ set guicursor+=a:hor10
 " Hide scrollbars
 set guioptions-=r
 set guioptions-=L
+
 
 " Airline Settings ------------------------------
 
