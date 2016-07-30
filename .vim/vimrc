@@ -177,6 +177,12 @@ autocmd FileType vim                  let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+nnoremap <silent> <leader>n :noh<CR>
+
 
 " Gvim Settings ---------------------------------
 "
@@ -214,6 +220,9 @@ let g:airline_symbols.linenr = '⭡'
 " Note: Refresh cache with <F5>
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
+nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <leader>t :CtrlP<CR>
+nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 
 
 " Fugitive Settings -----------------------------
@@ -222,11 +231,12 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " NERDTree Settings -----------------------------
 "
-" toggle nerdtree display
-map <silent> <F3> :NERDTreeToggle<CR>
-" open nerdtree with the current file selected
-" nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
+" toggle NERDTree display
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+" open NERDTree with the current file selected
+nnoremap <silent> <leader>f :NERDTreeFind<CR>
+
+" don't show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
