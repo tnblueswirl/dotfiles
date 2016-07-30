@@ -216,6 +216,10 @@ let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
 
 
+" Fugitive Settings -----------------------------
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+
 " NERDTree Settings -----------------------------
 "
 " toggle nerdtree display
