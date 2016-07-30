@@ -98,6 +98,9 @@ endif
 " Make default clipboard the OS X clipboard
 set clipboard=unnamed
 
+" Enable the mouse
+set mouse=a
+
 " Enable line numbers
 set number
 
