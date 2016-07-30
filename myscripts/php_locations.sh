@@ -20,8 +20,7 @@
 (  # Run as subprocess to avoid variable persistence
 
 # Check for command-line arguments and set searchTerm accordingly
-if [ $# -eq 0 ]
-then
+if [ $# -eq 0 ]; then
 	searchTerm=php.ini
 else
 	searchTerm=$1
@@ -38,8 +37,7 @@ echo "$searchTerm" locations:
 # Perform search in each directory, except `/Volumes`
 for f in *
 do
-	if [ "$f" != 'Volumes' ]
-	then
+	if [ "$f" != 'Volumes' ]; then
 		find -E "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$phpVersion"
 	fi
 done

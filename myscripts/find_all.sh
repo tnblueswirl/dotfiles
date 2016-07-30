@@ -38,8 +38,7 @@ cd /
 # Perform search in each directory, except `/Volumes`
 for f in *
 do
-	if [ "$f" != 'Volumes' ]
-	then
+	if [ "$f" != 'Volumes' ]; then
 		find -E "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$pathContains"
 	fi
 done
