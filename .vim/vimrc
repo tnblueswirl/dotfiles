@@ -186,6 +186,10 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" * will search word under cursor, but won't immediately jump to first match
+nnoremap * *``
+nnoremap * :keepjumps normal! mi*`i<CR>
+
 " Turn off highlighting
 nnoremap <silent> <leader>n :noh<CR>
 
