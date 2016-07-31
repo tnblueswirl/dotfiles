@@ -190,9 +190,6 @@ noremap <C-l> <C-w>l
 nnoremap * *``
 nnoremap * :keepjumps normal! mi*`i<CR>
 
-" Turn off highlighting
-nnoremap <silent> <leader>n :noh<CR>
-
 " Search in PHP files
 command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 
