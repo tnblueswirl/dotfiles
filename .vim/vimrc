@@ -43,7 +43,7 @@ Plugin 'scrooloose/syntastic'
 " CtrlP Fuzzy Finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" phpcomplete for improved omni-completion in PHP
+" phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
 
 " Vim Mustache
