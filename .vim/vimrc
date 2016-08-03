@@ -149,6 +149,9 @@ filetype plugin indent on
 " Set the default actual tab key to 4 spaces
 set softtabstop=4
 
+" Start file with open folds
+set nofoldenable
+
 
 " File Specific Settings ------------------------
 "
