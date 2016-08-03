@@ -22,6 +22,9 @@ alias phantomjs='phantomjs --webdriver=4444'
 if [ -f /Applications/MAMP/Libary/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
+if [ `which ctags` > /dev/null ]; then
+	alias ctagsphp='ctags -R --fields=+laimS --languages=php'
+fi
 
 # TESTING ALIASES
 alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
