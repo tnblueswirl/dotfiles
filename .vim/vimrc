@@ -183,6 +183,9 @@ autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabs
 " Change <Leader> to ',' (comma)
 let mapleader=","
 
+" Remap save
+nmap <Leader>s :w<CR>
+
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
 map <silent> <F2> :set paste!<CR>
