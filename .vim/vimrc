@@ -172,7 +172,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "   shiftwidth and softtabstop should be set to the same value
 autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
-autocmd FileType javascript setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
