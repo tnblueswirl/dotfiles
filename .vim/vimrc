@@ -46,6 +46,10 @@ Plugin 'scrooloose/syntastic'
 " CtrlP Fuzzy Finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" ack.vim
+" Note that this requires ack (`brew install ack`)
+Plugin 'mileszs/ack.vim'
+
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
 
@@ -209,6 +213,11 @@ set guioptions-=r
 set guioptions-=L
 
 
+" Ack Settings ----------------------------------
+" Also see The_Silver_Searcher settings
+nnoremap <leader>a :Ack<Space>
+
+
 " Airline Settings ------------------------------
 
 let g:airline_powerline_fonts = 0
@@ -230,6 +239,7 @@ let g:airline_symbols.linenr = '⭡'
 
 
 " CtrlP Settings --------------------------------
+" Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
@@ -279,6 +289,21 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\  '<div> attribute "}}" lacks value',
 	\  '<div> attribute "{{/" lacks value',
 	\ ]
+
+
+" The_Silver_Searcher Settings -----------------
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+	" Use Ag over Grep
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	" Use Ag over Ack
+	let g:ackprg = 'ag --vimgrep'
+
+	" Use ag in CtrlP for listing files. Lightning fast and respects
+	" .gitignore
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 
 " Vim Mustache Settings -------------------------
