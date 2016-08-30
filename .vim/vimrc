@@ -159,6 +159,10 @@ set softtabstop=4
 " Start file with open folds
 set nofoldenable
 
+" Make omnicompletion better by selecting highlighted with Enter
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " File Specific Settings ------------------------
 "
