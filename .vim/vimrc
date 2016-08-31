@@ -186,6 +186,9 @@ let mapleader=","
 " Remap save
 nmap <Leader>s :w<CR>
 
+" Remap load
+nmap <Leader>e :e!<CR>
+
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
 map <silent> <F2> :set paste!<CR>
