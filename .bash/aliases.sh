@@ -19,7 +19,7 @@ alias du='du -h'
 alias mkdir='mkdir -p'
 alias nano='nano -z'
 alias phantomjs='phantomjs --webdriver=4444'
-if [ -f /Applications/MAMP/Libary/bin/mysql ]; then
+if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
 if [ `which ctags` > /dev/null ]; then
