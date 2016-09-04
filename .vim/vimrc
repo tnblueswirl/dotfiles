@@ -126,6 +126,9 @@ set noerrorbells
 " Show the cursor position
 set ruler
 
+" Allow deletion of existing characters in insert mode
+set backspace=2
+
 " Show the filename in the window titlebar
 set title
 
@@ -148,7 +151,7 @@ set tabstop=4
 " Expand tabs into spaces
 " set expandtab
 
-" Set minimum window width to 90 (a.k.a. 'wiw')
+" Set minimum window width to 88 (a.k.a. 'wiw')
 set winwidth=88
 
 filetype plugin indent on
