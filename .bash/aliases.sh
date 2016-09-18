@@ -9,6 +9,7 @@ alias lll='ls -lAhG | less'
 #alias up='cd ..'
 alias irb='irb --simple-prompt'
 alias gitlog='git log --graph --oneline --decorate --all'
+alias lightbkgnd="export GITC='tput setaf 0'"
 
 # REDEFINING COMMANDS TO AVOID PROBLEMS AND ADD OPTIONS
 alias mv='mv -i'
