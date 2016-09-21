@@ -196,6 +196,11 @@ nmap <Leader>e :e!<CR>
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
+
+" Make 'Y' copy from current location to end of line
+map Y y$
+
+" Toggle paste mode (retains incomming formatting)
 map <silent> <F2> :set paste!<CR>
 
 " Make moving between windows easier
