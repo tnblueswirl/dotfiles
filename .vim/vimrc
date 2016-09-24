@@ -93,11 +93,16 @@ filetype plugin on
 " Put your non-Plugin stuff after this line
 
 set t_Co=256
-" colorscheme onedark
-set background=dark
+
+" Match background to my shell color
+let gitc=$GITC
+if gitc == 'tput setaf 0'
+	set background=light
+else
+	set background=dark
+endif
+
 colorscheme solarized
-" let g:zenburn_high_Contrast=1
-" colorscheme zenburn
 " let python_highlight_all=1
 syntax on
 
@@ -194,6 +199,11 @@ nmap <Leader>e :e!<CR>
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
+
+" Make 'Y' copy from current location to end of line
+map Y y$
+
+" Toggle paste mode (retains incomming formatting)
 map <silent> <F2> :set paste!<CR>
 
 " Make moving between windows easier
@@ -257,6 +267,8 @@ let g:airline_symbols.linenr = '⭡'
 " CtrlP Settings --------------------------------
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
+let g:ctrlp_by_filename = 1
+let g:ctrlp_regexp = 1
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>

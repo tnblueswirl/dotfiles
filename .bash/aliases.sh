@@ -9,6 +9,7 @@ alias lll='ls -lAhG | less'
 #alias up='cd ..'
 alias irb='irb --simple-prompt'
 alias gitlog='git log --graph --oneline --decorate --all'
+alias lightbkgnd="export GITC='tput setaf 0'"
 
 # REDEFINING COMMANDS TO AVOID PROBLEMS AND ADD OPTIONS
 alias mv='mv -i'
@@ -19,7 +20,7 @@ alias du='du -h'
 alias mkdir='mkdir -p'
 alias nano='nano -z'
 alias phantomjs='phantomjs --webdriver=4444'
-if [ -f /Applications/MAMP/Libary/bin/mysql ]; then
+if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
 if [ `which ctags` > /dev/null ]; then
