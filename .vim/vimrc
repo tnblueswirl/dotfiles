@@ -283,6 +283,11 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
+" PyMode Settings -------------------------------
+" Ignore lines that are too long
+let g:pymode_lint_ignore = 'E501'
+
+
 " Syntastic Settings ----------------------------
 
 set statusline+=%#warningmsg#
