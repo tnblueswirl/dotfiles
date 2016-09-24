@@ -264,6 +264,8 @@ let g:airline_symbols.linenr = '⭡'
 " CtrlP Settings --------------------------------
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
+let g:ctrlp_by_filename = 1
+let g:ctrlp_regexp = 1
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
