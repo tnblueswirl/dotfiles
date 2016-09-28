@@ -94,7 +94,7 @@ filetype plugin on
 
 
 " General Vim Settings --------------------------------------------------------
-
+"
 set t_Co=256
 
 " Match background to my shell color
@@ -246,12 +246,13 @@ set guioptions-=L
 
 
 " Ack Settings ----------------------------------------------------------------
+"
 " Also see The_Silver_Searcher settings
 nnoremap <leader>a :Ack<Space>
 
 
 " Airline Settings ------------------------------------------------------------
-
+"
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'solarized'
 let g:airline#extensions#whitespace#enabled = 0
@@ -271,6 +272,7 @@ let g:airline_symbols.linenr = '⭡'
 
 
 " CtrlP Settings --------------------------------------------------------------
+"
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
 let g:ctrlp_by_filename = 1
@@ -283,6 +285,7 @@ nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 
 
 " Fugitive Settings -----------------------------------------------------------
+"
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
@@ -302,12 +305,13 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 " PyMode Settings -------------------------------------------------------------
+"
 " Ignore lines that are too long
 let g:pymode_lint_ignore = 'E501'
 
 
 " Syntastic Settings ----------------------------------------------------------
-
+"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -331,6 +335,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 
 " The_Silver_Searcher Settings -----------------------------------------------
+"
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
 	" Use Ag over Grep
@@ -349,5 +354,6 @@ endif
 
 
 " Vim Mustache Settings -------------------------------------------------------
+"
 let g:mustache_abbreviations = 1
 
