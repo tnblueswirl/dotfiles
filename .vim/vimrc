@@ -92,6 +92,9 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
+" General Vim Settings --------------------------------------------------------
+
 set t_Co=256
 
 " Match background to my shell color
@@ -175,7 +178,7 @@ set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
-" File Specific Settings ------------------------
+" File-Specific Settings ------------------------------------------------------
 "
 " To force hard tabs, set noexpandtab and don't set softtabstop
 "   tabstop and shiftwidth should be set to the same value
@@ -189,7 +192,7 @@ autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
 
 
-" Key Mappings ----------------------------------
+" Key Mappings ----------------------------------------------------------------
 "
 " Change <Leader> to ',' (comma)
 let mapleader=","
@@ -229,7 +232,7 @@ command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 command -nargs=+ Agrep grep -rn <args>
 
 
-" Gvim Settings ---------------------------------
+" Gvim Settings ---------------------------------------------------------------
 "
 " Prevent blinking cursor
 set guicursor+=a:blinkon0
@@ -242,12 +245,12 @@ set guioptions-=r
 set guioptions-=L
 
 
-" Ack Settings ----------------------------------
+" Ack Settings ----------------------------------------------------------------
 " Also see The_Silver_Searcher settings
 nnoremap <leader>a :Ack<Space>
 
 
-" Airline Settings ------------------------------
+" Airline Settings ------------------------------------------------------------
 
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'solarized'
@@ -267,7 +270,7 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
 
-" CtrlP Settings --------------------------------
+" CtrlP Settings --------------------------------------------------------------
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
 let g:ctrlp_by_filename = 1
@@ -279,11 +282,11 @@ nnoremap <silent> <leader>t :CtrlP<CR>
 nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 
 
-" Fugitive Settings -----------------------------
+" Fugitive Settings -----------------------------------------------------------
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
-" NERDTree Settings -----------------------------
+" NERDTree Settings -----------------------------------------------------------
 "
 " toggle NERDTree display
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
@@ -298,12 +301,12 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
-" PyMode Settings -------------------------------
+" PyMode Settings -------------------------------------------------------------
 " Ignore lines that are too long
 let g:pymode_lint_ignore = 'E501'
 
 
-" Syntastic Settings ----------------------------
+" Syntastic Settings ----------------------------------------------------------
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -327,7 +330,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\ ]
 
 
-" The_Silver_Searcher Settings -----------------
+" The_Silver_Searcher Settings -----------------------------------------------
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
 	" Use Ag over Grep
@@ -345,6 +348,6 @@ if executable('ag')
 endif
 
 
-" Vim Mustache Settings -------------------------
+" Vim Mustache Settings -------------------------------------------------------
 let g:mustache_abbreviations = 1
 
