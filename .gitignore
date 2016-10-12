@@ -1,5 +1,6 @@
 .vim/backups/
 .vim/bundle/
+.vim/spell/
 .vim/swaps/
 .vim/undo/
 .vim/.netrwhist
