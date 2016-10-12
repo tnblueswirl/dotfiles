@@ -248,7 +248,7 @@ set guioptions-=L
 " Ack Settings ----------------------------------------------------------------
 "
 " Also see The_Silver_Searcher settings
-nnoremap <leader>a :Ack<Space>
+nnoremap <leader>a :tabe <CR> :Ack<Space>
 
 
 " Airline Settings ------------------------------------------------------------
