@@ -53,8 +53,8 @@ set-window-option -g clock-mode-colour $tm_color_active
 tm_tunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
 tm_battery="#(~/.dotfiles/bin/battery_indicator.sh)"
 
-#tm_date="#[fg=$tm_color_date] %l:%M%P %d %b"
-tm_date="#[fg=$tm_color_date] %R %d %b"
+tm_date="#[fg=$tm_color_date] %l:%M%P %d %b"
+#tm_date="#[fg=$tm_color_date] %R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"
 tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
 
