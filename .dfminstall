@@ -3,3 +3,5 @@ bin           recurse
 setup.sh      exec
 setup.sh      skip
 .gitmodules   skip
+myscripts     skip
+tmux          skip
