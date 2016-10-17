@@ -260,7 +260,7 @@ nnoremap <leader>A :tabe<CR>:Ack<Space>
 
 " Airline Settings ------------------------------------------------------------
 "
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -288,7 +288,7 @@ let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>t :CtrlP<CR>
-nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <silent> <leader>T :CtrlPTag<CR>
 
 
 " Fugitive Settings -----------------------------------------------------------
