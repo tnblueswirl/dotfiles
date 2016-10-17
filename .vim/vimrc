@@ -34,6 +34,9 @@ Plugin 'tpope/vim-fugitive'
 " Git plugin to indicate lines with changes
 Plugin 'airblade/vim-gitgutter'
 
+" vim-obsession to make Session.vim better
+Plugin 'tpope/vim-obsession'
+
 " vim-surround to work with HTML, XML, etc.
 Plugin 'tpope/vim-surround'
 

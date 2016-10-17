@@ -5,4 +5,4 @@ setup.sh      skip
 .gitmodules   skip
 .ropeproject  skip
 myscripts     skip
-tmux          skip
+Session.vim   skip
