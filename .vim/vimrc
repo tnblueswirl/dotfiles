@@ -16,9 +16,6 @@ Plugin 'scrooloose/nerdTree'
 " NERD Commenter
 Plugin 'scrooloose/nerdcommenter'
 
-" Solarized color scheme
-Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
-
 " Solarized color scheme for Airline
 Plugin 'vim-airline/vim-airline-themes'
 
