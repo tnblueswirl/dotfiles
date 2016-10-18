@@ -1090,22 +1090,27 @@ endfunction
 autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarized | else | call SolarizedMenu() | endif
 
 "python highlighting "{{{
-exe "hi! pythonBuiltin" .s:fg_violet .s:bg_back .s:fmt_none
-exe "hi! pythonOperator" .s:fg_violet .s:bg_back .s:fmt_none
-exe "hi! pythonNumber" .s:fg_yellow .s:bg_back .s:fmt_none
-exe "hi! pythonString" .s:fg_cyan .s:bg_back .s:fmt_none
-exe "hi! pythonRawString" .s:fg_yellow .s:bg_back .s:fmt_none
 exe "hi! pythonBoolean" .s:fg_yellow .s:bg_back .s:fmt_none
-exe "hi! pythonStatement" .s:fg_violet .s:bg_back .s:fmt_none
+exe "hi! pythonBuiltinFunc" .s:fg_cyan .s:bg_back .s:fmt_none
+exe "hi! pythonBuiltinObj" .s:fg_violet .s:bg_back .s:fmt_none
 exe "hi! pythonConditional" .s:fg_violet .s:bg_back .s:fmt_none
-exe "hi! pythonRepeat" .s:fg_magenta .s:bg_back .s:fmt_none
-exe "hi! pythonException" .s:fg_violet .s:bg_back .s:fmt_none
+exe "hi! pythonDecorator" .s:fg_blue .s:bg_back .s:fmt_none
+exe "hi! pythonDoctest" .s:fg_base01 .s:bg_back .s:fmt_none
+exe "hi! pythonDot" .s:fg_orange .s:bg_back .s:fmt_none
+exe "hi! pythonDottedName" .s:fg_blue .s:bg_back .s:fmt_none
+exe "hi! pythonExClass" .s:fg_red .s:bg_back .s:fmt_none
+exe "hi! pythonFloat" .s:fg_orange .s:bg_back .s:fmt_none
+exe "hi! pythonFunction" .s:fg_blue .s:bg_back .s:fmt_none
+exe "hi! pythonImport" .s:fg_violet .s:bg_back .s:fmt_ital
+exe "hi! pythonNumber" .s:fg_yellow .s:bg_back .s:fmt_none
+exe "hi! pythonOperator" .s:fg_violet .s:bg_back .s:fmt_none
+exe "hi! pythonRawString" .s:fg_yellow .s:bg_back .s:fmt_none
+exe "hi! pythonRepeat" .s:fg_violet .s:bg_back .s:fmt_none
 exe "hi! pythonSpaceError" .s:fg_base1 .s:bg_orange .s:fmt_none 
 " (activate this ^ in python.vim by: let python_space_error_highlight = 1)
-exe "hi! pythonDecorator" .s:fg_blue .s:bg_back .s:fmt_none
-exe "hi! pythonImport" .s:fg_violet .s:bg_back .s:fmt_ital
-exe "hi! pythonDoctest" .s:fg_base01 .s:bg_back .s:fmt_none
-exe "hi! pythonFunction" .s:fg_blue .s:bg_back .s:fmt_none
+exe "hi! pythonStatement" .s:fg_violet .s:bg_back .s:fmt_none
+exe "hi! pythonString" .s:fg_cyan .s:bg_back .s:fmt_none
+exe "hi! pythonTodo" .s:fg_magenta .s:bg_back .s:fmt_bold
 " orange, red
 "}}}
 
