@@ -121,6 +121,13 @@ set clipboard=unnamed
 
 " Enable the mouse
 set mouse=a
+if has("mouse_sgr")
+	" enable resizing splits with mouse in tmux
+    set ttymouse=sgr
+elseif &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 " Enable line numbers
 set number
