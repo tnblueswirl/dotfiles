@@ -25,6 +25,7 @@ if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 fi
 if [ `which ctags` > /dev/null ]; then
 	alias ctagsphp='ctags -R --fields=+laimS --languages=php'
+	alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
 
 # TESTING ALIASES
