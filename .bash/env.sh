@@ -14,6 +14,3 @@ export GREP_COLOR="7;41"
 if [ -f ~/Library/Preferences/WebIde100/phpstorm.vmoptions ]; then
 	export WEBIDE_VM_OPTIONS=~/Library/Preferences/WebIde100/phpstorm.vmoptions
 fi
-
-# Set bash to use vi mode
-set -o vi
