@@ -1,13 +1,23 @@
 #### COLOUR (Solarized Dark)
 
-tm_icon="☕"
-tm_color_active=brightred
-tm_color_inactive=brightblue
-tm_color_date=green
-tm_color_feature=yellow
-tm_color_music=colour198
-tm_active_border_color=brightgreen
+solarizedBase01=colour240
+solarizedBase0=colour244
+solarizedCyan=colour37
+solarizedGreen=colour64
+solarizedMagenta=colour125
+solarizedOrange=colour166
+solarizedRed=colour160
+solarizedViolet=colour61
+solarizedYellow=colour136
 
+tm_color_active=$solarizedOrange
+tm_color_inactive=$solarizedBase0
+tm_color_date=$solarizedGreen
+tm_color_feature=$solarizedYellow
+tm_color_music=$solarizedViolet
+tm_active_border_color=$solarizedBase01
+
+tm_icon="☕"
 # separators
 tm_separator_left_bold="◀"
 tm_separator_left_thin="❮"

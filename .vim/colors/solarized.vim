@@ -976,7 +976,7 @@ exe "hi! pythonDoctest"                  .s:fg_base01  .s:bg_back   .s:fmt_none
 exe "hi! pythonDot"                      .s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! pythonSpaceError"               .s:fg_base1   .s:bg_orange .s:fmt_none
 "" (activate this ^ in python.vim by: let python_space_error_highlight = 1)
-exe "hi! Boolean"                        .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! Boolean"                        .s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! Conditional"                    .s:fg_green   .s:bg_back   .s:fmt_none
 exe "hi! Define"                         .s:fg_orange  .s:bg_back   .s:fmt_none
 exe "hi! Exception"                      .s:fg_green   .s:bg_back   .s:fmt_none

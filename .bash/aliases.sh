@@ -10,16 +10,18 @@ alias lll='ls -lAhG | less'
 alias irb='irb --simple-prompt'
 alias gitlog='git log --graph --oneline --decorate --all'
 alias lightbkgnd="export GITC='tput setaf 0'"
+alias darkbkgnd="export GITC='tput setaf 7'"
 
 # REDEFINING COMMANDS TO AVOID PROBLEMS AND ADD OPTIONS
-alias mv='mv -i'
 alias cp='cp -i'
-alias rm='rm -i'
 alias df='df -h'
 alias du='du -h'
 alias mkdir='mkdir -p'
+alias mv='mv -i'
 alias nano='nano -z'
 alias phantomjs='phantomjs --webdriver=4444'
+alias rm='rm -i'
+alias tmux='tmux -2'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
@@ -29,16 +31,16 @@ if [ `which ctags` > /dev/null ]; then
 fi
 
 # TESTING ALIASES
-alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
-alias cover='phpunit -c tests/data/phpunit.coverage.xml'
-alias covertests='phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
+alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
 alias browsertest='console/func_tests.sh'
 alias browsertestchrome='console/func_tests_chrome.sh'
 alias browsertestsafari='console/func_tests_safari.sh'
-alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
-alias codeception='php lib/vendor/managed-packages/bin/codecept run'
-alias testall='unit tests; apitest; browsertest'
 alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
+alias codeception='php lib/vendor/managed-packages/bin/codecept run'
+alias cover='phpunit -c tests/data/phpunit.coverage.xml'
+alias covertests='phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
+alias testall='unit tests; apitest; browsertestchrome'
+alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
 
 # PERSONAL SCRIPT ALIASES
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
