@@ -4,7 +4,7 @@
 # CONVENIENCE SHORTCUTS
 alias ll='ls -lAhGF'
 alias lls='ls -FGA1'
-alias lll='ls -lAhG | less'
+alias lll='ls -lAhGF | less'
 #alias home='cd ~'
 #alias up='cd ..'
 alias irb='irb --simple-prompt'
