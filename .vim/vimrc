@@ -106,16 +106,6 @@ set background=dark
 
 colorscheme solarized
 
-" Function to toggle background
-function! BgToggle()
-    if (&background == "light")
-        set background=dark
-    else
-        set background=light
-    endif
-endfunction
-nnoremap <silent> <F9> :call BgToggle()<cr>
-
 " Enable syntax highlighting
 syntax on
 
@@ -137,10 +127,10 @@ set clipboard=unnamed
 set mouse=a
 if has("mouse_sgr")
 	" enable resizing splits with mouse in tmux
-    set ttymouse=sgr
+	set ttymouse=sgr
 elseif &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+	" tmux knows the extended mouse mode
+	set ttymouse=xterm2
 endif
 
 " Enable line numbers
@@ -198,7 +188,6 @@ set nofoldenable
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-
 " File-Specific Settings ------------------------------------------------------
 "
 " To force hard tabs, set noexpandtab and don't set softtabstop
@@ -244,13 +233,28 @@ nnoremap * *``
 nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Turn off highlighting
-nnoremap <silent> <leader>n :noh<CR>
+nnoremap <silent> <Leader>n :noh<CR>
 
 " Search in PHP files
 command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 
 " Search in all files
 command -nargs=+ Agrep grep -rn <args>
+
+" Switch to previously active tab with <Leader>L
+let g:lasttab = 1
+nmap <Leader>L :exe "tabn ".g:lasttab<CR>
+autocmd TabLeave * let g:lasttab = tabpagenr()
+
+" Function to toggle background with <F9> key
+function! BgToggle()
+	if (&background == "light")
+		set background=dark
+	else
+		set background=light
+	endif
+endfunction
+nnoremap <silent> <F9> :call BgToggle()<cr>
 
 
 " Gvim Settings ---------------------------------------------------------------
@@ -270,10 +274,10 @@ set guioptions-=L
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
-nnoremap <leader>a :Ack<Space>
+nnoremap <Leader>a :Ack<Space>
 
 " Start an Ack search in a new tab
-nnoremap <leader>A :tabe<CR>:Ack<Space>
+nnoremap <Leader>A :tabe<CR>:Ack<Space>
 
 
 " Airline Settings ------------------------------------------------------------
@@ -281,6 +285,8 @@ nnoremap <leader>A :tabe<CR>:Ack<Space>
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'mixed-indent-file' ]
 
 " to use fancy symbols for airline, uncomment the following lines and use a
 " patched font (more info on the README.rst)
@@ -304,9 +310,9 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 let g:ctrlp_extensions = ['autoignore']
 " let g:ctrl_show_hidden = 1
-nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-nnoremap <silent> <leader>t :CtrlP<CR>
-nnoremap <silent> <leader>T :CtrlPTag<CR>
+nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <Leader>t :CtrlP<CR>
+nnoremap <silent> <Leader>T :CtrlPTag<CR>
 
 
 " Fugitive Settings -----------------------------------------------------------
@@ -314,15 +320,21 @@ nnoremap <silent> <leader>T :CtrlPTag<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
+" NERDCommenter Settings ------------------------------------------------------
+"
+let g:NERDSpaceDelims=1
+let g:NERDTrimTrailingWhitespace=1
+
+
 " NERDTree Settings -----------------------------------------------------------
 "
 " toggle NERDTree display
-nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
 " open NERDTree with the current file selected
-nnoremap <silent> <leader>f :NERDTreeFind<CR>
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 
 " don't show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
