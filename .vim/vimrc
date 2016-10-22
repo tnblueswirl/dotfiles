@@ -228,6 +228,9 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Make command mode go to beginning of line with Ctrl+a
+cnoremap <C-a>  <Home>
+
 " * will search word under cursor, but won't immediately jump to first match
 nnoremap * *``
 nnoremap * :keepjumps normal! mi*`i<CR>
