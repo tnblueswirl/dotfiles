@@ -970,6 +970,10 @@ exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_bold
 hi! link pandocMetadataTitle             pandocMetadata
 
 "}}}
+"php highlighting "{{{
+" ---------------------------------------------------------------------
+exe "hi! phpMemberSelector"              .s:fg_yellow  .s:bg_back   .s:fmt_none
+"}}}
 "python highlighting "{{{
 " ---------------------------------------------------------------------
 exe "hi! pythonDoctest"                  .s:fg_base01  .s:bg_back   .s:fmt_none

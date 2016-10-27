@@ -53,6 +53,9 @@ Plugin 'mileszs/ack.vim'
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
 
+" php syntax highlighting
+Plugin 'stanangeloff/php.vim'
+
 " python syntax support
 Plugin 'hdima/python-syntax'
 
@@ -188,6 +191,7 @@ set nofoldenable
 " Make omnicompletion better by selecting highlighted with Enter
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " File-Specific Settings ------------------------------------------------------
 "
@@ -354,6 +358,9 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " Ignore lines that are too long
 let g:pymode_lint_ignore = 'E501'
 
+" Set debug breakpoints
+let g:pymode_breakpoint_bind = '<Leader>B'
+
 
 " Syntastic Settings ----------------------------------------------------------
 "
@@ -402,4 +409,21 @@ endif
 "
 let g:mustache_abbreviations = 1
 
-hi Comment cterm=italic
+
+" PHP syntax " overrides ------------------------------------------------------
+"
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+" If our terminal supports italics, use them!
+let italterm = $TERM
+if italterm =~ '-italic'
+	hi Comment cterm=italic
+endif
