@@ -98,9 +98,10 @@ filetype plugin on
 
 " General Vim Settings --------------------------------------------------------
 "
-"set t_Co=256
-set term=screen-256color
+" set t_Co=256
 
+" Allow vim's own fuzzy find to work
+set path+=**
 
 set background=dark
 
@@ -397,3 +398,4 @@ endif
 "
 let g:mustache_abbreviations = 1
 
+hi Comment cterm=italic
