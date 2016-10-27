@@ -11,6 +11,8 @@ alias irb='irb --simple-prompt'
 alias gitlog='git log --graph --oneline --decorate --all'
 alias lightbkgnd="export GITC='tput setaf 0'"
 alias darkbkgnd="export GITC='tput setaf 7'"
+alias turnoffipv6="networksetup -setv6off Wi-Fi"
+alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 
 # REDEFINING COMMANDS TO AVOID PROBLEMS AND ADD OPTIONS
 alias cp='cp -i'
