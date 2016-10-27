@@ -22,6 +22,7 @@ alias nano='nano -z'
 alias phantomjs='phantomjs --webdriver=4444'
 alias rm='rm -i'
 alias tmux='tmux -2'
+alias tree='tree -CF'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
