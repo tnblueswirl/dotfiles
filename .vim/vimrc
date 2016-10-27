@@ -337,8 +337,12 @@ nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
 " open NERDTree with the current file selected
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
 " don't show these file types
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
 let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
