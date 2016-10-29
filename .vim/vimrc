@@ -111,7 +111,9 @@ set background=dark
 colorscheme solarized
 
 " Allow background color changes to also work in tmux
-set t_ut=
+if &term =~ '256color'
+	set t_ut=
+endif
 
 " Enable syntax highlighting
 syntax on
@@ -425,8 +427,8 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+
 " If our terminal supports italics, use them!
-let italterm = $TERM
-if italterm =~ '-italic'
+if &term =~ '-italic'
 	hi Comment cterm=italic
 endif
