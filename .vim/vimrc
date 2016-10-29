@@ -263,8 +263,16 @@ autocmd TabLeave * let g:lasttab = tabpagenr()
 function! BgToggle()
 	if (&background == "light")
 		set background=dark
+		let g:solarized_contrast="normal"
+		if &term =~ '-italic'
+			hi Comment cterm=italic
+		endif
 	else
 		set background=light
+		let g:solarized_contrast="high"
+		if &term =~ '-italic'
+			hi Comment cterm=italic
+		endif
 	endif
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
