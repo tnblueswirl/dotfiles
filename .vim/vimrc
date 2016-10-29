@@ -110,6 +110,9 @@ set background=dark
 
 colorscheme solarized
 
+" Allow background color changes to also work in tmux
+set t_ut=
+
 " Enable syntax highlighting
 syntax on
 
@@ -282,10 +285,10 @@ set guioptions-=L
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
-nnoremap <Leader>a :Ack<Space>
+nnoremap <Leader>a :Ack<Space>'
 
 " Start an Ack search in a new tab
-nnoremap <Leader>A :tabe<CR>:Ack<Space>
+nnoremap <Leader>A :tabe<CR>:Ack<Space>'
 
 
 " Airline Settings ------------------------------------------------------------
