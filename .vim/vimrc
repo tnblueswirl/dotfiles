@@ -262,14 +262,14 @@ autocmd TabLeave * let g:lasttab = tabpagenr()
 " Function to toggle background with <F9> key
 function! BgToggle()
 	if (&background == "light")
-		set background=dark
 		let g:solarized_contrast="normal"
+		set background=dark
 		if &term =~ '-italic'
 			hi Comment cterm=italic
 		endif
 	else
-		set background=light
 		let g:solarized_contrast="high"
+		set background=light
 		if &term =~ '-italic'
 			hi Comment cterm=italic
 		endif
