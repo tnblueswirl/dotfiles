@@ -161,6 +161,12 @@ set title
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" case insensitive searching
+set ignorecase
+
+" case-sensitive if expresson contains a capital letter
+set smartcase
+
 " Use highlighting for search matches (:nohlsearch to clear [or :noh])
 set hlsearch
 
@@ -203,6 +209,7 @@ autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
 autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType mustache   setlocal noendofline binary
 autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
 
