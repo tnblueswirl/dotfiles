@@ -110,6 +110,11 @@ set background=dark
 
 colorscheme solarized
 
+" Allow background color changes to also work in tmux
+if &term =~ '256color'
+	set t_ut=
+endif
+
 " Enable syntax highlighting
 syntax on
 
@@ -264,9 +269,17 @@ autocmd TabLeave * let g:lasttab = tabpagenr()
 " Function to toggle background with <F9> key
 function! BgToggle()
 	if (&background == "light")
+		let g:solarized_contrast="normal"
 		set background=dark
+		if &term =~ '-italic'
+			hi Comment cterm=italic
+		endif
 	else
+		let g:solarized_contrast="high"
 		set background=light
+		if &term =~ '-italic'
+			hi Comment cterm=italic
+		endif
 	endif
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
@@ -289,10 +302,10 @@ set guioptions-=L
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
-nnoremap <Leader>a :Ack<Space>
+nnoremap <Leader>a :Ack<Space>'
 
 " Start an Ack search in a new tab
-nnoremap <Leader>A :tabe<CR>:Ack<Space>
+nnoremap <Leader>A :tabe<CR>:Ack<Space>'
 
 
 " Airline Settings ------------------------------------------------------------
@@ -429,8 +442,8 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+
 " If our terminal supports italics, use them!
-let italterm = $TERM
-if italterm =~ '-italic'
+if &term =~ '-italic'
 	hi Comment cterm=italic
 endif
