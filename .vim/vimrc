@@ -275,8 +275,10 @@ function! BgToggle()
 		let g:solarized_contrast="high"
 		set background=light
 	endif
+	" Re-enable italics
 	if &term =~ '-italic'
 		hi Comment cterm=italic
+		hi htmlArg cterm=italic
 	endif
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
@@ -443,4 +445,5 @@ augroup END
 " If our terminal supports italics, use them!
 if &term =~ '-italic'
 	hi Comment cterm=italic
+	hi htmlArg cterm=italic
 endif
