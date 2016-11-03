@@ -41,7 +41,7 @@ alias browsertestsafari='console/func_tests_safari.sh'
 alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
 alias codeception='php lib/vendor/managed-packages/bin/codecept run'
 alias cover='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests'
-alias covertests='phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
+alias covertests='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
 alias testall='unit tests; apitest; browsertestchrome'
 alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
 
