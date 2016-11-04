@@ -7,14 +7,13 @@ browsertests() {
         tests="tests/acceptance/$2";
     fi
     # Launch the Selenium Server on the local machine
-    /usr/bin/java -Dwebdriver.chrome.driver=lib/vendor/chromedriver -jar lib/vendor/managed-packages/netwing/selenium-server-standalone/selenium-server-standalone.jar > tests/results/func
-tional/selenium.log 2>&1 &
+    /usr/bin/java -Dwebdriver.chrome.driver=lib/vendor/chromedriver -jar lib/vendor/managed-packages/netwing/selenium-server-standalone/selenium-server-standalone.jar > tests/results/functional/selenium.log 2>&1 &
     # Delete any failure output files from a previous run
-    rm tests/_output/*.fail.*
+    rm -rf tests/_output/*.fail.*
     # Wait for the Selenium server to finish its spin-up
     sleep 1
     # Run the tests
-    command="/usr/bin/php lib/vendor/managed-packages/bin/codecept run $tests --env $1"
+    command="php lib/vendor/managed-packages/bin/codecept run $tests --env $1"
     echo "$command"
     $command
     # Wait for the test harness to finish what it's doing
