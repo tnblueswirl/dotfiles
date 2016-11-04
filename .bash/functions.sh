@@ -9,7 +9,7 @@ browsertests() {
     # Launch the Selenium Server on the local machine
     /usr/bin/java -Dwebdriver.chrome.driver=lib/vendor/chromedriver -jar lib/vendor/managed-packages/netwing/selenium-server-standalone/selenium-server-standalone.jar > tests/results/functional/selenium.log 2>&1 &
     # Delete any failure output files from a previous run
-    rm -rf tests/_output/*.fail.*
+    rm -f tests/_output/*.fail.*
     # Wait for the Selenium server to finish its spin-up
     sleep 1
     # Run the tests
