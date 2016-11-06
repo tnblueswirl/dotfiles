@@ -89,6 +89,8 @@ $ brew install tmux reattach-to-user-namespace
 $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+ * I have configured the tmux prefix to be `Ctrl+s`. The first time you fire up tmux, use prefix + I to install the plugins. This will enable the session saving. If you activate session saving in vim using `:Obsession`, the tmux restoration process will reopen vim using the Session.vim present in the working directory, if it exists.
+
 ## Configuring italics in iTerm2
 
 These dotfiles include support of italics in iTerm2, but you will need to adjust iTerm2's settings to get it working.
