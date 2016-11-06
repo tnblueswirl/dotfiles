@@ -78,10 +78,15 @@ $ sudo npm install -g jshint
 
 ## Resources for tmux
 
- * For tmux to work as configured in these dotfiles, you will need to install `tmux` and, if you are on OS&nbsp;X / MacOS, also `reattach-to-user-namespace`:
+ * For tmux to work as configured in these dotfiles, you will need to install `tmux` and, if you are on OS&nbsp;X / MacOS, also `reattach-to-user-namespace`.
 
 ```bash
 $ brew install tmux reattach-to-user-namespace
+```
+ * Then, you'll need to install the tmux plugin manager.
+
+```bash
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ## Configuring italics in iTerm2
