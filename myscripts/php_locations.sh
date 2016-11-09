@@ -27,7 +27,7 @@ else
 fi
 
 # Parse the system's php version
-phpVersion=`php --version | sed -E -e 's/^PHP ([0-9.]*) .*/\1/' -e 's/^[CZ].*//'`
+phpVersion=`php --version | sed -E -e 's/^PHP ([0-9.]*) .*/\1/' -e 's/^[ \tCZw].*//'`
 echo -e "\n"System PHP Version: "$phpVersion""\n"
 
 # Change to root directory
