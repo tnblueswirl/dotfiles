@@ -15,6 +15,7 @@ if tput setaf 1 &> /dev/null; then
   tput sgr0
   DIRC="tput setaf 6"
   GITC="tput setaf 7"
+  GITUNPUSHEDC="tput setaf 214"
   ERRORC="tput setaf 1"
   BOLD="tput bold"
   RESET="tput sgr0"
@@ -23,6 +24,7 @@ fi
 export DIRC
 export ERRORC
 export GITC
+export GITUNPUSHEDC
 export BOLD
 export RESET
 
@@ -51,7 +53,13 @@ function set_title_bar() {
 }
 
 function prompt_command() {
-  PS1="\n$($DIRC)\w$($GITC)\$(parse_git_branch)$($RESET)\$(parse_venv)$($RESET)\n\$ "
+  if [[ -z $(git cherry 2> /dev/null) ]]; then
+    # If there are no unpushed commits, use the normal color
+    PS1="\n$($DIRC)\w$($RESET)$($GITC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
+  else
+    # If there ARE unpushed commits, use the unpushed color
+    PS1="\n$($DIRC)\w$($RESET)$($GITUNPUSHEDC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
+  fi
   set_title_bar
 }
 
