@@ -10,7 +10,7 @@ alias lll='ls -lAhGF | less'
 alias irb='irb --simple-prompt'
 alias gitlog='git log --graph --oneline --decorate --all'
 alias lightbkgnd="export GITC='tput setaf 239'"
-alias darkbkgnd="export GITC='tput setaf 7'"
+alias darkbkgnd="export GITC='tput setaf 251'"
 alias turnoffipv6="networksetup -setv6off Wi-Fi"
 alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 
