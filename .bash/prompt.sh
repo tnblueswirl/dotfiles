@@ -39,12 +39,12 @@ function parse_git_dirty() {
 }
 
 function parse_git_branch_prefix() {
-  local git_branch_prefix=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/\* (hotfix|bugfix|feature).*/\1/")
+  local git_branch_prefix=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/\* (hotfix\/|bugfix\/|feature\/).*/\1/")
   [[ -z $git_branch_prefix ]] || echo " $git_branch_prefix"
 }
 
 function parse_git_branch() {
-  local git_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/(\* hotfix|\* bugfix|\* feature|\* )(.*)/\2$(parse_git_dirty)/")
+  local git_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/(\* hotfix\/|\* bugfix\/|\* feature\/|\* )(.*)/\2$(parse_git_dirty)/")
   [[ -z $git_branch ]] || echo "$git_branch"
 }
 
@@ -65,17 +65,17 @@ function set_title_bar() {
 
 function prompt_command() {
   case "$(parse_git_branch_prefix)" in
-  ' hotfix')
+  ' hotfix/')
     export GITBRANCHPREFIXC="$GITHOTFIXC"
-	export GITBRANCHPREFIX=" hotfix"
+    export GITBRANCHPREFIX=" hotfix/"
     ;;
-  ' bugfix')
+  ' bugfix/')
     export GITBRANCHPREFIXC="$GITBUGFIXC"
-	export GITBRANCHPREFIX=" bugfix"
+    export GITBRANCHPREFIX=" bugfix/"
     ;;
-  ' feature')
+  ' feature/')
     export GITBRANCHPREFIXC="$GITFEATUREC"
-	export GITBRANCHPREFIX=" feature"
+    export GITBRANCHPREFIX=" feature/"
     ;;
   *)
     export GITBRANCHPREFIXC="$GITC"
