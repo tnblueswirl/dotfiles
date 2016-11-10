@@ -972,7 +972,7 @@ hi! link pandocMetadataTitle             pandocMetadata
 "}}}
 "php highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! phpMemberSelector"              .s:fg_yellow  .s:bg_back   .s:fmt_none
+" exe "hi! phpMemberSelector"              .s:fg_yellow  .s:bg_back   .s:fmt_none
 "}}}
 "python highlighting "{{{
 " ---------------------------------------------------------------------
