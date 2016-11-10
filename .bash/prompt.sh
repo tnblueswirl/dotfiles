@@ -16,6 +16,9 @@ if tput setaf 1 &> /dev/null; then
   DIRC="tput setaf 6"
   GITC="tput setaf 7"
   GITUNPUSHEDC="tput setaf 214"
+  GITHOTFIXC="tput setaf 160"
+  GITBUGFIXC="tput setaf 61"
+  GITFEATUREC="tput setaf 64"
   ERRORC="tput setaf 1"
   BOLD="tput bold"
   RESET="tput sgr0"
@@ -25,6 +28,9 @@ export DIRC
 export ERRORC
 export GITC
 export GITUNPUSHEDC
+export GITHOTFIXC
+export GITBUGFIXC
+export GITFEATUREC
 export BOLD
 export RESET
 
@@ -32,9 +38,14 @@ function parse_git_dirty() {
   [[ $(git status 2> /dev/null | tail -n1) != *"nothing to commit"* ]] && echo "*"
 }
 
+function parse_git_branch_prefix() {
+  local git_branch_prefix=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/\* (hotfix|bugfix|feature).*/\1/")
+  [[ -z $git_branch_prefix ]] || echo " $git_branch_prefix"
+}
+
 function parse_git_branch() {
-  local git_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/")
-  [[ -z $git_branch ]] || echo " $git_branch"
+  local git_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -E -e "s/(\* hotfix|\* bugfix|\* feature|\* )(.*)/\2$(parse_git_dirty)/")
+  [[ -z $git_branch ]] || echo "$git_branch"
 }
 
 function parse_venv() {
@@ -53,12 +64,31 @@ function set_title_bar() {
 }
 
 function prompt_command() {
+  case "$(parse_git_branch_prefix)" in
+  ' hotfix')
+    export GITBRANCHPREFIXC="$GITHOTFIXC"
+	export GITBRANCHPREFIX=" hotfix"
+    ;;
+  ' bugfix')
+    export GITBRANCHPREFIXC="$GITBUGFIXC"
+	export GITBRANCHPREFIX=" bugfix"
+    ;;
+  ' feature')
+    export GITBRANCHPREFIXC="$GITFEATUREC"
+	export GITBRANCHPREFIX=" feature"
+    ;;
+  *)
+    export GITBRANCHPREFIXC="$GITC"
+	export GITBRANCHPREFIX=" "
+    ;;
+  esac
+
   if [[ -z $(git cherry 2> /dev/null) ]]; then
     # If there are no unpushed commits, use the normal color
-    PS1="\n$($DIRC)\w$($RESET)$($GITC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
+    PS1="\n$($DIRC)\w$($RESET)$($GITBRANCHPREFIXC)\$GITBRANCHPREFIX$($RESET)$($GITC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
   else
     # If there ARE unpushed commits, use the unpushed color
-    PS1="\n$($DIRC)\w$($RESET)$($GITUNPUSHEDC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
+    PS1="\n$($DIRC)\w$($RESET)$($GITBRANCHPREFIXC)\$GITBRANCHPREFIX$($RESET)$($GITUNPUSHEDC)\$(parse_git_branch)$($RESET)\$(parse_venv)\n\$ "
   fi
   set_title_bar
 }
