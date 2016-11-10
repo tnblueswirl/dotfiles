@@ -14,7 +14,7 @@ fi
 if tput setaf 1 &> /dev/null; then
   tput sgr0
   DIRC="tput setaf 6"
-  GITC="tput setaf 7"
+  GITC="tput setaf 251"
   GITUNPUSHEDC="tput setaf 214"
   ERRORC="tput setaf 1"
   BOLD="tput bold"
