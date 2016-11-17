@@ -334,8 +334,9 @@ let g:airline_symbols.linenr = '⭡'
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
 let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1
 let g:ctrlp_extensions = ['autoignore']
+let g:ctrlp_regexp = 1
+let g:ctrlp_map = ''
 " let g:ctrl_show_hidden = 1
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>t :CtrlP<CR>
