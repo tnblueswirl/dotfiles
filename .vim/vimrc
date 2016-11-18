@@ -206,6 +206,9 @@ set nofoldenable
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Enable ability to load man pages in Vim (with ":Man")
+runtime! ftplugin/man.vim
+
 
 " File-Specific Settings ------------------------------------------------------
 "
