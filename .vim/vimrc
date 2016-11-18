@@ -166,6 +166,9 @@ set title
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" Highlight matching pairs as you type: (), [], {}
+set showmatch
+
 " search-as-you-type
 set incsearch
 
