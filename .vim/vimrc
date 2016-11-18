@@ -166,10 +166,13 @@ set title
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" search-as-you-type
+set incsearch
+
 " case insensitive searching
 set ignorecase
 
-" case-sensitive if expresson contains a capital letter
+" case-sensitive if expression contains a capital letter
 set smartcase
 
 " Use highlighting for search matches (:nohlsearch to clear [or :noh])
@@ -229,6 +232,7 @@ nmap <Leader>s :w<CR>
 
 " Remap load
 nmap <Leader>e :e!<CR>
+nmap <Leader>E :tabdo windo e<CR>
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
@@ -282,6 +286,15 @@ function! BgToggle()
 	endif
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
+
+
+" Macros and Registers --------------------------------------------------------
+"
+" Change end-of-line digits (default is to add)
+call setreg('d', 's/\d\+$/\=submatch(0)+')
+
+" Example of how to save a macro
+" let @q = ''
 
 
 " Gvim Settings ---------------------------------------------------------------
@@ -345,6 +358,7 @@ nnoremap <silent> <Leader>T :CtrlPTag<CR>
 
 " Fugitive Settings -----------------------------------------------------------
 "
+nnoremap <silent> <Leader>gb :Gblame<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
