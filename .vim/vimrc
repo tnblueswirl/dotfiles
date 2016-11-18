@@ -169,13 +169,13 @@ set scrolloff=3
 " Highlight matching pairs as you type: (), [], {}
 set showmatch
 
-" search-as-you-type
+" Search-as-you-type
 set incsearch
 
-" case insensitive searching
+" Case-insensitive searching
 set ignorecase
 
-" case-sensitive if expression contains a capital letter
+" Case-sensitive if expression contains a capital letter
 set smartcase
 
 " Use highlighting for search matches (:nohlsearch to clear [or :noh])
@@ -238,7 +238,7 @@ nmap <Leader>s :w<CR>
 
 " Remap load
 nmap <Leader>e :e!<CR>
-nmap <Leader>E :tabdo windo e<CR>
+nmap <Leader>E :tabdo windo e!<CR>
 
 " Toggle display of hidden characters
 nmap <Leader>l :set list!<CR>
