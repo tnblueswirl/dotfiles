@@ -18,6 +18,7 @@ alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
+alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias nano='nano -z'
