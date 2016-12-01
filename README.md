@@ -75,6 +75,12 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```bash
 $ sudo npm install -g jshint
 ```
+ * For ctag generation (aliases in this repo leverage it: `ctagsphp` and `ctagspy`), use the maintained [universal-ctags](http://docs.ctags.io/en/latest/building.html). Note that you will likely need to restart your shell for the new version of ctags to be recognized.
+
+```bash
+$ brew tap universal-ctags/universal-ctags
+$ brew install --HEAD universal-ctags
+```
 
 ## Resources for tmux
 
