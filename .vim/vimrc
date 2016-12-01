@@ -240,9 +240,6 @@ nmap <Leader>s :w<CR>
 nmap <Leader>e :e!<CR>
 nmap <Leader>E :tabdo windo e!<CR>
 
-" Toggle display of hidden characters
-nmap <Leader>l :set list!<CR>
-
 " Make 'Y' copy from current location to end of line
 map Y y$
 
@@ -271,9 +268,9 @@ command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 " Search in all files
 command -nargs=+ Agrep grep -rn <args>
 
-" Switch to previously active tab with <Leader>L
+" Switch to previously active tab with <Leader>l
 let g:lasttab = 1
-nmap <Leader>L :exe "tabn ".g:lasttab<CR>
+nmap <Leader>l :exe "tabn ".g:lasttab<CR>
 autocmd TabLeave * let g:lasttab = tabpagenr()
 
 " Function to toggle background with <F9> key
