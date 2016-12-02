@@ -1,20 +1,20 @@
 #!/bin/bash
 
 ################################################################################
-#
-#                               PHP_LOCATIONS         
-#
-# By default, search the entire disc (except `/Volumes` directory) for the
-# location of all `config.ini` files whose path includes the system php
-# version. You can also specify any other filename on the command line when
-# calling the script.
-#
-# @param string searchTerm (optional) String that must appear in filename
-#     or a shell pattern surrounded in quotes
-#
-# Example calls: `. php_locations.sh xdebug.so`
-#                `. php_locations.sh '*.ini'`
-#
+#                                                                              #
+#                               PHP_LOCATIONS                                  #
+#                                                                              #
+# By default, search the entire disc (except `/Volumes` directory) for the     #
+# location of all `config.ini` files whose path includes the system php        #
+# version. You can also specify any other filename on the command line when    #
+# calling the script.                                                          #
+#                                                                              #
+# @param string searchTerm (optional) String that must appear in filename      #
+#     or a shell pattern surrounded in quotes                                  #
+#                                                                              #
+# Example calls: `. php_locations.sh xdebug.so`                                #
+#                `. php_locations.sh '*.ini'`                                  #
+#                                                                              #
 ################################################################################
 
 (  # Run as subprocess to avoid variable persistence
