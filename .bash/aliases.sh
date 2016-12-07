@@ -18,6 +18,7 @@ alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
+alias grep='grep --color=auto'
 alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
@@ -50,3 +51,7 @@ alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/ph
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 alias findall='. ~/.dotfiles/myscripts/find_all.sh'
 
+# UBUNTU-SPECIFIC
+if [ `uname | grep Linux` > /dev/null ]; then
+	alias cls='tput reset'
+fi
