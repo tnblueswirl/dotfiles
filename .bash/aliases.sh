@@ -2,15 +2,13 @@
 # alias g='git'
 
 # CONVENIENCE SHORTCUTS
-alias ll='ls -lAhGF'
-alias lls='ls -FGA1'
-alias lll='ls -lAhGF | less'
-#alias home='cd ~'
-#alias up='cd ..'
-alias irb='irb --simple-prompt'
-alias gitlog='git log --graph --oneline --decorate --all'
-alias lightbkgnd="export GITC='tput setaf 239'"
 alias darkbkgnd="export GITC='tput setaf 251'"
+alias gitlog='git log --graph --oneline --decorate --all'
+alias irb='irb --simple-prompt'
+alias lightbkgnd="export GITC='tput setaf 239'"
+alias ll='ls -lAhGF'
+alias lll='ls -lAhGF | less'
+alias lls='ls -FGA1'
 alias turnoffipv6="networksetup -setv6off Wi-Fi"
 alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 
@@ -48,8 +46,8 @@ alias testall='unit tests; apitest; browsertestchrome'
 alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
 
 # PERSONAL SCRIPT ALIASES
-alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 alias findall='. ~/.dotfiles/myscripts/find_all.sh'
+alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # UBUNTU-SPECIFIC
 if [ `uname | grep Linux` > /dev/null ]; then

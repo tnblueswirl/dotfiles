@@ -300,6 +300,12 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 " let @q = ''
 
 
+" Load local settings ---------------------------------------------------------
+if filereadable(expand("~/.dotfiles/.vim/.vimrc_local"))
+	source ~/.dotfiles/.vim/.vimrc_local
+endif
+
+
 " Gvim Settings ---------------------------------------------------------------
 "
 " Prevent blinking cursor

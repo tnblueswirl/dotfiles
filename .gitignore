@@ -6,3 +6,4 @@
 .vim/swaps/
 .vim/undo/
 .vim/.netrwhist
+.vim/.vimrc_local
