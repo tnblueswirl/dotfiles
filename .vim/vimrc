@@ -301,8 +301,8 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 
 
 " Load local settings ---------------------------------------------------------
-if filereadable(expand("~/.dotfiles/.vim/.vimrc_local"))
-	source ~/.dotfiles/.vim/.vimrc_local
+if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
+	source ~/.dotfiles/.vim/.vimrc_add_ons
 endif
 
 
