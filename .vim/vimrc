@@ -129,8 +129,8 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
-" Make default clipboard the OS X clipboard
-set clipboard=unnamed
+" Make default clipboard the OS X clipboard (and unnamedplus for Linux)
+set clipboard=unnamed,unnamedplus
 
 " Enable the mouse
 set mouse=a
