@@ -256,6 +256,11 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Avoid accidentally triggering the help when reaching for Escape
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
 " Make command mode go to beginning of line with Ctrl+a
 cnoremap <C-a>  <Home>
 
