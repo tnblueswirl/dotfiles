@@ -219,13 +219,14 @@ runtime! ftplugin/man.vim
 "   tabstop and shiftwidth should be set to the same value
 " To force spaces instead of tabs, set expandtab and softtabstop
 "   shiftwidth and softtabstop should be set to the same value
-autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2
+autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2 noeol binary
 autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
 autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd FileType mustache   setlocal noendofline binary
 autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
+autocmd filetype crontab    setlocal nobackup nowritebackup
 
 
 " Key Mappings ----------------------------------------------------------------
