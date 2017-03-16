@@ -21,10 +21,10 @@ alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias nano='nano -z'
-alias phantomjs='phantomjs --webdriver=4444'
 alias rm='rm -i'
 alias tmux='tmux -2'
 alias tree='tree -CF'
+alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
