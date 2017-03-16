@@ -370,9 +370,11 @@ let g:airline_symbols.linenr = '⭡'
 " Note: Refresh cache with <F5>
 let g:ctrlp_by_filename = 1
 let g:ctrlp_extensions = ['autoignore']
-let g:ctrlp_regexp = 1
 let g:ctrlp_map = ''
-" let g:ctrl_show_hidden = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
+" let g:ctrlp_open_new_file = 'h'
+let g:ctrlp_regexp = 1
+" let g:ctrlp_show_hidden = 1
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>t :CtrlP<CR>
 nnoremap <silent> <Leader>T :CtrlPTag<CR>
