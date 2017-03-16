@@ -302,6 +302,7 @@ function! BgToggle()
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
 
+nnoremap <silent> <Leader>C :tabc<CR>
 
 " Macros and Registers --------------------------------------------------------
 "
