@@ -244,6 +244,9 @@ nmap <Leader>E :tabdo windo e!<CR>
 " Make 'Y' copy from current location to end of line
 map Y y$
 
+" Remap escape when in insert mode
+inoremap jj <ESC>
+
 " Toggle paste mode (retains incomming formatting)
 map <silent> <F2> :set paste!<CR>
 
