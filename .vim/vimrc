@@ -277,6 +277,9 @@ command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 " Search in all files
 command -nargs=+ Agrep grep -rn <args>
 
+" Run ctags specifically for php
+nmap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
+
 " Switch to previously active tab with <Leader>l
 let g:lasttab = 1
 nmap <Leader>l :exe "tabn ".g:lasttab<CR>
