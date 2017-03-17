@@ -1,4 +1,4 @@
-if which brew > /dev/null; then
+if which brew &> /dev/null; then
 
   # Set architecture flags
   export ARCHFLAGS="-arch x86_64"

@@ -28,7 +28,7 @@ alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
 	alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
-if [ `which ctags` > /dev/null ]; then
+if [ `which ctags` &> /dev/null ]; then
 	alias ctagsphp='ctags -R --fields=+laimS --languages=php'
 	alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
@@ -50,6 +50,6 @@ alias findall='. ~/.dotfiles/myscripts/find_all.sh'
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # UBUNTU-SPECIFIC
-if [ `uname | grep Linux` > /dev/null ]; then
+if [ `uname | grep Linux` &> /dev/null ]; then
 	alias cls='tput reset'
 fi
