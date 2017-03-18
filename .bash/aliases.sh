@@ -6,9 +6,16 @@ alias darkbkgnd="export GITC='tput setaf 251'"
 alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
 alias lightbkgnd="export GITC='tput setaf 239'"
-alias ll='ls -lAhGF --color=auto'
+
+if [ `uname | grep Linux` &> /dev/null ]; then
+	alias ll='ls -lAhGF --color=auto'
+	alias lls='ls -FGA1 --color=auto'
+else
+	alias ll='ls -lAhGF'
+	alias lls='ls -FGA1'
+fi
+
 alias lll='ls -lAhGF | less'
-alias lls='ls -FGA1 --color=auto'
 alias turnoffipv6="networksetup -setv6off Wi-Fi"
 alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 
