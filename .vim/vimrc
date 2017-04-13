@@ -265,7 +265,6 @@ vnoremap <F1> <ESC>
 cnoremap <C-a>  <Home>
 
 " * will search word under cursor, but won't immediately jump to first match
-nnoremap * *``
 nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Turn off highlighting
@@ -302,7 +301,9 @@ function! BgToggle()
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
 
+" Close a whole tab, no matter how many windows are in it
 nnoremap <silent> <Leader>C :tabc<CR>
+
 
 " Macros and Registers --------------------------------------------------------
 "
