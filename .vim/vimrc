@@ -235,20 +235,20 @@ autocmd filetype crontab    setlocal nobackup nowritebackup
 let mapleader=","
 
 " Remap save
-nmap <Leader>s :w<CR>
+nnoremap <Leader>s :w<CR>
 
 " Remap load
-nmap <Leader>e :e!<CR>
-nmap <Leader>E :tabdo windo e!<CR>
+nnoremap <Leader>e :e!<CR>
+nnoremap <Leader>E :tabdo windo e!<CR>
 
 " Make 'Y' copy from current location to end of line
-map Y y$
+noremap Y y$
 
 " Remap escape when in insert mode
 inoremap jj <ESC>
 
 " Toggle paste mode (retains incomming formatting)
-map <silent> <F2> :set paste!<CR>
+noremap <silent> <F2> :set paste!<CR>
 
 " Make moving between windows easier
 noremap <C-h> <C-w>h
@@ -278,11 +278,11 @@ command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 command -nargs=+ Agrep grep -rn <args>
 
 " Run ctags specifically for php
-nmap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
+nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
 
 " Switch to previously active tab with <Leader>l
 let g:lasttab = 1
-nmap <Leader>l :exe "tabn ".g:lasttab<CR>
+nnoremap <Leader>l :exe "tabn ".g:lasttab<CR>
 autocmd TabLeave * let g:lasttab = tabpagenr()
 
 " Function to toggle background with <F9> key
