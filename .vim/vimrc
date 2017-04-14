@@ -219,14 +219,17 @@ runtime! ftplugin/man.vim
 "   tabstop and shiftwidth should be set to the same value
 " To force spaces instead of tabs, set expandtab and softtabstop
 "   shiftwidth and softtabstop should be set to the same value
-autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2 noeol binary
-autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
-autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
-autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
-autocmd FileType mustache   setlocal noendofline binary
-autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
-autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-autocmd filetype crontab    setlocal nobackup nowritebackup
+augroup filetypeSpecific
+	autocmd!
+	autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2 noeol binary
+	autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
+	autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+	autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
+	autocmd FileType mustache   setlocal noendofline binary
+	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
+	autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
+	autocmd FileType crontab    setlocal nobackup nowritebackup
+augroup END
 
 
 " Key Mappings ----------------------------------------------------------------
@@ -271,10 +274,10 @@ nnoremap * :keepjumps normal! mi*`i<CR>
 nnoremap <silent> <Leader>n :noh<CR>
 
 " Search in PHP files
-command -nargs=+ Pgrep grep -rn --include={*.php,} <args>
+command! -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 
 " Search in all files
-command -nargs=+ Agrep grep -rn <args>
+command! -nargs=+ Agrep grep -rn <args>
 
 " Run ctags specifically for php
 nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
@@ -282,7 +285,10 @@ nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:red
 " Switch to previously active tab with <Leader>l
 let g:lasttab = 1
 nnoremap <Leader>l :exe "tabn ".g:lasttab<CR>
-autocmd TabLeave * let g:lasttab = tabpagenr()
+augroup tabLeave
+	autocmd!
+	autocmd TabLeave * let g:lasttab = tabpagenr()
+augroup END
 
 " Function to toggle background with <F9> key
 function! BgToggle()
@@ -384,7 +390,10 @@ nnoremap <silent> <Leader>T :CtrlPTag<CR>
 " Fugitive Settings -----------------------------------------------------------
 "
 nnoremap <silent> <Leader>gb :Gblame<CR>
-autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup fugitiveBuffers
+	autocmd!
+	autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 
 " NERDCommenter Settings ------------------------------------------------------
