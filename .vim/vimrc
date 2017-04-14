@@ -310,9 +310,6 @@ nnoremap <silent> <F9> :call BgToggle()<cr>
 " Close a whole tab, no matter how many windows are in it
 nnoremap <silent> <Leader>C :tabc<CR>
 
-" Don't show the mode in last line (because we have airline!)
-set noshowmode
-
 
 " Macros and Registers --------------------------------------------------------
 "
@@ -375,6 +372,10 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
+let g:airline_symbols.maxlinenr = '☰'
+
+" Don't show the mode in last line (because we have airline!)
+set noshowmode
 
 
 " CtrlP Settings --------------------------------------------------------------
