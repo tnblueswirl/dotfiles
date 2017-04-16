@@ -333,6 +333,20 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
 	let a:align_char = (a:0 > 0) ? a:1 : '='
+	if (len(a:align_char) > 1)
+		echohl WarningMsg
+		echom "Must specify single character on which to align"
+		echohl None
+		return
+	endif
+	execute "normal! 0f" . a:align_char
+	if (col(".") > a:indent_column)
+		echohl WarningMsg
+		echom "First instance of " . a:align_char . " on line " . line(".") .
+			\" is beyond ".a:indent_column
+		echohl None
+		return
+	endif
 	execute "normal! 0f" . a:align_char .
 			\ a:indent_column . "i " .
 			\ a:indent_column . "|dw"
