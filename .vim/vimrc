@@ -53,6 +53,9 @@ Plugin 'mileszs/ack.vim'
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
 
+" phpfolding for automatically creating folds in PHP code
+Plugin 'rayburgemeestre/phpfolding.vim'
+
 " php syntax highlighting
 Plugin 'stanangeloff/php.vim'
 
@@ -205,6 +208,9 @@ set softtabstop=4
 " Start file with open folds
 set nofoldenable
 
+" Toggle folds open/closed with space bar (ignore errors)
+nnoremap <silent> <Space> :silent! normal! zA<CR>
+
 " Make omnicompletion better by selecting highlighted with Enter
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -221,14 +227,15 @@ runtime! ftplugin/man.vim
 "   shiftwidth and softtabstop should be set to the same value
 augroup filetypeSpecific
 	autocmd!
+	autocmd FileType crontab    setlocal nobackup nowritebackup
+	autocmd FileType help       setlocal nonumber
 	autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2 noeol binary
 	autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
 	autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 	autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType mustache   setlocal noendofline binary
-	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4
+	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual
 	autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-	autocmd FileType crontab    setlocal nobackup nowritebackup
 augroup END
 
 
@@ -428,6 +435,12 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
+" PHPFolding Settings ---------------------------------------------------------
+"
+" Don't autofold
+let g:DisableAutoPHPFolding = 1
+
+
 " PyMode Settings -------------------------------------------------------------
 "
 " Ignore lines that are too long
@@ -461,7 +474,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\ ]
 
 
-" The_Silver_Searcher Settings -----------------------------------------------
+" The_Silver_Searcher Settings ------------------------------------------------
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -487,6 +500,7 @@ let g:mustache_abbreviations = 1
 
 " PHP syntax " overrides ------------------------------------------------------
 "
+" This appears out of alphabetical order to ensure no interference
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
   hi! def link phpDocParam phpType
