@@ -244,6 +244,9 @@ augroup END
 " Change <Leader> to ',' (comma)
 let mapleader=","
 
+" Change <LocalLeader> to '\' (backslash)
+let maplocalleader="\\"
+
 " Remap save
 nnoremap <Leader>s :w<CR>
 
