@@ -325,22 +325,21 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 " User-Defined Functions ------------------------------------------------------
 "
 " Indent first instance of '=' to specified column. Allows optional second
-" parameter to specify a character other than '='. (also, map to <Leader>i)
+" parameter to specify a character other than '='.
+" (Uses ternary if-then-else expression; see `:help E109` for details.)
+"
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
-" Note: Also works in Visual mode
+" Note: Also works on blocks of text in Visual mode
 function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
-	if (a:0 > 0)
-		let a:align_char = a:1
-	else
-		let a:align_char = '='
-	endif
+	let a:align_char = (a:0 > 0) ? a:1 : '='
 	execute "normal! 0f" . a:align_char . a:indent_column .
 			\ "i " . a:indent_column . "|dw"
 endfunction
+" Map this function to <Leader>i
 nnoremap <Leader>i :call AJIndent(
 
-" Toggle background between solarized light and dark (also, map to <F9> key)
+" Toggle background between solarized light and dark
 function! BgToggle()
 	if (&background == "light")
 		let g:solarized_contrast="normal"
@@ -355,6 +354,7 @@ function! BgToggle()
 		hi htmlArg cterm=italic
 	endif
 endfunction
+" Map this function to <F9>
 nnoremap <silent> <F9> :call BgToggle()<cr>
 
 
