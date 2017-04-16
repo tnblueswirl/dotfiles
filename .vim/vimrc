@@ -1,13 +1,17 @@
+" Required Starting Settings ---------------------------------------------- {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" }}}
 
-" set the runtime path to include Vundle and initialize
+" Plugin Management ------------------------------------------------------- {{{
+"
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+" Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " NERDTree plugin
@@ -98,11 +102,11 @@ filetype plugin on
 " :PluginClean      - confirms removal of unused plugins; append `!` to
 " auto-approve removal
 
-" see :h vundle for more details or wiki for FAQ
+" See :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" }}}
 
-
-" General Vim Settings --------------------------------------------------------
+" General Vim Settings ---------------------------------------------------- {{{
 "
 " set t_Co=256
 
@@ -217,9 +221,22 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Enable ability to load man pages in Vim (with ":Man")
 runtime! ftplugin/man.vim
+" }}}
 
+" Gvim Settings ----------------------------------------------------------- {{{
+"
+" Prevent blinking cursor
+set guicursor+=a:blinkon0
 
-" File-Specific Settings ------------------------------------------------------
+" Make cursor shape an underline
+set guicursor+=a:hor10
+
+" Hide scrollbars
+set guioptions-=r
+set guioptions-=L
+" }}}
+
+" File-Specific Settings -------------------------------------------------- {{{
 "
 " To force hard tabs, set noexpandtab and don't set softtabstop
 "   tabstop and shiftwidth should be set to the same value
@@ -236,10 +253,11 @@ augroup filetypeSpecific
 	autocmd FileType mustache   setlocal noendofline binary
 	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual
 	autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
+	autocmd FileType vim        setlocal foldmethod=marker
 augroup END
+" }}}
 
-
-" Key Mappings ----------------------------------------------------------------
+" Key Mappings ------------------------------------------------------------ {{{
 "
 " Change <Leader> to ',' (comma)
 let mapleader=","
@@ -308,9 +326,9 @@ nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 
 " Source vimrc file
 nnoremap <silent> <Leader>vs :source $MYVIMRC<CR> :AirlineRefresh<CR>
+" }}}
 
-
-" Macros and Registers --------------------------------------------------------
+" Macros and Registers ---------------------------------------------------- {{{
 "
 " Change end-of-line digits (default is to add)
 call setreg('d', 's/\d\+$/\=submatch(0)+')
@@ -320,18 +338,18 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 
 " Example of how to save a macro
 " let @q = ''
+" }}}
 
-
-" User-Defined Functions ------------------------------------------------------
+" User-Defined Functions -------------------------------------------------- {{{
 "
 " Indent first instance of '=' to specified column. Allows optional second
 " parameter to specify a character other than '='.
-" (Uses ternary if-then-else expression; see `:help E109` for details.)
 "
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works on blocks of text in Visual mode
 function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
+	" (Uses ternary if-then-else expression; see `:help E109` for details.)
 	let a:align_char = (a:0 > 0) ? a:1 : '='
 	if (len(a:align_char) > 1)
 		echohl WarningMsg
@@ -372,28 +390,15 @@ function! BgToggle()
 endfunction
 " Map this function to <F9>
 nnoremap <silent> <F9> :call BgToggle()<cr>
+" }}}
 
-
-" Load local settings ---------------------------------------------------------
+" Load Local Settings ----------------------------------------------------- {{{
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
 	source ~/.dotfiles/.vim/.vimrc_add_ons
 endif
+" }}}
 
-
-" Gvim Settings ---------------------------------------------------------------
-"
-" Prevent blinking cursor
-set guicursor+=a:blinkon0
-
-" Make cursor shape an underline
-set guicursor+=a:hor10
-
-" Hide scrollbars
-set guioptions-=r
-set guioptions-=L
-
-
-" Ack Settings ----------------------------------------------------------------
+" Ack Settings ------------------------------------------------------------ {{{
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
@@ -401,9 +406,9 @@ nnoremap <Leader>a :Ack<Space>'
 
 " Start an Ack search in a new tab
 nnoremap <Leader>A :tabe<CR>:Ack<Space>'
+" }}}
 
-
-" Airline Settings ------------------------------------------------------------
+" Airline Settings -------------------------------------------------------- {{{
 "
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
@@ -424,9 +429,9 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.maxlinenr = '☰'
+" }}}
 
-
-" CtrlP Settings --------------------------------------------------------------
+" CtrlP Settings ---------------------------------------------------------- {{{
 "
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
@@ -440,58 +445,58 @@ let g:ctrlp_regexp = 1
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>t :CtrlP<CR>
 nnoremap <silent> <Leader>T :CtrlPTag<CR>
+" }}}
 
-
-" Fugitive Settings -----------------------------------------------------------
+" Fugitive Settings ------------------------------------------------------- {{{
 "
 nnoremap <silent> <Leader>gb :Gblame<CR>
 augroup fugitiveBuffers
 	autocmd!
 	autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
+" }}}
 
-
-" NERDCommenter Settings ------------------------------------------------------
+" NERDCommenter Settings -------------------------------------------------- {{{
 "
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
+" }}}
 
-
-" NERDTree Settings -----------------------------------------------------------
+" NERDTree Settings ------------------------------------------------------- {{{
 "
-" toggle NERDTree display
+" Toggle NERDTree display
 nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
-" open NERDTree with the current file selected
+" Open NERDTree with the current file selected
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
 
-" don't show these file types
+" Don't show these file types
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+" }}}
 
-
-" PHPFolding Settings ---------------------------------------------------------
+" phpfolding Settings ----------------------------------------------------- {{{
 "
 " Don't autofold
 let g:DisableAutoPHPFolding = 1
+" }}}
 
-
-" PyMode Settings -------------------------------------------------------------
+" PyMode Settings --------------------------------------------------------- {{{
 "
 " Ignore lines that are too long
 let g:pymode_lint_ignore = 'E501'
 
 " Set debug breakpoints
 let g:pymode_breakpoint_bind = '<Leader>B'
+" }}}
 
-
-" Syntastic Settings ----------------------------------------------------------
+" Syntastic Settings ------------------------------------------------------ {{{
 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -513,9 +518,9 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\  '<div> attribute "}}" lacks value',
 	\  '<div> attribute "{{/" lacks value',
 	\ ]
+" }}}
 
-
-" The_Silver_Searcher Settings ------------------------------------------------
+" The_Silver_Searcher Settings -------------------------------------------- {{{
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -532,14 +537,14 @@ if executable('ag')
 	" ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
 endif
+" }}}
 
-
-" Vim Mustache Settings -------------------------------------------------------
+" Vim Mustache Settings --------------------------------------------------- {{{
 "
 let g:mustache_abbreviations = 1
+" }}}
 
-
-" PHP syntax " overrides ------------------------------------------------------
+" PHP Syntax Overrides ---------------------------------------------------- {{{
 "
 " This appears out of alphabetical order to ensure no interference
 function! PhpSyntaxOverride()
@@ -551,10 +556,12 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+" }}}
 
-
+" Ensure Italics ---------------------------------------------------------- {{{
 " If our terminal supports italics, use them!
 if &term =~ '-italic'
 	hi Comment cterm=italic
 	hi htmlArg cterm=italic
 endif
+" }}}
