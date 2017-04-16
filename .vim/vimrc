@@ -300,6 +300,44 @@ augroup tabLeave
 	autocmd TabLeave * let g:lasttab = tabpagenr()
 augroup END
 
+" Close a whole tab, no matter how many windows are in it
+nnoremap <silent> <Leader>C :tabc<CR>
+
+" Edit vimrc file
+nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
+
+" Source vimrc file
+nnoremap <silent> <Leader>vs :source $MYVIMRC<CR> :AirlineRefresh<CR>
+
+
+" Macros and Registers --------------------------------------------------------
+"
+" Change end-of-line digits (default is to add)
+call setreg('d', 's/\d\+$/\=submatch(0)+')
+
+" Align equal sign to value of b:i (e.g., `:let b:i=30`)
+call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
+
+" Example of how to save a macro
+" let @q = ''
+
+
+" User-Defined Functions ------------------------------------------------------
+"
+" Example: `:call AJIndent(30, ':')` with cursor on the desired line
+" Note: Also works in Visual mode
+function! AJIndent(indent_column, ...)
+	" If an alignment character was specified, use it, otherwise use '='
+	if (a:0 > 0)
+		let a:align_char = a:1
+	else
+		let a:align_char = '='
+	endif
+	execute "normal! 0f" . a:align_char . a:indent_column .
+			\ "i " . a:indent_column . "|dw"
+endfunction
+nnoremap <Leader>i :call AJIndent(
+
 " Function to toggle background with <F9> key
 function! BgToggle()
 	if (&background == "light")
@@ -316,21 +354,6 @@ function! BgToggle()
 	endif
 endfunction
 nnoremap <silent> <F9> :call BgToggle()<cr>
-
-" Close a whole tab, no matter how many windows are in it
-nnoremap <silent> <Leader>C :tabc<CR>
-
-
-" Macros and Registers --------------------------------------------------------
-"
-" Change end-of-line digits (default is to add)
-call setreg('d', 's/\d\+$/\=submatch(0)+')
-
-" Align equal sign to value of b:i (e.g., `:let b:i=30`)
-call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
-
-" Example of how to save a macro
-" let @q = ''
 
 
 " Load local settings ---------------------------------------------------------
@@ -383,9 +406,6 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.maxlinenr = '☰'
-
-" Don't show the mode in last line (because we have airline!)
-set noshowmode
 
 
 " CtrlP Settings --------------------------------------------------------------
