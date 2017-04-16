@@ -324,6 +324,8 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 
 " User-Defined Functions ------------------------------------------------------
 "
+" Function to indent first instance of '=' to specified column. Allows
+" optional second parameter to specify a character other than '='.
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works in Visual mode
 function! AJIndent(indent_column, ...)
