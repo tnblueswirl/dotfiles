@@ -333,8 +333,9 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
 	let a:align_char = (a:0 > 0) ? a:1 : '='
-	execute "normal! 0f" . a:align_char . a:indent_column .
-			\ "i " . a:indent_column . "|dw"
+	execute "normal! 0f" . a:align_char .
+			\ a:indent_column . "i " .
+			\ a:indent_column . "|dw"
 endfunction
 " Map this function to <Leader>i
 nnoremap <Leader>i :call AJIndent(
