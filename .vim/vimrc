@@ -324,8 +324,8 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 
 " User-Defined Functions ------------------------------------------------------
 "
-" Function to indent first instance of '=' to specified column. Allows
-" optional second parameter to specify a character other than '='.
+" Indent first instance of '=' to specified column. Allows optional second
+" parameter to specify a character other than '='. (also, map to <Leader>i)
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works in Visual mode
 function! AJIndent(indent_column, ...)
@@ -340,7 +340,7 @@ function! AJIndent(indent_column, ...)
 endfunction
 nnoremap <Leader>i :call AJIndent(
 
-" Function to toggle background with <F9> key
+" Toggle background between solarized light and dark (also, map to <F9> key)
 function! BgToggle()
 	if (&background == "light")
 		let g:solarized_contrast="normal"
