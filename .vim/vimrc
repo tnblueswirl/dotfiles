@@ -359,11 +359,18 @@ function! AJIndent(indent_column, ...)
 	endif
 	execute "normal! 0f" . a:align_char
 	if (col(".") > a:indent_column)
-		echohl WarningMsg
-		echom "First instance of " . a:align_char . " on line " . line(".") .
-			\" is beyond ".a:indent_column
-		echohl None
-		return
+		" OK if only whitespace exists between indent column and align char
+		let s:between = execute(
+			\"/\\\%V" . line('.') . "\s*" . a:align_char,
+			\ "silent!")
+		if ! s:between
+			echom s:between
+			echohl WarningMsg
+			echom "First instance of " . a:align_char . " on line " . line(".") .
+				\" is beyond ".a:indent_column
+			echohl None
+			return
+		endif
 	endif
 	execute "normal! 0f" . a:align_char .
 			\ a:indent_column . "i " .
@@ -389,7 +396,7 @@ function! BgToggle()
 	endif
 endfunction
 " Map this function to <F9>
-nnoremap <silent> <F9> :call BgToggle()<cr>
+nnoremap <silent> <F9> :call BgToggle()<CR>
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
