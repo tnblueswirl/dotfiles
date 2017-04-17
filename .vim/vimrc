@@ -281,6 +281,12 @@ inoremap jj <ESC>
 " Toggle paste mode (retains incomming formatting)
 noremap <silent> <F2> :set paste!<CR>
 
+" Have zz put the screen up at a nice reading level
+nnoremap zz zz22
+
+" Have z. perform what zz used to do (middle of screen)
+nnoremap z. zz
+
 " Make moving between windows easier
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
