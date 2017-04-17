@@ -364,7 +364,6 @@ function! AJIndent(indent_column, ...)
 			\"/\\\%V" . line('.') . "\s*" . a:align_char,
 			\ "silent!")
 		if ! s:between
-			echom s:between
 			echohl WarningMsg
 			echom "First instance of " . a:align_char . " on line " . line(".") .
 				\" is beyond ".a:indent_column
