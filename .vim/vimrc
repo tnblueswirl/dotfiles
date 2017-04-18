@@ -253,7 +253,7 @@ augroup filetypeSpecific
 	autocmd FileType mustache   setlocal noendofline binary
 	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual
 	autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-	autocmd FileType vim        setlocal foldmethod=marker
+	autocmd FileType vim        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=marker
 augroup END
 " }}}
 
