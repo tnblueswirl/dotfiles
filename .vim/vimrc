@@ -367,7 +367,9 @@ function! AJIndent(indent_column, ...)
 		let s:between = matchstrpos(s:line, '\S\s*'. s:pattern)
 		if s:between[1] + 1 >= a:indent_column
 			echohl WarningMsg
-			echom 'Not enough whitespace before pattern occurs'
+			echom 'Line ' . line('.') .
+					\ ': Not enough whitespace before pattern occurs;' .
+					\ ' min column: ' . string(s:between[1] + 2)
 			echohl None
 			return
 		endif
