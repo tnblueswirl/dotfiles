@@ -336,9 +336,6 @@ nnoremap <silent> <Leader>vs :source $MYVIMRC<CR> :noh<CR> :AirlineRefresh<CR>
 " Change end-of-line digits (default is to add)
 call setreg('d', 's/\d\+$/\=submatch(0)+')
 
-" Align equal sign to value of b:i (e.g., `:let b:i=30`)
-call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
-
 " Example of how to save a macro
 " let @q = ''
 " }}}
