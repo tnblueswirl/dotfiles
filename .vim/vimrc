@@ -281,10 +281,7 @@ inoremap jj <ESC>
 " Toggle paste mode (retains incomming formatting)
 noremap <silent> <F2> :set paste!<CR>
 
-" Have zz put the screen up at a nice reading level
-nnoremap zz zz22
-
-" Have z. perform what zz used to do (middle of screen)
+" Have z. perform like zz (because zz is redefined below)
 nnoremap z. zz
 
 " Make moving between windows easier
@@ -402,6 +399,13 @@ function! BgToggle()
 endfunction
 " Map this function to <F9>
 nnoremap <silent> <F9> :call BgToggle()<CR>
+
+
+function! ReadingHeight()
+	execute "normal! zz" . winheight(0)/4 . ""
+endfunction
+" Have zz put the screen up at a nice reading level
+nnoremap zz :call ReadingHeight()<CR>
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
