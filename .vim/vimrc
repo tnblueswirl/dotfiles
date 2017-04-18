@@ -301,8 +301,8 @@ cnoremap <C-a>  <Home>
 " * will search word under cursor, but won't immediately jump to first match
 nnoremap * :keepjumps normal! mi*`i<CR>
 
-" Turn off highlighting
-nnoremap <silent> <Leader>n :noh<CR>
+" Turn off highlighting of search
+nnoremap <silent> <Leader>n :nohlsearch<CR>
 
 " Search in PHP files
 command! -nargs=+ Pgrep grep -rn --include={*.php,} <args>
