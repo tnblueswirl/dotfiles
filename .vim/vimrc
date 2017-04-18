@@ -348,20 +348,25 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works on blocks of text in Visual mode
 function! AJIndent(indent_column, ...)
-	" If an alignment pattern was specified, use it, otherwise use '='
+	" If a pattern was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
 	let s:pattern = (a:0 > 0) ? a:1 : '='
+	" Build up spaces to substitute for tabs
 	let s:tab_to_space = ''
 	for s:spaces in range(&tabstop)
 		let s:tab_to_space .= ' '
 	endfor
+	" Get the current line with spaces subsituted for tabs
 	let s:line = substitute(getline(line('.')), '\t', s:tab_to_space, 'g')
+	" Check if the pattern appears on this line
 	let s:match_found = match(s:line, s:pattern) + 1
 	if s:match_found == -1
 		return
 	endif
+	" Check if the pattern appears before the specified indent column
 	let s:match_locations = matchstrpos(s:line, '^.*' . s:pattern)
 	if s:match_locations[2] >= a:indent_column
+		" If so, make sure that only whitespace would be removed
 		let s:between = matchstrpos(s:line, '\S\s*'. s:pattern)
 		if s:between[1] + 1 >= a:indent_column
 			echohl WarningMsg
@@ -370,6 +375,7 @@ function! AJIndent(indent_column, ...)
 			return
 		endif
 	endif
+	" Perform the adding of spaces and subsequent removal of any excess
 	execute 'normal! ' . s:match_found . '|' .
 			\ a:indent_column . 'i ' .
 			\ a:indent_column . '|dw'
