@@ -360,7 +360,7 @@ function! AJIndent(indent_column, ...)
 	let s:line = substitute(getline(line('.')), '\t', s:tab_to_space, 'g')
 	" Check if the pattern appears on this line
 	let s:match_found = match(s:line, s:pattern) + 1
-	if s:match_found == -1
+	if s:match_found <= 0
 		return
 	endif
 	" Check if the pattern appears before the specified indent column
