@@ -354,11 +354,6 @@ function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
 	let s:pattern = (a:0 > 0) ? a:1 : '='
-	if (len(s:pattern) > 1)
-		echohl WarningMsg
-		echom "Must specify single character on which to align"
-		echohl None
-	endif
 	let s:tab_to_space = ''
 	for s:spaces in range(&tabstop)
 		let s:tab_to_space .= ' '
@@ -378,7 +373,7 @@ function! AJIndent(indent_column, ...)
 			return
 		endif
 	endif
-	execute 'normal! 0f' . s:pattern .
+	execute 'normal! ' . s:match_found . '|' .
 			\ a:indent_column . 'i ' .
 			\ a:indent_column . '|dw'
 endfunction
