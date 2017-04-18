@@ -353,30 +353,30 @@ call setreg('a', '0f=100i :execute "normal! =b:i|"dw')
 function! AJIndent(indent_column, ...)
 	" If an alignment character was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
-	let a:align_char = (a:0 > 0) ? a:1 : '='
+	let s:pattern = (a:0 > 0) ? a:1 : '='
 	if (len(a:align_char) > 1)
 		echohl WarningMsg
 		echom "Must specify single character on which to align"
 		echohl None
+	endif
+	let s:line = getline(line('.'))
+	let s:match_found = match(s:line, s:pattern)
+	if s:match_found == -1
 		return
 	endif
-	execute "normal! 0f" . a:align_char
-	if (col(".") > a:indent_column)
-		" OK if only whitespace exists between indent column and align char
-		let s:between = execute(
-			\"/\\\%V" . line('.') . "\s*" . a:align_char,
-			\ "silent!")
-		if ! s:between
+	let s:match_locations = matchstrpos(s:line, '^.*' . s:pattern)
+	if s:match_locations[2] > a:indent_column
+		let s:between = matchstrpos(s:line, '\S\s*'. s:pattern)
+		if s:between[1] > a:indent_column
 			echohl WarningMsg
-			echom "First instance of " . a:align_char . " on line " . line(".") .
-				\" is beyond ".a:indent_column
+			echom 'Not enough whitespace before pattern occurs'
 			echohl None
 			return
 		endif
 	endif
-	execute "normal! 0f" . a:align_char .
-			\ a:indent_column . "i " .
-			\ a:indent_column . "|dw"
+	execute 'normal! 0f' . s:pattern .
+			\ a:indent_column . 'i ' .
+			\ a:indent_column . '|dw'
 endfunction
 " Map this function to <Leader>i
 nnoremap <Leader>i :call AJIndent(
