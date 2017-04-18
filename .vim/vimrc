@@ -343,12 +343,12 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 " User-Defined Functions -------------------------------------------------- {{{
 "
 " Indent first instance of '=' to specified column. Allows optional second
-" parameter to specify a character other than '='.
+" parameter to specify a pattern other than '='.
 "
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works on blocks of text in Visual mode
 function! AJIndent(indent_column, ...)
-	" If an alignment character was specified, use it, otherwise use '='
+	" If an alignment pattern was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
 	let s:pattern = (a:0 > 0) ? a:1 : '='
 	let s:tab_to_space = ''
