@@ -348,11 +348,8 @@ function! AJIndent(indent_column, ...)
 	" If a pattern was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
 	let s:pattern = (a:0 > 0) ? a:1 : '='
-	" Build up spaces to substitute for tabs
-	let s:tab_to_space = ''
-	for s:spaces in range(&tabstop)
-		let s:tab_to_space .= ' '
-	endfor
+	" Define string of spaces that should replace a tab
+	let s:tab_to_space = repeat(' ', &tabstop)
 	" Get the current line with spaces subsituted for tabs
 	let s:line = substitute(getline(line('.')), '\t', s:tab_to_space, 'g')
 	" Check if the pattern appears on this line
