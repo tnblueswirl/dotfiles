@@ -403,7 +403,7 @@ function! ReadingHeight()
 	execute "normal! zz" . float2nr(winheight(0)/3.2) . ""
 endfunction
 " Have z. put the screen up at a nice reading level
-nnoremap z. :call ReadingHeight()<CR>
+nnoremap <silent> z. :call ReadingHeight()<CR>
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
