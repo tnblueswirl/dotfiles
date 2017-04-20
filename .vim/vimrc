@@ -377,8 +377,8 @@ function! AJIndent(indent_column, ...)
 			\ a:indent_column . '|dw'
 endfunction
 " Map this function to <Leader>i
-nnoremap <Leader>i :call AJIndent(
-vnoremap <Leader>i :call AJIndent(
+nnoremap <Leader>i :call AJIndent()<Left>
+vnoremap <Leader>i :call AJIndent()<Left>
 
 " Toggle background between solarized light and dark
 function! BgToggle()
