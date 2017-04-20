@@ -364,7 +364,7 @@ function! AJIndent(indent_column, ...)
 	let s:match_locations = matchstrpos(s:line, '\C^.*' . s:pattern)
 	if s:match_locations[2] >= a:indent_column
 		" If so, make sure that only whitespace would be removed
-		let s:between = matchstrpos(s:line, '\C\S\s*'. s:pattern)
+		let s:between = matchstrpos(s:line, '\C\S\=\s*'. s:pattern)
 		if s:between[1] + 1 >= a:indent_column
 			echohl WarningMsg
 			echom 'Line ' . line('.') .
