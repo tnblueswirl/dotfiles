@@ -402,7 +402,7 @@ nnoremap <silent> <F9> :call BgToggle()<CR>
 function! ReadingHeight()
 	execute "normal! zz" . float2nr(winheight(0)/3.2) . ""
 endfunction
-" Have zz put the screen up at a nice reading level
+" Have z. put the screen up at a nice reading level
 nnoremap z. :call ReadingHeight()<CR>
 " }}}
 
