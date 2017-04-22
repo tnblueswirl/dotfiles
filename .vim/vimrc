@@ -195,6 +195,9 @@ set listchars=tab:▸\ ,trail:-
 " Set tabstop to 4 spaces
 set tabstop=4
 
+" Set the default actual tab key to 4 spaces
+set softtabstop=4
+
 " Set tab width to 4 spaces
 " set shiftwidth=4
 
@@ -205,9 +208,6 @@ set tabstop=4
 set winwidth=88
 
 filetype plugin indent on
-
-" Set the default actual tab key to 4 spaces
-set softtabstop=4
 
 " Start file with open folds
 set nofoldenable
@@ -320,6 +320,9 @@ augroup END
 
 " Close a whole tab, no matter how many windows are in it
 nnoremap <silent> <Leader>C :tabc<CR>
+
+" Run :Gblame
+nnoremap <silent> <LocalLeader>b :Gblame<CR>
 
 " Edit vimrc file
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
