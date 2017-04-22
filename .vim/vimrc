@@ -561,7 +561,8 @@ endif
 "
 let g:mustache_abbreviations = 1
 " }}}
-" }}}
+
+" }}} End PLUGIN SETTINGS
 
 " PHP Syntax Overrides ---------------------------------------------------- {{{
 "
