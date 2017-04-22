@@ -213,7 +213,7 @@ set softtabstop=4
 set nofoldenable
 
 " Toggle folds open/closed with space bar (ignore errors)
-nnoremap <silent> <Space> :silent! normal! zA<CR>
+nnoremap <silent> <Space> :silent! normal! za<CR>
 
 " Make omnicompletion better by selecting highlighted with Enter
 set completeopt=longest,menuone
@@ -415,6 +415,8 @@ if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
 endif
 " }}}
 
+" PLUGIN SETTINGS --------------------------------------------------------- {{{
+
 " Ack Settings ------------------------------------------------------------ {{{
 "
 " Also see The_Silver_Searcher settings
@@ -558,6 +560,7 @@ endif
 " Vim Mustache Settings --------------------------------------------------- {{{
 "
 let g:mustache_abbreviations = 1
+" }}}
 " }}}
 
 " PHP Syntax Overrides ---------------------------------------------------- {{{
