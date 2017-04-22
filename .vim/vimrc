@@ -466,7 +466,6 @@ nnoremap <silent> <Leader>T :CtrlPTag<CR>
 
 " Fugitive Settings ------------------------------------------------------- {{{
 "
-nnoremap <silent> <Leader>gb :Gblame<CR>
 augroup fugitiveBuffers
 	autocmd!
 	autocmd BufReadPost fugitive://* set bufhidden=delete
