@@ -428,6 +428,21 @@ nnoremap <Leader>a :silent! Ack!<Space>'
 
 " Start an Ack search in a new tab
 nnoremap <Leader>A :tabe<CR>:Ack<Space>'
+
+" Autofold the results
+let g:ack_autofold_results = 1
+
+" Modify default mappings to open result in middle of the screen
+let g:ack_mappings = {
+      \ "t": "<C-W><CR><C-W>Tzz",
+      \ "T": "<C-W><CR><C-W>TzzgT<C-W>j",
+      \ "o": "<CR>zz",
+      \ "O": "<CR>zz<C-W><C-W>:ccl<CR>zz",
+      \ "go": "<CR>zz<C-W>j",
+      \ "h": "<C-W><CR>zz<C-W>K",
+      \ "H": "<C-W><CR>zz<C-W>K<C-W>b",
+	  \ "v":  "<C-W><CR>zz<C-W>L<C-W>p<C-W>J<C-W>p",
+	  \ "gv": "<C-W><CR>zz<C-W>L<C-W>p<C-W>J" }
 " }}}
 
 " Airline Settings -------------------------------------------------------- {{{
