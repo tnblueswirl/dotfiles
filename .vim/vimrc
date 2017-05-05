@@ -427,7 +427,7 @@ endif
 nnoremap <Leader>a :silent! Ack!<Space>'
 
 " Start an Ack search in a new tab
-nnoremap <Leader>A :tabe<CR>:Ack<Space>'
+nnoremap <Leader>A :tabe<CR>:silent! Ack<Space>'
 
 " Autofold the results
 let g:ack_autofold_results = 1
