@@ -310,6 +310,9 @@ command! -nargs=+ Agrep grep -rn <args>
 " Run ctags specifically for php
 nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
 
+" Run ctags specifically for python
+nnoremap <Leader>cty :silent !ctags -R --fields=+laimS --languages=python .<CR>:redraw!<CR>
+
 " Switch to previously active tab with <Leader>l
 let g:lasttab = 1
 nnoremap <Leader>l :exe "tabn ".g:lasttab<CR>
@@ -428,9 +431,6 @@ nnoremap <Leader>a :silent! Ack!<Space>'
 
 " Start an Ack search in a new tab
 nnoremap <Leader>A :tabe<CR>:silent! Ack<Space>'
-
-" Autofold the results
-let g:ack_autofold_results = 1
 
 " Modify default mappings to open result in middle of the screen
 let g:ack_mappings = {
