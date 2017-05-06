@@ -25,6 +25,7 @@ function! s:GrepOperator(type, ...)
 		return
 	endif
 
+	" If we got a flag, open in a new tab
 	if (a:0 == 1) && (a:1 == 1)
 		tabnew
 	endif
@@ -41,6 +42,8 @@ function! s:GrepOperator(type, ...)
 	let @* = s:saved_unnamed_register
 endfunction
 
+" This is just a pass-through function to allow the movement commands to open
+" in a new tab with "<Leader>G"
 function! s:GrepOperatorTab(type, ...)
 	call <SID>GrepOperator(a:type, 1)
 endfunction
