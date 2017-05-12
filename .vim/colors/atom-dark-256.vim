@@ -308,7 +308,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=117 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=231 ctermfg=66 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=244 gui=reverse guibg=#080808 guifg=#808080
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -628,7 +628,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=123 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=255 ctermfg=102 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=244 gui=reverse guibg=#080808 guifg=#808080
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=95 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=95 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -948,7 +948,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=81 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=231 ctermfg=59 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=244 gui=reverse guibg=#080808 guifg=#808080
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=146 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -1268,7 +1268,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=43 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=79 ctermfg=21 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=83 ctermfg=16 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=83 ctermfg=16 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=83 ctermfg=83 gui=reverse guibg=#080808 guifg=#808080
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=59 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
