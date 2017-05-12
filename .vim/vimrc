@@ -413,6 +413,13 @@ function! ReadingHeight()
 endfunction
 " Have z. put the screen up at a nice reading level
 nnoremap <silent> z. :call ReadingHeight()<CR>
+
+function! DefaultiTerm2()
+	colorscheme atom-dark-256
+	let g:airline_theme='powerlineish'
+	execute "normal! :AirlineRefresh\<CR>"
+endfunction
+nnoremap <silent> <LocalLeader>2 :call DefaultiTerm2()<CR>
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
