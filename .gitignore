@@ -1,3 +1,4 @@
+.bash/hidden.sh
 .tmux/plugins/
 .tmux/resurrect/
 .vim/backups/
