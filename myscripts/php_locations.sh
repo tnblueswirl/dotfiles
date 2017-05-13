@@ -42,8 +42,5 @@ do
 	fi
 done
 
-# Change back to original directory (suppress output)
-cd - > /dev/null
-
 )  # End of script
 

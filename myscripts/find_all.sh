@@ -18,7 +18,6 @@
 
 (  # Run as subprocess to avoid variable persistence
 
-
 # Check how many command-line arguments were supplied. If none, exit.
 # Otherwise set variables accordingly
 case $# in
@@ -43,6 +42,4 @@ do
 	fi
 done
 
-
 )  # End of script
-
