@@ -222,7 +222,6 @@ call s:h("jsGlobalObjects", { "fg": s:yellow })
 call s:h("jsObjectProp", { "fg": s:red })
 call s:h("jsOperator", { "fg": s:cyan })
 call s:h("jsStorageClass", { "fg": s:purple })
-call s:h("jsVariableDef", { "fg": s:dark_yellow })
 
 call s:h("phpClass", { "fg": s:yellow })
 call s:h("phpFunction", { "fg": s:blue })
