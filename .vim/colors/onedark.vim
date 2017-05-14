@@ -235,6 +235,19 @@ call s:h("rubyBlockParameterList", { "fg": s:red })
 call s:h("rubyInterpolation", { "fg": s:green })
 call s:h("rubyInterpolationDelimiter", { "fg": s:red })
 
+call s:h("vimAutoCmdSfxList", {})
+call s:h("vimAutoEvent", { "fg": s:purple })
+call s:h("vimCommand", { "fg": s:purple })
+call s:h("vimCommentString", { "fg": s:cyan })
+call s:h("vimContinue", { "fg": s:red })
+call s:h("vimIsCommand", {})
+call s:h("vimMapModKey", { "fg": s:red })
+call s:h("vimNotation", { "fg": s:red })
+call s:h("vimOper", { "fg": s:cyan })
+call s:h("vimOption", { "fg": s:red })
+call s:h("vimString", { "fg": s:green })
+call s:h("vimVar", { "fg": s:blue })
+
 " +---------------------+
 " | Plugin Highlighting |
 " +---------------------+
