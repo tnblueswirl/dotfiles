@@ -123,7 +123,7 @@ call s:h("Typedef", { "fg": s:yellow }) " A typedef
 call s:h("Special", { "fg": s:blue }) " any special symbol
 call s:h("SpecialChar", {}) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
-call s:h("Delimiter", {}) " character that needs attention
+call s:h("Delimiter", { "fg": s:red }) " character that needs attention
 call s:h("SpecialComment", {}) " special things inside a comment
 call s:h("Debug", {}) " debugging statements
 call s:h("Underlined", {}) " text that stands out, HTML links
@@ -187,18 +187,6 @@ call s:h("WildMenu", {}) " current match in 'wildmenu' completion
 " | Language-Specific Highlighting |
 " +--------------------------------+
 
-call s:h("javaScriptBraces", { "fg": s:white })
-call s:h("javaScriptIdentifier", { "fg": s:purple })
-call s:h("javaScriptNull", { "fg": s:dark_yellow })
-call s:h("javaScriptNumber", { "fg": s:dark_yellow })
-call s:h("rubyBlockParameterList", { "fg": s:red })
-call s:h("rubyInterpolation", { "fg": s:green })
-call s:h("rubyInterpolationDelimiter", { "fg": s:red })
-
-call s:h("pythonDot", { "fg": s:cyan })
-call s:h("pythonBuiltinFunc", { "fg": s:cyan })
-call s:h("pythonInclude", { "fg": s:purple })
-
 call s:h("gitcommitSummary", { "fg": s:green })
 call s:h("gitcommitComment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" })
 hi! link gitcommitUntracked gitcommitComment
@@ -221,6 +209,32 @@ hi! link gitcommitSelectedArrow  gitcommitSelectedFile
 hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 call s:h("DiffAdded", { "fg": s:green }) " git diff mode: Added line
 call s:h("DiffRemoved", { "fg": s:red }) " git diff mode: Deleted line
+
+call s:h("javaScriptBraces", { "fg": s:white })
+call s:h("javaScriptIdentifier", { "fg": s:purple })
+call s:h("javaScriptNull", { "fg": s:dark_yellow })
+call s:h("javaScriptNumber", { "fg": s:dark_yellow })
+
+call s:h("phpClass", { "fg": s:yellow })
+call s:h("phpFunction", { "fg": s:blue })
+call s:h("phpFunctions", { "fg": s:cyan })
+call s:h("phpIdentifierComplex", { "fg": s:green })
+call s:h("phpInclude", { "fg": s:purple })
+call s:h("phpKeyword", { "fg": s:purple })
+call s:h("phpParent", { "fg": s:white })
+call s:h("phpRegion", { "fg": s:yellow })
+call s:h("phpSpecialChar", { "fg": s:cyan })
+call s:h("phpType", { "fg": s:purple })
+call s:h("phpVarSelector", { "fg": s:red })
+
+call s:h("pythonBuiltinFunc", { "fg": s:cyan })
+call s:h("pythonDot", { "fg": s:cyan })
+call s:h("pythonInclude", { "fg": s:purple })
+
+call s:h("rubyBlockParameterList", { "fg": s:red })
+call s:h("rubyInterpolation", { "fg": s:green })
+call s:h("rubyInterpolationDelimiter", { "fg": s:red })
+
 " +---------------------+
 " | Plugin Highlighting |
 " +---------------------+
@@ -233,3 +247,5 @@ call s:h("GitGutterAdd", { "fg": s:green, "bg": s:gutter_bg_grey })
 call s:h("GitGutterDelete", { "fg": s:red, "bg": s:gutter_bg_grey })
 call s:h("GitGutterChange", { "fg": s:yellow, "bg": s:gutter_bg_grey })
 call s:h("GitGutterChangeDelete", { "fg": s:red, "bg": s:gutter_bg_grey })
+
+call s:h("NERDTreeDirSlash", { "fg": s:purple })
