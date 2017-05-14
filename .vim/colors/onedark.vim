@@ -141,13 +141,15 @@ call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cu
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
 call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
-call s:h("Directory", {}) " directory names (and other special names in listings)
+call s:h("Directory", { "fg": s:purple }) " directory names (and other special names in listings)
 call s:h("DiffAdd", { "fg": s:green }) " diff mode: Added line
+call s:h("DiffAdded", { "fg": s:green }) " diff mode: Added line
 call s:h("DiffChange", { "fg": s:dark_yellow }) " diff mode: Changed line
+call s:h("DiffRemoved", { "fg": s:red }) " diff mode: Deleted line
 call s:h("DiffDelete", { "fg": s:red }) " diff mode: Deleted line
 call s:h("DiffText", { "fg": s:blue }) " diff mode: Changed text within a changed line
-call s:h("ErrorMsg", {}) " error messages on the command line
-call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
+call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
+call s:h("VertSplit", { "fg": s:visual_grey, "bg": s:visual_grey }) " the column separating vertically split windows
 call s:h("Folded", {}) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
 call s:h("SignColumn", {}) " column where signs are displayed
@@ -174,7 +176,7 @@ call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of 
 call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 call s:h("TabLine", {}) " tab pages line, not active tab page label
 call s:h("TabLineFill", {}) " tab pages line, where there are no labels
-call s:h("TabLineSel", {}) " tab pages line, active tab page label
+call s:h("TabLineSel", { "bg": s:visual_grey }) " tab pages line, active tab page label
 call s:h("Title", { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
 call s:h("Visual", { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
 call s:h("VisualNOS", { "bg": s:visual_grey }) " Visual mode selection when vim is "Not Owning the Selection". Only X11 Gui's gui-x11 and xterm-clipboard supports this.
@@ -193,6 +195,32 @@ call s:h("rubyBlockParameterList", { "fg": s:red })
 call s:h("rubyInterpolation", { "fg": s:green })
 call s:h("rubyInterpolationDelimiter", { "fg": s:red })
 
+call s:h("pythonDot", { "fg": s:cyan })
+call s:h("pythonBuiltinFunc", { "fg": s:cyan })
+call s:h("pythonInclude", { "fg": s:purple })
+
+call s:h("gitcommitSummary", { "fg": s:green })
+call s:h("gitcommitComment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" })
+hi! link gitcommitUntracked gitcommitComment
+hi! link gitcommitDiscarded gitcommitComment
+hi! link gitcommitSelected  gitcommitComment
+call s:h("gitcommitUnmerged", { "fg": s:green })
+call s:h("gitcommitOnBranch", { "fg": s:comment_grey })
+call s:h("gitcommitBranch", { "fg": s:purple })
+hi! link gitcommitNoBranch gitcommitBranch
+call s:h("gitcommitDiscardedType", { "fg": s:red })
+call s:h("gitcommitSelectedType", { "fg": s:green })
+call s:h("gitcommitHeader", { "fg": s:comment_grey })
+call s:h("gitcommitUntrackedFile", { "fg": s:cyan })
+call s:h("gitcommitDiscardedFile", { "fg": s:red })
+call s:h("gitcommitSelectedFile", { "fg": s:green })
+call s:h("gitcommitUnmergedFile", { "fg": s:yellow })
+call s:h("gitcommitFile", { "fg": s:white })
+hi! link gitcommitDiscardedArrow gitcommitDiscardedFile
+hi! link gitcommitSelectedArrow  gitcommitSelectedFile
+hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
+call s:h("DiffAdded", { "fg": s:green }) " git diff mode: Added line
+call s:h("DiffRemoved", { "fg": s:red }) " git diff mode: Deleted line
 " +---------------------+
 " | Plugin Highlighting |
 " +---------------------+

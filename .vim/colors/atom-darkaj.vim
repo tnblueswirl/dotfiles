@@ -958,7 +958,7 @@ exe "hi! pandocRule"                     .s:fg_blue   .s:bg_none  .s:fmt_bold
 exe "hi! pandocRuleLine"                 .s:fg_blue   .s:bg_none  .s:fmt_bold
 exe "hi! pandocEscapePair"               .s:fg_red    .s:bg_none  .s:fmt_bold
 exe "hi! pandocCitationRef"              .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocNonBreakingSpace"         .s:fg_red    .s:bg_none  .s:fmt_revr
+exe "hi! pandocNonBreakingSpace"         . s:fg_red   .s:bg_none  .s:fmt_revr
 hi! link pandocEscapedCharacter          pandocEscapePair
 hi! link pandocLineBreak                 pandocEscapePair
 

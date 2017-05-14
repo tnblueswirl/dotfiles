@@ -6,6 +6,7 @@ alias darkbkgnd="export GITC='tput setaf 251'"
 alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
 alias lightbkgnd="export GITC='tput setaf 239'"
+alias onedark="export DIRC='tput setaf 170'"
 
 if [ `uname | grep Linux` &> /dev/null ]; then
 	alias ll='ls -lAhGF --color=auto'
