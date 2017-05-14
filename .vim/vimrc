@@ -519,6 +519,11 @@ augroup fugitiveBuffers
 augroup END
 " }}}
 
+" vim-javascript Settings ------------------------------------------------- {{{
+"
+let g:javascript_plugin_jsdoc = 1
+" }}}
+
 " NERDCommenter Settings -------------------------------------------------- {{{
 "
 let g:NERDSpaceDelims=1
@@ -528,7 +533,7 @@ let g:NERDTrimTrailingWhitespace=1
 " NERDTree Settings ------------------------------------------------------- {{{
 "
 " Toggle NERDTree display
-nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>d :NERDTreeToggle<CR>:AirlineToggle<CR>:AirlineToggle<CR>
 " Open NERDTree with the current file selected
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 
