@@ -768,6 +768,18 @@ exe "hi! htmlSpecialTagName".s:fmt_ital .s:fg_blue   .s:bg_none
 exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
 exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 "}}}
+" JavaScript highlighting "{{{
+exe "hi! jsFuncBlock"                    .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! jsIfElseBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! jsRepeatBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! jsFunction"                     .s:fg_green   .s:bg_back   .s:fmt_none
+exe "hi! jsGlobalNodeObjects"            .s:fg_violet  .s:bg_back   .s:fmt_none
+exe "hi! jsGlobalObjects"                .s:fg_yellow  .s:bg_back   .s:fmt_none
+exe "hi! jsObjectProp"                   .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! jsOperator"                     .s:fg_none    .s:bg_back   .s:fmt_none
+exe "hi! jsStorageClass"                 .s:fg_green   .s:bg_back   .s:fmt_none
+" exe "hi! jsVariableDef"                  .s:fg_green   .s:bg_back   .s:fmt_none
+" }}}
 " perl highlighting "{{{
 " ---------------------------------------------------------------------
 exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none

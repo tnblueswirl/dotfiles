@@ -211,18 +211,18 @@ call s:h("DiffAdded", { "fg": s:green }) " git diff mode: Added line
 call s:h("DiffRemoved", { "fg": s:red }) " git diff mode: Deleted line
 
 call s:h("javaScriptBraces", { "fg": s:white })
+call s:h("javaScriptIdentifier", { "fg": s:purple })
+call s:h("javaScriptNull", { "fg": s:dark_yellow })
+call s:h("javaScriptNumber", { "fg": s:dark_yellow })
 call s:h("jsBuiltins", { "fg": s:cyan })
-call s:h("jsFunction", { "fg": s:purple })
 call s:h("jsFuncBlock", { "fg": s:red })
 call s:h("jsFuncCall", { "fg": s:blue })
+call s:h("jsFunction", { "fg": s:purple })
 call s:h("jsGlobalObjects", { "fg": s:yellow })
 call s:h("jsObjectProp", { "fg": s:red })
 call s:h("jsOperator", { "fg": s:cyan })
 call s:h("jsStorageClass", { "fg": s:purple })
 call s:h("jsVariableDef", { "fg": s:dark_yellow })
-call s:h("javaScriptIdentifier", { "fg": s:purple })
-call s:h("javaScriptNull", { "fg": s:dark_yellow })
-call s:h("javaScriptNumber", { "fg": s:dark_yellow })
 
 call s:h("phpClass", { "fg": s:yellow })
 call s:h("phpFunction", { "fg": s:blue })
