@@ -15,7 +15,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " NERDTree plugin
-Plugin 'scrooloose/nerdTree'
+Plugin 'scrooloose/nerdtree'
 
 " NERD Commenter
 Plugin 'scrooloose/nerdcommenter'
@@ -53,6 +53,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " ack.vim
 " Note that this requires ack (`brew install ack`)
 Plugin 'mileszs/ack.vim'
+
+" javascript syntax highlighting
+Plugin 'pangloss/vim-javascript'
 
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
@@ -106,16 +109,11 @@ filetype plugin on
 " Put your non-Plugin stuff after this line
 " }}}
 
-" General Vim Settings ---------------------------------------------------- {{{
+" Color Settings ---------------------------------------------------------- {{{
 "
 " set t_Co=256
 
-" Allow vim's own fuzzy find to work
-set path+=**
-
 set background=dark
-
-colorscheme solarized
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -138,12 +136,18 @@ if &term =~ '256color'
 	set t_ut=
 endif
 
+colorscheme solarized
+
+let g:airline_theme = 'solarized'
+" }}}
+
+" General Vim Settings ---------------------------------------------------- {{{
+"
+" Allow vim's own fuzzy find to work
+set path+=**
+
 " Enable syntax highlighting
 syntax on
-
-" Set python syntax highlighting to highest level
-let python_highlight_all=1
-
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -353,8 +357,8 @@ nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:noh<CR>:AirlineRefresh<CR>
 cnoremap w!! w !sudo tee % >/dev/null
 
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " }}}
 
 " Macros and Registers ---------------------------------------------------- {{{
@@ -484,7 +488,8 @@ let g:ack_mappings = {
 " Airline Settings -------------------------------------------------------- {{{
 "
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
+" The below is now set in the color section above
+" let g:airline_theme = 'solarized'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
 let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'mixed-indent-file' ]
@@ -561,6 +566,9 @@ let g:DisableAutoPHPFolding = 1
 
 " PyMode Settings --------------------------------------------------------- {{{
 "
+" Set python syntax highlighting to highest level
+let python_highlight_all = 1
+
 " Ignore lines that are too long
 let g:pymode_lint_ignore = 'E501'
 
