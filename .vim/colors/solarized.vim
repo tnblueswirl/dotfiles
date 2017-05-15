@@ -778,6 +778,7 @@ exe "hi! jsGlobalNodeObjects"            .s:fg_violet  .s:bg_back   .s:fmt_none
 exe "hi! jsGlobalObjects"                .s:fg_yellow  .s:bg_back   .s:fmt_none
 exe "hi! jsIfElseBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
 exe "hi! jsObjectProp"                   .s:fg_blue    .s:bg_back   .s:fmt_none
+exe "hi! jsObjectValue"                  .s:fg_blue    .s:bg_back   .s:fmt_none
 exe "hi! jsOperator"                     .s:fg_none    .s:bg_back   .s:fmt_none
 exe "hi! jsRepeatBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
 exe "hi! jsStorageClass"                 .s:fg_green   .s:bg_back   .s:fmt_none

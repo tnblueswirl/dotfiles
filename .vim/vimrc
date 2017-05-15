@@ -57,6 +57,9 @@ Plugin 'mileszs/ack.vim'
 " javascript syntax highlighting
 Plugin 'pangloss/vim-javascript'
 
+" json syntax highlighting
+Plugin 'elzr/vim-json'
+
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plugin 'shawncplus/phpcomplete.vim'
 
@@ -343,6 +346,8 @@ cnoremap w!! w !sudo tee % >/dev/null
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
 " }}}
 
 " Macros and Registers ---------------------------------------------------- {{{
