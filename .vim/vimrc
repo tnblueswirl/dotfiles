@@ -533,9 +533,9 @@ let g:NERDTrimTrailingWhitespace=1
 " NERDTree Settings ------------------------------------------------------- {{{
 "
 " Toggle NERDTree display
-nnoremap <silent> <Leader>d :NERDTreeToggle<CR>:AirlineToggle<CR>:AirlineToggle<CR>
+nnoremap <silent> <Leader>d :NERDTreeToggle<CR>:redraw!<CR>
 " Open NERDTree with the current file selected
-nnoremap <silent> <Leader>f :NERDTreeFind<CR>:AirlineToggle<CR>:AirlineToggle<CR>
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>:redraw!<CR>
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
