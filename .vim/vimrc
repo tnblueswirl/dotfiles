@@ -535,7 +535,7 @@ let g:NERDTrimTrailingWhitespace=1
 " Toggle NERDTree display
 nnoremap <silent> <Leader>d :NERDTreeToggle<CR>:AirlineToggle<CR>:AirlineToggle<CR>
 " Open NERDTree with the current file selected
-nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>:AirlineToggle<CR>:AirlineToggle<CR>
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
