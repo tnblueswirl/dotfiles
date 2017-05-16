@@ -216,6 +216,9 @@ set winwidth=88
 
 filetype plugin indent on
 
+" Time out on key codes (not mappings)
+set ttimeoutlen=50
+
 " Start file with open folds
 set nofoldenable
 
