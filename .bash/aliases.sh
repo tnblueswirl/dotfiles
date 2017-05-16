@@ -7,6 +7,8 @@ alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
 alias lightbkgnd="export GITC='tput setaf 239'"
 alias onedark="export DIRC='tput setaf 170'"
+# `tail` the most recent file in the current directory containing 'application'
+alias armorlog="ls -t | grep 'application' | head -1 | xargs -I {} tail -600f {}"
 
 if [ `uname | grep Linux` &> /dev/null ]; then
 	alias ll='ls -lAhGF --color=auto'
