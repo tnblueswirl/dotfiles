@@ -269,4 +269,5 @@ call s:h("GitGutterDelete", { "fg": s:red, "bg": s:gutter_bg_grey })
 call s:h("GitGutterChange", { "fg": s:yellow, "bg": s:gutter_bg_grey })
 call s:h("GitGutterChangeDelete", { "fg": s:red, "bg": s:gutter_bg_grey })
 
+call s:h("NERDTreeCWD", { "fg": s:blue })
 call s:h("NERDTreeDirSlash", { "fg": s:purple })
