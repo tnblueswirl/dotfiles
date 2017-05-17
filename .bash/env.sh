@@ -9,8 +9,9 @@
 #export PS1="\W\n > "
 
 # Specifying options grep should use by default
-export GREP_COLOR="7;41"
+# export GREP_COLOR="7;41"
 
 if [ -f ~/Library/Preferences/WebIde100/phpstorm.vmoptions ]; then
-	export WEBIDE_VM_OPTIONS=~/Library/Preferences/WebIde100/phpstorm.vmoptions
+	WEBIDE_VM_OPTIONS=$HOME/Library/Preferences/WebIde100/phpstorm.vmoptions
+	export WEBIDE_VM_OPTIONS
 fi
