@@ -5,6 +5,12 @@ function! AJGitCommitMsg()
 		return
 	endif
 
+	" If git pre-populated text, then don't add ticket info
+	let s:first_line = getline(1)
+	if len(s:first_line) != 0
+		return
+	endif
+
 	let s:full_branch = system('git symbolic-ref --short HEAD')
 	let s:parsed_ticket = substitute(s:full_branch,
 		\ '\v.*(AR-[0-9]*).*', '\1', '')
