@@ -21,25 +21,29 @@
 # Check how many command-line arguments were supplied. If none, exit.
 # Otherwise set variables accordingly
 case $# in
-	0)  echo No argument supplied. Exiting...
-		return 1
-		;;
-	1)  searchTerm=$1
-		;;
-	*)  searchTerm=$1
-		pathContains=$2
-		;;
+  0)
+    echo No argument supplied. Exiting...
+    exit 1
+    ;;
+  1)
+    searchTerm=$1
+    ;;
+  *)
+    searchTerm=$1
+    pathContains=$2
+    ;;
 esac
 
 # Change to root directory
 cd /
 
 # Perform search in each directory, except `/Volumes`
-for f in *
-do
-	if [ "$f" != 'Volumes' ]; then
-		find -E "$f" -name "$searchTerm" 2>&1 | grep -v "find:" | grep --color=never "$pathContains"
-	fi
+for f in *; do
+  if [ "$f" != 'Volumes' ]; then
+    find -E "$f" -name "${searchTerm}" 2>&1 \
+      | grep -v "find:" \
+      | grep --color=never "${pathContains}"
+  fi
 done
 
 )  # End of script
