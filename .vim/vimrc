@@ -137,10 +137,17 @@ set path+=**
 syntax on
 
 " Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
+if exists('$SUDO_USER')
+	set nobackup
+	set nowritebackup
+	set noswapfile
+	set noundofile
+else
+	set backupdir=~/.vim/backups
+	set directory=~/.vim/swaps//
+	if exists("&undodir")
+		set undodir=~/.vim/undo
+	endif
 endif
 
 " Make default clipboard the OS X clipboard (and unnamedplus for Linux)
@@ -261,8 +268,9 @@ augroup filetypeSpecific
 	autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 	autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType mustache   setlocal noendofline binary
-	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual
+	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
 	autocmd FileType python     setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
+	autocmd FileType sh         setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
 	autocmd FileType vim        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=marker
 augroup END
 " }}}
