@@ -1,0 +1,4 @@
+{
+	"sub": true,         /* avoid better in dot notation warnings */
+	"laxbreak": true     /* avoid bad break with '&&' */
+}
