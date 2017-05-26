@@ -218,6 +218,11 @@ set softtabstop=4
 " Expand tabs into spaces
 " set expandtab
 
+" Make wrapped lines indent to match starting line
+if has('linebreak')
+	set breakindent
+endif
+
 " Set minimum window width to 88 (a.k.a. 'wiw')
 set winwidth=88
 
@@ -228,6 +233,17 @@ set ttimeoutlen=50
 
 " Start file with open folds
 set nofoldenable
+
+" Allow J to remove comment character when joining lines
+if v:version > 703
+	set formatoptions+=j
+endif
+
+" Don't add extra space after '.', '?', and '!' when joining lines
+set nojoinspaces
+
+" Don't update the screen during macro playback
+set lazyredraw
 
 " Toggle folds open/closed with space bar (ignore errors)
 nnoremap <silent> <Space> :silent! normal! za<CR>
@@ -359,6 +375,8 @@ noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
+
+nnoremap <LocalLeader><Space> :execute "normal! i "<CR> :execute "normal! li "<CR>
 " }}}
 
 " Macros and Registers ---------------------------------------------------- {{{
