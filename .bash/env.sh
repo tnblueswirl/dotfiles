@@ -10,6 +10,8 @@
 
 # Specifying options grep should use by default
 # export GREP_COLOR="7;41"
+EDITOR="vim"
+export EDITOR
 
 if [ -f ~/Library/Preferences/WebIde100/phpstorm.vmoptions ]; then
   WEBIDE_VM_OPTIONS=$HOME/Library/Preferences/WebIde100/phpstorm.vmoptions
