@@ -1,0 +1,5 @@
+{
+	"sub": true,         /* avoid better in dot notation warnings */
+	"laxbreak": true,    /* avoid bad break with '&&' */
+	"esversion": 3       /* ensure compliance with es 3 */
+}
