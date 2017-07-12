@@ -330,7 +330,7 @@ vnoremap <F1> <ESC>
 cnoremap <C-a>  <Home>
 
 " * will search word under cursor, but won't immediately jump to first match
-nnoremap * :keepjumps normal! mi*`i<CR>
+nnoremap <silent> * :keepjumps normal! mi*`i<CR>
 
 " Turn off highlighting of search
 nnoremap <silent> <Leader>n :nohlsearch<CR>
@@ -354,6 +354,9 @@ augroup tabLeave
 	autocmd!
 	autocmd TabLeave * let g:lasttab = tabpagenr()
 augroup END
+
+" Switch to the last tab in the tabline
+nnoremap <silent> <Leader>L :tabl<CR>
 
 " Close a whole tab, no matter how many windows are in it
 nnoremap <silent> <Leader>C :tabc<CR>
