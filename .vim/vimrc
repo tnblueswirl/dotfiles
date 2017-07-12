@@ -281,7 +281,7 @@ augroup filetypeSpecific
 	autocmd FileType help       setlocal nonumber
 	autocmd FileType html       setlocal noexpandtab tabstop=2 shiftwidth=2 noeol binary
 	autocmd FileType htmldjango setlocal noexpandtab           shiftwidth=2
-	autocmd FileType javascript setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+	autocmd FileType javascript setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=0
 	autocmd FileType json       setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType mustache   setlocal noendofline binary
 	autocmd FileType php        setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
