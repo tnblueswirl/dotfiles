@@ -24,7 +24,7 @@ browsertests() {
   # Wait for the Selenium server to finish its spin-up
   sleep 1
   # Run the tests
-  command="php lib/vendor/managed-packages/bin/codecept run ${tests} --env $1"
+  command="/usr/local/bin/php lib/vendor/managed-packages/bin/codecept run ${tests} --env $1"
   echo "${command}"
   ${command}
   # Wait for the test harness to finish what it's doing
@@ -72,6 +72,3 @@ vim_branch_arg() {
     echo '-S'
   fi
 }
-
-# Make the alias for this!
-alias vimbranch="vim $(vim_branch_arg)"
