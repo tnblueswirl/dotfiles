@@ -44,6 +44,9 @@ Plugin 'tpope/vim-surround'
 " vim-unimpaired to quickly toggle and navigate
 Plugin 'tpope/vim-unimpaired'
 
+" Editor Config to use file to set formatting per project
+Plugin 'editorconfig/editorconfig-vim'
+
 " syntastic linter
 Plugin 'scrooloose/syntastic'
 
@@ -546,6 +549,12 @@ let g:ctrlp_regexp = 1
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>t :CtrlP<CR>
 nnoremap <silent> <Leader>T :CtrlPTag<CR>
+" }}}
+
+" Editor Config ----------------------------------------------------------- {{{
+"
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.vim'
 " }}}
 
 " Fugitive Settings ------------------------------------------------------- {{{
