@@ -373,12 +373,14 @@ nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:noh<CR>:AirlineRefresh<CR>
 " Save a file that requires `sudo` after already editing it
 cnoremap w!! w !sudo tee % >/dev/null
 
+" Show the highlighting groups for the text under the cursor
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
 
+" Add a space on either side of the current cursor location
 nnoremap <LocalLeader><Space> :execute "normal! i "<CR> :execute "normal! li "<CR>
 " }}}
 
