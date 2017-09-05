@@ -139,15 +139,17 @@ set path+=**
 " Enable syntax highlighting
 syntax on
 
-" Centralize backups, swapfiles and undo history
+" Don't ever use swapfiles
+set noswapfile
+" Centralize backups and undo history
 if exists('$SUDO_USER')
 	set nobackup
 	set nowritebackup
-	set noswapfile
 	set noundofile
 else
 	set backupdir=~/.vim/backups
-	set directory=~/.vim/swaps//
+	" Uncomment this to use swapfiles (and unset noswapfile above)
+	" set directory=~/.vim/swaps//
 	if exists("&undodir")
 		set undodir=~/.vim/undo
 	endif
