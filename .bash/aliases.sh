@@ -11,7 +11,7 @@ alias onedark="export DIRC='tput setaf 170'"
 # alias vimbranch is defined in `functions.sh`
 alias vimselect='select session in $(ls -1 | grep 'Session*.vim') ; do vim -S "$session" ; done'
 
-if [ $(uname | grep Linux) &> /dev/null ]; then
+if [ $(uname | grep Linux &> /dev/null) ]; then
   alias ll='ls -lAhGF --color=auto'
   alias lls='ls -FGA1 --color=auto'
 else
@@ -40,14 +40,14 @@ alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
-if [ $(which ctags) &> /dev/null ]; then
+if [ $(which ctags &> /dev/null) ]; then
   alias ctagsphp='ctags -R --fields=+laimS --languages=php'
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
 
 # TESTING ALIASES
 alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
-alias browsertest='console/func_tests.sh'
+alias browsertest='console/acceptance/acceptance.sh'
 alias browsertestchrome='console/func_tests_chrome.sh'
 alias browsertestsafari='console/func_tests_safari.sh'
 alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
@@ -62,6 +62,6 @@ alias findall='. ~/.dotfiles/myscripts/find_all.sh'
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # UBUNTU-SPECIFIC
-if [ $(uname | grep Linux) &> /dev/null ]; then
+if [ $(uname | grep Linux &> /dev/null) ]; then
   alias cls='tput reset'
 fi
