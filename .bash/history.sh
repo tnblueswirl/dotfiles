@@ -3,7 +3,7 @@ shopt -s histappend
 
 # ignore duplicates, lines starting with spaces, and some common one-off commands
 export HISTCONTROL="ignoreboth"  # ignoredups:ignorespace
-export HISTIGNORE="history:pwd:exit:df:ls:ls -la:ll:ls -a:lls"
+export HISTIGNORE="history:pwd:exit:df:ls:ls -la:ll:ls -a:lls:git st:gi tst"
 
 # keep more history
 export HISTFILESIZE=50000
