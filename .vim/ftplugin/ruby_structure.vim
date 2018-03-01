@@ -9,4 +9,4 @@ function! s:EndToken()
   endif
 endfunction
 
-inoremap <Localleader><space> <ESC>:execute 'normal o' . <SID>EndToken()<CR>O
+inoremap <Localleader><space><CR> <ESC>:execute 'normal o' . <SID>EndToken()<CR>O
