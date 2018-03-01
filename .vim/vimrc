@@ -78,6 +78,29 @@ Plugin 'stanangeloff/php.vim'
 " python syntax support
 Plugin 'hdima/python-syntax'
 
+" To navigate into Ruby source/gem files with Vim:
+" https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
+"
+" gem install gem-ctags
+" gem ctags
+"
+" mkdir -p ~/.rbenv/plugins
+" git clone git://github.com/tpope/rbenv-ctags.git \
+"   ~/.rbenv/plugins/rbenv-ctags
+" rbenv ctags
+
+" Bundler support (Ruby)
+Plugin 'tpope/vim-bundler'
+
+" rails support (Ruby)
+Plugin 'tpope/vim-rails'
+
+" rbenv support (Ruby)
+Plugin 'tpope/vim-rbenv'
+
+" Ruby support
+Plugin 'vim-ruby/vim-ruby'
+
 " Vim Mustache
 Plugin 'mustache/vim-mustache-handlebars'
 
@@ -294,7 +317,7 @@ augroup filetypeSpecific
 	autocmd FileType json          setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType php           setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
 	autocmd FileType python        setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-	autocmd FileType ruby          setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=0
+	autocmd FileType ruby          setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
 	autocmd FileType sass          setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType scss          setlocal noexpandtab tabstop=2 shiftwidth=2
 	autocmd FileType sh            setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
@@ -354,6 +377,9 @@ command! -nargs=+ Agrep grep -rn <args>
 
 " Run ctags specifically for php
 nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
+
+" Run ctags specifically for php
+nnoremap <Leader>ctr :silent !ctags -R --fields=+laimS --languages=ruby .<CR>:redraw!<CR>
 
 " Run ctags specifically for python
 nnoremap <Leader>cty :silent !ctags -R --fields=+laimS --languages=python .<CR>:redraw!<CR>
