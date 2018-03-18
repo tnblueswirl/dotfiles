@@ -4,7 +4,7 @@ if which brew &> /dev/null; then
   export ARCHFLAGS="-arch x86_64"
 
   # Ensure user-installed binaries take precedence
-#   export PATH=/usr/local/bin:$PATH
+  export PATH="/usr/local/sbin:$PATH"
 
   # Homebrew autocompletion
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
