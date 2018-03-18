@@ -1,4 +1,5 @@
 .bash/hidden.sh
+.eclimrc
 .tmux/plugins/
 .tmux/resurrect/
 .vim/backups/
@@ -8,3 +9,4 @@
 .vim/undo/
 .vim/.netrwhist
 .vim/.vimrc_add_ons
+workbench.xmi
