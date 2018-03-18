@@ -9,6 +9,10 @@ imap jj <Esc>
 " Enable vim-surround
 set surround
 
+" Turn off the annoying bells in the IDE!
+set visualbell
+set noerrorbells
+
 " Incremental search
 set incsearch
 
@@ -20,6 +24,9 @@ set clipboard=unnamedplus,unnamed
 
 " Make 'Y' copy from current location to end of line
 nmap Y y$
+
+" * will search word under cursor, but won't immediately jump to first match
+nmap <silent> * mi*`i
 
 " These create newlines like o and O but stay in normal mode
 nmap ]<Space> o<Esc>k
