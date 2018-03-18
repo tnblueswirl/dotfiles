@@ -1,11 +1,5 @@
 " NOTE you can use :source ~/.ideavimrc to reload!
 
-" Set the leader/localleader
-let mapleader = ","
-
-" Make it easy to escape in insert mode
-imap jj <Esc>
-
 " Enable vim-surround
 set surround
 
@@ -21,6 +15,15 @@ set scrolloff=3
 
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed
+
+" Set the leader/localleader
+let mapleader = ","
+
+" Make it easy to escape in insert mode
+imap jj <Esc>
+
+" Make saving same as my shortcut in Vim
+nmap <Leader>s :w<CR>
 
 " Make 'Y' copy from current location to end of line
 nmap Y y$
@@ -47,9 +50,7 @@ nmap <Leader>b :action ReopenClosedTab<CR>
 
 " Make closing windows sane
 nmap <C-w>c :q<CR>
-
-" Make saving same as my shortcut in Vim
-nmap <Leader>s :w<CR>
+nmap <C-w>C :action CloseAllEditors<CR>
 
 " Toggle the blame (Annotations)
 nmap <Leader>B :action Annotate<CR>
