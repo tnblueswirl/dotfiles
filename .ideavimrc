@@ -18,6 +18,9 @@ set scrolloff=3
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed
 
+" Make 'Y' copy from current location to end of line
+nmap Y y$
+
 " These create newlines like o and O but stay in normal mode
 nmap ]<Space> o<Esc>k
 nmap [<Space> O<Esc>j
