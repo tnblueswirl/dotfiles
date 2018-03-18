@@ -2,7 +2,6 @@
 
 " Set the leader/localleader
 let mapleader = ","
-let maplocalleader = "\\"
 
 " Make it easy to escape in insert mode
 imap jj <Esc>
@@ -30,20 +29,20 @@ nmap <C-l> <C-w>l
 nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
 
-" Make saving same as my shortcut in Vim
-nmap <Leader>s :action SaveDocument<CR>
-
-" Toggle the blame (Annotations)
-map <Leader>B :action Annotate<CR>
+" Go to the last tab
+nmap <Leader>L 1gtgT
 
 " Reopen a closed tab
-map <Leader>b :action ReopenClosedTab<CR>
+nmap <Leader>b :action ReopenClosedTab<CR>
 
 " Make closing windows sane
 nmap <C-w>c :q<CR>
 
-" Go to the last tab
-nmap <Leader>L 1gtgT
+" Make saving same as my shortcut in Vim
+nmap <Leader>s :w<CR>
+
+" Toggle the blame (Annotations)
+nmap <Leader>B :action Annotate<CR>
 
 nmap <Leader>g :action GotoDeclaration<CR>
 nmap <Leader>t :action GotoFile<CR>
@@ -56,4 +55,4 @@ nmap <Leader>d :action ShowErrorDescription<CR>
 
 " Won't work in visual mode (with vmap) for some reason.
 " Use default map of <c-/> for that.
-nmap gcc :action CommentByLineComment<CR>
+" nmap gcc :action CommentByLineComment<CR>
