@@ -26,7 +26,7 @@ set clipboard=unnamedplus,unnamed
 nmap Y y$
 
 " * will search word under cursor, but won't immediately jump to first match
-nmap <silent> * mi*`i
+nmap * *N
 
 " These create newlines like o and O but stay in normal mode
 nmap ]<Space> o<Esc>k
