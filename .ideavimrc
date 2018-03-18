@@ -20,50 +20,50 @@ set clipboard=unnamedplus,unnamed
 let mapleader = ","
 
 " Make it easy to escape in insert mode
-imap jj <Esc>
+inoremap jj <Esc>
 
 " Make saving same as my shortcut in Vim
-nmap <Leader>s :w<CR>
+nnoremap <Leader>s :w<CR>
 
 " Make 'Y' copy from current location to end of line
-nmap Y y$
+nnoremap Y y$
 
 " * will search word under cursor, but won't immediately jump to first match
-nmap * *N
+nnoremap * *N
 
 " These create newlines like o and O but stay in normal mode
-nmap ]<Space> o<Esc>k
-nmap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+nnoremap [<Space> O<Esc>j
 
 " key bindings for quickly moving between windows
 " h left, l right, k up, j down
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
-nmap <C-k> <C-w>k
-nmap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
 
 " Go to the last tab
-nmap <Leader>L 1gtgT
+nnoremap <Leader>L 1gtgT
 
 " Reopen a closed tab
-nmap <Leader>b :action ReopenClosedTab<CR>
+nnoremap <Leader>b :action ReopenClosedTab<CR>
 
 " Make closing windows sane
-nmap <C-w>c :q<CR>
-nmap <C-w>C :action CloseAllEditors<CR>
+nnoremap <C-w>c :q<CR>
+nnoremap <C-w>C :action CloseAllEditors<CR>
 
 " Toggle the blame (Annotations)
-nmap <Leader>B :action Annotate<CR>
+nnoremap <Leader>B :action Annotate<CR>
 
-nmap <Leader>g :action GotoDeclaration<CR>
-nmap <Leader>t :action GotoFile<CR>
-nmap <Leader>c :action GotoClass<CR>
-nmap <Leader>ns :action GotoSymbol<CR>
-nmap <Leader>nm :action FileStructurePopup<CR>
-nmap <Leader>d :action ShowErrorDescription<CR>
+nnoremap <Leader>g :action GotoDeclaration<CR>
+nnoremap <Leader>t :action GotoFile<CR>
+nnoremap <Leader>c :action GotoClass<CR>
+nnoremap <Leader>ns :action GotoSymbol<CR>
+nnoremap <Leader>nm :action FileStructurePopup<CR>
+nnoremap <Leader>d :action ShowErrorDescription<CR>
 
 " IdeaVim uses 'a' for alt instead of Vim's 'm'
 
 " Won't work in visual mode (with vmap) for some reason.
 " Use default map of <c-/> for that.
-" nmap gcc :action CommentByLineComment<CR>
+" nnoremap gcc :action CommentByLineComment<CR>
