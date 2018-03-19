@@ -35,6 +35,10 @@ nnoremap * *N
 nnoremap ]<Space> o<Esc>k
 nnoremap [<Space> O<Esc>j
 
+" These move the current line up/down
+nnoremap [e dd<Esc>kkp
+nnoremap ]e dd<Esc>p
+
 " key bindings for quickly moving between windows
 " h left, l right, k up, j down
 nnoremap <C-h> <C-w>h
