@@ -39,6 +39,10 @@ nnoremap [<Space> O<Esc>j
 nnoremap [e dd<Esc>kkp
 nnoremap ]e dd<Esc>p
 
+" Got to the previous/next error
+nnoremap [q :action GotoPreviousError<CR>
+nnoremap ]q :action GotoNextError<CR>
+
 " key bindings for quickly moving between windows
 " h left, l right, k up, j down
 nnoremap <C-h> <C-w>h
@@ -46,7 +50,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
-" Go to the last tab
+" Go to the end tab
 nnoremap <Leader>L 1gtgT
 
 " Reopen a closed tab
@@ -65,6 +69,8 @@ nnoremap <Leader>c :action GotoClass<CR>
 nnoremap <Leader>ns :action GotoSymbol<CR>
 nnoremap <Leader>nm :action FileStructurePopup<CR>
 nnoremap <Leader>d :action ShowErrorDescription<CR>
+
+nnoremap <Leader>r :action Run<CR>
 
 " IdeaVim uses 'a' for alt instead of Vim's 'm'
 
