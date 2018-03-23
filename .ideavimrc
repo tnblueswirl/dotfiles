@@ -39,7 +39,11 @@ nnoremap [<Space> O<Esc>j
 nnoremap [e dd<Esc>kkp
 nnoremap ]e dd<Esc>p
 
-" Got to the previous/next error
+" Go to the previous/next error
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+" Go to the previous/next error
 nnoremap [q :action GotoPreviousError<CR>
 nnoremap ]q :action GotoNextError<CR>
 
