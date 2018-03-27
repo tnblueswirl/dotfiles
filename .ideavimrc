@@ -10,6 +10,12 @@ set noerrorbells
 " Incremental search
 set incsearch
 
+" Case-insensitive searching
+set ignorecase
+
+" Case-sensitive if expression contains a capital letter
+set smartcase
+
 " 3 lines above/below cursor when scrolling
 set scrolloff=3
 
