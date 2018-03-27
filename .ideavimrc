@@ -74,6 +74,8 @@ nnoremap <C-w>C :action CloseAllEditors<CR>
 nnoremap <Leader>B :action Annotate<CR>
 
 nnoremap <Leader>g :action GotoDeclaration<CR>
+nnoremap g] :action GotoImplementation<CR>
+nnoremap g[ :action GotoSuperMethod<CR>
 nnoremap <Leader>t :action GotoFile<CR>
 nnoremap <Leader>c :action GotoClass<CR>
 nnoremap <Leader>ns :action GotoSymbol<CR>
