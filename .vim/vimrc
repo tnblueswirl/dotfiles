@@ -63,6 +63,9 @@ Plugin 'joonty/vdebug'
 " javascript syntax highlighting
 Plugin 'pangloss/vim-javascript'
 
+" jsx support
+Plugin 'mxw/vim-jsx'
+
 " json syntax highlighting
 Plugin 'elzr/vim-json'
 
