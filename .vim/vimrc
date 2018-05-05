@@ -378,6 +378,9 @@ command! -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 " Search in all files
 command! -nargs=+ Agrep grep -rn <args>
 
+" Run ctags specifically for JavaScript
+nnoremap <Leader>ctj :silent !ctags -R --fields=+laimS --languages=JavaScript .<CR>:redraw!<CR>
+
 " Run ctags specifically for php
 nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
 
