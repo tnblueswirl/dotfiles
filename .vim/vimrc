@@ -688,6 +688,9 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\  '<div> attribute "}}" lacks value',
 	\  '<div> attribute "{{/" lacks value',
 	\ ]
+" see https://github.com/jaxbot/syntastic-react for details
+" requires: eslint, babel-eslint, eslint-plugin-react (all via npm)
+" let g:syntastic_javascript_checkers = ['eslint']
 " }}}
 
 " The_Silver_Searcher Settings -------------------------------------------- {{{
