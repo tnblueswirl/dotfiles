@@ -1,0 +1,8 @@
+# Enable syntax completion in Python interpreter
+
+try:
+    import readline
+    import rlcompleter
+    readline.parse_and_bind("tab: complete")
+except ImportError:
+    print("Module readline or rlcompleter not available.")
