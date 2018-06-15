@@ -691,6 +691,11 @@ let g:syntastic_html_tidy_ignore_errors = [
 " see https://github.com/jaxbot/syntastic-react for details
 " requires: eslint, babel-eslint, eslint-plugin-react (all via npm)
 " let g:syntastic_javascript_checkers = ['eslint']
+
+" requires: sass-lint (via npm)
+" let g:syntastic_scss_checkers = ['sass_lint']
+" let g:syntastic_sass_sass_vars = '-I ' . getcwd()
+
 " }}}
 
 " The_Silver_Searcher Settings -------------------------------------------- {{{
