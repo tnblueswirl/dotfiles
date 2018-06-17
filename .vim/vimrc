@@ -742,6 +742,7 @@ let g:vdebug_options= {
 
 " emmet Settings ---------------------------------------------------------- {{{
 "
+" Set leader key to Ctrl+M; mnemonic is Markup
 let g:user_emmet_leader_key='<C-M>'
 " }}}
 
