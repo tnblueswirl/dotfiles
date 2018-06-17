@@ -740,6 +740,11 @@ let g:vdebug_options= {
 \}
 " }}}
 
+" emmet Settings ---------------------------------------------------------- {{{
+"
+let g:user_emmet_leader_key='<C-M>'
+" }}}
+
 " Vim Mustache Settings --------------------------------------------------- {{{
 "
 let g:mustache_abbreviations = 1
