@@ -60,6 +60,9 @@ Plugin 'mileszs/ack.vim'
 " Debugger (supports DBGP protocol)
 Plugin 'joonty/vdebug'
 
+" Emmet support for ease of writing html
+Plugin 'mattn/emmet-vim'
+
 " javascript syntax highlighting
 Plugin 'pangloss/vim-javascript'
 
