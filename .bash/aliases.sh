@@ -45,6 +45,9 @@ if [ $(which ctags &> /dev/null) ]; then
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
 
+# WORK ALIASES
+alias showlinks="find $(git rev-parse --show-toplevel)/node_modules -type l -d 1 | xargs -I {} basename {}"
+
 # TESTING ALIASES
 alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
 alias browsertest='console/acceptance/acceptance.sh'
