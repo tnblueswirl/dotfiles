@@ -17,7 +17,8 @@ tm_color_feature=$solarizedYellow
 tm_color_music=$solarizedViolet
 tm_active_border_color=$solarizedBase01
 
-tm_icon="☕"
+tm_icon=""
+# tm_icon="☕"
 # separators
 tm_separator_left_bold="◀"
 tm_separator_left_thin="❮"
