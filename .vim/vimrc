@@ -1,88 +1,87 @@
 " Required Starting Settings ---------------------------------------------- {{{
 set nocompatible              " be iMproved, required
-filetype off                  " required
 " }}}
 
 " Plugin Management ------------------------------------------------------- {{{
 "
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" Alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Pass a path where Plug should install plugins
+call plug#begin('~/.vim/bundle')
 
-" Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Load Plug help
+Plug 'junegunn/vim-plug'
 
 " NERDTree plugin
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " NERD Commenter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Solarized color scheme for Airline
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
 " python-mode plugin
-Plugin 'klen/python-mode'
+Plug 'klen/python-mode'
 
 " Airline (alternate vim-only version of now depricated vim-powerline)
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Git plugin to allow branch info to show
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Git plugin to indicate lines with changes
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " vim-obsession to make Session.vim better
-Plugin 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession'
 
 " vim-surround to work with HTML, XML, etc.
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " vim-unimpaired to quickly toggle and navigate
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " Editor Config to use file to set formatting per project
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " syntastic linter
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " CtrlP Fuzzy Finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " ack.vim
 " Note that this requires ack (`brew install ack`)
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 " Debugger (supports DBGP protocol)
-Plugin 'joonty/vdebug'
+Plug 'joonty/vdebug'
 
 " Emmet support for ease of writing html
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " javascript syntax highlighting
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
 
 " jsx support
-Plugin 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx', { 'for': ['js', 'jsx'] }
 
 " json syntax highlighting
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': ['json'] }
+
+" json5 syntax highlighting, too!
+Plug 'GutenYe/json5.vim', { 'for': ['json', 'json5'] }
 
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
-Plugin 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
 " phpfolding for automatically creating folds in PHP code
-Plugin 'rayburgemeestre/phpfolding.vim'
+Plug 'rayburgemeestre/phpfolding.vim', { 'for': ['php'] }
 
 " php syntax highlighting
-Plugin 'stanangeloff/php.vim'
+Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 
 " python syntax support
-Plugin 'hdima/python-syntax'
+Plug 'hdima/python-syntax', { 'for': ['python'] }
 
 " To navigate into Ruby source/gem files with Vim:
 " https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
@@ -96,55 +95,48 @@ Plugin 'hdima/python-syntax'
 " rbenv ctags
 
 " Bundler support (Ruby)
-Plugin 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
 
 " rails support (Ruby)
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 
 " rbenv support (Ruby)
-Plugin 'tpope/vim-rbenv'
+Plug 'tpope/vim-rbenv'
 
 " Ruby support
-Plugin 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for': ['ruby'] }
 
 " Vim Mustache
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache'] }
 
 " Twig.vim
-Plugin 'nelsyeung/twig.vim'
+Plug 'nelsyeung/twig.vim', { 'for': ['twig'] }
 
 " The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+" Keep Plug commands between plug#begin/end.
 " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" " plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
+" Plug 'tpope/vim-fugitive'
 " " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
+" Plug 'git://git.wincent.com/command-t.git'
 " " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+" Plug 'file:///home/gmarik/path/to/plugin'
 " " The sparkup vim script is in a subdirectory of this repo called vim.
 " " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " " Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+" Plug 'user/L9', {'name': 'newL9'}
 "
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-" filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-filetype plugin on
+call plug#end()            " required
+
 "
 " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
+" :PlugInstall    - installs plugins
+" :PlugUpdate
+" :PlugClean      - confirms removal of unused plugins
+" :PlugStatus     - check the status of plugins
 
-" See :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" See :h plug for more details or wiki for FAQ
 " }}}
 
 " Color Settings ---------------------------------------------------------- {{{
@@ -693,11 +685,11 @@ let g:syntastic_html_tidy_ignore_errors = [
 	\ ]
 " see https://github.com/jaxbot/syntastic-react for details
 " requires: eslint, babel-eslint, eslint-plugin-react (all via npm)
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " requires: sass-lint (via npm)
-" let g:syntastic_scss_checkers = ['sass_lint']
-" let g:syntastic_sass_sass_vars = '-I ' . getcwd()
+let g:syntastic_scss_checkers = ['sass_lint']
+let g:syntastic_sass_sass_vars = '-I ' . getcwd()
 
 " }}}
 
