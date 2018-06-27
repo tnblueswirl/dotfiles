@@ -1,5 +1,6 @@
 .DS_Store     skip
 .gitmodules   skip
+.mailmap      skip
 .ropeproject  skip
 README.md     skip
 Session.vim   skip

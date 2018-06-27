@@ -63,7 +63,7 @@ $ brew install vim
  * For vim-airline to correctly display symbols in the lower status bar, you will need to install a patched font. There are many choices in powerline's [fonts folder](https://github.com/powerline/fonts). However, I prefer Menlo (which is the default font in Atom and isn't in powerline's folder), so I used the patched version [here](https://gist.github.com/sjl/1627888). Navigate to the font in Finder, double click on it, and install it.
  * Once installed, you must change your Terminal or iTerm2 profile font settings to use it.
  * For the Solarized theme to work best in iTerm2, download the [iTerm2 color settings](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized) and load them in iTerm2 (in OS&nbsp;X / macOS, just double-click the itermcolors file). Note that once it is loaded, you must then select it in your Profile's 'Colors' tab.
- * Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug); launch Vim and type `:PlugInstall` to install the plugins
+ * Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug); launch Vim and type `:PlugInstall` to install the plugins.
  * For syntastic to perform syntax checks on JavaScript, you will need to install jshint (using [npm](http://npmjs.com)):
 
 ```bash
