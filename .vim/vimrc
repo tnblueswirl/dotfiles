@@ -20,7 +20,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline-themes'
 
 " python-mode plugin
-Plug 'klen/python-mode'
+Plug 'klen/python-mode', { 'for': ['python'] }
 
 " Airline (alternate vim-only version of now depricated vim-powerline)
 Plug 'vim-airline/vim-airline'
@@ -60,16 +60,20 @@ Plug 'joonty/vdebug'
 Plug 'mattn/emmet-vim'
 
 " javascript syntax highlighting
-Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'js', 'jsx'] }
 
 " jsx support
-Plug 'mxw/vim-jsx', { 'for': ['js', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'js', 'jsx'] }
 
 " json syntax highlighting
 Plug 'elzr/vim-json', { 'for': ['json'] }
 
 " json5 syntax highlighting, too!
 Plug 'GutenYe/json5.vim', { 'for': ['json', 'json5'] }
+
+" vim-prettier to automatically format
+Plug 'prettier/vim-prettier', {
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plug 'shawncplus/phpcomplete.vim'
@@ -594,6 +598,12 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.vim'
 " }}}
 
+" emmet Settings ---------------------------------------------------------- {{{
+"
+" Set leader key to Ctrl+M; mnemonic is Markup
+let g:user_emmet_leader_key='<C-M>'
+" }}}
+
 " Fugitive Settings ------------------------------------------------------- {{{
 "
 augroup fugitiveBuffers
@@ -636,6 +646,13 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 "
 " Don't autofold
 let g:DisableAutoPHPFolding = 1
+" }}}
+
+" vim-prettier Settings --------------------------------------------------- {{{
+"
+" Change key binding
+nnoremap <LocalLeader>p <Plug>(Prettier)
+nnoremap <Leader>gq :Prettier<CR>
 " }}}
 
 " PyMode Settings --------------------------------------------------------- {{{
@@ -730,12 +747,6 @@ let g:vdebug_options= {
 \    "marker_closed_tree" : '▸',
 \    "marker_open_tree" : '▾'
 \}
-" }}}
-
-" emmet Settings ---------------------------------------------------------- {{{
-"
-" Set leader key to Ctrl+M; mnemonic is Markup
-let g:user_emmet_leader_key='<C-M>'
 " }}}
 
 " Vim Mustache Settings --------------------------------------------------- {{{
