@@ -600,8 +600,8 @@ let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/
 
 " emmet Settings ---------------------------------------------------------- {{{
 "
-" Set leader key to Ctrl+M; mnemonic is Markup
-let g:user_emmet_leader_key='<C-M>'
+" Set emmet leader key to <Leader>m; mnemonic is Markup
+let g:user_emmet_leader_key='<Leader>m'
 " }}}
 
 " Fugitive Settings ------------------------------------------------------- {{{
@@ -652,7 +652,7 @@ let g:DisableAutoPHPFolding = 1
 "
 " Change key binding
 nnoremap <LocalLeader>p <Plug>(Prettier)
-nnoremap <Leader>gq :Prettier<CR>
+nnoremap <silent> <Leader>gq :Prettier<CR>
 " }}}
 
 " PyMode Settings --------------------------------------------------------- {{{
