@@ -602,6 +602,11 @@ let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/
 "
 " Set emmet leader key to <Leader>m; mnemonic is Markup
 let g:user_emmet_leader_key='<Leader>m'
+" let g:user_emmet_settings = {
+" \    'html' : {
+" \        'quote_char': "'",
+" \    },
+" \}
 " }}}
 
 " Fugitive Settings ------------------------------------------------------- {{{
