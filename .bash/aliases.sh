@@ -46,19 +46,20 @@ if [ $(which ctags &> /dev/null) ]; then
 fi
 
 # WORK ALIASES
-alias showlinks="find $(git rev-parse --show-toplevel)/node_modules -type l -d 1 | xargs -I {} basename {}"
+alias showlinks="find node_modules -type l -d 1 | xargs -I {} basename {}"
 
 # TESTING ALIASES
-alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
-alias browsertest='console/acceptance/acceptance.sh'
-alias browsertestchrome='console/func_tests_chrome.sh'
-alias browsertestsafari='console/func_tests_safari.sh'
-alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
-alias codeception='php lib/vendor/managed-packages/bin/codecept run'
-alias cover='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests'
-alias covertests='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
-alias testall='unit tests; apitest; browsertestchrome'
-alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
+# alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
+# alias browsertest='console/acceptance/acceptance.sh'
+# alias browsertestchrome='console/func_tests_chrome.sh'
+# alias browsertestsafari='console/func_tests_safari.sh'
+# alias buildtests='php lib/vendor/managed-packages/bin/codecept build'
+# alias codeception='php lib/vendor/managed-packages/bin/codecept run'
+# alias cover='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests'
+# alias covertests='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
+# alias testall='unit tests; apitest; browsertestchrome'
+# alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
+alias unit="vendor/phpunit/phpunit/phpunit -c phpunit.xml"
 
 # PERSONAL SCRIPT ALIASES
 alias findall='. ~/.dotfiles/myscripts/find_all.sh'
