@@ -59,6 +59,9 @@ Plug 'joonty/vdebug'
 " Emmet support for ease of writing html
 Plug 'mattn/emmet-vim'
 
+" GraphQL syntax support
+Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
+
 " javascript syntax highlighting
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'js', 'jsx'] }
 
