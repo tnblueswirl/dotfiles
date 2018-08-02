@@ -40,6 +40,9 @@ Plug 'tpope/vim-surround'
 " vim-unimpaired to quickly toggle and navigate
 Plug 'tpope/vim-unimpaired'
 
+" vim-repeat to give repeatability to vim-surround, vim-unimpaired, and others
+Plug 'tpope/vim-repeat'
+
 " Editor Config to use file to set formatting per project
 Plug 'editorconfig/editorconfig-vim'
 
@@ -265,6 +268,7 @@ endif
 " Set minimum window width to 88 (a.k.a. 'wiw')
 set winwidth=88
 
+" Enable indenting based on filetype
 filetype plugin indent on
 
 " Time out on key codes (not mappings)
