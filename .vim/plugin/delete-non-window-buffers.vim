@@ -23,7 +23,8 @@ function! DeleteNonWindowBuffers()
 	" Create the command by typing 'bdelete ' before the buffer numbers. Then,
 	" copy the whole line into the 'b' register. Next, enter command mode and
 	" paste the 'b' register. Finally, issue the command.
-	silent! normal 0ibdelete 0"byy:b 
+	silent! normal 0ibdelete "byy
+	silent! @b
 
 	" Delete our scratch buffer
 	silent! bd!
