@@ -170,6 +170,13 @@ let g:airline_theme = 'solarized'
 " Allow vim's own fuzzy find to work
 set path+=**
 
+" If in dotfiles, add relevant hidden directories to path (use :find).
+if (getcwd() == $HOME."/.dotfiles")
+	set path+=$HOME/.dotfiles/.bash
+	set path+=$HOME/.dotfiles/.tmux
+	set path+=$HOME/.dotfiles/.vim
+endif
+
 " When looking for files (default style, not CtrlP), visually display options
 set wildmenu
 
