@@ -376,6 +376,12 @@ vnoremap <F1> <ESC>
 " Make command mode go to beginning of line with Ctrl+a
 cnoremap <C-a>  <Home>
 
+" Make moving the cursor around in command mode like bash (Emacs)
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+
 " * will search word under cursor, but won't immediately jump to first match
 nnoremap <silent> * :keepjumps normal! mi*`i<CR>
 
