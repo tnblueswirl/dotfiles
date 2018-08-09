@@ -301,6 +301,9 @@ set lazyredraw
 " Enable Vim to search for tags file in parent directories
 set tags=tags;
 
+" When searching for tags, always match case!
+set tagcase=match
+
 " Toggle folds open/closed with space bar (ignore errors)
 nnoremap <silent> <Space> :silent! normal! za<CR>
 
