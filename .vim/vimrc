@@ -223,6 +223,9 @@ set cursorline
 " Allow deletion of existing characters in insert mode
 set backspace=2
 
+" Allow virtual edit in visual block mode
+set virtualedit=block
+
 " Show the filename in the window titlebar
 set title
 
