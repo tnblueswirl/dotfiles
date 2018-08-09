@@ -46,7 +46,9 @@ if [ $(which ctags &> /dev/null) ]; then
 fi
 
 # WORK ALIASES
+alias artisan="php artisan"
 alias showlinks="find node_modules -type l -d 1 | xargs -I {} basename {}"
+alias tinker="php artisan tinker"
 
 # TESTING ALIASES
 # alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
