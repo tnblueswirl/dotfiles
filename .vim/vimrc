@@ -291,6 +291,9 @@ set nojoinspaces
 " Don't update the screen during macro playback
 set lazyredraw
 
+" Enable Vim to search for tags file in parent directories
+set tags=tags;
+
 " Toggle folds open/closed with space bar (ignore errors)
 nnoremap <silent> <Space> :silent! normal! za<CR>
 
