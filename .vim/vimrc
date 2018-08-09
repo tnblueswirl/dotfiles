@@ -170,6 +170,13 @@ let g:airline_theme = 'solarized'
 " Allow vim's own fuzzy find to work
 set path+=**
 
+" If in dotfiles, add relevant hidden directories to path (use :find).
+if (getcwd() == $HOME."/.dotfiles")
+	set path+=$HOME/.dotfiles/.bash
+	set path+=$HOME/.dotfiles/.tmux
+	set path+=$HOME/.dotfiles/.vim
+endif
+
 " When looking for files (default style, not CtrlP), visually display options
 set wildmenu
 
@@ -381,6 +388,12 @@ vnoremap <F1> <ESC>
 
 " Make command mode go to beginning of line with Ctrl+a
 cnoremap <C-a>  <Home>
+
+" Make moving the cursor around in command mode like bash (Emacs)
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
 
 " * will search word under cursor, but won't immediately jump to first match
 nnoremap <silent> * :keepjumps normal! mi*`i<CR>
