@@ -49,7 +49,7 @@ You can also run
 
 ## Resources for Vim
 
- * To get Vim running properly, you must have first installed my dotfiles (or at least the Vim-related files) and run the dfm install command
+ * To get Vim running properly, you must have first installed my dotfiles (or at least the Vim-related files) and run the dfm install command. (On first install, shell restart is required.)
 
 ```bash
 $ ~/.dotfiles/bin/dfm install
