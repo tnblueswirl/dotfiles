@@ -11,7 +11,7 @@ This repo contains dotfiles for a development environment setup, including Vim a
 ```bash
 $ cd ~
 $ git clone https://github.com/ahartz1/dotfiles.git .dotfiles
-$ ./.dotfiles/bin/dfm install  # creates symlinks to install files
+$ ./.dotfiles/bin/dfm install  # Creates symlinks to install files. Shell restart required.
 ```
 
 ### If you want to make changes...
@@ -34,7 +34,7 @@ Finally, to install your dotfiles onto a new system:
 ```bash
 $ cd ~
 $ git clone git@github.com:username/dotfiles.git .dotfiles
-$ ./.dotfiles/bin/dfm install  # creates symlinks to install files
+$ ./.dotfiles/bin/dfm install  # Creates symlinks to install files. Shell restart required.
 ```
 
 ## Full documentation
