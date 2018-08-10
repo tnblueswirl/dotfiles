@@ -690,7 +690,7 @@ let g:DisableAutoPHPFolding = 1
 "
 " Change key binding
 nnoremap <LocalLeader>p <Plug>(Prettier)
-nnoremap <silent> <Leader>gq :Prettier<CR>
+nnoremap <silent> <LocalLeader>gq :Prettier<CR>
 let g:prettier#autoformat = 0
 " }}}
 
