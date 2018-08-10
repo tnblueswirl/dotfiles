@@ -345,6 +345,7 @@ set guioptions-=L
 augroup filetypeSpecific
 	autocmd!
 	autocmd FileType crontab       setlocal nobackup nowritebackup
+	autocmd FileType gitconfig     setlocal noexpandtab tabstop=4 shiftwidth=4
 	autocmd FileType help          setlocal nonumber
 	autocmd FileType html          setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
 	autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
