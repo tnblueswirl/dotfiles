@@ -439,7 +439,8 @@ augroup tabLeave
 	autocmd TabLeave * let g:lasttab = tabpagenr()
 augroup END
 
-" Switch to (numerically) previous tab. Optionally takes a count.
+" Mapping that allows for a count when switching to previous tab. Needed
+" because <count>gt will switch to a tab by its number.
 nnoremap <silent> g<C-t> :<C-u>exe "".(v:count ? v:count : "")."tabprevious"<CR>
 
 " Switch to the last tab in the tabline
