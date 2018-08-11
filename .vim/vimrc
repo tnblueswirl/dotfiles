@@ -154,8 +154,8 @@ call plug#end()            " required
 
 " Color Settings ---------------------------------------------------------- {{{
 "
-" Partial fix for solarized in Apple Terminal
-if $TERM_PROGRAM == 'Apple_Terminal'
+" Partial fix for solarized when terminal colors not set to Solarized
+if $TERM_PROGRAM == 'Apple_Terminal' || $ITERM_PROFILE !~? 'solarized'
 	let g:solarized_termcolors=256
 endif
 
