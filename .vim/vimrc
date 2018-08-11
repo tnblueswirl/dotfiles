@@ -288,6 +288,9 @@ endif
 " Set minimum window width to 88 (a.k.a. 'wiw')
 set winwidth=88
 
+" Open vertial splits to the right
+set splitright
+
 " Enable indenting based on filetype
 filetype plugin indent on
 
