@@ -19,6 +19,9 @@ Plug 'scrooloose/nerdcommenter'
 " Solarized color scheme for Airline
 Plug 'vim-airline/vim-airline-themes'
 
+" PaperColor vim color theme
+Plug 'NLKNguyen/papercolor-theme'
+
 " python-mode plugin
 Plug 'klen/python-mode', { 'for': ['python'] }
 
@@ -151,18 +154,25 @@ call plug#end()            " required
 
 " Color Settings ---------------------------------------------------------- {{{
 "
-" set t_Co=256
+" Partial fix for solarized in Apple Terminal
+if $TERM_PROGRAM == 'Apple_Terminal'
+	let g:solarized_termcolors=256
+endif
 
-set background=dark
+if $THEME == 'PaperColor'
+	set background=light
+	colorscheme PaperColor
+	let g:airline_theme = 'papercolor'
+else
+	set background=dark
+	colorscheme solarized
+	let g:airline_theme = 'solarized'
+endif
 
 " Allow background color changes to also work in tmux
 if &term =~ '256color'
 	set t_ut=
 endif
-
-colorscheme solarized
-
-let g:airline_theme = 'solarized'
 " }}}
 
 " General Vim Settings ---------------------------------------------------- {{{
