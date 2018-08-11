@@ -291,6 +291,9 @@ set winwidth=88
 " Open vertial splits to the right
 set splitright
 
+" Open horizontal splits to the bottom
+set splitbelow
+
 " Enable indenting based on filetype
 filetype plugin indent on
 
