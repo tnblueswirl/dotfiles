@@ -155,11 +155,11 @@ call plug#end()            " required
 " Color Settings ---------------------------------------------------------- {{{
 "
 " Partial fix for solarized when terminal colors not set to Solarized
-if $TERM_PROGRAM == 'Apple_Terminal' || $ITERM_PROFILE !~? 'solarized'
+if $ITERM_PROFILE !~? 'solarized' && $TERM_PROFILE !~? 'solarized'
 	let g:solarized_termcolors=256
 endif
 
-if $THEME == 'PaperColor'
+if $THEME == 'PaperColor' || ($ITERM_PROFILE !~? 'solarized' && $TERM_PROFILE !~? 'solarized')
 	set background=light
 	colorscheme PaperColor
 	let g:airline_theme = 'papercolor'
