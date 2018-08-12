@@ -19,9 +19,6 @@ Plug 'scrooloose/nerdcommenter'
 " Solarized color scheme for Airline
 Plug 'vim-airline/vim-airline-themes'
 
-" PaperColor vim color theme
-Plug 'NLKNguyen/papercolor-theme'
-
 " python-mode plugin
 Plug 'klen/python-mode', { 'for': ['python'] }
 
@@ -159,15 +156,9 @@ if $ITERM_PROFILE !~? 'solarized' && $TERM_PROFILE !~? 'solarized'
 	let g:solarized_termcolors=256
 endif
 
-if $THEME == 'PaperColor'
-	set background=light
-	colorscheme PaperColor
-	let g:airline_theme = 'papercolor'
-else
-	set background=dark
-	colorscheme solarized
-	let g:airline_theme = 'solarized'
-endif
+set background=dark
+colorscheme solarized
+let g:airline_theme = 'solarized'
 
 " Allow background color changes to also work in tmux
 if &term =~ '256color'
