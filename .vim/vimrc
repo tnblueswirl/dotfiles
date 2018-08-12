@@ -455,6 +455,9 @@ nnoremap <silent> <LocalLeader>b :Gblame<CR>
 " Run :Gstatus
 nnoremap <silent> <LocalLeader>s :Gstatus<CR>
 
+" Run :Gcommit -v
+nnoremap <silent> <LocalLeader>c :Gcommit -v<CR>
+
 " Edit vimrc file
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 
