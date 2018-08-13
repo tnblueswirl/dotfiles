@@ -6,6 +6,7 @@ README.md     skip
 Session.vim   skip
 bin           recurse
 myscripts     skip
+resources     skip
 setup.sh      exec
 setup.sh      skip
 tags          skip
