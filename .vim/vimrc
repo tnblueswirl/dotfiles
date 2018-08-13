@@ -156,7 +156,12 @@ if $ITERM_PROFILE !~? 'solarized' && $TERM_PROFILE !~? 'solarized'
 	let g:solarized_termcolors=256
 endif
 
-set background=dark
+if $ITERM_PROFILE =~? 'light' || $TERM_PROFILE =~? 'light'
+	set background=light
+else
+	set background=dark
+endif
+
 colorscheme solarized
 let g:airline_theme = 'solarized'
 
