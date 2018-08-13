@@ -154,6 +154,10 @@ else
             let s:terminal_italic=1
         endif
     endfor
+	" If the terminal specifically reports supporting italics, then go ahead
+	if &term =~ '-italic'
+		let s:terminal_italic=1
+	endif
 endif
 
 " }}}

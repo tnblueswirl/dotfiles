@@ -554,11 +554,6 @@ function! BgToggle()
 		let g:solarized_contrast="high"
 		set background=light
 	endif
-	" Re-enable italics
-	if &term =~ '-italic'
-		hi Comment cterm=italic
-		hi htmlArg cterm=italic
-	endif
 endfunction
 " Map this function to <F9>
 nnoremap <silent> <F9> :call BgToggle()<CR>
@@ -841,12 +836,4 @@ augroup phpSyntaxOverride
 	autocmd!
 	autocmd FileType php call PhpSyntaxOverride()
 augroup END
-" }}}
-
-" Ensure Italics ---------------------------------------------------------- {{{
-" If our terminal supports italics, use them!
-if &term =~ '-italic'
-	hi Comment cterm=italic
-	hi htmlArg cterm=italic
-endif
 " }}}
