@@ -18,7 +18,7 @@ done
 #   Under "Terminal" tab, set "Report Terminal Type" as xterm-256color-italic
 #   Note that you can type into that box if it is not in the list!
 if [ "$TERM" = "xterm-256color" ] ; then
-	tic ~/.dotfiles/myscripts/xterm-256color-italic.terminfo
+	tic ~/.dotfiles/resources/xterm-256color-italic.terminfo
 	export TERM=xterm-256color-italic
 fi
 
