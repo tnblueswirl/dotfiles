@@ -103,8 +103,8 @@
 " base00    #657b83 11/7 bryellow 241 #585858 50 -07 -07 101 123 131 195  23  51
 " base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
 " base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
-" base2     #eee8d5  7/7 white    254 #d7d7af 92 -00  10 238 232 213  44  11  93 cterm: now 251
-" base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99 cterm: now 255
+" base2     #eee8d5  7/7 white    254 #d7d7af 92 -00  10 238 232 213  44  11  93 cterm: now 251 #c6c6c6
+" base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99 cterm: now 255 #eeeeee
 " yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
 " orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
 " red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
