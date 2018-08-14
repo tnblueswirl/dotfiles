@@ -8,6 +8,10 @@ alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
 alias lightbkgnd="source $HOME/.dotfiles/myscripts/lightbkgnd.sh"
 alias onedark="export DIRC='tput setaf 170'"
+alias solarizedlight="source /Users/hartz/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solarized Light'"
+alias solarizeddark="source /Users/hartz/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solarized Dark'"
+alias solarlight="source /Users/hartz/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solar Light 256'"
+alias solardark="source /Users/hartz/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solar Dark 256'"
 alias toggle_solarized="source $HOME/.dotfiles/myscripts/toggle_solarized.sh"
 # alias vimbranch is defined in `functions.sh`
 alias vimselect='select session in $(ls -1 | grep 'Session*.vim') ; do vim -S "$session" ; done'
