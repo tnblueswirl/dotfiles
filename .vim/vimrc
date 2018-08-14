@@ -152,11 +152,11 @@ call plug#end()            " required
 " Color Settings ---------------------------------------------------------- {{{
 "
 " Partial fix for solarized when terminal colors not set to Solarized
-if $ITERM_PROFILE !~? 'solarized' && $TERM_PROFILE !~? 'solarized'
+if $ITERM_PROFILE !~? 'solarized'
 	let g:solarized_termcolors=256
 endif
 
-if $ITERM_PROFILE =~? 'light' || $TERM_PROFILE =~? 'light'
+if $ITERM_PROFILE =~? 'light'
 	set background=light
 else
 	set background=dark

@@ -3,11 +3,12 @@
 
 # CONVENIENCE SHORTCUTS
 alias armorlog=". $HOME/.dotfiles/myscripts/armorlog.sh 0"
-alias darkbkgnd="export GITC='tput setaf 251'"
+alias darkbkgnd="source $HOME/.dotfiles/myscripts/darkbkgnd.sh"
 alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
-alias lightbkgnd="export GITC='tput setaf 239'"
+alias lightbkgnd="source $HOME/.dotfiles/myscripts/lightbkgnd.sh"
 alias onedark="export DIRC='tput setaf 170'"
+alias toggle_solarized="source $HOME/.dotfiles/myscripts/toggle_solarized.sh"
 # alias vimbranch is defined in `functions.sh`
 alias vimselect='select session in $(ls -1 | grep 'Session*.vim') ; do vim -S "$session" ; done'
 
