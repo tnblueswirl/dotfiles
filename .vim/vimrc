@@ -380,8 +380,8 @@ let mapleader=","
 " Change <LocalLeader> to '\' (backslash)
 let maplocalleader="\\"
 
-" Remap save
-nnoremap <Leader>s :w<CR>
+" Remap save (only if buffer has changed)
+nnoremap <silent> <Leader>s :update<CR>
 
 " Remap load
 nnoremap <Leader>e :e!<CR>
