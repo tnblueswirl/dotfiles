@@ -12,7 +12,7 @@ alias solarlight="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROF
 alias solardark="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solar Dark 256'"
 alias toggle_solarized="source ~/.dotfiles/myscripts/toggle_solarized.sh"
 # alias vimbranch is defined in `functions.sh`
-alias vimselect='select session in $(ls -1 | grep 'Session*.vim') ; do vim -S "$session" ; done'
+alias vimselect='select session in $(ls -1 | grep "Session.vim") ; do vim -S "$session" ; done'
 
 if [ $(uname | grep Linux &> /dev/null) ]; then
   alias ll='ls -lAhGF --color=auto'
