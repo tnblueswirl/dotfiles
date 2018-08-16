@@ -792,7 +792,7 @@ if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
 
 	" Use Ag over Ack
-	let g:ackprg = 'ag --vimgrep --'
+	let g:ackprg = 'ag --vimgrep'
 
 	" Use ag in CtrlP for listing files. Lightning fast and respects
 	" .gitignore
