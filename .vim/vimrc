@@ -499,7 +499,7 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 " parameter to specify a pattern other than '='. Patterns are case-sensitive.
 "
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
-" Note: Also works on blocks of text in Visual mode
+" Note: Also works on lines of text in Visual mode
 function! AJIndent(indent_column, ...)
 	" If a pattern was specified, use it, otherwise use '='
 	" (Uses ternary if-then-else expression; see `:help E109` for details.)
