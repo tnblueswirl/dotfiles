@@ -18,7 +18,11 @@ if tput setaf 1 &> /dev/null; then
   else
     DIRC="tput setaf 6"
   fi
-  GITC="tput setaf 251"
+  if [[ "${ITERM_PROFILE}" =~ [Ll]ight ]]; then
+    GITC="tput setaf 239"
+  else
+    GITC="tput setaf 251"
+  fi
   GITUNPUSHEDC="tput setaf 214"
   ERRORC="tput setaf 1"
   BOLD="tput bold"
