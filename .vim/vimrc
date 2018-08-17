@@ -330,6 +330,10 @@ runtime! ftplugin/man.vim
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+
+" Ctrl-U in insert mode deletes a lot. Use Ctrl-G u to first break undo, so
+" that you can undo Ctrl-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 " }}}
 
 " Gvim Settings ----------------------------------------------------------- {{{
