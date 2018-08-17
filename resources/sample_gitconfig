@@ -1,0 +1,41 @@
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	safecrlf = true
+	editor = vim
+[color]
+	ui = true
+[color "diff"]
+	meta = yellow
+	frag = blue
+[color "status"]
+	untracked = yellow
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[status]
+	showStash = true
+[alias]
+	br = branch
+	co = checkout
+	cob = checkout -b
+	cof = checkout --
+	cov = commit -v
+	conflicts = diff --name-only --diff-filter=U
+	df = diff
+	dfs = diff --staged
+	la = log --oneline --graph --decorate --all
+	lo = log --oneline
+	lom = log --oneline --merges
+	lon = log --oneline --no-merges
+	lor = log --oneline --reverse
+	recent-branches = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+	st = status
+	stashl = stash list
+	sts = status -s
+	unstage = reset HEAD --
+
+; vim:ft=gitconfig

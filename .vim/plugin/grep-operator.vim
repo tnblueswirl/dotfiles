@@ -31,9 +31,9 @@ function! s:GrepOperator(type, ...)
 	endif
 
 	if exists(":Ack")
-		silent! execute "Ack! " . shellescape(@*) . " ."
+		silent! execute "Ack! -- " . shellescape(@*) . " ."
 	else
-		silent execute "grep! -R " . shellescape(@*) . " ."
+		silent execute "grep! -R -- " . shellescape(@*) . " ."
 	endif
 
 	" Open the errors list
