@@ -323,14 +323,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Enable ability to load man pages in Vim (with ":Man")
 runtime! ftplugin/man.vim
 
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
-
 " Ctrl-U in insert mode deletes a lot. Use Ctrl-G u to first break undo, so
 " that you can undo Ctrl-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
