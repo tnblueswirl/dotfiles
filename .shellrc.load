@@ -28,11 +28,11 @@ if [ -f ~/.dir_colors/dircolors ]; then
 fi
 
 # Stop the cursor from blinking in Gnome
-if which gsettings &> /dev/null; then
+if [ $(which gsettings &> /dev/null) ]; then
 	gsettings set org.gnome.desktop.interface cursor-blink false
 fi
 
 # direnv has to be loaded last
-if which direnv &> /dev/null; then
+if [ $(which direnv &> /dev/null) ]; then
 	eval "$(direnv hook bash)"
 fi
