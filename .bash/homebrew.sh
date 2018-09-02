@@ -1,4 +1,4 @@
-if which brew &> /dev/null; then
+if [[ $(which brew) ]]; then
 
   # Set architecture flags
   export ARCHFLAGS="-arch x86_64"
@@ -8,7 +8,7 @@ if which brew &> /dev/null; then
 
   # Homebrew autocompletion
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      source $(brew --prefix)/etc/bash_completion
+    source $(brew --prefix)/etc/bash_completion
   fi
 
 fi

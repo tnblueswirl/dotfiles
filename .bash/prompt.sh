@@ -1,13 +1,13 @@
 # cndreisbach's bash prompt, heavily inspired by @gf3’s Sexy Bash Prompt
 
 function_exists() {
-    declare -f -F $1 > /dev/null
-    return $?
+  declare -f -F $1 > /dev/null
+  return $?
 }
 
-if [[ ${COLORTERM} = gnome-* && ${TERM} = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+if [[ ${COLORTERM} = gnome-* && ${TERM} = xterm ]] && [[ $(infocmp gnome-256color 2> /dev/null) ]]; then
   export TERM=gnome-256color
-elif infocmp xterm-256color >/dev/null 2>&1; then
+elif [[ $(infocmp xterm-256color 2> /dev/null) ]]; then
   export TERM=xterm-256color
 fi
 

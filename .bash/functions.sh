@@ -8,7 +8,7 @@
 browsertests() {
   if [ $# -eq 0 ]; then
     echo "Exiting... please specify a browser (e.g., chrome)"
-	return
+    return
   elif [ -z "$2" ]; then
       tests="acceptance"
   else
@@ -18,7 +18,7 @@ browsertests() {
   /usr/bin/java \
     -Dwebdriver.chrome.driver=lib/vendor/chromedriver \
     -jar lib/vendor/managed-packages/netwing/selenium-server-standalone/selenium-server-standalone.jar \
-	> tests/results/functional/selenium.log 2>&1 &
+    > tests/results/functional/selenium.log 2>&1 &
   # Delete any failure output files from a previous run
   rm -f tests/_output/*.fail.*
   # Wait for the Selenium server to finish its spin-up

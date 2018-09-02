@@ -1,3 +1,3 @@
-if which rbenv > /dev/null; then
+if [[ $(which rbenv) ]]; then
   eval "$(rbenv init -)"
 fi
