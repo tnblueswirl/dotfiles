@@ -14,7 +14,7 @@ alias toggle_solarized="source ~/.dotfiles/myscripts/toggle_solarized.sh"
 # alias vimbranch is defined in `functions.sh`
 alias vimselect='select session in $(ls -1 | grep "Session.vim") ; do vim -S "$session" ; done'
 
-if [[ $(uname 2> /dev/null | grep Linux) ]]; then
+if [ $(uname 2> /dev/null | grep Linux) ]; then
   alias ll='ls -lAhGF --color=auto'
   alias lls='ls -FGA1 --color=auto'
 else
@@ -44,7 +44,7 @@ alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
-if [[ $(which ctags) ]]; then
+if [ $(which ctags) ]; then
   alias ctagsphp='ctags -R --fields=+laimS --languages=php'
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
@@ -72,6 +72,6 @@ alias findall='. ~/.dotfiles/myscripts/find_all.sh'
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # UBUNTU-SPECIFIC
-if [[ $(uname 2> /dev/null | grep Linux) ]]; then
+if [ $(uname 2> /dev/null | grep Linux) ]; then
   alias cls='tput reset'
 fi
