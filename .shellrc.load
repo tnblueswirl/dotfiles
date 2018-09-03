@@ -1,38 +1,42 @@
 #!/bin/bash
 
-export PATH=$PATH:$HOME/bin:$HOME/.dotfiles/bin
+if [ ! $_PATH_SET ]; then
+  export PATH=$PATH:$HOME/bin:$HOME/.dotfiles/bin
+fi
 
 if [ -f ~/.env.sh ]; then
-	. ~/.env.sh
+  . ~/.env.sh
 fi
 
 if [ -f ~/.aliases.sh ]; then
-	. ~/.aliases.sh
+  . ~/.aliases.sh
 fi
 
 for file in $(ls ~/.bash); do
-	. ~/.bash/$file
+  . ~/.bash/$file
 done
 
 # Allow iTerm2 to show italic text:
 #   Under "Terminal" tab, set "Report Terminal Type" as xterm-256color-italic
 #   Note that you can type into that box if it is not in the list!
 if [ "$TERM" = "xterm-256color" ] ; then
-	tic ~/.dotfiles/resources/xterm-256color-italic.terminfo
-	export TERM=xterm-256color-italic
+  tic ~/.dotfiles/resources/xterm-256color-italic.terminfo
+  export TERM=xterm-256color-italic
 fi
 
 # Load up custom directory colors
 if [ -f ~/.dir_colors/dircolors ]; then
-	eval `dircolors ~/.dir_colors/dircolors`
+  eval `dircolors ~/.dir_colors/dircolors`
 fi
 
 # Stop the cursor from blinking in Gnome
 if [ $(which gsettings) ]; then
-	gsettings set org.gnome.desktop.interface cursor-blink false 2> /dev/null
+  gsettings set org.gnome.desktop.interface cursor-blink false 2> /dev/null
 fi
 
 # direnv has to be loaded last
 if [ $(which direnv) ]; then
-	eval "$(direnv hook bash)"
+  eval "$(direnv hook bash)"
 fi
+
+export _PATH_SET=1
