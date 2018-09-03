@@ -72,3 +72,5 @@ vim_branch_arg() {
     echo '-S'
   fi
 }
+
+alias vimbranch='vim $(vim_branch_arg)'
