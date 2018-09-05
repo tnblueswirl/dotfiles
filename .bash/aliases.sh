@@ -2,7 +2,7 @@
 # alias g='git'
 
 # CONVENIENCE SHORTCUTS
-alias armorlog=". ~/.dotfiles/myscripts/armorlog.sh 0"
+alias armorlog='. ~/.dotfiles/myscripts/armorlog.sh 0'
 alias darkbkgnd="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solarized Dark'"
 alias gitlog='git log --graph --oneline --decorate --all'
 alias irb='irb --simple-prompt'
@@ -10,7 +10,7 @@ alias lightbkgnd="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROF
 alias onedark="export DIRC='tput setaf 170'"
 alias solarlight="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solar Light 256'"
 alias solardark="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solar Dark 256'"
-alias toggle_solarized="source ~/.dotfiles/myscripts/toggle_solarized.sh"
+alias toggle_solarized='source ~/.dotfiles/myscripts/toggle_solarized.sh'
 # alias vimbranch is defined in `functions.sh`
 alias vimselect='select session in $(ls -1 | grep "Session.vim") ; do vim -S "$session" ; done'
 
@@ -50,9 +50,9 @@ if [ $(which ctags) ]; then
 fi
 
 # WORK ALIASES
-alias artisan="php artisan"
-alias showlinks="find node_modules -type l -d 1 | xargs -I {} basename {}"
-alias tinker="php artisan tinker"
+alias artisan='php artisan'
+alias showlinks='find node_modules -type l -d 1 | xargs -I {} basename {}'
+alias tinker='php artisan tinker'
 
 # TESTING ALIASES
 # alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
@@ -65,7 +65,7 @@ alias tinker="php artisan tinker"
 # alias covertests='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.coverage.xml tests; console/copy_coverage_results'
 # alias testall='unit tests; apitest; browsertestchrome'
 # alias unit='lib/vendor/managed-packages/phpunit/phpunit/phpunit -c tests/data/phpunit.xml'
-alias unit="vendor/phpunit/phpunit/phpunit -c phpunit.xml"
+alias unit='vendor/phpunit/phpunit/phpunit -c phpunit.xml'
 
 # PERSONAL SCRIPT ALIASES
 alias findall='. ~/.dotfiles/myscripts/find_all.sh'
