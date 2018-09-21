@@ -28,7 +28,7 @@ alias turnonipv6="networksetup -setv6automatic Wi-Fi"
 
 # REDEFINING COMMANDS TO AVOID PROBLEMS AND ADD OPTIONS
 alias cp='cp -i'
-alias df='df -h'
+alias df='df -H'
 alias du='du -h'
 alias grep='grep --color=auto'
 alias ln='ln -i'
