@@ -596,10 +596,10 @@ endif
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
-nnoremap <Leader>a :silent! Ack!<Space>'
+nnoremap <Leader>a :silent! Ack!<Space>-F<Space>
 
 " Start an Ack search in a new tab
-nnoremap <Leader>A :tabe<CR>:silent! Ack<Space>'
+nnoremap <Leader>A :tabe<CR>:silent! Ack<Space>-F<Space>
 
 " Modify default mappings to open result in middle of the screen
 let g:ack_mappings = {
