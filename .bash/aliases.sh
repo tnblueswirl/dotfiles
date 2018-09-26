@@ -71,7 +71,8 @@ alias unit='vendor/phpunit/phpunit/phpunit -c phpunit.xml'
 alias findall='. ~/.dotfiles/myscripts/find_all.sh'
 alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
-# UBUNTU-SPECIFIC
-if [ $(uname 2> /dev/null | grep Linux) ]; then
-  alias cls='tput reset'
+# TMUX HELPER
+alias smart_cls=' clear && tmux clear-history 2> /dev/null'
+if [ ! $(which clear 2> /dev/null) ] && [ $(which reset 2> /dev/null) ]; then
+  alias smart_cls=' reset && tmux clear-history 2> /dev/null'
 fi
