@@ -44,7 +44,7 @@ alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
-if [ $(which ctags) ]; then
+if [ $(which ctags 2> /dev/null) ]; then
   alias ctagsphp='ctags -R --fields=+laimS --languages=php'
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
