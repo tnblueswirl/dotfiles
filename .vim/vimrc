@@ -277,8 +277,8 @@ set softtabstop=4
 " set expandtab
 
 " Make wrapped lines indent to match starting line
-if has('linebreak')
-	silent! set breakindent
+if exists('&breakindent')
+	set breakindent
 endif
 
 " Set minimum window width to 88 (a.k.a. 'wiw')
@@ -311,7 +311,9 @@ set lazyredraw
 set tags=tags;
 
 " When searching for tags, always match case!
-silent! set tagcase=match
+if exists('&tagcase')
+	set tagcase=match
+endif
 
 " Toggle folds open/closed with space bar (ignore errors)
 nnoremap <silent> <Space> :silent! normal! za<CR>
