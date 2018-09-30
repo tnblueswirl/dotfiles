@@ -45,7 +45,7 @@ browsertests() {
 vim_branch_arg() {
   # Collect all .vim files with 'Session' in the name in the current directory
   local sessions
-  sessions=$(ls -1 | grep "Session*.vim")
+  sessions=$(ls -1 | grep -E 'Session.*\.vim')
   if [ -z "${sessions}" ]; then
     return
   fi
@@ -55,7 +55,7 @@ vim_branch_arg() {
   # fail to identify a match.
   local ticket_from_git_branch
   ticket_from_git_branch=$(git symbolic-ref --short HEAD \
-    | sed -E -e 's/.*([0-9]{4,}).*/\1/')
+    | sed -E -e 's/.*\/?([A-Z]{2,4}-[0-9]+).*/\1/')
   local has_std_session=0
   for session in ${sessions}
   do
