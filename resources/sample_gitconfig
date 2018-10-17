@@ -1,5 +1,7 @@
 [push]
 	default = simple
+[pull]
+	rebase = preserve
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
@@ -38,6 +40,7 @@
 	st = status
 	stashl = stash list
 	sts = status -s
+	tidy = rebase -i @{upstream}..
 	unstage = reset HEAD --
 
 ; vim:ft=gitconfig
