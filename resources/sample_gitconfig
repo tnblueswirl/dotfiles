@@ -40,7 +40,7 @@
 	st = status
 	stashl = stash list
 	sts = status -s
-	tidy = rebase -i @{upstream}..
+	tidy = rebase -i
 	unstage = reset HEAD --
 
 ; vim:ft=gitconfig
