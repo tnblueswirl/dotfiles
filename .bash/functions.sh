@@ -55,7 +55,7 @@ vim_branch_arg() {
   # fail to identify a match.
   local ticket_from_git_branch
   ticket_from_git_branch=$(git symbolic-ref --short HEAD \
-    | sed -E -e 's/.*\/?([A-Z]{2,4}-[0-9]+).*/\1/')
+    | sed -E -e 's/.*\/?([A-Z]{2,6}-[0-9]+).*/\1/')
   local has_std_session=0
   for session in ${sessions}
   do
