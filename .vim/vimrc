@@ -93,7 +93,7 @@ Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 " python syntax support
 Plug 'hdima/python-syntax', { 'for': ['python'] }
 
-" vim-prettier to automatically format
+" typescript syntax support
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript' ] }
 
 " To navigate into Ruby source/gem files with Vim:
