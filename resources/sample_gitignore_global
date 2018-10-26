@@ -90,7 +90,7 @@ target/
 # vim stuff
 .ropeproject/
 .ctrlpignore
-*Session.vim
+*Session*.vim
 tags
 
 # JS stuff
