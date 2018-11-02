@@ -36,6 +36,7 @@
 	lom = log --oneline --merges
 	lon = log --oneline --no-merges
 	lor = log --oneline --reverse
+	lot = log --oneline --topo-order --graph --decorate
 	recent-branches = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
 	st = status
 	stashl = stash list
