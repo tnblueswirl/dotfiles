@@ -5,7 +5,7 @@
 alias armorlog='. ~/.dotfiles/myscripts/armorlog.sh 0'
 alias darkbkgnd="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solarized Dark'"
 alias gitlog='git log --graph --oneline --decorate --all'
-alias gittags='git tag -l | sort -k 1 -k 2 -k 3 -t "." -n'
+alias gittags='git tag -l | sort -V'
 alias irb='irb --simple-prompt'
 alias lightbkgnd="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solarized Light'"
 alias onedark="export DIRC='tput setaf 170'"
