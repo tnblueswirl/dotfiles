@@ -26,6 +26,8 @@
 	enabled = true
 [status]
 	showStash = true
+[tag]
+	sort = version:refname
 [alias]
 	br = branch
 	co = checkout
