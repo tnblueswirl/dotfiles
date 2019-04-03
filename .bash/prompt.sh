@@ -1,8 +1,7 @@
 # cndreisbach's bash prompt, heavily inspired by @gf3’s Sexy Bash Prompt
 
 function_exists() {
-  declare -f -F $1 > /dev/null
-  return $?
+  test $(declare -f -F $1)
 }
 
 if [[ ${COLORTERM} = gnome-* && ${TERM} = xterm ]] && [[ $(infocmp gnome-256color 2> /dev/null) ]]; then
