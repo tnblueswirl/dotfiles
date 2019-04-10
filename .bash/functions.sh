@@ -37,6 +37,30 @@ browsertests() {
 }
 
 ################################################################################
+# Print the active ip address
+#   -v   Print relevant details about the active internet interface
+#   -vv  Print all details about the active internet interface
+################################################################################
+showip() {
+  local iface=$(route get 0.0.0.0 2>/dev/null | awk '/interface/ { print $2 }')
+  if [ -z $iface ]; then
+    echo >&2 ":: No interface found"
+    return 1;
+  fi
+  case "$1" in
+    -vv)
+      ifconfig -v $iface
+      ;;
+    -v)
+      ifconfig -v $iface | awk '/(^e)|(inet[^6])|(type)/'
+      ;;
+    *)
+      ifconfig -v $iface | awk '/inet[^6]/ { print $2 }'
+      ;;
+  esac
+}
+
+################################################################################
 # Determine which parameters should be passed to Vim. If the current git branch
 # contains a ticket number and there is a session file that contains that
 # number, then return it. Failing that, return Session.vim, if it exists.
