@@ -16,8 +16,8 @@ alias toggle_solarized='source ~/.dotfiles/myscripts/toggle_solarized.sh'
 alias vimselect='select session in $(ls -1 | grep -E "Session.*\.vim") ; do vim -S "$session" ; break ; done'
 
 if [ $(uname 2> /dev/null | grep Linux) ]; then
-  alias ll='ls -lAhGF --color=auto'
-  alias lls='ls -FGA1 --color=auto'
+  alias ll='ls -lAhF --color=auto'
+  alias lls='ls -FA1 --color=auto'
 else
   alias ll='ls -lAhGF'
   alias lls='ls -FGA1'
