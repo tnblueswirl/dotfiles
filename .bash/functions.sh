@@ -52,7 +52,7 @@ showip() {
       ifconfig -v $iface
       ;;
     -v)
-      ifconfig -v $iface | awk '/(^e)|(inet[^6])|(type)/'
+      ifconfig -v $iface | awk '/(^'"$iface"')|(inet[^6])|(type)/'
       ;;
     *)
       ifconfig -v $iface | awk '/inet[^6]/ { print $2 }'
