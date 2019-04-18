@@ -1,5 +1,9 @@
 # cndreisbach's bash prompt, heavily inspired by @gf3’s Sexy Bash Prompt
 
+if [ -n "$ZSH" ]; then
+  return
+fi
+
 function_exists() {
   test $(declare -f -F $1)
 }

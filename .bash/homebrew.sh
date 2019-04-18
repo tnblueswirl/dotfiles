@@ -9,7 +9,7 @@ if [ $(which brew 2> /dev/null) ]; then
   fi
 
   # Homebrew autocompletion
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  if [ -z "$ZSH" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
   fi
 

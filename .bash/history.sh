@@ -1,5 +1,7 @@
 # append to history file instead of overwriting it
-shopt -s histappend
+if [ -z "$ZSH" ]; then
+  shopt -s histappend
+fi
 
 # ignore duplicates, lines starting with spaces, and some common one-off commands
 export HISTCONTROL="ignoreboth"  # ignoredups:ignorespace
