@@ -52,7 +52,7 @@ fi
 
 # WORK ALIASES
 alias artisan='php artisan'
-alias showlinks="ls -lA node_modules/ | grep '^l' | sed 's/.*\/\(.*\)$/\1/'"
+alias showlinks="ls -lA node_modules/ | grep '^l' | sed -l 's/.*\/\(.*\)$/\1/'"
 alias tinker='php artisan tinker'
 
 # TESTING ALIASES
