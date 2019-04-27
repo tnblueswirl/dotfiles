@@ -47,7 +47,10 @@ Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 
 " syntastic linter
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+
+" ALE (Asynchronous Lint Engine)
+Plug 'w0rp/ale'
 
 " CtrlP Fuzzy Finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -644,6 +647,22 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.maxlinenr = '☰'
 let g:airline_symbols.dirty='*'
+" }}}
+
+" ALE Settings ------------------------------------------------------------ {{{
+"
+" Show warnings in statusline
+let g:airline#extensions#ale#enabled = 1
+
+" Show window with errors when they exist
+let g:ale_open_list = 1
+
+" Lint when text has changed, but only when in normal mode
+let g:ale_lint_on_text_changed = 'normal'
+
+let g:ale_linters = {
+	\  'javascript': ['eslint'],
+	\ }
 " }}}
 
 " CtrlP Settings ---------------------------------------------------------- {{{
