@@ -85,7 +85,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
-Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim', { 'for': ['php'] }
 
 " phpfolding for automatically creating folds in PHP code
 Plug 'rayburgemeestre/phpfolding.vim', { 'for': ['php'] }
@@ -111,13 +111,13 @@ Plug 'leafgarland/typescript-vim', { 'for': ['typescript' ] }
 " rbenv ctags
 
 " Bundler support (Ruby)
-Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler', { 'for': ['ruby'] }
 
 " rails support (Ruby)
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails', { 'for': ['ruby'] }
 
 " rbenv support (Ruby)
-Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-rbenv', { 'for': ['ruby'] }
 
 " Ruby support
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby'] }
