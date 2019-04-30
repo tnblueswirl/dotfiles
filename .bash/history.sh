@@ -5,7 +5,7 @@ fi
 
 # ignore duplicates, lines starting with spaces, and some common one-off commands
 export HISTCONTROL="ignoreboth"  # ignoredups:ignorespace
-export HISTIGNORE="history:pwd:exit:df:ls:ls -la:ll:ls -a:lls:git st:gi tst"
+export HISTIGNORE="history:pwd:exit:df:ls:ls -la:ll:ls -a:lls:git st:gi tst:clear"
 
 # keep more history
 export HISTFILESIZE=50000
