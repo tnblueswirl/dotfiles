@@ -2,8 +2,10 @@
 .eclimrc
 .tmux/plugins/
 .tmux/resurrect/
+.vim/autoload/editorconfig.vim
 .vim/backups/
 .vim/bundle/
+.vim/plugin/editorconfig.*
 .vim/spell/
 .vim/swaps/
 .vim/undo/
