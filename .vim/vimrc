@@ -80,9 +80,21 @@ Plug 'elzr/vim-json', { 'for': ['json'] }
 " json5 syntax highlighting, too!
 Plug 'GutenYe/json5.vim', { 'for': ['json', 'json5'] }
 
-" vim-prettier to automatically format
+" vim-prettier to automatically format (html requires prettier ^1.15)
 Plug 'prettier/vim-prettier', {
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+  \ 'for': [
+  \     'css',
+  \     'graphql',
+  \     'html',
+  \     'javascript',
+  \     'json',
+  \     'less',
+  \     'markdown',
+  \     'scss',
+  \     'typescript',
+  \     'vue',
+  \ ]
+  \}
 
 " phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
 Plug 'shawncplus/phpcomplete.vim', { 'for': ['php'] }
@@ -159,13 +171,13 @@ call plug#end()            " required
 "
 " Partial fix for solarized when terminal colors not set to Solarized
 if $ITERM_PROFILE !~? 'solarized'
-	let g:solarized_termcolors=256
+    let g:solarized_termcolors=256
 endif
 
 if $ITERM_PROFILE =~? 'light'
-	set background=light
+    set background=light
 else
-	set background=dark
+    set background=dark
 endif
 
 colorscheme solarized
@@ -173,7 +185,7 @@ let g:airline_theme = 'solarized'
 
 " Allow background color changes to also work in tmux
 if &term =~ '256color'
-	set t_ut=
+    set t_ut=
 endif
 " }}}
 
@@ -184,9 +196,9 @@ set path+=**
 
 " If in dotfiles, add relevant hidden directories to path (use :find).
 if (getcwd() == $HOME."/.dotfiles")
-	set path+=$HOME/.dotfiles/.bash
-	set path+=$HOME/.dotfiles/.tmux
-	set path+=$HOME/.dotfiles/.vim
+    set path+=$HOME/.dotfiles/.bash
+    set path+=$HOME/.dotfiles/.tmux
+    set path+=$HOME/.dotfiles/.vim
 endif
 
 " When looking for files (default style, not CtrlP), visually display options
@@ -199,16 +211,16 @@ syntax on
 set noswapfile
 " Centralize backups and undo history
 if exists('$SUDO_USER')
-	set nobackup
-	set nowritebackup
-	set noundofile
+    set nobackup
+    set nowritebackup
+    set noundofile
 else
-	set backupdir=~/.vim/backups
-	" Uncomment this to use swapfiles (and unset noswapfile above)
-	" set directory=~/.vim/swaps//
-	if exists("&undodir")
-		set undodir=~/.vim/undo
-	endif
+    set backupdir=~/.vim/backups
+    " Uncomment this to use swapfiles (and unset noswapfile above)
+    " set directory=~/.vim/swaps//
+    if exists("&undodir")
+        set undodir=~/.vim/undo
+    endif
 endif
 
 " Make default clipboard the OS X clipboard (and unnamedplus for Linux)
@@ -217,11 +229,11 @@ set clipboard=unnamed,unnamedplus
 " Enable the mouse
 set mouse=a
 if has("mouse_sgr")
-	" enable resizing splits with mouse in tmux
-	set ttymouse=sgr
+    " enable resizing splits with mouse in tmux
+    set ttymouse=sgr
 elseif &term =~ '^screen'
-	" tmux knows the extended mouse mode
-	set ttymouse=xterm2
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 " Enable line numbers
@@ -284,7 +296,7 @@ set softtabstop=4
 
 " Make wrapped lines indent to match starting line
 if exists('&breakindent')
-	set breakindent
+    set breakindent
 endif
 
 " Set minimum window width to 88 (a.k.a. 'wiw')
@@ -304,7 +316,7 @@ set nofoldenable
 
 " Allow J to remove comment character when joining lines
 if v:version > 703
-	set formatoptions+=j
+    set formatoptions+=j
 endif
 
 " Don't add extra space after '.', '?', and '!' when joining lines
@@ -318,7 +330,7 @@ set tags=tags;
 
 " When searching for tags, always match case!
 if exists('&tagcase')
-	set tagcase=match
+    set tagcase=match
 endif
 
 " Toggle folds open/closed with space bar (ignore errors)
@@ -356,23 +368,23 @@ set guioptions-=L
 " To force spaces instead of tabs, set expandtab and softtabstop
 "   shiftwidth and softtabstop should be set to the same value
 augroup filetypeSpecific
-	autocmd!
-	autocmd FileType crontab       setlocal nobackup nowritebackup
-	autocmd FileType gitconfig     setlocal noexpandtab tabstop=4 shiftwidth=4
-	autocmd FileType help          setlocal nonumber
-	autocmd FileType html          setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
-	autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
-	autocmd FileType htmldjango    setlocal noexpandtab           shiftwidth=2
-	autocmd FileType javascript    setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=0
-	autocmd FileType json          setlocal noexpandtab tabstop=2 shiftwidth=2
-	autocmd FileType markdown      setlocal linebreak
-	autocmd FileType php           setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
-	autocmd FileType python        setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-	autocmd FileType ruby          setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
-	autocmd FileType sass          setlocal noexpandtab tabstop=2 shiftwidth=2
-	autocmd FileType scss          setlocal noexpandtab tabstop=2 shiftwidth=2
-	autocmd FileType sh            setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
-	autocmd FileType vim           setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=marker
+    autocmd!
+    autocmd FileType crontab       setlocal nobackup nowritebackup
+    autocmd FileType gitconfig     setlocal noexpandtab tabstop=4 shiftwidth=4
+    autocmd FileType help          setlocal nonumber
+    autocmd FileType html          setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
+    autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
+    autocmd FileType htmldjango    setlocal noexpandtab           shiftwidth=2
+    autocmd FileType javascript    setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=0
+    autocmd FileType json          setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd FileType markdown      setlocal linebreak
+    autocmd FileType php           setlocal noexpandtab tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
+    autocmd FileType python        setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
+    autocmd FileType ruby          setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType sass          setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd FileType scss          setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd FileType sh            setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType vim           setlocal expandtab   tabstop=4 shiftwidth=4 foldmethod=marker
 augroup END
 " }}}
 
@@ -449,8 +461,8 @@ nnoremap <Leader>cty :silent !ctags -R --fields=+laimS --languages=python .<CR>:
 let g:lasttab = 1
 nnoremap <Leader>l :exe "tabn ".g:lasttab<CR>
 augroup tabLeave
-	autocmd!
-	autocmd TabLeave * let g:lasttab = tabpagenr()
+    autocmd!
+    autocmd TabLeave * let g:lasttab = tabpagenr()
 augroup END
 
 " Switch to the last tab in the tabline
@@ -479,8 +491,8 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 " Show the highlighting groups for the text under the cursor
 noremap <S-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
 
@@ -505,36 +517,36 @@ call setreg('d', 's/\d\+$/\=submatch(0)+')
 " Example: `:call AJIndent(30, ':')` with cursor on the desired line
 " Note: Also works on lines of text in Visual mode
 function! AJIndent(indent_column, ...)
-	" If a pattern was specified, use it, otherwise use '='
-	" (Uses ternary if-then-else expression; see `:help E109` for details.)
-	let s:pattern = (a:0 > 0) ? a:1 : '='
-	" Define string of spaces that should replace a tab
-	let s:tab_to_space = repeat(' ', &tabstop)
-	" Get the current line with spaces subsituted for tabs
-	let s:line = substitute(getline(line('.')), '\t', s:tab_to_space, 'g')
-	" Check if the pattern appears on this line
-	let s:match_found = match(s:line, '\C' . s:pattern) + 1
-	if s:match_found <= 0
-		return
-	endif
-	" Check if the pattern appears before the specified indent column
-	let s:match_locations = matchstrpos(s:line, '\C^.*' . s:pattern)
-	if s:match_locations[2] >= a:indent_column
-		" If so, make sure that only whitespace would be removed
-		let s:between = matchstrpos(s:line, '\C\S\=\s*'. s:pattern)
-		if s:between[1] + 1 >= a:indent_column
-			echohl WarningMsg
-			echom 'Line ' . line('.') .
-					\ ': Not enough whitespace before pattern occurs;' .
-					\ ' min column: ' . string(s:between[1] + 2)
-			echohl None
-			return
-		endif
-	endif
-	" Perform the adding of spaces and subsequent removal of any excess
-	execute 'normal! ' . s:match_found . '|' .
-			\ a:indent_column . 'i ' .
-			\ a:indent_column . '|dw'
+    " If a pattern was specified, use it, otherwise use '='
+    " (Uses ternary if-then-else expression; see `:help E109` for details.)
+    let s:pattern = (a:0 > 0) ? a:1 : '='
+    " Define string of spaces that should replace a tab
+    let s:tab_to_space = repeat(' ', &tabstop)
+    " Get the current line with spaces subsituted for tabs
+    let s:line = substitute(getline(line('.')), '\t', s:tab_to_space, 'g')
+    " Check if the pattern appears on this line
+    let s:match_found = match(s:line, '\C' . s:pattern) + 1
+    if s:match_found <= 0
+        return
+    endif
+    " Check if the pattern appears before the specified indent column
+    let s:match_locations = matchstrpos(s:line, '\C^.*' . s:pattern)
+    if s:match_locations[2] >= a:indent_column
+        " If so, make sure that only whitespace would be removed
+        let s:between = matchstrpos(s:line, '\C\S\=\s*'. s:pattern)
+        if s:between[1] + 1 >= a:indent_column
+            echohl WarningMsg
+            echom 'Line ' . line('.') .
+                    \ ': Not enough whitespace before pattern occurs;' .
+                    \ ' min column: ' . string(s:between[1] + 2)
+            echohl None
+            return
+        endif
+    endif
+    " Perform the adding of spaces and subsequent removal of any excess
+    execute 'normal! ' . s:match_found . '|' .
+            \ a:indent_column . 'i ' .
+            \ a:indent_column . '|dw'
 endfunction
 " Map this function to <Leader>i
 nnoremap <Leader>i :call AJIndent()<Left>
@@ -543,58 +555,58 @@ vnoremap <Leader>i :call AJIndent()<Left>
 " Mapping that allows for a count when switching to next tab. Needed
 " because <count>gt will switch to a tab by its number.
 function! AJNextTab(count)
-	let lasttab = tabpagenr()
-	if !a:count
-		let a:count = 1;
-	endif
-	for i in range(1, a:count)
-		exe "tabnext"
-	endfor
-	let g:lasttab = lasttab
+    let lasttab = tabpagenr()
+    if !a:count
+        let a:count = 1;
+    endif
+    for i in range(1, a:count)
+        exe "tabnext"
+    endfor
+    let g:lasttab = lasttab
 endfunction
 " Map this to g<C-t>
 nnoremap <silent> g<C-t> :<C-u>exe "call AJNextTab(".(v:count ? v:count : "").")"<CR>
 
 " Toggle background between solarized light and dark
 function! BgToggle()
-	if (&background == "light")
-		let g:solarized_contrast="normal"
-		set background=dark
-	else
-		let g:solarized_contrast="high"
-		set background=light
-	endif
+    if (&background == "light")
+        let g:solarized_contrast="normal"
+        set background=dark
+    else
+        let g:solarized_contrast="high"
+        set background=light
+    endif
 endfunction
 " Map this function to <F9>
 nnoremap <silent> <F9> :call BgToggle()<CR>
 
 " Move current line to be a nice reading height from top of window
 function! ReadingHeight()
-	execute "normal! zt" . float2nr(winheight(0)/8.0) . ""
+    execute "normal! zt" . float2nr(winheight(0)/8.0) . ""
 endfunction
 " Have z. put the screen up at a nice reading level
 nnoremap <silent> z. :call ReadingHeight()<CR>
 
 function! OneDarkColors()
-	let g:onedark_termcolors=256
-	let g:onedark_terminal_italics=1
-	colorscheme onedark
-	let g:airline_theme='onedark'
-	execute "normal! :AirlineRefresh\<CR>"
+    let g:onedark_termcolors=256
+    let g:onedark_terminal_italics=1
+    colorscheme onedark
+    let g:airline_theme='onedark'
+    execute "normal! :AirlineRefresh\<CR>"
 endfunction
 nnoremap <silent> <LocalLeader>1 :call OneDarkColors()<CR>
 
 function! DefaultiTerm2()
-	colorscheme atom-dark-256
-	let g:airline_theme='powerlineish'
-	execute "normal! :AirlineRefresh\<CR>"
+    colorscheme atom-dark-256
+    let g:airline_theme='powerlineish'
+    execute "normal! :AirlineRefresh\<CR>"
 endfunction
 nnoremap <silent> <LocalLeader>2 :call DefaultiTerm2()<CR>
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
-	source ~/.dotfiles/.vim/.vimrc_add_ons
+    source ~/.dotfiles/.vim/.vimrc_add_ons
 endif
 " }}}
 
@@ -611,15 +623,16 @@ nnoremap <Leader>A :tabe<CR>:silent! Ack<Space>-F<Space>
 
 " Modify default mappings to open result in middle of the screen
 let g:ack_mappings = {
-      \ "t": "<C-W><CR><C-W>Tzz",
-      \ "T": "<C-W><CR><C-W>TzzgT<C-W>j",
-      \ "o": "<CR>zz",
-      \ "O": "<CR>zz<C-W><C-W>:ccl<CR>zz",
-      \ "go": "<CR>zz<C-W>j",
-      \ "h": "<C-W><CR>zz<C-W>K",
-      \ "H": "<C-W><CR>zz<C-W>K<C-W>b",
-	  \ "v":  "<C-W><CR>zz<C-W>L<C-W>p<C-W>J<C-W>p",
-	  \ "gv": "<C-W><CR>zz<C-W>L<C-W>p<C-W>J" }
+  \ "t":  "<C-W><CR><C-W>Tzz",
+  \ "T":  "<C-W><CR><C-W>TzzgT<C-W>j",
+  \ "o":  "<CR>zz",
+  \ "O":  "<CR>zz<C-W><C-W>:ccl<CR>zz",
+  \ "go": "<CR>zz<C-W>j",
+  \ "h":  "<C-W><CR>zz<C-W>K",
+  \ "H":  "<C-W><CR>zz<C-W>K<C-W>b",
+  \ "v":  "<C-W><CR>zz<C-W>L<C-W>p<C-W>J<C-W>p",
+  \ "gv": "<C-W><CR>zz<C-W>L<C-W>p<C-W>J",
+  \}
 " }}}
 
 " Airline Settings -------------------------------------------------------- {{{
@@ -636,7 +649,7 @@ let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'mixed-inde
 " To use fancy symbols for airline, uncomment the following lines and use a
 " patched font (more info on the README.rst)
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
@@ -661,8 +674,8 @@ let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'normal'
 
 let g:ale_linters = {
-	\  'javascript': ['eslint'],
-	\ }
+  \ 'javascript': ['eslint'],
+  \}
 " }}}
 
 " CtrlP Settings ---------------------------------------------------------- {{{
@@ -691,18 +704,18 @@ let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/
 "
 " Set emmet leader key to <Leader>m; mnemonic is Markup
 let g:user_emmet_leader_key='<Leader>m'
-" let g:user_emmet_settings = {
-" \    'html' : {
-" \        'quote_char': "'",
-" \    },
-" \}
+let g:user_emmet_settings = {
+  \ 'html' : {
+  \     'quote_char': "'",
+  \ },
+  \}
 " }}}
 
 " Fugitive Settings ------------------------------------------------------- {{{
 "
 augroup fugitiveBuffers
-	autocmd!
-	autocmd BufReadPost fugitive://* set bufhidden=delete
+    autocmd!
+    autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 " }}}
 
@@ -726,6 +739,12 @@ nnoremap <silent> <Leader>f :NERDTreeFind<CR>:redraw!<CR>
 
 " Show hidden files by default
 let NERDTreeShowHidden=1
+
+" Don't ask about deleting deleted/renamed buffers
+let NERDTreeAutoDeleteBuffer=1
+
+" Hide unnecessary UI
+let NERDTreeMinimalUI=1
 
 " Don't show these file types
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$']
@@ -784,17 +803,18 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-	\ 'mode': 'active',
-	\ 'passive_filetypes': ['python', 'html']}
+  \ 'mode': 'active',
+  \ 'passive_filetypes': ['python', 'html'],
+  \}
 let g:syntastic_html_tidy_ignore_errors = [
-	\  '<html> attribute "lang" lacks value',
-	\  '<a> attribute "href" lacks value',
-	\  'trimming empty <span>',
-	\  'trimming empty <h1>',
-	\  '<div> attribute "{{^" lacks value',
-	\  '<div> attribute "}}" lacks value',
-	\  '<div> attribute "{{/" lacks value',
-	\ ]
+  \ '<html> attribute "lang" lacks value',
+  \ '<a> attribute "href" lacks value',
+  \ 'trimming empty <span>',
+  \ 'trimming empty <h1>',
+  \ '<div> attribute "{{^" lacks value',
+  \ '<div> attribute "}}" lacks value',
+  \ '<div> attribute "{{/" lacks value',
+  \]
 " see https://github.com/jaxbot/syntastic-react for details
 " requires: eslint, babel-eslint, eslint-plugin-react (all via npm)
 let g:syntastic_javascript_checkers = ['eslint']
@@ -809,39 +829,39 @@ let g:syntastic_sass_sass_vars = '-I ' . getcwd()
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-	" Use Ag over Grep
-	set grepprg=ag\ --nogroup\ --nocolor
+    " Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
 
-	" Use Ag over Ack
-	let g:ackprg = 'ag --vimgrep'
+    " Use Ag over Ack
+    let g:ackprg = 'ag --vimgrep'
 
-	" Use ag in CtrlP for listing files. Lightning fast and respects
-	" .gitignore
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " Use ag in CtrlP for listing files. Lightning fast and respects
+    " .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-	" ag is fast enough that CtrlP doesn't need to cache
-	let g:ctrlp_use_caching = 0
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
 endif
 " }}}
 
 " vdebug Settings --------------------------------------------------------- {{{
 "
 let g:vdebug_options= {
-\    "port" : 9000,
-\    "server" : '',
-\    "timeout" : 20,
-\    "on_close" : 'detach',
-\    "break_on_open" : 0,
-\    "ide_key" : '',
-\    "path_maps" : {},
-\    "debug_window_level" : 0,
-\    "debug_file_level" : 0,
-\    "debug_file" : "",
-\    "watch_window_style" : 'expanded',
-\    "marker_default" : '⬦',
-\    "marker_closed_tree" : '▸',
-\    "marker_open_tree" : '▾'
-\}
+  \ "port" : 9000,
+  \ "server" : '',
+  \ "timeout" : 20,
+  \ "on_close" : 'detach',
+  \ "break_on_open" : 0,
+  \ "ide_key" : '',
+  \ "path_maps" : {},
+  \ "debug_window_level" : 0,
+  \ "debug_file_level" : 0,
+  \ "debug_file" : "",
+  \ "watch_window_style" : 'expanded',
+  \ "marker_default" : '⬦',
+  \ "marker_closed_tree" : '▸',
+  \ "marker_open_tree" : '▾',
+  \}
 " }}}
 
 " Vim Mustache Settings --------------------------------------------------- {{{
@@ -855,12 +875,12 @@ let g:mustache_abbreviations = 1
 "
 " This appears out of alphabetical order to ensure no interference
 function! PhpSyntaxOverride()
-	hi! def link phpDocTags  phpDefine
-	hi! def link phpDocParam phpType
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
 endfunction
 
 augroup phpSyntaxOverride
-	autocmd!
-	autocmd FileType php call PhpSyntaxOverride()
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
 augroup END
 " }}}
