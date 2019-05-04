@@ -1,10 +1,11 @@
 #!/bin/bash
-################################################################################
-# Run browser tests in the specified brower. If no specific test file is
-# provided, run the entire suite.
-#
-# Example use: `browsertests chrome TestFileCest:testFunctionName`
-################################################################################
+
+#------------------------------------------------------------------------------+
+# Run browser tests in the specified brower. If no specific test file is       |
+# provided, run the entire suite.                                              |
+#                                                                              |
+# Example use: `browsertests chrome TestFileCest:testFunctionName`             |
+#------------------------------------------------------------------------------+
 browsertests() {
   if [ $# -eq 0 ]; then
     echo "Exiting... please specify a browser (e.g., chrome)"
@@ -36,14 +37,14 @@ browsertests() {
   unset command
 }
 
-################################################################################
-# Print the active ip address
-#   -v   Print relevant details about the active internet interface
-#   -vv  Print all details about the active internet interface
-################################################################################
+#------------------------------------------------------------------------------+
+# Print the active ip address                                                  |
+#   -v   Print relevant details about the active internet interface            |
+#   -vv  Print all details about the active internet interface                 |
+#------------------------------------------------------------------------------+
 showip() {
   local iface=$(route get 0.0.0.0 2>/dev/null | awk '/interface/ { print $2 }')
-  if [ -z $iface ]; then
+  if [ -z "$iface" ]; then
     echo >&2 ":: No interface found"
     return 1;
   fi
@@ -60,12 +61,12 @@ showip() {
   esac
 }
 
-################################################################################
-# Determine which parameters should be passed to Vim. If the current git branch
-# contains a ticket number and there is a session file that contains that
-# number, then return it. Failing that, return Session.vim, if it exists.
-# Failing that, return nothing.
-################################################################################
+#------------------------------------------------------------------------------+
+# Determine which parameters should be passed to Vim. If the current git branch|
+# contains a ticket number and there is a session file that contains that      |
+# number, then return it. Failing that, return Session.vim, if it exists.      |
+# Failing that, return nothing.                                                |
+#------------------------------------------------------------------------------+
 vim_branch_arg() {
   # Collect all .vim files with 'Session' in the name in the current directory
   local sessions
