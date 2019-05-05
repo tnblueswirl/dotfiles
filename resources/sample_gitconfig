@@ -3,6 +3,7 @@
 [pull]
 	rebase = preserve
 [core]
+	attributesfile = ~/.gitattributes_global
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	safecrlf = true

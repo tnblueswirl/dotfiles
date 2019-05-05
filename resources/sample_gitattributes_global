@@ -1,0 +1,6 @@
+*.min.js -diff
+*.min.css -diff
+*.php diff=php
+*.css diff=css
+*.html diff=html
+*.py diff=python
