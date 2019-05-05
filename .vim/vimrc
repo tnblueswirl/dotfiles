@@ -402,7 +402,7 @@ nnoremap <silent> <Leader>s :update<CR>
 
 " Remap load
 nnoremap <Leader>e :e!<CR>
-nnoremap <Leader>E :tabdo windo e!<CR>
+nnoremap <Leader>E :Tabdo Windo e!<CR>
 
 " Make 'Y' copy from current location to end of line
 noremap Y y$
@@ -495,7 +495,12 @@ noremap <S-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" Redraw the screen for when things look funky within one window
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
+
+" Make all windows on all tabs equal size. Useful when things look funky on
+" all tabs
+nnoremap <silent> <Leader>R :Tabdo :wincmd =<CR>
 
 " Add a space on either side of the current cursor location
 nnoremap <LocalLeader><Space> :execute "normal! i "<CR> :execute "normal! li "<CR>
@@ -603,6 +608,22 @@ function! DefaultiTerm2()
     execute "normal! :AirlineRefresh\<CR>"
 endfunction
 nnoremap <silent> <LocalLeader>2 :call DefaultiTerm2()<CR>
+
+" Like windo but restore the current window.
+function! WinDo(command)
+    let currwin=winnr()
+    execute 'windo ' . a:command
+    execute currwin . 'wincmd w'
+endfunction
+com! -nargs=+ -complete=command Windo call WinDo(<q-args>)
+
+" Like tabdo but restore the current tab
+function! TabDo(command)
+    let currTab=tabpagenr()
+    execute 'tabdo ' . a:command
+    execute 'tabn ' . currTab
+endfunction
+com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
 " }}}
 
 " Load Local Settings ----------------------------------------------------- {{{
