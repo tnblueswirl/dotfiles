@@ -433,9 +433,11 @@ cnoremap <C-b> <Left>
 cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 
-" * will search word under cursor, but won't immediately jump to first match
+" * and # will search word under cursor, but won't immediately jump to first match
 nnoremap <silent> * :keepjumps normal! mi*`i<CR>
 nnoremap <silent> g* :keepjumps normal! mig*`i<CR>
+nnoremap <silent> # :keepjumps normal! mi#`i<CR>
+nnoremap <silent> g# :keepjumps normal! mig#`i<CR>
 
 " Turn off highlighting of search
 nnoremap <silent> <Leader>n :nohlsearch<CR>
