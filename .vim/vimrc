@@ -1,8 +1,8 @@
-" Required Starting Settings ---------------------------------------------- {{{
+" Required Starting Settings ---------------------------------------------- {{{1
 set nocompatible              " be iMproved, required
-" }}}
 
-" Plugin Management ------------------------------------------------------- {{{
+
+" Plugin Management ------------------------------------------------------- {{{1
 "
 " Pass a path where Plug should install plugins
 call plug#begin('~/.vim/bundle')
@@ -166,9 +166,9 @@ call plug#end()            " required
 " :PlugStatus     - check the status of plugins
 
 " See :h plug for more details or wiki for FAQ
-" }}}
 
-" Color Settings ---------------------------------------------------------- {{{
+
+" Color Settings ---------------------------------------------------------- {{{1
 "
 " Partial fix for solarized when terminal colors not set to Solarized
 if $ITERM_PROFILE !~? 'solarized'
@@ -188,9 +188,9 @@ let g:airline_theme = 'solarized'
 if &term =~ '256color'
     set t_ut=
 endif
-" }}}
 
-" General Vim Settings ---------------------------------------------------- {{{
+
+" General Vim Settings ---------------------------------------------------- {{{1
 "
 " Allow vim's own fuzzy find to work
 set path+=**
@@ -347,9 +347,9 @@ runtime! ftplugin/man.vim
 " Ctrl-U in insert mode deletes a lot. Use Ctrl-G u to first break undo, so
 " that you can undo Ctrl-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-" }}}
 
-" Gvim Settings ----------------------------------------------------------- {{{
+
+" Gvim Settings ----------------------------------------------------------- {{{1
 "
 " Prevent blinking cursor
 set guicursor+=a:blinkon0
@@ -360,9 +360,9 @@ set guicursor+=a:hor10
 " Hide scrollbars
 set guioptions-=r
 set guioptions-=L
-" }}}
 
-" FileType-Specific Settings ---------------------------------------------- {{{
+
+" FileType-Specific Settings ---------------------------------------------- {{{1
 "
 " To force hard tabs, set noexpandtab and don't set softtabstop
 "   tabstop and shiftwidth should be set to the same value
@@ -387,9 +387,9 @@ augroup filetypeSpecific
     autocmd FileType sh            setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType vim           setlocal expandtab   tabstop=4 shiftwidth=4 foldmethod=marker
 augroup END
-" }}}
 
-" Key Mappings ------------------------------------------------------------ {{{
+
+" Key Mappings ------------------------------------------------------------ {{{1
 "
 " Change <Leader> to ',' (comma)
 let mapleader=","
@@ -506,18 +506,18 @@ nnoremap <silent> <Leader>R :Tabdo :wincmd =<CR>
 
 " Add a space on either side of the current cursor location
 nnoremap <LocalLeader><Space> :execute "normal! i "<CR> :execute "normal! li "<CR>
-" }}}
 
-" Macros and Registers ---------------------------------------------------- {{{
+
+" Macros and Registers ---------------------------------------------------- {{{1
 "
 " Change end-of-line digits (default is to add)
 call setreg('d', 's/\d\+$/\=submatch(0)+')
 
 " Example of how to save a macro
 " let @q = ''
-" }}}
 
-" User-Defined Functions -------------------------------------------------- {{{
+
+" User-Defined Functions -------------------------------------------------- {{{1
 "
 " Indent first instance of '=' to specified column. Allows optional second
 " parameter to specify a pattern other than '='. Patterns are case-sensitive.
@@ -626,17 +626,16 @@ function! TabDo(command)
     execute 'tabn ' . currTab
 endfunction
 com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
-" }}}
 
-" Load Local Settings ----------------------------------------------------- {{{
+
+" Load Local Settings ----------------------------------------------------- {{{1
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
     source ~/.dotfiles/.vim/.vimrc_add_ons
 endif
-" }}}
 
-" PLUGIN SETTINGS --------------------------------------------------------- {{{
 
-" Ack Settings ------------------------------------------------------------ {{{
+" PLUGIN SETTINGS --------------------------------------------------------- {{{1
+" Ack Settings ------------------------------------------------------------ {{{2
 "
 " Also see The_Silver_Searcher settings
 " Start an Ack search
@@ -657,9 +656,8 @@ let g:ack_mappings = {
   \ "v":  "<C-W><CR>zz<C-W>L<C-W>p<C-W>J<C-W>p",
   \ "gv": "<C-W><CR>zz<C-W>L<C-W>p<C-W>J",
   \}
-" }}}
 
-" Airline Settings -------------------------------------------------------- {{{
+" Airline Settings -------------------------------------------------------- {{{2
 "
 let g:airline_powerline_fonts = 1
 " The below is now set in the color section above
@@ -684,9 +682,8 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.maxlinenr = '☰'
 let g:airline_symbols.dirty='*'
-" }}}
 
-" ALE Settings ------------------------------------------------------------ {{{
+" ALE Settings ------------------------------------------------------------ {{{2
 "
 " Show warnings in statusline
 let g:airline#extensions#ale#enabled = 1
@@ -694,15 +691,17 @@ let g:airline#extensions#ale#enabled = 1
 " Show window with errors when they exist
 let g:ale_open_list = 1
 
+" Make the default window height 5 lines
+let g:ale_list_window_size = 5
+
 " Lint when text has changed, but only when in normal mode
 let g:ale_lint_on_text_changed = 'normal'
 
 let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \}
-" }}}
 
-" CtrlP Settings ---------------------------------------------------------- {{{
+" CtrlP Settings ---------------------------------------------------------- {{{2
 "
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
@@ -716,15 +715,13 @@ let g:ctrlp_regexp = 1
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>t :CtrlP<CR>
 nnoremap <silent> <Leader>T :CtrlPTag<CR>
-" }}}
 
-" Editor Config ----------------------------------------------------------- {{{
+" Editor Config ----------------------------------------------------------- {{{2
 "
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.vim'
-" }}}
 
-" emmet Settings ---------------------------------------------------------- {{{
+" emmet Settings ---------------------------------------------------------- {{{2
 "
 " Set emmet leader key to <Leader>m; mnemonic is Markup
 let g:user_emmet_leader_key='<Leader>m'
@@ -733,28 +730,24 @@ let g:user_emmet_settings = {
   \     'quote_char': "'",
   \ },
   \}
-" }}}
 
-" Fugitive Settings ------------------------------------------------------- {{{
+" Fugitive Settings ------------------------------------------------------- {{{2
 "
 augroup fugitiveBuffers
     autocmd!
     autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
-" }}}
 
-" vim-javascript Settings ------------------------------------------------- {{{
+" vim-javascript Settings ------------------------------------------------- {{{2
 "
 let g:javascript_plugin_jsdoc = 1
-" }}}
 
-" NERDCommenter Settings -------------------------------------------------- {{{
+" NERDCommenter Settings -------------------------------------------------- {{{2
 "
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
-" }}}
 
-" NERDTree Settings ------------------------------------------------------- {{{
+" NERDTree Settings ------------------------------------------------------- {{{2
 "
 " Toggle NERDTree display
 nnoremap <silent> <Leader>d :NERDTreeToggle<CR>:redraw!<CR>
@@ -777,23 +770,20 @@ let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-" }}}
 
-" phpfolding Settings ----------------------------------------------------- {{{
+" phpfolding Settings ----------------------------------------------------- {{{2
 "
 " Don't autofold
 let g:DisableAutoPHPFolding = 1
-" }}}
 
-" vim-prettier Settings --------------------------------------------------- {{{
+" vim-prettier Settings --------------------------------------------------- {{{2
 "
 " Change key binding
 nnoremap <LocalLeader>p <Plug>(Prettier)
 nnoremap <silent> <LocalLeader>gq :Prettier<CR>
 let g:prettier#autoformat = 0
-" }}}
 
-" PyMode Settings --------------------------------------------------------- {{{
+" PyMode Settings --------------------------------------------------------- {{{2
 "
 " Set python syntax highlighting to highest level
 let python_highlight_all = 1
@@ -814,9 +804,8 @@ let g:pymode_rope_goto_definition_bind = '<Leader>pg'
 " let g:pymode_rope_use_function_bind = '<leader>pu'
 " let g:pymode_rope_move_bind = '<leader>pv'
 " let g:pymode_rope_change_signature_bind = '<leader>ps'
-" }}}
 
-" Syntastic Settings ------------------------------------------------------ {{{
+" Syntastic Settings ------------------------------------------------------ {{{2
 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -847,9 +836,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_scss_checkers = ['sass_lint']
 let g:syntastic_sass_sass_vars = '-I ' . getcwd()
 
-" }}}
-
-" The_Silver_Searcher Settings -------------------------------------------- {{{
+" The_Silver_Searcher Settings -------------------------------------------- {{{2
 "
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -866,9 +853,8 @@ if executable('ag')
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
-" }}}
 
-" vdebug Settings --------------------------------------------------------- {{{
+" vdebug Settings --------------------------------------------------------- {{{2
 "
 let g:vdebug_options= {
   \ "port" : 9000,
@@ -886,16 +872,15 @@ let g:vdebug_options= {
   \ "marker_closed_tree" : '▸',
   \ "marker_open_tree" : '▾',
   \}
-" }}}
 
-" Vim Mustache Settings --------------------------------------------------- {{{
+" Vim Mustache Settings --------------------------------------------------- {{{2
 "
 let g:mustache_abbreviations = 1
-" }}}
 
-" }}} End PLUGIN SETTINGS
+" End PLUGIN SETTINGS }}}2
 
-" PHP Syntax Overrides ---------------------------------------------------- {{{
+
+" PHP Syntax Overrides ---------------------------------------------------- {{{1
 "
 " This appears out of alphabetical order to ensure no interference
 function! PhpSyntaxOverride()
@@ -907,4 +892,3 @@ augroup phpSyntaxOverride
     autocmd!
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
-" }}}
