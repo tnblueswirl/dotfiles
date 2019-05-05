@@ -44,6 +44,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 
 " Editor Config to use file to set formatting per project
+" requires: editorconfig (via npm)
 Plug 'editorconfig/editorconfig-vim'
 
 " syntastic linter
