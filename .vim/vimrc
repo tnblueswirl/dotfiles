@@ -419,15 +419,17 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Make navigating between folds a bit nicer
+nnoremap <silent> zj :normal! zj<CR> :call ReadingHeight()<CR>
+nnoremap zk zkzz
+
 " Avoid accidentally triggering the help when reaching for Escape
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Make command mode go to beginning of line with Ctrl+a
-cnoremap <C-a>  <Home>
-
 " Make moving the cursor around in command mode like bash (Emacs)
+cnoremap <C-a> <Home>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <Esc>b <S-Left>
@@ -500,8 +502,7 @@ noremap <S-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
 " Redraw the screen for when things look funky within one window
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
 
-" Make all windows on all tabs equal size. Useful when things look funky on
-" all tabs
+" Make all windows on all tabs equal size. Useful when things look funky on all tabs
 nnoremap <silent> <Leader>R :Tabdo :wincmd =<CR>
 
 " Add a space on either side of the current cursor location
