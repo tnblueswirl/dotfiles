@@ -613,6 +613,7 @@ endfunction
 nnoremap <silent> <LocalLeader>2 :call DefaultiTerm2()<CR>
 
 " Like windo but restore the current window.
+" (credit: https://vim.fandom.com/wiki/Run_a_command_in_multiple_buffers)
 function! WinDo(command)
     let currwin=winnr()
     execute 'windo ' . a:command
