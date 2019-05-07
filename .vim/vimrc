@@ -503,7 +503,7 @@ noremap <S-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
 nnoremap <silent> <Leader>r :redraw!<CR>:AirlineRefresh<CR>
 
 " Make all windows on all tabs equal size. Useful when things look funky on all tabs
-nnoremap <silent> <Leader>R :Tabdo :wincmd =<CR>
+nnoremap <silent> <Leader>R :Tabdo :wincmd =<CR> :500wincmd _<CR>
 
 " Add a space on either side of the current cursor location
 nnoremap <LocalLeader><Space> :execute "normal! i "<CR> :execute "normal! li "<CR>
