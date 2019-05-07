@@ -1016,6 +1016,10 @@ exe "hi! Statement"                      .s:fg_green   .s:bg_back   .s:fmt_none
 exe "hi! String"                         .s:fg_cyan    .s:bg_back   .s:fmt_none
 exe "hi! Structure"                      .s:fg_yellow  .s:bg_back   .s:fmt_none
 "}}}
+" terminal highlighting "{{{
+" ---------------------------------------------------------------------
+exe "hi! Terminal"                       .s:fmt_none   .'NONE'      .s:fmt_none
+"}}}
 " Utility autocommand "{{{
 " ---------------------------------------------------------------------
 " In cases where Solarized is initialized inside a terminal vim session and 
