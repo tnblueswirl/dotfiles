@@ -1,28 +1,28 @@
 #### COLOUR (Solarized Dark)
 
-solarizedBase01=colour240
-solarizedBase0=colour244
-solarizedCyan=colour37
-solarizedGreen=colour64
-solarizedMagenta=colour125
-solarizedOrange=colour166
-solarizedRed=colour160
-solarizedViolet=colour61
-solarizedYellow=colour136
+SOLARIZED_BASE01=colour240
+SOLARIZED_BASE0=colour244
+SOLARIZED_CYAN=colour37
+SOLARIZED_GREEN=colour64
+SOLARIZED_MAGENTA=colour125
+SOLARIZED_ORANGE=colour166
+SOLARIZED_RED=colour160
+SOLARIZED_VIOLET=colour61
+SOLARIZED_YELLOW=colour136
 
-tm_color_active=$solarizedOrange
-tm_color_inactive=$solarizedBase0
-tm_color_date=$solarizedGreen
-tm_color_feature=$solarizedYellow
-tm_color_music=$solarizedViolet
-tm_active_border_color=$solarizedBase01
+TM_COLOR_ACTIVE=$SOLARIZED_ORANGE
+TM_COLOR_INACTIVE=$SOLARIZED_BASE0
+TM_COLOR_DATE=$SOLARIZED_GREEN
+TM_COLOR_FEATURE=$SOLARIZED_YELLOW
+TM_COLOR_MUSIC=$SOLARIZED_VIOLET
+TM_ACTIVE_BORDER_COLOR=$SOLARIZED_BASE01
 
-tm_icon=""
+TM_ICON=""
 # separators
-tm_separator_left_bold="◀"
-tm_separator_left_thin="❮"
-tm_separator_right_bold="▶"
-tm_separator_right_thin="❯"
+# TM_SEPARATOR_LEFT_BOLD="◀"
+# TM_SEPARATOR_LEFT_THIN="❮"
+# TM_SEPARATOR_RIGHT_BOLD="▶"
+# TM_SEPARATOR_RIGHT_THIN="❯"
 
 set -g status-left-length 32
 set -g status-right-length 150
@@ -30,36 +30,36 @@ set -g status-interval 5
 
 
 # default statusbar colors
-set-option -g status-style fg=$tm_color_active
+set-option -g status-style fg=$TM_COLOR_ACTIVE
 
 # default window title colors
-set-window-option -g window-status-style fg=$tm_color_inactive
+set-window-option -g window-status-style fg=$TM_COLOR_INACTIVE
 set -g window-status-format "#I #W"
 
 # active window title colors
-set-window-option -g window-status-current-style fg=$tm_color_active
+set-window-option -g window-status-current-style fg=$TM_COLOR_ACTIVE
 set-window-option -g window-status-current-format "#[bold]#I #W"
 
 # pane border
-set-option -g pane-border-style fg=$tm_color_inactive
-set-option -g pane-active-border-style fg=$tm_active_border_color
+set-option -g pane-border-style fg=$TM_COLOR_INACTIVE
+set-option -g pane-active-border-style fg=$TM_ACTIVE_BORDER_COLOR
 
 # message text
-set-option -g message-style fg=$tm_color_active
+set-option -g message-style fg=$TM_COLOR_ACTIVE
 
 # pane number display
-set-option -g display-panes-active-colour $tm_color_active
-set-option -g display-panes-colour $tm_color_inactive
+set-option -g display-panes-active-colour $TM_COLOR_ACTIVE
+set-option -g display-panes-colour $TM_COLOR_INACTIVE
 
 # clock
-set-window-option -g clock-mode-colour $tm_color_active
+set-window-option -g clock-mode-colour $TM_COLOR_ACTIVE
 
-tm_tunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
-tm_battery="#(~/.dotfiles/bin/battery_indicator.sh)"
+TM_TUNES="#[fg=$TM_COLOR_MUSIC]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
+# TM_BATTERY="#(~/.dotfiles/bin/battery_indicator.sh)"
 
-tm_date="#[fg=$tm_color_date] %l:%M %p  %b %-e "
-tm_host="#[fg=$tm_color_feature,bold]#h"
-tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
+TM_DATE="#[fg=$TM_COLOR_DATE] %l:%M %p  %b %-e "
+TM_HOST="#[fg=$TM_COLOR_FEATURE,bold]#h"
+TM_SESSION_NAME="#[fg=$TM_COLOR_FEATURE,bold]$TM_ICON #S"
 
-set -g status-left $tm_session_name' '
-set -g status-right $tm_tunes' '$tm_date' '$tm_host
+set -g status-left $TM_SESSION_NAME' '
+set -g status-right $TM_TUNES' '$TM_DATE' '$TM_HOST
