@@ -106,6 +106,9 @@ Plug 'rayburgemeestre/phpfolding.vim', { 'for': ['php'] }
 " php syntax highlighting
 Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 
+" php blade syntax highlighting
+Plug 'jwalton512/vim-blade', { 'for': ['php', 'blade'] }
+
 " python syntax support
 Plug 'hdima/python-syntax', { 'for': ['python'] }
 
