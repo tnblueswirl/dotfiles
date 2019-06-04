@@ -1,7 +1,7 @@
-nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
-nnoremap <Leader>G :set operatorfunc=<SID>GrepOperatorTab<CR>g@
-vnoremap <Leader>g :<C-U>call <SID>GrepOperator(visualmode())<CR>
-vnoremap <Leader>G :<C-U>call <SID>GrepOperatorTab(visualmode())<CR>
+nnoremap <LocalLeader>g :set operatorfunc=<SID>GrepOperator<CR>g@
+nnoremap <LocalLeader>G :set operatorfunc=<SID>GrepOperatorTab<CR>g@
+vnoremap <LocalLeader>g :<C-U>call <SID>GrepOperator(visualmode())<CR>
+vnoremap <LocalLeader>G :<C-U>call <SID>GrepOperatorTab(visualmode())<CR>
 
 " FUNCTION OVERVIEW
 " Use movement commands or visual highlighting to search using "Ack" (if

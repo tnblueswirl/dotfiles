@@ -476,15 +476,6 @@ nnoremap <silent> <Leader>L :tabl<CR>
 " Close a whole tab, no matter how many windows are in it
 nnoremap <silent> <Leader>C :tabc<CR>
 
-" Run :Gblame
-nnoremap <silent> <LocalLeader>b :Gblame<CR>
-
-" Run :Gstatus
-nnoremap <silent> <LocalLeader>s :Gstatus<CR>
-
-" Run :Gcommit -v
-nnoremap <silent> <LocalLeader>c :Gcommit -v<CR>
-
 " Edit vimrc file
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 
@@ -735,6 +726,15 @@ let g:user_emmet_settings = {
 
 " Fugitive Settings ------------------------------------------------------- {{{2
 "
+" Run :Gblame
+nnoremap <silent> <Leader>gb :Gblame<CR>
+
+" Run :Gstatus
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+
+" Run :Gcommit -v
+nnoremap <silent> <Leader>gc :Gcommit -v<CR>
+
 augroup fugitiveBuffers
     autocmd!
     autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -782,7 +782,7 @@ let g:DisableAutoPHPFolding = 1
 "
 " Change key binding
 nnoremap <LocalLeader>p <Plug>(Prettier)
-nnoremap <silent> <LocalLeader>gq :Prettier<CR>
+nnoremap <silent> <Leader>gq :Prettier<CR>
 let g:prettier#autoformat = 0
 
 " PyMode Settings --------------------------------------------------------- {{{2
