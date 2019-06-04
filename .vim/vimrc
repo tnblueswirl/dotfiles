@@ -693,7 +693,9 @@ let g:ale_list_window_size = 5
 " Lint when text has changed, but only when in normal mode
 let g:ale_lint_on_text_changed = 'normal'
 
+" Configure linters for specific filetypes
 let g:ale_linters = {
+  \ 'graphql': [],
   \ 'javascript': ['eslint'],
   \}
 
