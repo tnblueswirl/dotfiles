@@ -79,7 +79,7 @@ vim_branch_arg() {
   # names contain it. Record whether a 'Session.vim' file exists in case we
   # fail to identify a match.
   local ticket_from_git_branch
-  ticket_from_git_branch=$(git symbolic-ref --short HEAD \
+  ticket_from_git_branch=$(git symbolic-ref --short HEAD 2>/dev/null \
     | sed -E -e 's/.*\/?([A-Z]{2,6}-[0-9]+).*/\1/')
   local has_std_session=0
   for session in ${sessions}
