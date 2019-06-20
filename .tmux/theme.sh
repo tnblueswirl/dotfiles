@@ -15,7 +15,7 @@ TM_COLOR_INACTIVE=$SOLARIZED_BASE0
 TM_COLOR_DATE=$SOLARIZED_GREEN
 TM_COLOR_FEATURE=$SOLARIZED_YELLOW
 TM_COLOR_MUSIC=$SOLARIZED_VIOLET
-TM_ACTIVE_BORDER_COLOR=$SOLARIZED_BASE01
+TM_INACTIVE_BORDER_COLOR=$SOLARIZED_BASE01
 
 TM_ICON=""
 # separators
@@ -41,8 +41,8 @@ set-window-option -g window-status-current-style fg=$TM_COLOR_ACTIVE
 set-window-option -g window-status-current-format "#[bold]#I #W"
 
 # pane border
-set-option -g pane-border-style fg=$TM_COLOR_INACTIVE
-set-option -g pane-active-border-style fg=$TM_ACTIVE_BORDER_COLOR
+set-option -g pane-border-style fg=$TM_INACTIVE_BORDER_COLOR
+set-option -g pane-active-border-style fg=$TM_COLOR_INACTIVE
 
 # message text
 set-option -g message-style fg=$TM_COLOR_ACTIVE
