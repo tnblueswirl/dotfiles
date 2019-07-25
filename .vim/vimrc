@@ -54,7 +54,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 
 " CtrlP Fuzzy Finder
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+
+" Command-T (Fuzzy Finder)
+Plug 'wincent/command-t'
 
 " ack.vim
 " Note that this requires ack (`brew install ack`)
@@ -703,16 +706,22 @@ let g:ale_linters = {
 "
 " Also see The_Silver_Searcher settings
 " Note: Refresh cache with <F5>
-let g:ctrlp_by_filename = 1
-let g:ctrlp_extensions = ['autoignore']
-let g:ctrlp_map = ''
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
-" let g:ctrlp_open_new_file = 'h'
-let g:ctrlp_regexp = 1
-" let g:ctrlp_show_hidden = 1
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
-nnoremap <silent> <Leader>t :CtrlP<CR>
-nnoremap <silent> <Leader>T :CtrlPTag<CR>
+" let g:ctrlp_by_filename = 1
+" let g:ctrlp_extensions = ['autoignore']
+" let g:ctrlp_map = ''
+" let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
+" " let g:ctrlp_open_new_file = 'h'
+" let g:ctrlp_regexp = 1
+" " let g:ctrlp_show_hidden = 1
+" nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+" nnoremap <silent> <Leader>t :CtrlP<CR>
+" nnoremap <silent> <Leader>T :CtrlPTag<CR>
+
+" Command-T Settings ------------------------------------------------------ {{{2
+"
+" nnoremap <silent> <Leader>B :CommandTMRU<CR>
+" nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>T :CommandTTag<CR>
 
 " Editor Config ----------------------------------------------------------- {{{2
 "
