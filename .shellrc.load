@@ -1,8 +1,12 @@
 #!/bin/bash
 
-if [ ! $_PATH_SET ]; then
-  export PATH=$PATH:$HOME/bin:$HOME/.dotfiles/bin
+if [ ! $_DOTFILES_INITIAL_PATH ]; then
+  export _DOTFILES_INITIAL_PATH=$PATH
 fi
+
+PATH=$_DOTFILES_INITIAL_PATH
+
+export PATH=$PATH:$HOME/bin:$HOME/.dotfiles/bin
 
 if [ -f ~/.env.sh ]; then
   . ~/.env.sh
@@ -38,5 +42,3 @@ fi
 if [ $(which direnv 2> /dev/null) ]; then
   eval "$(direnv hook bash)"
 fi
-
-export _PATH_SET=1

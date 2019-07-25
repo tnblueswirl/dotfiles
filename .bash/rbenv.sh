@@ -1,4 +1,3 @@
-if [ $(which rbenv 2> /dev/null) ] && [ ! $_PATH_SET ]; then
+if [ $(which rbenv 2> /dev/null) ]; then
   eval "$(rbenv init -)"
-  export PATH=$HOME/.rbenv/shims:$PATH
 fi
