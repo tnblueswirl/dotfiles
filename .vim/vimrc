@@ -702,6 +702,27 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \}
 
+" Command-T Settings ------------------------------------------------------ {{{2
+"
+" Allow dotfiles to be searched
+let g:CommandTScanDotDirectories = 1
+" let g:CommandTAlwaysShowDotFiles = 1
+"
+" Make selection highlight easier to see (in custom solarized.vim)
+let g:CommandTHighlightColor = 'CommandTHighlightColor'
+"
+" If you don't want/have Ruby build
+let g:CommandTFileScanner = 'find'
+"
+" Allow Esc to close the window
+if &term =~ "xterm" || &term =~ "screen"       
+  let g:CommandTCancelMap = ['<ESC>', '<C-c>'] 
+endif                                          
+"
+" nnoremap <silent> <Leader>B :CommandTMRU<CR>
+" nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>T :CommandTTag<CR>
+
 " CtrlP Settings ---------------------------------------------------------- {{{2
 "
 " Also see The_Silver_Searcher settings
@@ -716,12 +737,6 @@ let g:ale_linters = {
 " nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 " nnoremap <silent> <Leader>t :CtrlP<CR>
 " nnoremap <silent> <Leader>T :CtrlPTag<CR>
-
-" Command-T Settings ------------------------------------------------------ {{{2
-"
-" nnoremap <silent> <Leader>B :CommandTMRU<CR>
-" nnoremap <silent> <Leader>t :CommandT<CR>
-nnoremap <silent> <Leader>T :CommandTTag<CR>
 
 " Editor Config ----------------------------------------------------------- {{{2
 "
