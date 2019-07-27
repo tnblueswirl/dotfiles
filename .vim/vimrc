@@ -715,13 +715,16 @@ let g:CommandTScanDotDirectories = 1
 " Make selection highlight easier to see (in custom solarized.vim)
 let g:CommandTHighlightColor = 'CommandTHighlightColor'
 "
-" If you don't want/have Ruby build
+" Keep it speedy for large projects
 let g:CommandTFileScanner = 'find'
 "
+" Don't show matches from node_modules
+let g:CommandTWildIgnore=&wildignore . ",*/node_modules"
+"
 " Allow Esc to close the window
-if &term =~ "xterm" || &term =~ "screen"       
-  let g:CommandTCancelMap = ['<ESC>', '<C-c>'] 
-endif                                          
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 "
 " nnoremap <silent> <Leader>B :CommandTMRU<CR>
 " nnoremap <silent> <Leader>t :CommandT<CR>
