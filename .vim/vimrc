@@ -379,6 +379,7 @@ set guioptions-=L
 "   shiftwidth and softtabstop should be set to the same value
 augroup filetypeSpecific
     autocmd!
+    autocmd FileType c             setlocal expandtab   tabstop=4 shiftwidth=4
     autocmd FileType crontab       setlocal nobackup nowritebackup
     autocmd FileType gitconfig     setlocal noexpandtab tabstop=4 shiftwidth=4
     autocmd FileType help          setlocal nonumber
