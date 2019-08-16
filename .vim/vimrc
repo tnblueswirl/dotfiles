@@ -727,8 +727,9 @@ if &term =~ "xterm" || &term =~ "screen"
   let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 endif
 "
-" nnoremap <silent> <Leader>B :CommandTMRU<CR>
-" nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTMRU<CR>
+nnoremap <silent> <Leader>B :CommandTBuffer<CR>
+nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>T :CommandTTag<CR>
 
 " CtrlP Settings ---------------------------------------------------------- {{{2
