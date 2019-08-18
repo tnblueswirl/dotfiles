@@ -344,7 +344,7 @@ if exists('&tagcase')
 endif
 
 " Toggle folds open/closed with space bar (ignore errors)
-nnoremap <silent> <Space> :silent! normal! za<CR>
+" nnoremap <silent> <Space> :silent! normal! za<CR>
 
 " Make omnicompletion better by selecting highlighted with Enter
 set completeopt=longest,menuone
