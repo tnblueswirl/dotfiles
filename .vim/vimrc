@@ -416,7 +416,7 @@ nnoremap <Leader>e :e!<CR>
 nnoremap <Leader>E :Tabdo Windo e!<CR>
 
 " Make 'Y' copy from current location to end of line
-noremap Y y$
+" noremap Y y$
 
 " Remap escape when in insert mode
 inoremap jj <ESC>
