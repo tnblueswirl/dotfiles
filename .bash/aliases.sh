@@ -52,6 +52,7 @@ fi
 
 # WORK ALIASES
 alias artisan='php artisan'
+alias composer='COMPOSER_MEMORY_LIMIT=-1 composer'
 alias showlinks="ls -lA node_modules/ | grep '^l' | sed -l 's/.*\/\(.*\)$/\1/'"
 alias tinker='php artisan tinker'
 
