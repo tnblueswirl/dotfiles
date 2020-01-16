@@ -1,7 +1,7 @@
 [push]
 	default = simple
 [pull]
-	rebase = preserve
+	rebase = merges
 [core]
 	attributesfile = ~/.gitattributes_global
 	excludesfile = ~/.gitignore_global
