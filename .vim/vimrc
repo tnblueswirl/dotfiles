@@ -382,24 +382,24 @@ set guioptions-=L
 "   shiftwidth and softtabstop should be set to the same value
 augroup filetypeSpecific
     autocmd!
-    autocmd FileType c             setlocal expandtab   tabstop=4 shiftwidth=4
+    autocmd FileType c             setlocal tabstop=4 shiftwidth=4
     autocmd FileType crontab       setlocal nobackup nowritebackup
     autocmd FileType gitconfig     setlocal noexpandtab tabstop=4 shiftwidth=4
     autocmd FileType help          setlocal nonumber nolist
-    autocmd FileType html          setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
-    autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
-    autocmd FileType htmldjango    setlocal noexpandtab           shiftwidth=2
-    autocmd FileType javascript    setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=0
-    autocmd FileType json          setlocal expandtab   tabstop=2 shiftwidth=2
+    autocmd FileType html          setlocal tabstop=2 shiftwidth=2 noendofline binary
+    autocmd FileType html.mustache setlocal tabstop=2 shiftwidth=2 noendofline binary
+    autocmd FileType htmldjango    setlocal shiftwidth=2
+    autocmd FileType javascript    setlocal tabstop=2 shiftwidth=2 softtabstop=0
+    autocmd FileType json          setlocal tabstop=2 shiftwidth=2
     autocmd FileType man           setlocal nonumber nolist
     autocmd FileType markdown      setlocal linebreak
-    autocmd FileType php           setlocal expandtab   tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
-    autocmd FileType python        setlocal expandtab   tabstop=8 shiftwidth=4 softtabstop=4
-    autocmd FileType ruby          setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd FileType sass          setlocal noexpandtab tabstop=2 shiftwidth=2
-    autocmd FileType scss          setlocal noexpandtab tabstop=2 shiftwidth=2
-    autocmd FileType sh            setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd FileType vim           setlocal expandtab   tabstop=4 shiftwidth=4 foldmethod=marker
+    autocmd FileType php           setlocal tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
+    autocmd FileType python        setlocal tabstop=8 shiftwidth=4 softtabstop=4
+    autocmd FileType ruby          setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType sass          setlocal tabstop=2 shiftwidth=2
+    autocmd FileType scss          setlocal tabstop=2 shiftwidth=2
+    autocmd FileType sh            setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType vim           setlocal tabstop=4 shiftwidth=4 foldmethod=marker
 augroup END
 
 
