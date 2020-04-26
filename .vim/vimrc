@@ -390,7 +390,7 @@ augroup filetypeSpecific
     autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
     autocmd FileType htmldjango    setlocal noexpandtab           shiftwidth=2
     autocmd FileType javascript    setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=0
-    autocmd FileType json          setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd FileType json          setlocal expandtab   tabstop=2 shiftwidth=2
     autocmd FileType man           setlocal nonumber nolist
     autocmd FileType markdown      setlocal linebreak
     autocmd FileType php           setlocal expandtab   tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
