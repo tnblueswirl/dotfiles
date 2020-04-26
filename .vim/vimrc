@@ -69,6 +69,9 @@ Plug 'joonty/vdebug'
 " Emmet support for ease of writing html
 Plug 'mattn/emmet-vim'
 
+" Snippet Support
+Plug 'SirVer/ultisnips'
+
 " GraphQL syntax support
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 
@@ -893,6 +896,13 @@ if executable('ag')
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
+
+" UltiSnips Settings ------------------------------------------------------ {{{2
+"
+let g:UltiSnipsListSnippets = '<C-l>'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/my-snippets/UltiSnips']
+let g:UltiSnipsEditSplit = 'context'
+
 
 " vdebug Settings --------------------------------------------------------- {{{2
 "

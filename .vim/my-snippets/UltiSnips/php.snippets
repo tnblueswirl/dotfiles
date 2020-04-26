@@ -1,0 +1,43 @@
+snippet /// "Add a /-based category block" b
+////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC FUNCTIONS} ///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+endsnippet
+
+snippet ifs "An if conditional block" b
+if ($1) {
+    $2
+}
+endsnippet
+
+snippet fes "A foreach block" b
+foreach ($1 as $2) {
+    $3
+}
+endsnippet
+
+snippet pf "Create a public function (with DocBlock)" b
+/**
+ * $3
+ *
+ * @return ${4:void}
+ */
+public function $1($2)
+{
+    $5
+}
+endsnippet
+
+snippet prf "Create a protected function (with DocBlock)" b
+/**
+ * $3
+ *
+ * @return ${4:void}
+ */
+protected function $1($2)
+{
+    $5
+}
+endsnippet
+
+# vim:ft=snippets:

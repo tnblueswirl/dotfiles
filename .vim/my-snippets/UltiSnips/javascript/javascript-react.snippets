@@ -1,0 +1,27 @@
+snippet rcc "Create React class" b
+import React from 'react';
+
+class ${1:Component} extends React.Component {
+  render() {
+    return (
+      ${2:<div>$1</div>}
+    );
+  }
+}
+
+export default $1;
+endsnippet
+
+snippet rfc "Create React functional component" b
+import React from 'react';
+
+const ${1:Component} = () => {
+  return (
+    ${2:<div>$1</div>}
+  );
+};
+
+export default $1;
+endsnippet
+
+# vim:ft=snippets:
