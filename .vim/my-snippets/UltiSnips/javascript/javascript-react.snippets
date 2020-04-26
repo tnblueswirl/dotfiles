@@ -1,12 +1,21 @@
 snippet rcc "Create React class" b
 import React from 'react';
 
-class ${1:Component} extends React.Component {
-  render() {
-    return (
-      ${2:<div>$1</div>}
-    );
-  }
+class ${1:`!p
+if snip.basename != 'index':
+	snip.rv = snip.basename
+else:
+	path_parts = path.split('/')
+	if len(path_parts) >= 2:
+		snip.rv = path_parts[-2].capitalize()
+	else:
+		snip.rv = 'Component'
+`} extends React.Component {
+	render() {
+		return (
+			${2:<div>$1</div>}
+		);
+	}
 }
 
 export default $1;
@@ -15,10 +24,19 @@ endsnippet
 snippet rfc "Create React functional component" b
 import React from 'react';
 
-const ${1:Component} = () => {
-  return (
-    ${2:<div>$1</div>}
-  );
+const ${1:`!p
+if snip.basename != 'index':
+	snip.rv = snip.basename
+else:
+	path_parts = path.split('/')
+	if len(path_parts) >= 2:
+		snip.rv = path_parts[-2].capitalize()
+	else:
+		snip.rv = 'Component'
+`} = () => {
+	return (
+		${2:<div>$1</div>}
+	);
 };
 
 export default $1;
