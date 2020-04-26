@@ -710,6 +710,9 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \}
 
+let g:ale_python_flake8_options = '--ignore=E501'
+nnoremap <silent> <Leader>p3 :let g:ale_python_flake8_executable = 'python3'<CR>:e!<CR>
+
 " Command-T Settings ------------------------------------------------------ {{{2
 "
 " Allow dotfiles to be searched
