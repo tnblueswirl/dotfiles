@@ -305,7 +305,7 @@ set softtabstop=4
 " set shiftwidth=4
 
 " Expand tabs into spaces
-" set expandtab
+set expandtab
 
 " Make wrapped lines indent to match starting line
 if exists('&breakindent')
@@ -389,7 +389,7 @@ augroup filetypeSpecific
     autocmd FileType html          setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
     autocmd FileType html.mustache setlocal noexpandtab tabstop=2 shiftwidth=2 noendofline binary
     autocmd FileType htmldjango    setlocal noexpandtab           shiftwidth=2
-    autocmd FileType javascript    setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=0
+    autocmd FileType javascript    setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=0
     autocmd FileType json          setlocal noexpandtab tabstop=2 shiftwidth=2
     autocmd FileType man           setlocal nonumber nolist
     autocmd FileType markdown      setlocal linebreak
