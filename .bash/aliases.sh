@@ -56,6 +56,7 @@ alias npmprodbuild='NODE_ENV=production NODE_OPTIONS="--max-old-space-size=4096"
 alias composer='COMPOSER_MEMORY_LIMIT=-1 composer'
 alias showlinks="ls -lA node_modules/ | grep '^l' | sed -l 's/.*\/\(.*\)$/\1/'"
 alias tinker='php artisan tinker'
+alias updateapp='rm -rf node_modules package-lock.json && composer update cccisd/*'
 
 # TESTING ALIASES
 # alias apitest='php lib/vendor/managed-packages/bin/codecept run api'
