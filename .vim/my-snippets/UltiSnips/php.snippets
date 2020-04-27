@@ -1,42 +1,43 @@
-snippet /// "Add a /-based category block" b
+post_jump "snip.buffer[snip.line] = snip.buffer[snip.line].upper(); snip.cursor.preserve()"
+snippet /// "Add a /-based category block (4-space indent)" b
 ////////////////////////////////////////////////////////////////////////////
-// ${1:PUBLIC FUNCTIONS} ///////////////////////////////////////////////////////
+// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 8) * '/'`}
 //////////////////////////////////////////////////////////////////////////
 endsnippet
 
 snippet ifs "An if conditional block" b
 if ($1) {
-	$2
+	$0
 }
 endsnippet
 
 snippet fes "A foreach block" b
 foreach ($1 as $2) {
-	$3
+	$0
 }
 endsnippet
 
 snippet pf "Create a public function (with DocBlock)" b
 /**
- * $3
+ * ${3:Description}
  *
  * @return ${4:void}
  */
-public function $1($2)
+public function ${1:functionName}($2)
 {
-	$5
+	${0:return;}
 }
 endsnippet
 
 snippet prf "Create a protected function (with DocBlock)" b
 /**
- * $3
+ * ${3:Description}
  *
  * @return ${4:void}
  */
-protected function $1($2)
+protected function ${1:functionName}($2)
 {
-	$5
+	${0:return;}
 }
 endsnippet
 
