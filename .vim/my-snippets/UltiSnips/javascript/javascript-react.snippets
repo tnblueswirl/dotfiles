@@ -42,4 +42,10 @@ else:
 export default $1;
 endsnippet
 
+snippet ustate "Add a useState statement" b
+const [${1:xxx}, set${1/.+/\u$0/}] = useState($2);
+console.error($1);
+set${1/.+/\u$0/}($2);
+endsnippet
+
 # vim:ft=snippets:
