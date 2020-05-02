@@ -3,12 +3,15 @@
 # In order for NERDTree to recognize the plugin, it has to be in its
 # nerdtree_plugin folder. But we want the script under source control!
 # Solution? Symlink it in if it doesn't already exist.
+# Also, exclude it from nerdtree's repo so it doesn't appear dirty
 if [ -d ~/.dotfiles/.vim/bundle/nerdtree/nerdtree_plugin ] && \
    [ -e ~/.dotfiles/myscripts/yank_path.vim ] && \
    [ ! -L ~/.dotfiles/.vim/bundle/nerdtree/nerdtree_plugin/yank_path.vim ]
 then
   ln -s ~/.dotfiles/myscripts/yank_path.vim \
         ~/.dotfiles/.vim/bundle/nerdtree/nerdtree_plugin/yank_path.vim
+  echo 'nerdtree_plugin/yank_path.vim' >> \
+       ~/.dotfiles/.vim/bundle/nerdtree/.git/info/exclude
 fi
 
 # Ensure that editorconfig can work
