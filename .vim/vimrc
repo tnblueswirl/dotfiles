@@ -64,22 +64,22 @@ Plug 'wincent/command-t'
 Plug 'mileszs/ack.vim'
 
 " Debugger (supports DBGP protocol)
-Plug 'joonty/vdebug'
+Plug 'joonty/vdebug', { 'for': ['php', 'python'] }
 
 " Emmet support for ease of writing html
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 
 " Snippet Support
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php'] }
 
 " GraphQL syntax support
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 
 " javascript syntax highlighting
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'js', 'jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 
 " jsx support
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'js', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
 
 " json syntax highlighting
 Plug 'elzr/vim-json', { 'for': ['json'] }
@@ -119,7 +119,7 @@ Plug 'jwalton512/vim-blade', { 'for': ['php', 'blade'] }
 Plug 'hdima/python-syntax', { 'for': ['python'] }
 
 " typescript syntax support
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript' ] }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 
 " To navigate into Ruby source/gem files with Vim:
 " https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
