@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# If this is not an interactive shell, we're done here
+[[ $- == *i* ]] || return
+
 if [ ! $_DOTFILES_INITIAL_PATH ]; then
   export _DOTFILES_INITIAL_PATH=$PATH
 fi
