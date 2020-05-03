@@ -1,11 +1,11 @@
 global !p
 def set_component_name(snip):
     if snip.basename != 'index':
-        snip.rv = snip.basename.capitalize()
+        snip.rv = snip.basename[:1].upper() + snip.basename[1:]
     else:
         path_parts = path.split('/')
         if len(path_parts) >= 2:
-            snip.rv = path_parts[-2].capitalize()
+            snip.rv = path_parts[-2][:1].upper() + path_parts[-2][1:]
         else:
             snip.rv = 'Component'
 endglobal
