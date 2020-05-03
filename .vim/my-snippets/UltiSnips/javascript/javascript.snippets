@@ -2,18 +2,12 @@ snippet cl "console.log()" b
 console.log($1);
 endsnippet
 
-post_jump "snip.buffer[snip.line] = snip.buffer[snip.line].upper(); snip.cursor.preserve()"
-snippet /// "Add a /-based category block (2-space indent)" b
-//////////////////////////////////////////////////////////////////////////////
-// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 6) * '/'`}
-////////////////////////////////////////////////////////////////////////////
-endsnippet
-
-post_jump "snip.buffer[snip.line] = snip.buffer[snip.line].upper(); snip.cursor.preserve()"
-snippet //* "Add a /*-based category block (2-space indent)" b
-/* ///////////////////////////////////////////////////////////////////////////
-// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 6) * '/'`}
-///////////////////////////////////////////////////////////////////////// */
+post_jump "if snip.tabstop == 2: snip.buffer[snip.line] = (snip.buffer[snip.line].upper() + (79 * '/'))[:79]; snip.cursor.preserve()"
+post_expand "snip.buffer[snip.line] = snip.buffer[snip.line][:80]; snip.buffer[snip.line + 2] = snip.buffer[snip.line + 2][:75] + ' */'"
+snippet //* "Add a /*-based category block" b
+/* /////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+/////////////////////////////////////////////////////////////////////////// */
 endsnippet
 
 # vim:ft=snippets:
