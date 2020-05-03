@@ -1,13 +1,13 @@
 global !p
-def category_jump(snip):
-    if snip.tabstop == 2:
-        snip.buffer[snip.line] = snip.buffer[snip.line].upper()[:79]
-        snip.cursor.preserve()
-
 def category_expand(snip, slashstar=False):
     snip.buffer[snip.line] = snip.buffer[snip.line][:80]
     l2 = snip.buffer[snip.line + 2]
     snip.buffer[snip.line + 2] = l2[:78] if not slashstar else l2[:75] + ' */'
+
+def category_jump(snip):
+    if snip.tabstop == 2:
+        snip.buffer[snip.line] = snip.buffer[snip.line].upper()[:79]
+        snip.cursor.preserve()
 endglobal
 
 post_expand "category_expand(snip)"
