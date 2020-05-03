@@ -1,9 +1,30 @@
-post_jump "if snip.tabstop == 2: snip.buffer[snip.line] = (snip.buffer[snip.line].upper() + (79 * '/'))[:79]; snip.cursor.preserve()"
-post_expand "snip.buffer[snip.line] = snip.buffer[snip.line][:80]; snip.buffer[snip.line + 2] = snip.buffer[snip.line + 2][:78]"
+global !p
+def category_jump(snip):
+    if snip.tabstop == 2:
+        l = snip.buffer[snip.line]
+        snip.buffer[snip.line] = (l.upper() + (79 * '/'))[:79]
+        snip.cursor.preserve()
+
+def category_expand(snip, slashstar=False):
+    snip.buffer[snip.line] = snip.buffer[snip.line][:80]
+    l2 = snip.buffer[snip.line + 2]
+    snip.buffer[snip.line + 2] = l2[:78] if not slashstar else l2[:75] + ' */'
+endglobal
+
+post_expand "category_expand(snip)"
+post_jump "category_jump(snip)"
 snippet /// "Add a /-based category block" b
 ////////////////////////////////////////////////////////////////////////////////
 // ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
 ///////////////////////////////////////////////////////////////////////////////
+endsnippet
+
+post_expand "category_expand(snip, True)"
+post_jump "category_jump(snip)"
+snippet //* "Add a /*-based category block" b
+/* /////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+/////////////////////////////////////////////////////////////////////////// */
 endsnippet
 
 # vim:ft=snippets:
