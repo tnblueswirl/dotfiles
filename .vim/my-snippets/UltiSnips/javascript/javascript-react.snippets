@@ -42,4 +42,23 @@ console.error($1);
 set${1/.+/\u$0/}($2);
 endsnippet
 
+global !p
+def category_expand_react(snip):
+    snip.buffer[snip.line + 1] = snip.buffer[snip.line + 1][:80]
+    snip.buffer[snip.line + 3] = snip.buffer[snip.line + 3][:75] + ' */'
+
+def category_jump(snip):
+    if snip.tabstop == 2:
+        snip.buffer[snip.line] = snip.buffer[snip.line].upper()[:79]
+        snip.cursor.preserve()
+endglobal
+
+post_expand "category_expand_react(snip)"
+post_jump "category_jump(snip)"
+snippet //* "Add a /*-based category block" b
+/* /////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC FUNCTIONS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+/////////////////////////////////////////////////////////////////////////// */
+endsnippet
+
 # vim:ft=snippets:
