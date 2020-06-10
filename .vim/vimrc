@@ -72,6 +72,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 " Snippet Support
 Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php'] }
 
+" Show CSS colors inline
+Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss', 'jsx'] }
+
 " GraphQL syntax support
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 
