@@ -82,7 +82,7 @@ Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 
 " jsx support
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['jsx'] }
 
 " json syntax highlighting
 Plug 'elzr/vim-json', { 'for': ['json'] }
@@ -116,7 +116,7 @@ Plug 'rayburgemeestre/phpfolding.vim', { 'for': ['php'] }
 Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 
 " php blade syntax highlighting
-Plug 'jwalton512/vim-blade', { 'for': ['php', 'blade'] }
+Plug 'jwalton512/vim-blade', { 'for': ['blade'] }
 
 " python syntax support
 Plug 'hdima/python-syntax', { 'for': ['python'] }
