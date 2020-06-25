@@ -70,7 +70,7 @@ Plug 'joonty/vdebug', { 'for': ['php', 'python'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 
 " Snippet Support
-Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php'] }
+Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php', 'snippets'] }
 
 " Show CSS colors inline
 Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss', 'jsx'] }
