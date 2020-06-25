@@ -472,7 +472,7 @@ command! -nargs=+ Agrep grep -rn <args>
 nnoremap <Leader>ctj :silent !ctags -R --fields=+laimS --languages=JavaScript .<CR>:redraw!<CR>
 
 " Run ctags specifically for php
-nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php .<CR>:redraw!<CR>
+nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php --output-format=e-ctags .<CR>:redraw!<CR>
 
 " Run ctags specifically for php
 nnoremap <Leader>ctr :silent !ctags -R --fields=+laimS --languages=ruby .<CR>:redraw!<CR>
@@ -832,6 +832,10 @@ let g:DisableAutoPHPFolding = 1
 nnoremap <LocalLeader>p <Plug>(Prettier)
 nnoremap <silent> <Leader>gq :Prettier<CR>
 let g:prettier#autoformat = 0
+
+" phpcomplete Settings ---------------------------------------------------- {{{2
+"
+let g:phpcomplete_parse_docblock_comments = 1
 
 " PyMode Settings --------------------------------------------------------- {{{2
 "
