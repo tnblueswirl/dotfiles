@@ -52,8 +52,10 @@ fi
 
 # WORK ALIASES
 alias artisan='php artisan'
-alias npmprodbuild='NODE_ENV=production NODE_OPTIONS="--max-old-space-size=4096" npm run build'
 alias composer='COMPOSER_MEMORY_LIMIT=-1 composer'
+alias npmprodbuild='NODE_ENV=production NODE_OPTIONS="--max-old-space-size=4096" npm run build'
+alias qlisten='php artisan queue:listen --tries=1'
+alias qwork='php artisan queue:work --tries=1'
 alias showlinks="ls -lA node_modules/ | grep '^l' | sed -l 's/.*\/\(.*\)$/\1/'"
 alias tinker='php artisan tinker'
 alias updateapp='rm -rf node_modules package-lock.json && composer update cccisd/*'
