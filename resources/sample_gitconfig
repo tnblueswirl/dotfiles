@@ -49,6 +49,7 @@
 	stashl = stash list
 	sts = status -s
 	tidy = rebase -i
+	unpushed = log --oneline @{u}..
 	unstage = reset HEAD --
 
 ; vim:ft=gitconfig
