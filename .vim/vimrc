@@ -367,6 +367,10 @@ runtime! ftplugin/man.vim
 " that you can undo Ctrl-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" Force cursor to underline so terminal mode and fzf don't change it to block
+let &t_SI.="\e[4 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[4 q"
 
 " Gvim Settings ----------------------------------------------------------- {{{1
 "
