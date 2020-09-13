@@ -68,13 +68,19 @@ function set_title_bar() {
 }
 
 function prompt_command() {
+  # Ensure the underscore cursor
+  PS1="$(printf '\033[4 q')"
+
+  # Add newline and (colorized) directory
+  PS1="${PS1}\n$(${DIRC})\w$(${RESET})"
   if [[ -z $(git cherry 2> /dev/null) ]]; then
     # If there are no unpushed commits, use the normal color
-    PS1="\n$(${DIRC})\w$(${RESET})$(${GITC})\$(parse_git_branch)$(${RESET})\$(parse_venv)\n\$ "
+    PS1="${PS1}$(${GITC})"
   else
     # If there ARE unpushed commits, use the unpushed color
-    PS1="\n$(${DIRC})\w$(${RESET})$(${GITUNPUSHEDC})\$(parse_git_branch)$(${RESET})\$(parse_venv)\n\$ "
+    PS1="${PS1}$(${GITUNPUSHEDC})"
   fi
+  PS1="${PS1}\$(parse_git_branch)$(${RESET})\$(parse_venv)\n\$ "
   set_title_bar
 }
 
