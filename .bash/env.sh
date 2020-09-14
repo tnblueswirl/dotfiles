@@ -12,6 +12,14 @@ then
   solarlight
 fi
 
+if [ $(which fzf 2> /dev/null) ] && [ $(which bat 2> /dev/null) ] ; then
+  _PREVIEW='bat --theme="Solarized (dark)" --italic-text=always --color=always --style=header,grid,numbers --line-range :300 {} 2> /dev/null'
+  _FZF_BINDINGS="--bind='ctrl-p:preview-page-up' --bind='ctrl-n:preview-page-down'"
+  FZF_DEFAULT_OPTS="--ansi ${_FZF_BINDINGS} --preview-window 'right:60%' --preview '${_PREVIEW}'"
+  export FZF_DEFAULT_OPTS
+  unset _PREVIEW
+  unset _FZF_BINDINGS
+fi
 
 # Let bash know we want to use Vim for everything!
 EDITOR="vim"
