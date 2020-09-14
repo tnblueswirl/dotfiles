@@ -53,8 +53,12 @@ Plug 'editorconfig/editorconfig-vim'
 " ALE (Asynchronous Lint Engine)
 Plug 'w0rp/ale'
 
+" FZF Fuzzy Finder (also `brew install bat` for syntax-highlighted preview)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " CtrlP Fuzzy Finder
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " Command-T (Fuzzy Finder)
 " Plug 'wincent/command-t'
@@ -808,9 +812,9 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 " let g:ctrlp_open_new_file = 'h'
 let g:ctrlp_regexp = 1
 " let g:ctrlp_show_hidden = 1
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
-nnoremap <silent> <Leader>t :CtrlP<CR>
-nnoremap <silent> <Leader>T :CtrlPTag<CR>
+" nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+" nnoremap <silent> <Leader>t :CtrlP<CR>
+" nnoremap <silent> <Leader>T :CtrlPTag<CR>
 
 " Editor Config ----------------------------------------------------------- {{{2
 "
@@ -842,6 +846,51 @@ augroup fugitiveBuffers
     autocmd!
     autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
+
+" fzf Settings ------------------------------------------------------------ {{{2
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>t :Files<CR>
+nnoremap <silent> <Leader>T :Tags<CR>
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+if has('popupwin')
+    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
+if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules --ignore .git -g ""'
+endif
+if executable('bat')
+    let $BAT_THEME='1337'
+endif
+
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-l': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'hl':      ['fg', 'PreProc'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Special'],
+  \ 'info':    ['fg', 'Identifier'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Constant'],
+  \ 'pointer': ['fg', 'Constant'],
+  \ 'marker':  ['fg', 'Constant'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " vim-javascript Settings ------------------------------------------------- {{{2
 "
