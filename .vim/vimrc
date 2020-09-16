@@ -409,7 +409,7 @@ augroup filetypeSpecific
     autocmd FileType man           setlocal nonumber nolist
     autocmd FileType markdown      setlocal linebreak
     autocmd FileType php           setlocal tabstop=4 shiftwidth=4 foldmethod=manual colorcolumn=110
-    autocmd FileType python        setlocal tabstop=8 shiftwidth=4 softtabstop=4
+    autocmd FileType python        setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType ruby          setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType sass          setlocal tabstop=2 shiftwidth=2
     autocmd FileType scss          setlocal tabstop=2 shiftwidth=2
