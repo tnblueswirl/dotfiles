@@ -858,12 +858,22 @@ let g:fzf_buffers_jump = 1
 if has('popupwin')
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 endif
+
 if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules --ignore .git -g ""'
+    " Add .agignore for more global excludes; .ignore for per-project
+    let $FZF_DEFAULT_COMMAND = 'ag -U --hidden --ignore node_modules --ignore .git -g ""'
 endif
+
 if executable('bat')
+    let b:FZF_PREVIEW='bat --italic-text=always --color=always --style=header,grid,numbers --line-range :300 {} 2> /dev/null'
     let $BAT_THEME='1337'
+else
+    let b:FZF_PREVIEW='cat {} 2> /dev/null | head -n300'
 endif
+
+let b:FZF_BINDINGS="--bind='ctrl-p:preview-page-up' --bind='ctrl-n:preview-page-down'"
+
+let $FZF_DEFAULT_OPTS='--ansi ' . b:FZF_BINDINGS . " --preview-window 'right:60%' --preview '" . b:FZF_PREVIEW . "'"
 
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
