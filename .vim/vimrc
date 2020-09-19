@@ -193,6 +193,9 @@ call plug#end()            " required
 " Partial fix for solarized when terminal colors not set to Solarized
 if $ITERM_PROFILE !~? 'solarized'
     let g:solarized_termcolors=256
+    if $ITERM_PROFILE !~? 'light'
+        let g:solarized_contrast = 'high'
+    endif
 endif
 
 if $ITERM_PROFILE =~? 'light'
@@ -200,6 +203,8 @@ if $ITERM_PROFILE =~? 'light'
 else
     set background=dark
 endif
+
+let g:solarized_diffmode = 'high'
 
 colorscheme solarized
 let g:airline_theme = 'solarized'
