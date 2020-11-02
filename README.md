@@ -79,6 +79,8 @@ $ brew tap universal-ctags/universal-ctags
 $ brew install --HEAD universal-ctags
 ```
 
+* An important tip for making both Vim and tmux possible to use easily: remap your caps lock key to control.
+
 ## Resources for tmux
 
  * For tmux to work as configured in these dotfiles, you will need to install `tmux` and, if you are on OS&nbsp;X / macOS, also `reattach-to-user-namespace` (only use `--with-wrap-pbcopy-and-pbpaste` flag for macOS).
