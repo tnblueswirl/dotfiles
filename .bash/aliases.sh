@@ -7,6 +7,7 @@ alias darkbkgnd="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFIL
 alias gitlog='git log --graph --oneline --decorate --all'
 alias gittags='git tag -l | sort -V'
 alias irb='irb --simple-prompt'
+alias lchrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-insecure-localhost'
 alias lightbkgnd="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solarized Light'"
 alias onedark="export DIRC='tput setaf 170'"
 alias solarlight="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solar Light 256'"
