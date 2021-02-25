@@ -7,8 +7,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # specify the location of virtualenv (`pip3 install virtualenv virtualenvwrapper`)
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
-# ensure all new environments are isolated from the site-packages directory
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+# ensure we clear out this arg
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=
 
 # use the same directory for virtualenvs as virtualenvwrapper
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
