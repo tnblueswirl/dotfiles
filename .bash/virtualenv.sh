@@ -1,6 +1,12 @@
 # set where virtual environments will live
 export WORKON_HOME=$HOME/.virtualenvs
 
+# use Python 3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+
+# specify the location of virtualenv (`pip3 install virtualenv virtualenvwrapper`)
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+
 # ensure all new environments are isolated from the site-packages directory
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
