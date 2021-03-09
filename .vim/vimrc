@@ -1033,6 +1033,8 @@ endif
 let g:UltiSnipsListSnippets = '<C-l>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/my-snippets/UltiSnips']
 let g:UltiSnipsEditSplit = 'context'
+" The default <C-k> interferes with digraph insertion
+let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
 
 
 " vdebug Settings --------------------------------------------------------- {{{2
