@@ -2,5 +2,6 @@
   "suggest.autoTrigger": "trigger",
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["-S"],
-  "python.formatting.yapfArgs": ["--style", "Facebook"]
+  "python.formatting.yapfArgs": ["--style", "Facebook"],
+  "python.linting.flake8Enabled": true
 }
