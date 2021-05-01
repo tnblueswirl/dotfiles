@@ -838,14 +838,14 @@ let g:user_emmet_settings = {
 
 " Fugitive Settings ------------------------------------------------------- {{{2
 "
-" Run :Gblame
-nnoremap <silent> <Leader>gb :Gblame<CR>
+" Run :Git blame
+nnoremap <silent> <Leader>gb :Git blame<CR>
 
-" Run :Gstatus
-nnoremap <silent> <Leader>gs :Gstatus<CR>
+" Run :Git status
+nnoremap <silent> <Leader>gs :Git<CR>
 
 " Run :Gcommit -v
-nnoremap <silent> <Leader>gc :Gcommit -v<CR>
+nnoremap <silent> <Leader>gc :Git commit -v<CR>
 
 augroup fugitiveBuffers
     autocmd!
