@@ -19,9 +19,6 @@ Plug 'scrooloose/nerdcommenter'
 " Solarized color scheme for Airline
 Plug 'vim-airline/vim-airline-themes'
 
-" python-mode plugin
-Plug 'klen/python-mode', { 'for': ['python'] }
-
 " Airline (alternate vim-only version of now depricated vim-powerline)
 Plug 'vim-airline/vim-airline'
 
@@ -77,7 +74,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php', 'snippets'] }
 
 " Completion Support (:CocInstall coc-css coc-html coc-json coc-phpls coc-sh
-" coc-tsserver)
+" coc-pyright coc-tsserver)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Show CSS colors inline
@@ -955,29 +952,6 @@ let g:prettier#autoformat = 0
 " phpcomplete Settings ---------------------------------------------------- {{{2
 "
 let g:phpcomplete_parse_docblock_comments = 1
-
-" PyMode Settings --------------------------------------------------------- {{{2
-"
-" Set python syntax highlighting to highest level
-let python_highlight_all = 1
-
-" Ignore lines that are too long
-let g:pymode_lint_ignore = 'E501'
-
-let g:pymode_rope_regenerate_on_write = 0
-let g:pymode_rope = 1
-let g:pymode_run_bind = '<Leader>pr'
-let g:pymode_breakpoint_bind = '<Leader>pb'
-let g:pymode_rope_show_doc_bind = '<Leader>pd'
-let g:pymode_rope_goto_definition_bind = '<Leader>pg'
-" let g:pymode_rope_goto_definition_cmd = 'new'
-" let g:pymode_rope_rename_bind = '<leader>pr'
-" let g:pymode_rope_module_to_package_bind = '<leader>p1p'
-" let g:pymode_rope_extract_method_bind = '<leader>pm'
-" let g:pymode_rope_extract_variable_bind = '<leader>pl'
-" let g:pymode_rope_use_function_bind = '<leader>pu'
-" let g:pymode_rope_move_bind = '<leader>pv'
-" let g:pymode_rope_change_signature_bind = '<leader>ps'
 
 " Syntastic Settings ------------------------------------------------------ {{{2
 "
