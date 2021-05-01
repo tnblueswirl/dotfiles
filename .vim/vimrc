@@ -124,6 +124,7 @@ Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 Plug 'jwalton512/vim-blade', { 'for': ['blade'] }
 
 " python syntax support
+" (`pip install black` or `pip install yapf` for autoformatting)
 Plug 'hdima/python-syntax', { 'for': ['python'] }
 
 " typescript syntax support
