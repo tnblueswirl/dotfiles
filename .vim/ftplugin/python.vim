@@ -1,1 +1,1 @@
-noremap <silent> <Leader>gq :Format<CR>
+nnoremap <silent> <Leader>gq :Format<CR>
