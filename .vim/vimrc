@@ -111,9 +111,6 @@ Plug 'prettier/vim-prettier', {
   \ ]
   \}
 
-" phpcomplete for improved omni-completion in PHP. Use <C-x><C-o>
-" Plug 'shawncplus/phpcomplete.vim', { 'for': ['php'] }
-
 " phpfolding for automatically creating folds in PHP code
 Plug 'rayburgemeestre/phpfolding.vim', { 'for': ['php'] }
 
@@ -126,6 +123,9 @@ Plug 'jwalton512/vim-blade', { 'for': ['blade'] }
 " python syntax support
 " (`pip install black` or `pip install yapf` for autoformatting)
 Plug 'hdima/python-syntax', { 'for': ['python'] }
+
+" python textwidth support
+Plug 'jimf/vim-pep8-text-width', { 'for': ['python'] }
 
 " typescript syntax support
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
@@ -950,9 +950,9 @@ nnoremap <LocalLeader>p <Plug>(Prettier)
 nnoremap <silent> <Leader>gq :Prettier<CR>
 let g:prettier#autoformat = 0
 
-" phpcomplete Settings ---------------------------------------------------- {{{2
+" vim-pep8-text-width Settings -------------------------------------------- {{{2
 "
-let g:phpcomplete_parse_docblock_comments = 1
+let g:pep8_text_width = 0
 
 " Syntastic Settings ------------------------------------------------------ {{{2
 "
