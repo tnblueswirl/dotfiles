@@ -775,38 +775,38 @@ exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
 exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 "}}}
 " JavaScript highlighting "{{{
-exe "hi! jsDocParam"                     .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsDocTags"                      .s:fg_orange  .s:bg_back   .s:fmt_none
-exe "hi! jsDocType"                      .s:fg_yellow  .s:bg_back   .s:fmt_none
-exe "hi! jsFuncBlock"                    .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsFunction"                     .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! jsGlobalNodeObjects"            .s:fg_violet  .s:bg_back   .s:fmt_none
-exe "hi! jsGlobalObjects"                .s:fg_yellow  .s:bg_back   .s:fmt_none
-exe "hi! jsIfElseBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsObjectProp"                   .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsObjectValue"                  .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsOperator"                     .s:fg_none    .s:bg_back   .s:fmt_none
-exe "hi! jsRepeatBraces"                 .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! jsStorageClass"                 .s:fg_green   .s:bg_back   .s:fmt_none
+exe "hi! jsDocParam"                     .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsDocTags"                      .s:fg_orange  .s:bg_none   .s:fmt_none
+exe "hi! jsDocType"                      .s:fg_yellow  .s:bg_none   .s:fmt_none
+exe "hi! jsFuncBlock"                    .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsFunction"                     .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! jsGlobalNodeObjects"            .s:fg_violet  .s:bg_none   .s:fmt_none
+exe "hi! jsGlobalObjects"                .s:fg_yellow  .s:bg_none   .s:fmt_none
+exe "hi! jsIfElseBraces"                 .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsObjectProp"                   .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsObjectValue"                  .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsOperator"                     .s:fg_none    .s:bg_none   .s:fmt_none
+exe "hi! jsRepeatBraces"                 .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! jsStorageClass"                 .s:fg_green   .s:bg_none   .s:fmt_none
 " }}}
 " perl highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
-exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
+exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_none   .s:fmt_none
+exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_none   .s:fmt_none
+exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_none.s:fmt_none
 
 "}}}
 " tex highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! texStatement"   . s:fg_cyan   .s:bg_back   .s:fmt_none
-exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texRefLabel"    . s:fg_yellow .s:bg_back   .s:fmt_none
+exe "hi! texStatement"   . s:fg_cyan   .s:bg_none   .s:fmt_none
+exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_none   .s:fmt_none
+exe "hi! texMathMatcher" . s:fg_yellow .s:bg_none   .s:fmt_none
+exe "hi! texMathMatcher" . s:fg_yellow .s:bg_none   .s:fmt_none
+exe "hi! texRefLabel"    . s:fg_yellow .s:bg_none   .s:fmt_none
 "}}}
 " ruby highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! rubyDefine"     . s:fg_base1  .s:bg_back   .s:fmt_bold
+exe "hi! rubyDefine"     . s:fg_base1  .s:bg_none   .s:fmt_bold
 "rubyInclude
 "rubySharpBang
 "rubyAccess
@@ -994,27 +994,27 @@ hi! link pandocMetadataTitle             pandocMetadata
 "}}}
 "php highlighting "{{{
 " ---------------------------------------------------------------------
-" exe "hi! phpMemberSelector"              .s:fg_yellow  .s:bg_back   .s:fmt_none
+" exe "hi! phpMemberSelector"              .s:fg_yellow  .s:bg_none   .s:fmt_none
 "}}}
 "python highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! pythonDoctest"                  .s:fg_base01  .s:bg_back   .s:fmt_none
-exe "hi! pythonDot"                      .s:fg_yellow  .s:bg_back   .s:fmt_none
+exe "hi! pythonDoctest"                  .s:fg_base01  .s:bg_none   .s:fmt_none
+exe "hi! pythonDot"                      .s:fg_yellow  .s:bg_none   .s:fmt_none
 exe "hi! pythonSpaceError"               .s:fg_base1   .s:bg_orange .s:fmt_none
 "" (activate this ^ in python.vim by: let python_space_error_highlight = 1)
-exe "hi! Boolean"                        .s:fg_yellow  .s:bg_back   .s:fmt_none
-exe "hi! Conditional"                    .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! Define"                         .s:fg_orange  .s:bg_back   .s:fmt_none
-exe "hi! Exception"                      .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! Float"                          .s:fg_magenta .s:bg_back   .s:fmt_none
-exe "hi! Function"                       .s:fg_blue    .s:bg_back   .s:fmt_none
-exe "hi! Include"                        .s:fg_orange  .s:bg_back   .s:fmt_none
-exe "hi! Number"                         .s:fg_magenta .s:bg_back   .s:fmt_none
-exe "hi! Operator"                       .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! Repeat"                         .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! Statement"                      .s:fg_green   .s:bg_back   .s:fmt_none
-exe "hi! String"                         .s:fg_cyan    .s:bg_back   .s:fmt_none
-exe "hi! Structure"                      .s:fg_yellow  .s:bg_back   .s:fmt_none
+exe "hi! Boolean"                        .s:fg_yellow  .s:bg_none   .s:fmt_none
+exe "hi! Conditional"                    .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! Define"                         .s:fg_orange  .s:bg_none   .s:fmt_none
+exe "hi! Exception"                      .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! Float"                          .s:fg_magenta .s:bg_none   .s:fmt_none
+exe "hi! Function"                       .s:fg_blue    .s:bg_none   .s:fmt_none
+exe "hi! Include"                        .s:fg_orange  .s:bg_none   .s:fmt_none
+exe "hi! Number"                         .s:fg_magenta .s:bg_none   .s:fmt_none
+exe "hi! Operator"                       .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! Repeat"                         .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! Statement"                      .s:fg_green   .s:bg_none   .s:fmt_none
+exe "hi! String"                         .s:fg_cyan    .s:bg_none   .s:fmt_none
+exe "hi! Structure"                      .s:fg_yellow  .s:bg_none   .s:fmt_none
 "}}}
 " terminal highlighting "{{{
 " ---------------------------------------------------------------------
