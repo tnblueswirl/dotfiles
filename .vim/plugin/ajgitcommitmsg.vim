@@ -13,7 +13,7 @@ function! AJGitCommitMsg()
 
     let s:full_branch = system('git symbolic-ref --short HEAD')
     let s:parsed_ticket = substitute(s:full_branch,
-        \ '\v\C.{-}([a-zA-Z]{2,7}-[0-9]+)-.+', '\U\1\E', '')
+        \ '\v\C^(.{-}[-/]){-}([a-zA-Z]{2,7}-[0-9]+)(-.+)*\n$', '\U\2\E', '')
 
     " If our branch didn't change, then nothing to do here
     if s:full_branch ==# s:parsed_ticket
