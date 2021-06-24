@@ -933,7 +933,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 
 " Don't show these file types
-let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '^__pycache__$[[dir]]']
 
 let g:NERDTreeWinSize = 40
 let g:NERDTreeDirArrows = 1
