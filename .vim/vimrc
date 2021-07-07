@@ -653,6 +653,13 @@ function! TabDo(command)
 endfunction
 com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
 
+" Show the hightlight group under the cursor
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " Load Local Settings ----------------------------------------------------- {{{1
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
