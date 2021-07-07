@@ -71,7 +71,7 @@ Plug 'joonty/vdebug', { 'for': ['php', 'python'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 
 " Snippet Support
-Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php', 'snippets'] }
+Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php', 'python', 'snippets'] }
 
 " Completion Support (:CocInstall coc-css coc-html coc-json coc-phpls coc-sh
 " coc-pyright coc-tsserver)
