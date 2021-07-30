@@ -1,3 +1,4 @@
+.bash/db_creds.sh
 .bash/hidden.sh
 .eclimrc
 .tmux/plugins/
