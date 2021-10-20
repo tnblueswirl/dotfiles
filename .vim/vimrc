@@ -873,7 +873,7 @@ endif
 
 if executable('ag')
     " Add .agignore for more global excludes; .ignore for per-project
-    let $FZF_DEFAULT_COMMAND = 'ag -U --hidden --ignore node_modules --ignore .git -g ""'
+    let $FZF_DEFAULT_COMMAND = 'ag -U --hidden --ignore node_modules --ignore .git --ignore __pycache__ -g ""'
 endif
 
 if executable('bat')
