@@ -1,6 +1,6 @@
 # cndreisbach's bash prompt, heavily inspired by @gf3’s Sexy Bash Prompt
 
-if [ -n "$ZSH" ]; then
+if ! [[ "$0" =~ "bash" ]]; then
   return
 fi
 

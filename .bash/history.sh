@@ -1,5 +1,5 @@
 # append to history file instead of overwriting it
-if [ -z "$ZSH" ]; then
+if [[ "$0" =~ "bash" ]]; then
   shopt -s histappend
 fi
 
