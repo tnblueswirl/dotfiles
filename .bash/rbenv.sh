@@ -1,3 +1,4 @@
-if [[ "$(which rbenv 2>&1 > /dev/null | echo $?)" = 0 ]]; then
+if command -v rbenv 2>&1 >/dev/null
+then
   eval "$(rbenv init -)"
 fi

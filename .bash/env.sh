@@ -12,8 +12,7 @@ then
   solarlight
 fi
 
-if [[ "$(which fzf 2>&1 > /dev/null | echo $?)" = 0 ]] \
-  && [[ "$(which bat 2>&1 > /dev/null | echo $?)" = 0 ]]
+if command -v fzf 2>&1 >/dev/null && command -v bat 2>&1 >/dev/null
 then
   _PREVIEW='bat --theme="Solarized (dark)" --italic-text=always --color=always --style=header,grid,numbers --line-range :300 {} 2> /dev/null'
   _FZF_BINDINGS="--bind='ctrl-p:preview-page-up' --bind='ctrl-n:preview-page-down'"
