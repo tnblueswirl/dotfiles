@@ -1,4 +1,4 @@
-if [ $(which brew 2> /dev/null) ]; then
+if [ "$(which brew 2> /dev/null)" = 0 ]; then
 
   # Set architecture flags
   export ARCHFLAGS="-arch x86_64"

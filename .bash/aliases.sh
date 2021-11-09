@@ -46,7 +46,7 @@ alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
-if [ $(which ctags 2> /dev/null) ]; then
+if [ "$(which ctags 2> /dev/null)" = 0 ]; then
   alias ctagsphp='ctags -R --fields=+laimS --languages=php'
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
@@ -80,6 +80,6 @@ alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # TMUX HELPER
 alias smart_cls=' clear && tmux clear-history 2> /dev/null'
-if [ ! $(which clear 2> /dev/null) ] && [ $(which reset 2> /dev/null) ]; then
+if [ "$(which clear 2> /dev/null)" != 0 ] && [ "$(which reset 2> /dev/null)" = 0 ]; then
   alias smart_cls=' reset && tmux clear-history 2> /dev/null'
 fi
