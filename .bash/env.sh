@@ -12,8 +12,7 @@ then
   solarlight
 fi
 
-if command -v fzf 2>&1 >/dev/null && command -v bat 2>&1 >/dev/null
-then
+if command -v fzf 2>&1 >/dev/null && command -v bat 2>&1 >/dev/null ; then
   _PREVIEW='bat --theme="Solarized (dark)" --italic-text=always --color=always --style=header,grid,numbers --line-range :300 {} 2> /dev/null'
   _FZF_BINDINGS="--bind='ctrl-p:preview-page-up' --bind='ctrl-n:preview-page-down'"
   FZF_DEFAULT_OPTS="--ansi ${_FZF_BINDINGS} --preview-window 'right:60%' --preview '${_PREVIEW}'"

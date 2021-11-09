@@ -1,5 +1,4 @@
-if command -v brew 2>&1 >/dev/null
-then
+if command -v brew 2>&1 >/dev/null ; then
 
   # Set architecture flags
   export ARCHFLAGS="-arch x86_64"

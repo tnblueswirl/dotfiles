@@ -49,8 +49,7 @@ if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
 
-if command -v ctags 2>&1 >/dev/null
-then
+if command -v ctags 2>&1 >/dev/null ; then
   alias ctagsphp='ctags -R --fields=+laimS --languages=php'
   alias ctagspy='ctags -R --fields=+laimS --languages=python'
 fi
@@ -84,7 +83,6 @@ alias phplocations='. ~/.dotfiles/myscripts/php_locations.sh'
 
 # TMUX HELPER
 alias smart_cls=' clear && tmux clear-history 2> /dev/null'
-if ! command -v clear 2>&1 >/dev/null && command -v reset 2>&1 >/dev/null
-then
+if ! command -v clear 2>&1 >/dev/null && command -v reset 2>&1 >/dev/null ; then
   alias smart_cls=' reset && tmux clear-history 2> /dev/null'
 fi
