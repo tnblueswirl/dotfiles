@@ -21,6 +21,8 @@ if [ "$(which fzf 2> /dev/null)" = 0 ] && [ "$(which bat 2> /dev/null)" = 0 ] ; 
   unset _FZF_BINDINGS
 fi
 
+export LSCOLORS=exfxcxdxbxegedabagacad
+
 # Let bash know we want to use Vim for everything!
 EDITOR="vim"
 export EDITOR
