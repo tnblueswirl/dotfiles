@@ -7,7 +7,7 @@ if [ "$(which brew 2> /dev/null)" = 0 ]; then
   export PATH="/usr/local/sbin:$PATH"
 
   # Homebrew autocompletion (`brew install bash-completion`)
-  if [[ "$0" =~ "bash" ]] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+  if [[ "$0" =~ "bash" ]] && [ -z "$ZSH" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
   fi
 
