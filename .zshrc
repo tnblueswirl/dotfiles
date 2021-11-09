@@ -87,6 +87,8 @@ bindkey -e
 bindkey '^]' vi-find-next-char
 bindkey '\e^]' vi-find-prev-char
 
+unset LESS
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
