@@ -4,7 +4,7 @@ if [[ -r $HOME/.pythonrc ]]; then
 fi
 
 if [ -d "$HOME/.pyenv" ] \
-  && [[ "$(which pyenv 2>1 > /dev/null | echo $?)" = 0 ]]
+  && [[ "$(which pyenv 2>&1 > /dev/null | echo $?)" = 0 ]]
 then
   eval "$(pyenv init -)"
 fi

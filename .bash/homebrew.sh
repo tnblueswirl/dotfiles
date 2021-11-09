@@ -1,4 +1,4 @@
-if [[ "$(which brew 2> /dev/null | echo $?)" = 0 ]]; then
+if [[ "$(which brew 2>&1 > /dev/null | echo $?)" = 0 ]]; then
 
   # Set architecture flags
   export ARCHFLAGS="-arch x86_64"
