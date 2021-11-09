@@ -34,6 +34,7 @@
 	co = checkout
 	cob = checkout -b
 	cof = checkout --
+	coan = commit --amend --no-edit
 	cov = commit -v
 	conflicts = diff --name-only --diff-filter=U
 	df = diff
