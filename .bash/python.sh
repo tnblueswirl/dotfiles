@@ -13,7 +13,7 @@ fi
 # For .bash_profile:
 
 # if [ -d "$HOME/.pyenv" ] \
-#   && [[ "$(which pyenv 2> /dev/null | echo $?)" = 0 ]]
+#   && [[ "$(which pyenv 2>&1 > /dev/null | echo $?)" = 0 ]]
 # then
 #   export PYENV_ROOT="$HOME/.pyenv"
 #   export PATH="$PYENV_ROOT/bin:$PATH"
