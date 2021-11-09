@@ -29,3 +29,10 @@ if [ -d ~/.dotfiles/.vim/bundle/editorconfig-vim ]; then
           ~/.dotfiles/.vim/autoload/editorconfig.vim
   fi
 fi
+
+# Ensure that nvim knows about coc-settings
+if [ -f ~/.dotfiles/.vim/coc-settings.json ] \
+    && [ ! -L ~/.config/nvim/coc-settings.json ]; then
+  ln -s ~/.dotfiles/.vim/coc-settings.json \
+        ~/.config/nvim/coc-settings.json
+fi
