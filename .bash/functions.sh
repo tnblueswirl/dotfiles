@@ -98,4 +98,5 @@ vim_branch_arg() {
   fi
 }
 
+alias nvimbranch='nvim $(vim_branch_arg)'
 alias vimbranch='vim $(vim_branch_arg)'

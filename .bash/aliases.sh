@@ -13,7 +13,9 @@ alias onedark="export DIRC='tput setaf 170'"
 alias solarlight="source ~/.dotfiles/myscripts/lightbkgnd.sh ; export ITERM_PROFILE='Solar Light 256'"
 alias solardark="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFILE='Solar Dark 256'"
 alias toggle_solarized='source ~/.dotfiles/myscripts/toggle_solarized.sh'
+# alias nvimbranch is defined in `functions.sh`
 # alias vimbranch is defined in `functions.sh`
+alias nvimselect='select session in $(ls -1 | grep -E "Session.*\.vim") ; do nvim -S "$session" ; break ; done'
 alias vimselect='select session in $(ls -1 | grep -E "Session.*\.vim") ; do vim -S "$session" ; break ; done'
 
 if [ $(uname 2> /dev/null | grep Linux) ]; then
