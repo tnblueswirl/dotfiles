@@ -81,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 
 export ZSH_THEME_VIRTUALENV_PREFIX='[python:'
 
+# Update this to your local user!
 export DEFAULT_USER='adamhartz'
 
 bindkey -e
