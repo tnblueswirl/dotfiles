@@ -15,6 +15,7 @@ def static_category_expand(snip, linelen=40, offset=0):
     snip.buffer[snip.line + offset] = snip.buffer[snip.line + offset][:linelen]
     l2 = snip.buffer[snip.line + 2 + offset]
     snip.buffer[snip.line + 2 + offset] = l2[:linelen]
+    snip.cursor.preserve()
 endglobal
 
 post_expand "category_expand(snip)"
