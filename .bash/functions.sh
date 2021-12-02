@@ -87,6 +87,7 @@ vim_branch_arg() {
   ticket_from_git_branch=$(git symbolic-ref --short HEAD 2>/dev/null \
     | sed -E -e 's/.*\/?([A-Z]{2,7}-[0-9]+).*/\1/')
   local has_std_session=0
+  local session
   for session in ${sessions}
   do
     if [[ "${session}" =~ "${ticket_from_git_branch}" ]]; then
