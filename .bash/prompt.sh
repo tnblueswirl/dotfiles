@@ -1,9 +1,5 @@
 # cndreisbach's bash prompt, heavily inspired by @gf3’s Sexy Bash Prompt
 
-if ! [[ "$0" =~ "bash" ]]; then
-  return
-fi
-
 function_exists() {
   test $(declare -f -F $1)
 }

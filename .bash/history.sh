@@ -1,9 +1,9 @@
 # append to history file instead of overwriting it
-if [[ "$0" =~ "bash" ]] && [ -z "$ZSH" ]; then
+if [[ "$0" =~ bash$ ]] && [ -z "$ZSH" ]; then
   shopt -s histappend
 fi
 
-if [[ "$0" =~ "zsh" ]]; then
+if ! [[ "$0" =~ bash$ ]]; then
   # ignore any commands starting with spaces
   setopt HIST_IGNORE_SPACE
 fi
