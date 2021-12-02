@@ -70,7 +70,12 @@ showip() {
 vim_branch_arg() {
   # Collect all .vim files with 'Session' in the name in the current directory
   local sessions
-  sessions=$(ls -1 | grep -E 'Session.*\.vim')
+  if [[ "$1" == "zsh" ]]; then
+    # zsh populates arrays differently than bash
+    sessions=($(ls -1 | grep -E 'Session.*\.vim'))
+  else
+    sessions=$(ls -1 | grep -E 'Session.*\.vim')
+  fi
   if [ -z "${sessions}" ]; then
     return
   fi
@@ -98,5 +103,10 @@ vim_branch_arg() {
   fi
 }
 
-alias nvimbranch='nvim $(vim_branch_arg)'
-alias vimbranch='vim $(vim_branch_arg)'
+if [[ "$0" =~ bash$ ]]; then
+  alias nvimbranch='nvim $(vim_branch_arg)'
+  alias vimbranch='vim $(vim_branch_arg)'
+else
+  alias nvimbranch='nvim $(vim_branch_arg zsh)'
+  alias vimbranch='vim $(vim_branch_arg zsh)'
+fi
