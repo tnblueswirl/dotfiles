@@ -8,7 +8,7 @@ if [ -d "$HOME/.pyenv" ] && command -v pyenv 2>&1 >/dev/null ; then
 fi
 
 
-# For .bash_profile:
+# For .bash_profile / .zprofile:
 
 # if [ -d "$HOME/.pyenv" ] && command -v pyenv 2>&1 >/dev/null ; then
 #   export PYENV_ROOT="$HOME/.pyenv"
