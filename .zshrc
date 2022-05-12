@@ -88,6 +88,9 @@ bindkey -e
 bindkey '^]' vi-find-next-char
 bindkey '\e^]' vi-find-prev-char
 
+# Allow expansion of alias
+bindkey "^Xa" _expand_alias
+
 unset LESS
 
 # export MANPATH="/usr/local/man:$MANPATH"
