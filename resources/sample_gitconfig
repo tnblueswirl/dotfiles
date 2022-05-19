@@ -38,6 +38,7 @@
 	cov = commit -v
 	conflicts = diff --name-only --diff-filter=U
 	df = diff
+	dfm = !git diff $(git merge-base master HEAD)..
 	dfs = diff --staged
 	la = log --oneline --graph --decorate --all
 	lo = log --oneline
@@ -45,6 +46,7 @@
 	lon = log --oneline --no-merges
 	lor = log --oneline --reverse
 	lot = log --oneline --topo-order --graph --decorate
+	mmb = merge-base master HEAD
 	recent-branches = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
 	st = status
 	stashl = stash list
