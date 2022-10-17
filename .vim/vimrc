@@ -402,6 +402,7 @@ set guioptions-=L
 augroup filetypeSpecific
     autocmd!
     autocmd FileType c             setlocal tabstop=4 shiftwidth=4
+    autocmd FileType conf          setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType crontab       setlocal nobackup nowritebackup
     autocmd FileType gitconfig     setlocal tabstop=4 shiftwidth=4 noexpandtab
     autocmd FileType help          setlocal nonumber nolist
@@ -419,7 +420,9 @@ augroup filetypeSpecific
     autocmd FileType scss          setlocal tabstop=2 shiftwidth=2
     autocmd FileType sh            setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType snippets      setlocal tabstop=4 shiftwidth=4 noexpandtab
+    autocmd FileType sql           setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType vim           setlocal tabstop=4 shiftwidth=4 foldmethod=marker
+    autocmd FileType xml           setlocal tabstop=2 shiftwidth=2
 augroup END
 
 
