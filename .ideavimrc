@@ -45,7 +45,7 @@ nnoremap [<Space> O<Esc>j
 nnoremap [e dd<Esc>kkp
 nnoremap ]e dd<Esc>p
 
-" Go to the previous/next error
+" Go to the previous/next change
 nnoremap [c :action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :action VcsShowNextChangeMarker<CR>
 
@@ -71,9 +71,9 @@ nnoremap <C-w>c :q<CR>
 nnoremap <C-w>C :action CloseAllEditors<CR>
 
 " Toggle the blame (Annotations)
-nnoremap <Leader>B :action Annotate<CR>
+nnoremap <Leader>gb :action Annotate<CR>
 
-nnoremap <Leader>g :action GotoDeclaration<CR>
+nnoremap <Leader>gd :action GotoDeclaration<CR>
 nnoremap g] :action GotoImplementation<CR>
 nnoremap g[ :action GotoSuperMethod<CR>
 nnoremap <Leader>t :action GotoFile<CR>
