@@ -108,6 +108,7 @@ Plug 'prettier/vim-prettier', {
   \     'scss',
   \     'typescript',
   \     'vue',
+  \     'xml',
   \ ]
   \}
 
