@@ -665,6 +665,15 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+function! ToggleTextWidth(new_width = 72)
+    if &l:textwidth == 0
+        let &l:textwidth=a:new_width
+    else
+        let &l:textwidth=0
+    endif
+endfunc
+nnoremap <silent> <LocalLeader>tw :call ToggleTextWidth()<CR>
+
 " Load Local Settings ----------------------------------------------------- {{{1
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
     source ~/.dotfiles/.vim/.vimrc_add_ons
