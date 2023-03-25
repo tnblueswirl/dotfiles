@@ -1,0 +1,3 @@
+# vim:ft=python
+
+options.color_hidden_col = 242
