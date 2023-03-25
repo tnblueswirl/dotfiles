@@ -54,5 +54,7 @@
 	tidy = rebase -i
 	unpushed = log --oneline @{u}..
 	unstage = reset HEAD --
+	wt = worktree
+	wtl = worktree list
 
 ; vim:ft=gitconfig

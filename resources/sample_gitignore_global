@@ -96,5 +96,7 @@ tags
 # JS stuff
 node_modules/
 
-# Git's .mailmap is to aid the `shortlog` command
+# Git stuff
+# .mailmap is to aid the `shortlog` command
 .mailmap
+worktrees/
