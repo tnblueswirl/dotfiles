@@ -49,11 +49,6 @@ if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
 fi
 
-if command -v ctags 2>&1 >/dev/null ; then
-  alias ctagsphp='ctags -R --fields=+laimS --languages=php'
-  alias ctagspy='ctags -R --fields=+laimS --languages=python'
-fi
-
 # WORK ALIASES
 alias artisan='php artisan'
 alias composer='COMPOSER_MEMORY_LIMIT=-1 composer'

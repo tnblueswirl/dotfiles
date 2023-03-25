@@ -137,17 +137,6 @@ Plug 'jimf/vim-pep8-text-width', { 'for': ['python'] }
 " typescript syntax support
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 
-" To navigate into Ruby source/gem files with Vim:
-" https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
-"
-" gem install gem-ctags
-" gem ctags
-"
-" mkdir -p ~/.rbenv/plugins
-" git clone git://github.com/tpope/rbenv-ctags.git \
-"   ~/.rbenv/plugins/rbenv-ctags
-" rbenv ctags
-
 " Bundler support (Ruby)
 Plug 'tpope/vim-bundler', { 'for': ['ruby'] }
 
@@ -493,18 +482,6 @@ command! -nargs=+ Pgrep grep -rn --include={*.php,} <args>
 
 " Search in all files
 command! -nargs=+ Agrep grep -rn <args>
-
-" Run ctags specifically for JavaScript
-nnoremap <Leader>ctj :silent !ctags -R --fields=+laimS --languages=JavaScript .<CR>:redraw!<CR>
-
-" Run ctags specifically for php
-nnoremap <Leader>ctp :silent !ctags -R --fields=+laimS --languages=php --output-format=e-ctags .<CR>:redraw!<CR>
-
-" Run ctags specifically for php
-nnoremap <Leader>ctr :silent !ctags -R --fields=+laimS --languages=ruby .<CR>:redraw!<CR>
-
-" Run ctags specifically for python
-nnoremap <Leader>cty :silent !ctags -R --fields=+laimS --languages=python .<CR>:redraw!<CR>
 
 " Switch to previously active tab with <Leader>l
 let g:lasttab = 1

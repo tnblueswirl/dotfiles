@@ -65,18 +65,12 @@ $ brew install vim
  * For the Solarized theme to work best in iTerm2, download the [iTerm2 color settings](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized) and load them in iTerm2 (in OS&nbsp;X / macOS, just double-click the itermcolors file). Note that once it is loaded, you must then select it in your Profile's 'Colors' tab.
  * Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug); launch Vim and type `:PlugInstall` to install the plugins.
  * For ALE to perform syntax checks, install the following (using [npm](http://npmjs.com)):
-   * JavaScript, JSX, React: eslint, babel-eslint, and eslint-plugin-react
-   * Sass: sass-lint
-   * HTML: htmlhint
+   * JavaScript, JSX, React: `eslint`, `babel-eslint`, and `eslint-plugin-react`
+   * Sass: `sass-lint`
+   * HTML: `htmlhint`
 
 ```bash
 $ sudo npm install -g eslint babel-eslint eslint-plugin-react sass-lint htmlhint
-```
- * For ctag generation (aliases in this repo leverage it: `ctagsphp` and `ctagspy`), use the maintained [universal-ctags](http://docs.ctags.io/en/latest/building.html). Note that you will likely need to restart your shell for the new version of ctags to be recognized.
-
-```bash
-$ brew tap universal-ctags/universal-ctags
-$ brew install --HEAD universal-ctags
 ```
 
 * An important tip for making both Vim and tmux possible to use easily: remap your caps lock key to control.
