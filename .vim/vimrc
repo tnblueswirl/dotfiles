@@ -86,6 +86,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go'] }
 " GraphQL syntax support
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 
+" hcl syntax support
+Plug 'jvirtanen/vim-hcl', { 'for': ['hcl'] }
+
 " javascript syntax highlighting
 Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 
