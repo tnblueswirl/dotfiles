@@ -73,12 +73,15 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'jsx'] }
 " Snippet Support
 Plug 'SirVer/ultisnips', { 'for': ['javascript', 'php', 'python', 'snippets'] }
 
-" Completion Support (:CocInstall coc-css coc-html coc-json coc-phpls coc-sh
-" coc-pyright coc-tsserver)
+" Completion Support (:CocInstall coc-css coc-go coc-json coc-html coc-phpls
+" coc-pyright coc-sh coc-tsserver)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Show CSS colors inline
 Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss', 'jsx'] }
+
+" Go language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go'] }
 
 " GraphQL syntax support
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
@@ -405,6 +408,7 @@ augroup filetypeSpecific
     autocmd FileType conf          setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType crontab       setlocal nobackup nowritebackup
     autocmd FileType gitconfig     setlocal tabstop=4 shiftwidth=4 noexpandtab
+    autocmd FileType go            setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType help          setlocal nonumber nolist
     autocmd FileType html          setlocal tabstop=2 shiftwidth=2 noendofline binary
     autocmd FileType html.mustache setlocal tabstop=2 shiftwidth=2 noendofline binary
@@ -747,6 +751,7 @@ let g:ale_lint_on_text_changed = 'normal'
 
 " Configure linters for specific filetypes
 let g:ale_linters = {
+  \ 'go': ['gopls'],
   \ 'graphql': [],
   \ 'javascript': ['eslint'],
   \}
