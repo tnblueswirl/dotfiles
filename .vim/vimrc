@@ -206,6 +206,9 @@ let g:airline_theme = 'solarized'
 " Allow background color changes to also work in tmux
 if &term =~ '256color'
     set t_ut=
+    " play nice with nvim
+    set notermguicolors
+    " Note to force the airline theme to define s:ansi_colors = 1
 endif
 
 
