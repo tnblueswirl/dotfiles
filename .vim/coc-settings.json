@@ -2,6 +2,7 @@
   "suggest.autoTrigger": "trigger",
   "suggest.noselect": true,
   "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
   "pyright.inlayHints.functionReturnTypes": false,
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [],
