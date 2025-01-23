@@ -54,12 +54,6 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" CtrlP Fuzzy Finder
-" Plug 'ctrlpvim/ctrlp.vim'
-
-" Command-T (Fuzzy Finder)
-" Plug 'wincent/command-t'
-
 " ack.vim
 " Note that this requires ack (`brew install ack`)
 Plug 'mileszs/ack.vim'
@@ -809,46 +803,6 @@ endfunction
 command! -nargs=0 Format :call CocAction('format')
 
 
-" Command-T Settings ------------------------------------------------------ {{{2
-"
-" Allow dotfiles to be searched
-" let g:CommandTScanDotDirectories = 1
-" " let g:CommandTAlwaysShowDotFiles = 1
-" "
-" " Make selection highlight easier to see (in custom solarized.vim)
-" let g:CommandTHighlightColor = 'CommandTHighlightColor'
-" "
-" " Keep it speedy for large projects
-" let g:CommandTFileScanner = 'find'
-" "
-" " Don't show matches from node_modules
-" let g:CommandTWildIgnore=&wildignore . ",*/node_modules"
-" "
-" " Allow Esc to close the window
-" if &term =~ "xterm" || &term =~ "screen"
-"   let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-" endif
-" "
-" nnoremap <silent> <Leader>b :CommandTMRU<CR>
-" nnoremap <silent> <Leader>B :CommandTBuffer<CR>
-" nnoremap <silent> <Leader>t :CommandT<CR>
-" nnoremap <silent> <Leader>T :CommandTTag<CR>
-
-" CtrlP Settings ---------------------------------------------------------- {{{2
-"
-" Also see The_Silver_Searcher settings
-" Note: Refresh cache with <F5>
-let g:ctrlp_by_filename = 1
-let g:ctrlp_extensions = ['autoignore']
-let g:ctrlp_map = ''
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
-" let g:ctrlp_open_new_file = 'h'
-let g:ctrlp_regexp = 1
-" let g:ctrlp_show_hidden = 1
-" nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
-" nnoremap <silent> <Leader>t :CtrlP<CR>
-" nnoremap <silent> <Leader>T :CtrlPTag<CR>
-
 " Editor Config ----------------------------------------------------------- {{{2
 "
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -1024,13 +978,6 @@ if executable('ag')
 
     " Use Ag over Ack
     let g:ackprg = 'ag --vimgrep'
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects
-    " .gitignore
-    let g:ctrlp_user_command = 'ag %s --ignore node_modules -U -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
 endif
 
 " UltiSnips Settings ------------------------------------------------------ {{{2
