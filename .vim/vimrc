@@ -80,6 +80,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Show CSS colors inline
 Plug 'ap/vim-css-color', { 'for': ['css', 'sass', 'scss', 'jsx'] }
 
+" Multiple language highlighting per file
+Plug 'inkarkat/vim-SyntaxRange'
+
 " Go language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go'] }
 
@@ -129,7 +132,7 @@ Plug 'jwalton512/vim-blade', { 'for': ['blade'] }
 
 " python syntax support
 " (`pip install black` or `pip install yapf` for autoformatting)
-Plug 'hdima/python-syntax', { 'for': ['python'] }
+Plug 'hdima/python-syntax', { 'for': ['python', 'markdown'] }
 
 " python textwidth support
 Plug 'jimf/vim-pep8-text-width', { 'for': ['python'] }
@@ -422,6 +425,19 @@ augroup filetypeSpecific
     autocmd FileType sql           setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType vim           setlocal tabstop=4 shiftwidth=4 foldmethod=marker
     autocmd FileType xml           setlocal tabstop=2 shiftwidth=2
+    " SyntaxRange
+    " Automatically syntax highlight diffs
+    autocmd Syntax * call SyntaxRange#Include('<<<<<<<', '>>>>>>>', 'diff', 'Special')
+    " Automatically syntax highlight within ``` tags in markdown files
+    autocmd  Syntax markdown call SyntaxRange#Include('```python', '```', 'python', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```html', '```', 'html', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```javascript', '```', 'javascript', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```json', '```', 'json', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```sh', '```', 'bash', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```sql', '```', 'sql', 'Comment')
+    autocmd  Syntax markdown call SyntaxRange#Include('```vim', '```', 'vim', 'Comment')
+    " Automatically syntax highlight SQL within <Sql> tags in XML files
+    autocmd  Syntax xml call SyntaxRange#Include('<Sql>', '</Sql>', 'sql', 'xmlTagName')
 augroup END
 
 
