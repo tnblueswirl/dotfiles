@@ -1,0 +1,948 @@
+-- Set leader key
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+
+-- Ensure line numbers are on from the start
+vim.opt.number = true
+
+-- Prevent floating windows/overlays for new files
+vim.opt.splitright = true -- Open vertical splits to the right
+vim.opt.splitbelow = true -- Open horizontal splits below
+vim.g.netrw_browse_split = 0 -- Open files in the same window
+vim.g.netrw_altv = 1 -- Open splits to the right
+
+----------------------------------------
+-- PLUGINS - GROUP 1 (Essential)
+----------------------------------------
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--branch=stable",
+    lazyrepo,
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Required Starting Settings
+vim.opt.compatible = false
+
+-- Plugin Management using Lazy.nvim
+require("lazy").setup({
+  -- UI Enhancements
+  {
+    "preservim/nerdtree",
+    keys = {
+      { "<Leader>d", ":NERDTreeToggle<CR>:redraw!<CR>", desc = "Toggle NERDTree" },
+      { "<Leader>f", ":NERDTreeFind<CR>:redraw!<CR>", desc = "Find in NERDTree" },
+    },
+    config = function()
+      vim.g.NERDTreeShowHidden = 1
+      vim.g.NERDTreeAutoDeleteBuffer = 1
+      vim.g.NERDTreeMinimalUI = 1
+      vim.g.NERDTreeIgnore = {
+        "\\.pyc$",
+        "\\.pyo$",
+        "^__pycache__$[[dir]]",
+      }
+      vim.g.NERDTreeWinSize = 40
+      vim.g.NERDTreeDirArrows = 1
+      vim.g.NERDTreeDirArrowExpandable = "▸"
+      vim.g.NERDTreeDirArrowCollapsible = "▾"
+    end,
+  },
+  {
+    "preservim/nerdcommenter",
+    config = function()
+      -- NERDCommenter settings go here
+      vim.g.NERDSpaceDelims = 1
+      vim.g.NERDTrimTrailingWhitespace = 1
+    end,
+  },
+  {
+    "vim-airline/vim-airline",
+    dependencies = { "vim-airline/vim-airline-themes" },
+    config = function()
+      vim.g.airline_powerline_fonts = 1
+      vim.g.airline_theme = "solarized"
+      vim.g["airline_extensions_whitespace_enabled"] = 0
+      vim.g["airline_extensions_whitespace_mixed_indent_algo"] = 2
+      vim.g["airline_extensions_whitespace_checks"] =
+        { "indent", "trailing", "mixed-indent-file" }
+
+      -- Airline symbols
+      if vim.fn.exists("g:airline_symbols") == 0 then
+        vim.g.airline_symbols = {}
+      end
+      vim.g["airline_left_sep"] = "⮀"
+      vim.g["airline_left_alt_sep"] = "⮁"
+      vim.g["airline_right_sep"] = "⮂"
+      vim.g["airline_right_alt_sep"] = "⮃"
+      vim.g["airline_symbols"]["branch"] = "⭠  "
+      vim.g["airline_symbols"]["readonly"] = "⭤"
+      vim.g["airline_symbols"]["linenr"] = "⭡"
+      vim.g["airline_symbols"]["maxlinenr"] = "☰ "
+      vim.g["airline_symbols"]["dirty"] = "*"
+      vim.g["airline_symbols"]["whitespace"] = "Ξ"
+      vim.g["airline_symbols"]["colnr"] = " ℅:"
+    end,
+  },
+
+  -- Git Integration
+  {
+    "tpope/vim-fugitive",
+    keys = {
+      { "<Leader>gb", ":Git blame<CR>", desc = "Git blame" },
+      { "<Leader>gs", ":Git<CR>", desc = "Git status" },
+      { "<Leader>gc", ":Git commit -v<CR>", desc = "Git commit" },
+    },
+    config = function()
+      vim.api.nvim_create_autocmd("BufReadPost", {
+        pattern = "fugitive://*",
+        command = "set bufhidden=delete",
+      })
+    end,
+  },
+  "airblade/vim-gitgutter",
+
+  -- Tim Pope's Essential Plugins
+  "tpope/vim-obsession",
+  "tpope/vim-surround",
+  "tpope/vim-unimpaired",
+  "tpope/vim-repeat",
+
+  -- Editor Enhancements
+  "editorconfig/editorconfig-vim",
+
+  -- Fuzzy Finding
+  {
+    "junegunn/fzf",
+    build = function()
+      vim.fn["fzf#install"]()
+    end,
+  },
+  {
+    "junegunn/fzf.vim",
+    dependencies = { "junegunn/fzf" },
+    keys = {
+      { "<Leader>b", ":Buffers<CR>", desc = "FZF Buffers" },
+      { "<Leader>t", ":Files<CR>", desc = "FZF Files" },
+      { "<Leader>T", ":Tags<CR>", desc = "FZF Tags" },
+    },
+    config = function()
+      vim.g.fzf_buffers_jump = 1
+      if vim.fn.has("popupwin") == 1 then
+        vim.g.fzf_layout = {
+          window = {
+            width = 0.9,
+            height = 0.6,
+          },
+        }
+      end
+
+      -- Set up preview with bat
+      if vim.fn.executable("bat") == 1 then
+        vim.env.BAT_THEME = "1337"
+        vim.env.FZF_DEFAULT_COMMAND =
+          'ag -U --hidden --ignore node_modules --ignore .git -g ""'
+      end
+
+      -- Configure FZF colors to match your color scheme
+      vim.g.fzf_colors = {
+        ["fg"] = { "fg", "Normal" },
+        ["bg"] = { "bg", "Normal" },
+        ["hl"] = { "fg", "Comment" },
+        ["fg+"] = { "fg", "CursorLine", "CursorColumn", "Normal" },
+        ["bg+"] = { "bg", "CursorLine", "CursorColumn" },
+        ["hl+"] = { "fg", "Statement" },
+        ["info"] = { "fg", "PreProc" },
+        ["border"] = { "fg", "Ignore" },
+        ["prompt"] = { "fg", "Conditional" },
+        ["pointer"] = { "fg", "Exception" },
+        ["marker"] = { "fg", "Keyword" },
+        ["spinner"] = { "fg", "Label" },
+        ["header"] = { "fg", "Comment" },
+      }
+
+      -- Configure actions
+      vim.g.fzf_action = {
+        ["ctrl-t"] = "tab split",
+        ["ctrl-x"] = "split",
+        ["ctrl-v"] = "vsplit",
+      }
+
+      -- Set default options
+      local preview_cmd = "bat --style=numbers --color=always {}"
+      vim.env.FZF_DEFAULT_OPTS = '--preview-window=right:60% --preview="'
+        .. preview_cmd
+        .. '" --bind=ctrl-p:preview-page-up,ctrl-n:preview-page-down'
+    end,
+  },
+
+  -- Search Enhancement
+  {
+    "mileszs/ack.vim",
+    keys = {
+      { "<Leader>a", ":silent! Ack!<Space>-F<Space>", desc = "Ack search" },
+      {
+        "<Leader>A",
+        ":tabe<CR>:silent! Ack<Space>-F<Space>",
+        desc = "Ack search in new tab",
+      },
+    },
+    config = function()
+      if vim.fn.executable("ag") then
+        vim.o.grepprg = "ag --nogroup --nocolor"
+        vim.g.ackprg = "ag --vimgrep"
+      end
+    end,
+  },
+
+  -- Linting and Formatting
+  {
+    "w0rp/ale",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      vim.g.ale_open_list = 1
+      vim.g.ale_list_window_size = 5
+      vim.g.ale_lint_on_text_changed = 0
+      vim.g.ale_lint_on_insert_leave = 0
+
+      vim.g.ale_linters = {
+        go = { "gopls" },
+        graphql = {},
+        javascript = { "eslint" },
+      }
+
+      vim.g.ale_python_flake8_options = "--ignore=E501"
+    end,
+  },
+
+  -- AI Assistance
+  "github/copilot.vim",
+
+  -- LSP and Completion
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    config = function()
+      -- Basic CoC settings
+      vim.g.coc_global_extensions = {
+        "coc-json",
+        "coc-git",
+        "coc-pyright",
+        "coc-tsserver",
+      }
+    end,
+  },
+
+  -- Snippets
+  {
+    "SirVer/ultisnips",
+    ft = { "javascript", "php", "python", "snippets" },
+    config = function()
+      vim.g.UltiSnipsListSnippets = "<C-l>"
+      vim.g.UltiSnipsSnippetDirectories =
+        { vim.fn.expand("$HOME") .. "/.vim/my-snippets/UltiSnips" }
+      vim.g.UltiSnipsEditSplit = "context"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<C-b>"
+    end,
+  },
+
+  -- Language-Specific Plugins
+  {
+    "fatih/vim-go",
+    build = ":GoUpdateBinaries",
+    ft = { "go" },
+  },
+  {
+    "pangloss/vim-javascript",
+    ft = { "javascript" },
+    config = function()
+      vim.g.javascript_plugin_jsdoc = 1
+    end,
+  },
+  {
+    "mxw/vim-jsx",
+    ft = { "jsx" },
+  },
+  {
+    "elzr/vim-json",
+    ft = { "json" },
+  },
+  {
+    "jparise/vim-graphql",
+    ft = { "graphql" },
+  },
+
+  {
+    "mattn/emmet-vim",
+    ft = { "html", "jsx" },
+    config = function()
+      vim.g.user_emmet_leader_key = "<Leader>m"
+      vim.g.user_emmet_settings = {
+        html = {
+          quote_char = "'",
+        },
+      }
+    end,
+  },
+
+  {
+    "ap/vim-css-color",
+    ft = { "css", "sass", "scss", "jsx" },
+  },
+
+  {
+    "inkarkat/vim-SyntaxRange",
+    event = { "BufReadPost", "BufNewFile" }, -- Load when buffer is read/created
+    config = function()
+      -- Create dedicated group for syntax range settings
+      vim.api.nvim_create_augroup("syntax_range_settings", { clear = true })
+
+      -- Add the syntax range autocmds
+      vim.api.nvim_create_autocmd("Syntax", {
+        group = "syntax_range_settings",
+        pattern = "*",
+        callback = function()
+          vim.fn["SyntaxRange#Include"]("<<<<<<<", ">>>>>>>", "diff", "Special")
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("Syntax", {
+        group = "syntax_range_settings",
+        pattern = "markdown",
+        callback = function()
+          vim.fn["SyntaxRange#Include"]("```python", "```", "python", "Comment")
+          vim.fn["SyntaxRange#Include"]("```html", "```", "html", "Comment")
+          vim.fn["SyntaxRange#Include"]("```javascript", "```", "javascript", "Comment")
+          vim.fn["SyntaxRange#Include"]("```json", "```", "json", "Comment")
+          vim.fn["SyntaxRange#Include"]("```sh", "```", "bash", "Comment")
+          vim.fn["SyntaxRange#Include"]("```sql", "```", "sql", "Comment")
+          vim.fn["SyntaxRange#Include"]("```vim", "```", "vim", "Comment")
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("Syntax", {
+        group = "syntax_range_settings",
+        pattern = "xml",
+        callback = function()
+          vim.fn["SyntaxRange#Include"]("<Sql>", "</Sql>", "sql", "xmlTagName")
+        end,
+      })
+    end,
+  },
+
+  {
+    "mustache/vim-mustache-handlebars",
+    ft = { "html", "mustache", "handlebars" },
+    config = function()
+      vim.g.mustache_abbreviations = 1
+    end,
+  },
+
+  -- PHP Support
+  {
+    "StanAngeloff/php.vim",
+    ft = { "php" },
+  },
+  {
+    "jwalton512/vim-blade",
+    ft = { "blade" },
+    dependencies = { "StanAngeloff/php.vim" },
+  },
+  {
+    "rayburgemeestre/phpfolding.vim",
+    ft = { "php" },
+  },
+
+  -- Python Support
+  {
+    "hdima/python-syntax",
+    ft = { "python", "markdown" },
+  },
+  {
+    "jimf/vim-pep8-text-width",
+    ft = { "python" },
+    config = function()
+      vim.g.pep8_text_width = 0
+    end,
+  },
+
+  {
+    "joonty/vdebug",
+    ft = { "php", "python" },
+    config = function()
+      vim.g.vdebug_options = {
+        port = 9000,
+        server = "",
+        timeout = 20,
+        on_close = "detach",
+        break_on_open = 0,
+        ide_key = "",
+        path_maps = {},
+        debug_window_level = 0,
+        debug_file_level = 0,
+        debug_file = "",
+        watch_window_style = "expanded",
+        marker_default = "⬦",
+        marker_closed_tree = "▸",
+        marker_open_tree = "▾",
+      }
+    end,
+  },
+
+  -- Ruby Support
+  {
+    "vim-ruby/vim-ruby",
+    ft = { "ruby" },
+  },
+  {
+    "tpope/vim-rails",
+    ft = { "ruby" },
+  },
+  {
+    "tpope/vim-bundler",
+    ft = { "ruby" },
+  },
+  {
+    "tpope/vim-rbenv",
+    ft = { "ruby" },
+  },
+
+  {
+    "lumiliet/vim-twig",
+    ft = { "twig" },
+  },
+
+  -- Code Formatting
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        "<leader>gq",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        -- Prettier-handled formats
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        graphql = { "prettier" },
+        markdown = { "prettier" },
+        html = { "prettier" },
+        yaml = { "prettier" },
+        -- Other formatters
+        python = { "ruff_format" },
+        -- Add more as needed
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+    },
+  },
+}, {
+  -- Lazy.nvim options
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
+
+-- Set explicit timeouts
+vim.opt.timeout = true
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeout = true
+vim.opt.ttimeoutlen = 100
+
+----------------------------------------
+-- KEY MAPPINGS
+----------------------------------------
+
+vim.keymap.set("i", "jj", "<ESC>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>n", ":nohlsearch<CR>", { silent = true, noremap = true })
+
+-- Remap save (only if buffer has changed)
+vim.keymap.set("n", "<Leader>s", ":update<CR>", { silent = true })
+
+----------------------------------------
+-- BASIC SETTINGS
+----------------------------------------
+-- Window movement shortcuts
+vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
+
+-- Make moving the cursor around in command mode like bash (Emacs)
+vim.keymap.set("c", "<C-a>", "<Home>", {})
+vim.keymap.set("c", "<C-f>", "<Right>", {})
+vim.keymap.set("c", "<C-b>", "<Left>", {})
+vim.keymap.set("c", "<Esc>b", "<S-Left>", {})
+vim.keymap.set("c", "<Esc>f", "<S-Right>", {})
+
+-- * and # search word under cursor but don't jump
+vim.keymap.set("n", "*", ":keepjumps normal! mi*`i<CR>", { silent = true })
+vim.keymap.set("n", "g*", ":keepjumps normal! mig*`i<CR>", { silent = true })
+vim.keymap.set("n", "#", ":keepjumps normal! mi#`i<CR>", { silent = true })
+vim.keymap.set("n", "g#", ":keepjumps normal! mig#`i<CR>", { silent = true })
+
+-- File handling
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.undofile = false
+
+-- Editor behavior
+vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.mouse = "a"
+-- vim.opt.number = true
+vim.opt.cursorline = true
+
+-- Search settings
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+
+----------------------------------------
+-- EDITOR SETTINGS
+----------------------------------------
+
+-- Indentation
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
+-- Display
+vim.opt.listchars = { tab = "▸ ", trail = "-" }
+vim.opt.list = true
+vim.opt.laststatus = 2
+vim.opt.ruler = true
+vim.opt.title = true
+vim.opt.scrolloff = 3
+vim.opt.showmatch = true
+
+----------------------------------------
+-- ADVANCED SETTINGS
+----------------------------------------
+
+-- Window handling
+vim.opt.winwidth = 88
+-- vim.opt.splitright = true
+
+-- File type handling
+vim.cmd("filetype plugin indent on")
+vim.opt.foldenable = false
+
+-- Format options
+if vim.version().minor > 703 then
+  vim.opt.formatoptions:append("j")
+end
+vim.opt.joinspaces = false
+vim.opt.lazyredraw = true
+
+-- Tags and completion
+vim.opt.tags = "tags;"
+if vim.fn.exists("&tagcase") == 1 then
+  vim.opt.tagcase = "match"
+end
+vim.opt.completeopt = "longest,menuone"
+
+-- Path settings
+vim.opt.path:append("**")
+if vim.fn.getcwd() == vim.fn.expand("$HOME") .. "/.dotfiles" then
+  vim.opt.path:append(vim.fn.expand("$HOME") .. "/.dotfiles/.bash")
+  vim.opt.path:append(vim.fn.expand("$HOME") .. "/.dotfiles/.tmux")
+  vim.opt.path:append(vim.fn.expand("$HOME") .. "/.dotfiles/.vim")
+end
+
+----------------------------------------
+-- VISUAL AND SYNTAX SETTINGS
+----------------------------------------
+
+-- Enable syntax highlighting
+vim.cmd("syntax on")
+
+-- Color Settings
+if
+  vim.env.ITERM_PROFILE and not string.match(vim.env.ITERM_PROFILE:lower(), "solarized")
+then
+  vim.g.solarized_termcolors = 256
+  if not string.match(vim.env.ITERM_PROFILE:lower(), "light") then
+    vim.g.solarized_contrast = "high"
+  end
+end
+
+if vim.env.ITERM_PROFILE and string.match(vim.env.ITERM_PROFILE:lower(), "light") then
+  vim.opt.background = "light"
+else
+  vim.opt.background = "dark"
+end
+
+vim.g.solarized_diffmode = "high"
+
+-- Load the colorscheme with error handling
+vim.cmd([[
+    colorscheme solarized-custom
+]])
+
+-- Allow background color changes to also work in tmux
+if string.match(vim.env.TERM or "", "256color") then
+  vim.opt.termguicolors = false
+end
+
+-- Set cursor shape
+vim.opt.guicursor = {
+  "n-v-c:block", -- Normal, visual, command-line: block cursor
+  "i-ci-ve:ver25", -- Insert, command-line insert, visual-exclude: vertical bar
+  "r-cr:hor20", -- Replace: horizontal bar
+  "o:hor50", -- Operator-pending: horizontal bar
+  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor", -- All modes: blinking settings
+  "sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch: block with different blink
+}
+
+-- Prevent blinking cursor in GUI
+vim.opt.guicursor:append("a:blinkon0")
+
+-- Create a simple check command
+vim.api.nvim_create_user_command("Check", function()
+  print("\nMappings:")
+  vim.cmd("verbose imap jj")
+  vim.cmd("verbose nmap ,n")
+end, {})
+
+-- Edit vimrc file
+vim.keymap.set("n", "<Leader>ve", ":vsplit $MYVIMRC<CR>", { silent = true })
+
+-- Source vimrc file
+vim.keymap.set(
+  "n",
+  "<Leader>vs",
+  ":source $MYVIMRC<CR>:noh<CR>:AirlineRefresh<CR>",
+  { silent = true }
+)
+
+-- Save a file that requires sudo after already editing it
+vim.keymap.set("c", "w!!", "w !sudo tee % > /dev/null", {})
+
+-- Show highlighting groups for current word
+vim.keymap.set("n", "<LocalLeader>hl", function()
+  local synID = vim.fn.synID(vim.fn.line("."), vim.fn.col("."), 1)
+  local synIDtrans = vim.fn.synIDtrans(synID)
+  print(
+    string.format(
+      "hi<%s> trans<%s> lo<%s>",
+      vim.fn.synIDattr(synID, "name"),
+      vim.fn.synIDattr(vim.fn.synID(vim.fn.line("."), vim.fn.col("."), 0), "name"),
+      vim.fn.synIDattr(synIDtrans, "name")
+    )
+  )
+end, { silent = true })
+
+-- Redraw screen
+vim.keymap.set("n", "<Leader>r", ":redraw!<CR>:AirlineRefresh<CR>", { silent = true })
+
+-- Make all windows equal size
+vim.keymap.set(
+  "n",
+  "<Leader>R",
+  ":Tabdo :500wincmd _<CR> :Tabdo :wincmd =<CR>",
+  { silent = true }
+)
+
+-- Add spaces around cursor
+vim.keymap.set("n", "<LocalLeader><Space>", "i <Esc>la <Esc>", { silent = true })
+
+----------------------------------------
+-- FILETYPE-SPECIFIC SETTINGS
+----------------------------------------
+
+vim.api.nvim_create_augroup("filetypeSpecific", { clear = true })
+
+-- Helper function to set multiple options at once
+local function set_ft_options(ft, options)
+  vim.api.nvim_create_autocmd("FileType", {
+    group = "filetypeSpecific",
+    pattern = ft,
+    callback = function()
+      for option, value in pairs(options) do
+        vim.opt_local[option] = value
+      end
+    end,
+  })
+end
+
+-- Define filetype-specific settings
+set_ft_options("c", { tabstop = 4, shiftwidth = 4 })
+set_ft_options("conf", { tabstop = 4, shiftwidth = 4, softtabstop = 4 })
+set_ft_options("crontab", { backup = false, writebackup = false })
+set_ft_options("gitconfig", { tabstop = 4, shiftwidth = 4, expandtab = false })
+set_ft_options("go", { tabstop = 4, shiftwidth = 4, softtabstop = 4 })
+set_ft_options("help", { number = false, list = false })
+set_ft_options(
+  "html",
+  { tabstop = 2, shiftwidth = 2, endofline = false, binary = true }
+)
+set_ft_options(
+  "html.mustache",
+  { tabstop = 2, shiftwidth = 2, endofline = false, binary = true }
+)
+set_ft_options("htmldjango", { shiftwidth = 2 })
+set_ft_options("javascript", { tabstop = 2, shiftwidth = 2, softtabstop = 0 })
+set_ft_options("json", { tabstop = 2, shiftwidth = 2 })
+set_ft_options(
+  "lua",
+  { tabstop = 2, shiftwidth = 2, expandtab = true, softtabstop = 2 }
+)
+set_ft_options("man", { number = false, list = false })
+set_ft_options("markdown", { linebreak = true })
+set_ft_options(
+  "php",
+  { tabstop = 4, shiftwidth = 4, foldmethod = "manual", colorcolumn = "110" }
+)
+set_ft_options("python", { tabstop = 4, shiftwidth = 4, softtabstop = 4 })
+set_ft_options("ruby", { tabstop = 2, shiftwidth = 2, softtabstop = 2 })
+set_ft_options("sass", { tabstop = 2, shiftwidth = 2 })
+set_ft_options("scss", { tabstop = 2, shiftwidth = 2 })
+set_ft_options("sh", { tabstop = 2, shiftwidth = 2, softtabstop = 2 })
+set_ft_options("snippets", { tabstop = 4, shiftwidth = 4, expandtab = false })
+set_ft_options("sql", { tabstop = 4, shiftwidth = 4, softtabstop = 4 })
+set_ft_options("vim", { tabstop = 4, shiftwidth = 4, foldmethod = "marker" })
+set_ft_options("xml", { tabstop = 2, shiftwidth = 2 })
+
+-- Create a dedicated group for syntax range settings
+vim.api.nvim_create_augroup("syntax_range_settings", { clear = true })
+
+----------------------------------------
+-- CUSTOM FUNCTIONS
+----------------------------------------
+
+-- Indent first instance of '=' to specified column
+function _G.AJIndent(indent_column, ...)
+  -- If a pattern was specified, use it, otherwise use '='
+  local pattern = select(1, ...) or "="
+
+  -- Get the range of lines to process
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+
+  -- Process each line in the range
+  for line_num = start_line, end_line do
+    -- Get the current line
+    local line = vim.fn.getline(line_num)
+
+    -- Find the position of the pattern
+    local match_pos = vim.fn.match(line, "\\C" .. vim.fn.escape(pattern, "\\"))
+    if match_pos ~= -1 then
+      match_pos = match_pos + 1 -- Convert to 1-based index
+
+      -- Check if there's a word character immediately before the pattern
+      local char_before = vim.fn.strpart(line, match_pos - 2, 1)
+      if char_before:match("%w") then
+        -- Skip this line as it would break a word
+        vim.api.nvim_echo({
+          { "Line " .. line_num .. ": Pattern would break a word", "WarningMsg" },
+        }, true, {})
+        goto continue
+      end
+
+      -- Calculate needed spaces
+      local current_text = vim.fn.strpart(line, 0, match_pos - 1)
+      local current_width = vim.fn.strdisplaywidth(current_text)
+      local spaces_needed = indent_column - current_width - 1
+
+      if spaces_needed < 0 then
+        vim.api.nvim_echo({
+          {
+            "Line "
+              .. line_num
+              .. ": Not enough space before pattern; min column: "
+              .. tostring(current_width + 2),
+            "WarningMsg",
+          },
+        }, true, {})
+        goto continue
+      end
+
+      -- Create the new line
+      local before_pattern = vim.fn.strpart(line, 0, match_pos - 1)
+      local after_pattern = vim.fn.strpart(line, match_pos - 1)
+      local new_line = before_pattern .. string.rep(" ", spaces_needed) .. after_pattern
+
+      -- Replace the line
+      vim.fn.setline(line_num, new_line)
+    end
+
+    ::continue::
+  end
+end
+
+-- Toggle between light and dark background
+function _G.BgToggle()
+  if vim.o.background == "light" then
+    vim.o.background = "dark"
+  else
+    vim.o.background = "light"
+  end
+end
+
+-- Move current line to reading height
+function _G.ReadingHeight()
+  local win_height = vim.fn.winheight(0)
+  local offset = math.floor(win_height / 4.0)
+  -- First move the line to top of window
+  vim.cmd("normal! zz")
+  -- Then scroll down by offset lines
+  vim.cmd('execute "normal! ' .. offset .. '\\<C-E>"')
+end
+
+-- Like windo but restore the current window
+function _G.WinDo(command)
+  local currwin = vim.fn.winnr()
+  vim.cmd("windo " .. command)
+  vim.cmd(currwin .. "wincmd w")
+end
+
+-- Like tabdo but restore the current tab
+function _G.TabDo(command)
+  local currTab = vim.fn.tabpagenr()
+  vim.cmd("tabdo " .. command)
+  vim.cmd("tabn " .. currTab)
+end
+
+-- Show syntax stack under cursor
+function _G.SynStack()
+  if not vim.fn.exists("*synstack") == 1 then
+    return
+  end
+  local syn_stack = vim.fn.synstack(vim.fn.line("."), vim.fn.col("."))
+  local result = vim.fn.map(syn_stack, 'synIDattr(v:val, "name")')
+  print(vim.inspect(result))
+end
+
+-- Toggle text width
+function _G.ToggleTextWidth(new_width)
+  new_width = new_width or 72
+  if vim.o.textwidth == 0 then
+    vim.o.textwidth = new_width
+  else
+    vim.o.textwidth = 0
+  end
+end
+
+-- View diff of current file against branch
+function _G.DiffBranchFile(diff_branch)
+  diff_branch = diff_branch or "master"
+  vim.cmd("diffthis")
+  vim.cmd("Gvsplit " .. diff_branch .. ":%")
+  vim.cmd("diffthis")
+  vim.cmd("normal! w")
+end
+
+----------------------------------------
+-- CUSTOM FUNCTION MAPPINGS
+----------------------------------------
+
+-- Indent mapping
+vim.keymap.set("n", "<Leader>i", ":lua AJIndent()<Left>", {})
+vim.keymap.set("v", "<Leader>i", ":lua AJIndent()<Left>", {})
+
+-- Background toggle
+vim.keymap.set("n", "<F9>", ":lua BgToggle()<CR>", { silent = true })
+
+-- Reading height
+vim.keymap.set("n", "z.", ":lua ReadingHeight()<CR>", { silent = false })
+
+-- Text width toggle
+vim.keymap.set("n", "<LocalLeader>tw", ":lua ToggleTextWidth()<CR>", { silent = true })
+
+-- Diff branch
+vim.keymap.set("n", "<LocalLeader>db", function()
+  DiffBranchFile()
+end, { silent = true })
+
+-- Create commands for WinDo and TabDo
+vim.api.nvim_create_user_command("WinDo", function(opts)
+  WinDo(opts.args)
+end, { nargs = "+" })
+
+vim.api.nvim_create_user_command("TabDo", function(opts)
+  TabDo(opts.args)
+end, { nargs = "+" })
+
+----------------------------------------
+-- TAB HANDLING
+----------------------------------------
+
+-- Switch to previously active tab with <Leader>l
+vim.g.lasttab = 1
+vim.keymap.set("n", "<Leader>l", ':exe "tabn " .. g:lasttab<CR>', { silent = true })
+
+-- Switch to the last tab in the tabline
+vim.keymap.set("n", "<Leader>L", ":tabl<CR>", { silent = true })
+
+-- Close a whole tab, no matter how many windows are in it
+vim.keymap.set("n", "<Leader>C", ":tabc<CR>", { silent = true })
+
+-- Mapping that allows for a count when switching to next tab
+function _G.AJNextTab(count)
+  local lasttab = vim.fn.tabpagenr()
+  count = count or vim.v.count1 -- Use count1 to get the count or default to 1
+  for _ = 1, count do
+    vim.cmd("tabnext")
+  end
+  vim.g.lasttab = lasttab
+end
+
+-- Store the last active tab number when leaving a tab
+vim.api.nvim_create_augroup("tabLeave", { clear = true })
+vim.api.nvim_create_autocmd("TabLeave", {
+  group = "tabLeave",
+  callback = function()
+    vim.g.lasttab = vim.fn.tabpagenr()
+  end,
+})
+
+-- Map to a wrapper function that handles the count
+vim.keymap.set("n", "g<C-t>", function()
+  AJNextTab() -- No _G needed here since we're in Lua
+end, { silent = true })
+
+----------------------------------------
+-- PHP SYNTAX OVERRIDES; KEEP AT END
+----------------------------------------
+
+-- PHP syntax override function
+function _G.PhpSyntaxOverride()
+  vim.cmd("hi! def link phpDocTags phpDefine")
+  vim.cmd("hi! def link phpDocParam phpType")
+end
+
+-- PHP syntax overrides
+vim.api.nvim_create_augroup("phpSyntaxOverride", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "phpSyntaxOverride",
+  pattern = "php",
+  callback = PhpSyntaxOverride,
+})

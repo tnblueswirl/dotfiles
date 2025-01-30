@@ -1,0 +1,32 @@
+set runtimepath^=~/.vim runtimepath +=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc
+
+
+    " {
+    "     'vim-airline/vim-airline',
+    "     dependencies = { 'vim-airline/vim-airline-themes' },
+    "     config = function()
+    "         vim.g.airline_powerline_fonts = 1
+    "         vim.g.airline_theme = 'solarized'
+    "         vim.g['airline_extensions_whitespace_enabled'] = 0
+    "         vim.g['airline_extensions_whitespace_mixed_indent_algo'] = 2
+    "         vim.g['airline_extensions_whitespace_checks'] = { 'indent', 'trailing', 'mixed-indent-file' }
+
+    "         -- Airline symbols
+    "         if vim.fn.exists('g:airline_symbols') == 0 then
+    "             vim.g.airline_symbols = {}
+    "         end
+    "         vim.g['airline_left_sep'] = '⮀'
+    "         vim.g['airline_left_alt_sep'] = '⮁'
+    "         vim.g['airline_right_sep'] = '⮂u
+    "         vim.g['airline_right_alt_sep'] = '⮃'
+    "         vim.g['airline_symbols']['branch'] = '⭠  '
+    "         vim.g['airline_symbols']['readonly'] = '⭤'
+    "         vim.g['airline_symbols']['linenr'] = '⭡'
+    "         vim.g['airline_symbols']['maxlinenr'] = '☰ '
+    "         vim.g['airline_symbols']['dirty'] = '*'
+    "         vim.g['airline_symbols']['whitespace'] = 'Ξ'
+    "         vim.g['airline_symbols']['colnr'] = ' ℅:'
+    "     end,
+    " },
