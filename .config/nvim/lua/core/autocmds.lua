@@ -97,17 +97,20 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
   group = augroup("markdown_syntax"),
   pattern = { "*.md", "*.mdc" },
   callback = function()
+    vim.opt.filetype = "markdown"
     vim.cmd([[
-      call SyntaxRange#Include('```bash', '```', 'bash', 'Comment')
-      call SyntaxRange#Include('```html', '```', 'html', 'Comment')
-      call SyntaxRange#Include('```javascript', '```', 'javascript', 'Comment')
-      call SyntaxRange#Include('```js', '```', 'javascript', 'Comment')
-      call SyntaxRange#Include('```json', '```', 'json', 'Comment')
-      call SyntaxRange#Include('```jsx', '```', 'javascript', 'Comment')
-      call SyntaxRange#Include('```python', '```', 'python', 'Comment')
-      call SyntaxRange#Include('```sh', '```', 'bash', 'Comment')
-      call SyntaxRange#Include('```sql', '```', 'sql', 'Comment')
-      call SyntaxRange#Include('```vim', '```', 'vim', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```bash" end="^\s\+```"', 'bash', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```html" end="^\s\+```"', 'html', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```javascript" end="^\s\+```"', 'javascript', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```js" end="^\s\+```"', 'js', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```json" end="^\s\+```"', 'json', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```jsx" end="^\s\+```"', 'jsx', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```python" end="^\s\+```"', 'python', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```bash" end="^\s\+```"', 'bash', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```sql" end="^\s\+```"', 'sql', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```vim" end="^\s\+```"', 'vim', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```xml" end="^\s\+```"', 'xml', 'Comment')
+      call SyntaxRange#IncludeEx('start="^\s\+```yaml" end="^\s\+```"', 'yaml', 'Comment')
     ]])
   end,
 })
