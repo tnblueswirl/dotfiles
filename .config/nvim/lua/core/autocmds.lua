@@ -98,10 +98,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
   pattern = { "*.md", "*.mdc" },
   callback = function()
     vim.cmd([[
-      call SyntaxRange#Include('```python', '```', 'python', 'Comment')
+      call SyntaxRange#Include('```bash', '```', 'bash', 'Comment')
       call SyntaxRange#Include('```html', '```', 'html', 'Comment')
       call SyntaxRange#Include('```javascript', '```', 'javascript', 'Comment')
+      call SyntaxRange#Include('```js', '```', 'javascript', 'Comment')
       call SyntaxRange#Include('```json', '```', 'json', 'Comment')
+      call SyntaxRange#Include('```jsx', '```', 'javascript', 'Comment')
+      call SyntaxRange#Include('```python', '```', 'python', 'Comment')
       call SyntaxRange#Include('```sh', '```', 'bash', 'Comment')
       call SyntaxRange#Include('```sql', '```', 'sql', 'Comment')
       call SyntaxRange#Include('```vim', '```', 'vim', 'Comment')

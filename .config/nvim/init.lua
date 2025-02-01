@@ -8,10 +8,12 @@ require("utils")
 -- Load core options and autocmds
 require("core.options")
 require("core.keymaps")
-require("core.autocmds")
 
 -- Load plugin management and configurations
 require("plugins")
+
+-- Load autocommands now that everything is defined
+require("core.autocmds")
 
 -- Add any additional local configurations
 local add_ons_path = vim.fn.expand("~/.vim/.vimrc_add_ons")
