@@ -24,6 +24,15 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
 
+  -- Improved matchit
+  {
+    "andymass/vim-matchup",
+    event = "BufReadPost",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
   -- Syntax range
   {
     "inkarkat/vim-ingo-library",
@@ -34,33 +43,11 @@ return {
     dependencies = { "inkarkat/vim-ingo-library" },
     lazy = false,
     config = function()
-      -- Explicitly source the required files
-      vim.cmd(
-        "source "
-          .. vim.fn.stdpath("data")
-          .. "/lazy/vim-SyntaxRange/plugin/SyntaxRange.vim"
-      )
       vim.cmd(
         "source "
           .. vim.fn.stdpath("data")
           .. "/lazy/vim-SyntaxRange/autoload/SyntaxRange.vim"
       )
-
-      -- Set up XML syntax highlighting for SQL tags
-      vim.api.nvim_create_autocmd("Syntax", {
-        pattern = "xml",
-        command = [[ call SyntaxRange#Include('<Sql>', '</Sql>', 'sql', 'xmlTagName')]]
-      })
-
-      -- Automatically syntax highlight diffs and code blocks
-      vim.api.nvim_create_autocmd("Syntax", {
-        pattern = "*",
-        callback = function()
-          vim.cmd([[
-            call SyntaxRange#Include('<<<<<<<', '>>>>>>>', 'diff', 'Special')
-          ]])
-        end,
-      })
     end,
   },
 

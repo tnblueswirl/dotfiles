@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "htmldjango",
     "javascript",
     "json",
+    "lua",
     "man",
     "markdown",
     "php",
@@ -58,6 +59,7 @@ vim.api.nvim_create_autocmd("FileType", {
       htmldjango = { shiftwidth = 2 },
       javascript = { tabstop = 2, shiftwidth = 2, softtabstop = 0, expandtab = true },
       json = { tabstop = 2, shiftwidth = 2 },
+      lua = { tabstop = 2, shiftwidth = 2, softtabstop = 2, expandtab = true },
       php = { tabstop = 4, shiftwidth = 4 },
       python = { tabstop = 4, shiftwidth = 4, softtabstop = 4 },
       ruby = { tabstop = 2, shiftwidth = 2, softtabstop = 2 },
@@ -83,21 +85,37 @@ vim.api.nvim_create_autocmd("FileType", {
 -- SYNTAX HIGHLIGHTING
 ----------------------------------------
 -- Automatically syntax highlight diffs and code blocks
--- vim.api.nvim_create_autocmd("Syntax", {
---   group = augroup("syntax_range"),
---   pattern = "*",
---   callback = function()
---     vim.fn["SyntaxRange#IncludeEx"]("^<<<<<<<", "^>>>>>>>", "diff", "Special")
---   end,
--- })
+vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
+  group = augroup("diff_syntax"),
+  pattern = "*",
+  callback = function()
+    vim.cmd([[call SyntaxRange#Include("^<<<<<<<", "^>>>>>>>", "diff", "Special")]])
+  end,
+})
 
--- vim.api.nvim_create_autocmd("Syntax", {
---   group = augroup("xml_syntax"),
---   pattern = "xml",
---   callback = function()
---     vim.fn["SyntaxRange#Include"]("<Sql>", "</Sql>", "sql", "xmlTagName")
---   end,
--- })
+vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
+  group = augroup("markdown_syntax"),
+  pattern = { "*.md", "*.mdc" },
+  callback = function()
+    vim.cmd([[
+      call SyntaxRange#Include('```python', '```', 'python', 'Comment')
+      call SyntaxRange#Include('```html', '```', 'html', 'Comment')
+      call SyntaxRange#Include('```javascript', '```', 'javascript', 'Comment')
+      call SyntaxRange#Include('```json', '```', 'json', 'Comment')
+      call SyntaxRange#Include('```sh', '```', 'bash', 'Comment')
+      call SyntaxRange#Include('```sql', '```', 'sql', 'Comment')
+      call SyntaxRange#Include('```vim', '```', 'vim', 'Comment')
+    ]])
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
+  group = augroup("xml_syntax"),
+  pattern = { "*.xml" },
+  callback = function()
+    vim.cmd([[call SyntaxRange#Include('<Sql>', '</Sql>', 'sql', 'xmlTagName')]])
+  end,
+})
 
 ----------------------------------------
 -- CURSOR SETTINGS
