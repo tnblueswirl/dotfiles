@@ -7,9 +7,13 @@ return {
     config = function()
       -- Basic CoC settings
       vim.g.coc_global_extensions = {
+        "coc-css",
+        "coc-go",
+        "coc-html",
         "coc-json",
-        "coc-git",
+        "coc-phpls",
         "coc-pyright",
+        "coc-sh",
         "coc-tsserver",
       }
     end,
