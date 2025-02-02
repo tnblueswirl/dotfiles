@@ -32,6 +32,7 @@ return {
         script = true,
         replace_keycodes = false,
       })
+      vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
 
       -- Disable tab mapping
       vim.g.copilot_no_tab_map = true
