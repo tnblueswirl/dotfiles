@@ -21,6 +21,9 @@ return {
     event = { "BufNewFile", "BufReadPre" },
     config = function()
       vim.g.gitgutter_preview_win_floating = 0
+      if vim.fn.executable("ag") == 1 then
+        vim.g.gitgutter_grep = "ag"
+      end
     end,
   },
 }
