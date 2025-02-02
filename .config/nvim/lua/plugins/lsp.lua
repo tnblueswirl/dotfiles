@@ -33,6 +33,8 @@ return {
         replace_keycodes = false,
       })
       vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
+      vim.keymap.set('i', '<C-F>', '<Plug>(copilot-next)')
+      vim.keymap.set('i', '<C-B>', '<Plug>(copilot-previous)')
 
       -- Disable tab mapping
       vim.g.copilot_no_tab_map = true
