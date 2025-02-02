@@ -19,6 +19,24 @@ return {
   {
     "github/copilot.vim",
     event = "InsertEnter",
+    lazy = false,
+    config = function()
+      -- Remap <C-J> to accept Copilot suggestion
+      vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', {
+        silent = true,
+        expr = true,
+        script = true,
+        replace_keycodes = false,
+      })
+
+      -- Disable tab mapping
+      vim.g.copilot_no_tab_map = true
+
+      -- Disable for specific filetypes
+      vim.g.copilot_filetypes = {
+        markdown = false,
+      }
+    end,
   },
 
   -- Snippets
