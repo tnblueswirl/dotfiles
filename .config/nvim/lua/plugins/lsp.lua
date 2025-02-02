@@ -26,7 +26,7 @@ return {
     lazy = false,
     config = function()
       -- Remap <C-J> to accept Copilot suggestion
-      vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', {
+      vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
         silent = true,
         expr = true,
         script = true,
