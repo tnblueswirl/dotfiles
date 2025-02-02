@@ -86,6 +86,7 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 100
+vim.opt.updatetime = 100
 
 ----------------------------------------
 -- CURSOR SETTINGS
