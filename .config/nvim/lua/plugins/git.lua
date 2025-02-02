@@ -19,5 +19,8 @@ return {
   {
     "airblade/vim-gitgutter",
     event = { "BufNewFile", "BufReadPre" },
+    config = function()
+      vim.g.gitgutter_preview_win_floating = 0
+    end,
   },
 }
