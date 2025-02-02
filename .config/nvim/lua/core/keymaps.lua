@@ -17,7 +17,7 @@ map("n", "<Leader>s", ":update<CR>")
 
 -- Remap load
 map("n", "<Leader>e", ":e!<CR>")
-map("n", "<Leader>E", ":Tabdo Windo e!<CR>")
+map("n", "<Leader>E", ":TabDo WinDo e!<CR>")
 
 -- Remap escape in insert mode
 map("i", "jj", "<ESC>")
@@ -119,7 +119,7 @@ map("n", "<LocalLeader>hl", show_highlight_group)
 map("n", "<Leader>r", ":redraw!<CR>:AirlineRefresh<CR>")
 
 -- Force max height of window
-map("n", "<Leader>R", ":Tabdo :500wincmd _<CR> :Tabdo :wincmd =<CR>")
+map("n", "<Leader>R", ":TabDo :500wincmd _<CR> :TabDo :wincmd =<CR>")
 
 ----------------------------------------
 -- TEXT MANIPULATION

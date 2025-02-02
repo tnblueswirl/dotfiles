@@ -18,6 +18,6 @@ return {
   -- Git signs in the gutter
   {
     "airblade/vim-gitgutter",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufNewFile", "BufReadPre" },
   },
 }
