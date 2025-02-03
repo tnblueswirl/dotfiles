@@ -19,14 +19,16 @@ vim.opt.undofile = false
 ----------------------------------------
 -- Basic editing
 vim.opt.clipboard = "unnamed,unnamedplus"
-vim.opt.mouse = "a"
 vim.opt.cursorline = true
+vim.opt.hidden = true
+vim.opt.mouse = "a"
+vim.opt.shortmess:append("c")
 
 -- Search settings
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
 vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.smartcase = true
 
 if vim.fn.executable('ag') == 1 then
     -- Use Ag over Grep
@@ -34,18 +36,19 @@ if vim.fn.executable('ag') == 1 then
 end
 
 -- Indentation
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 
 -- Display
-vim.opt.listchars = { tab = "▸ ", trail = "-" }
-vim.opt.list = true
 vim.opt.laststatus = 2
+vim.opt.list = true
+vim.opt.listchars = { tab = "▸ ", trail = "-" }
 vim.opt.ruler = true
-vim.opt.title = true
 vim.opt.scrolloff = 3
 vim.opt.showmatch = true
+vim.opt.signcolumn = "yes"
+vim.opt.title = true
 
 ----------------------------------------
 -- WINDOW AND BUFFER HANDLING
@@ -86,7 +89,7 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 100
-vim.opt.updatetime = 100
+vim.opt.updatetime = 300
 
 ----------------------------------------
 -- CURSOR SETTINGS

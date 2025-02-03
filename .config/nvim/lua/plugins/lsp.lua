@@ -16,6 +16,48 @@ return {
         "coc-sh",
         "coc-tsserver",
       }
+
+      -- Refresh CoC
+      vim.keymap.set("i", "<C-x><C-x>", "coc#refresh()", { silent = true, expr = true })
+
+      -- Handle <CR> for completion
+      local function confirm_completion()
+        if vim.fn.pumvisible() ~= 0 then
+          if vim.fn.complete_info ~= nil and vim.fn.complete_info().selected ~= -1 then
+            return "<C-y>"
+          end
+          return "<C-y>"
+        else
+          return "<C-g>u<CR>"
+        end
+      end
+      vim.keymap.set("i", "<CR>", confirm_completion, { expr = true })
+
+      -- GoTo code navigation
+      vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
+      -- vim.keymap.set('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
+      -- vim.keymap.set('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
+      vim.keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
+
+      -- Show documentation in preview window
+      local function show_documentation()
+        local filetype = vim.bo.filetype
+        if filetype == "vim" or filetype == "help" then
+          vim.cmd("h " .. vim.fn.expand("<cword>"))
+        else
+          vim.fn.CocActionAsync("doHover")
+        end
+      end
+      vim.keymap.set("n", "K", show_documentation, { silent = true })
+
+      -- Navigate diagnostics
+      vim.keymap.set("n", "[g", "<Plug>(coc-diagnostic-prev-error)", { silent = true })
+      vim.keymap.set("n", "]g", "<Plug>(coc-diagnostic-next-error)", { silent = true })
+
+      -- Add Format command
+      vim.api.nvim_create_user_command("Format", function()
+        vim.fn.CocAction("format")
+      end, {})
     end,
   },
 
