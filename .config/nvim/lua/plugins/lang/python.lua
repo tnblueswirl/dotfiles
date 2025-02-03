@@ -16,6 +16,12 @@ return {
     ft = "python",
   },
 
+  -- python textwidth support
+  {
+    "jimf/vim-pep8-text-width",
+    ft = "python",
+  },
+
   -- Python folding
   {
     "tmhedberg/SimpylFold",
