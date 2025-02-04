@@ -146,16 +146,13 @@ map("v", "<F1>", "<ESC>")
 map("n", "<Leader>a", ":silent! Ack<Space>-F<Space>", { silent = false })
 map("n", "<Leader>A", ":tabe<CR>:silent! Ack<Space>-F<Space>", { silent = false })
 
-----------------------------------------
--- CUSTOM COMMANDS
-----------------------------------------
--- Search commands
-vim.api.nvim_create_user_command(
-  "Pgrep",
-  "grep -rn --include={*.php,} <args>",
-  { nargs = "+" }
+-- Highlight `= f"""` in python strings as SQL
+map(
+  "n",
+  "<LocalLeader>ps",
+  [[:call SyntaxRange#Include('= f\?"""', '^\s*"""', 'sql', 'String')<CR>]],
+  { silent = true }
 )
-vim.api.nvim_create_user_command("Agrep", "grep -rn <args>", { nargs = "+" })
 
 -- Return the module
 return {}

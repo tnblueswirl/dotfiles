@@ -153,5 +153,13 @@ vim.api.nvim_create_user_command("TabDo", function(opts)
   TabDo(opts.args)
 end, { nargs = "+" })
 
+-- Search commands
+vim.api.nvim_create_user_command(
+  "Pgrep",
+  "grep -rn --include={*.php,} <args>",
+  { nargs = "+" }
+)
+vim.api.nvim_create_user_command("Agrep", "grep -rn <args>", { nargs = "+" })
+
 -- Return the module (empty since we're using _G)
 return {}
