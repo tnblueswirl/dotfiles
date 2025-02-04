@@ -69,7 +69,6 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "black", "isort" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         json = { "prettier" },

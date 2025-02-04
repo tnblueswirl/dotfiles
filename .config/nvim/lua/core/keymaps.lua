@@ -32,11 +32,15 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 ----------------------------------------
--- FOLD NAVIGATION
+-- USER FUNCTIONS
 ----------------------------------------
 -- Make navigating between folds a bit nicer
 map("n", "z.", function()
   _G.ReadingHeight()
+end, { silent = true })
+
+map("n", "<LocalLeader>tw", function()
+  _G.ToggleTextWidth()
 end, { silent = true })
 
 ----------------------------------------
