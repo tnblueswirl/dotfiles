@@ -15,13 +15,15 @@ return {
     end,
   },
 
-  -- PHP documentation
+  -- phpfolding for automatically creating folds in PHP code
   {
-    "tobyS/pdv",
+    "rayburgemeestre/phpfolding.vim",
     ft = "php",
-    dependencies = { "tobyS/vmustache" },
-    config = function()
-      vim.g.pdv_template_dir = vim.fn.expand("~/.vim/plugged/pdv/templates_snip")
-    end,
+  },
+
+  -- PHP blade syntax highlighting
+  {
+    "jwalton512/vim-blade",
+    ft = "blade",
   },
 }

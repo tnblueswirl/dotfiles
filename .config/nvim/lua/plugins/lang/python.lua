@@ -2,7 +2,7 @@ return {
   -- Enhanced Python syntax
   {
     "vim-python/python-syntax",
-    ft = "python",
+    ft = { "markdown", "python" },
     config = function()
       vim.g.python_highlight_all = 1
       vim.g.python_highlight_func_calls = 1
