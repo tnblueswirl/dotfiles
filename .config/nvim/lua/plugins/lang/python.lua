@@ -21,13 +21,4 @@ return {
     "jimf/vim-pep8-text-width",
     ft = "python",
   },
-
-  -- Python folding
-  {
-    "tmhedberg/SimpylFold",
-    ft = "python",
-    config = function()
-      vim.g.SimpylFold_docstring_preview = 1
-    end,
-  },
 }
