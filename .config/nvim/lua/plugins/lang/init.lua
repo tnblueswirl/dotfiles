@@ -1,5 +1,6 @@
 -- Import all language-specific plugin configurations
 return {
+  { import = "plugins.lang.dockerfile" }, -- Dockerfile
   { import = "plugins.lang.go" }, -- Go
   { import = "plugins.lang.graphql" }, -- GraphQL
   { import = "plugins.lang.hcl" }, -- hcl
