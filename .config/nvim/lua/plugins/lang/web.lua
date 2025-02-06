@@ -18,7 +18,13 @@ return {
   -- JSX/TSX support
   {
     "maxmellon/vim-jsx-pretty",
-    ft = { "javascriptreact", "typescriptreact" },
+    ft = { "javascriptreact", "typescriptreact", "jsx" },
+  },
+
+  -- Emmet support for ease of writing html
+  {
+    "mattn/emmet-vim",
+    ft = { "html", "jsx" },
   },
 
   -- HTML5 support
@@ -29,7 +35,7 @@ return {
 
   -- CSS support
   {
-    "hail2u/vim-css3-syntax",
-    ft = { "css", "scss", "sass" },
+    "ap/vim-css-color",
+    ft = { "css", "jsx", "scss", "sass" },
   },
 }
