@@ -3,8 +3,8 @@
 ----------------------------------------
 -- Basic display settings
 vim.opt.number = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitright = false
+vim.opt.splitbelow = false
 
 ----------------------------------------
 -- FILE HANDLING
