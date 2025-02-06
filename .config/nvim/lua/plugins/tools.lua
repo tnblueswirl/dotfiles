@@ -74,7 +74,7 @@ return {
     init = function()
       -- Set up Ag as the backend before plugin loads
       if vim.fn.executable("ag") == 1 then
-        vim.g.ackprg = "ag --vimgrep --smart-case"
+        vim.g.ackprg = "ag --vimgrep"
       end
     end,
     config = function()
