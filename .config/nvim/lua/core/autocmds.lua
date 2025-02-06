@@ -84,15 +84,6 @@ vim.api.nvim_create_autocmd("FileType", {
 ----------------------------------------
 -- SYNTAX HIGHLIGHTING
 ----------------------------------------
--- Automatically syntax highlight diffs and code blocks
-vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
-  group = augroup("diff_syntax"),
-  pattern = "*",
-  callback = function()
-    vim.cmd([[call SyntaxRange#Include("^<<<<<<<", "^>>>>>>>", "diff", "Special")]])
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
   group = augroup("markdown_syntax"),
   pattern = { "*.md", "*.mdc" },
