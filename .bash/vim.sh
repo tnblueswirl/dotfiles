@@ -14,6 +14,17 @@ then
        ~/.dotfiles/.vim/bundle/nerdtree/.git/info/exclude
 fi
 
+# neovim version of the above
+if [ -d ~/.local/share/nvim/lazy/nerdtree/nerdtree_plugin ] && \
+   [ -e ~/.dotfiles/myscripts/yank_path.vim ] && \
+   [ ! -L ~/.local/share/nvim/lazy/nerdtree/nerdtree_plugin/yank_path.vim ]
+then
+  ln -s ~/.dotfiles/myscripts/yank_path.vim \
+        ~/.local/share/nvim/lazy/nerdtree/nerdtree_plugin/yank_path.vim
+  echo 'nerdtree_plugin/yank_path.vim' >> \
+       ~/.local/share/nvim/lazy/nerdtree/.git/info/exclude
+fi
+
 # Ensure that editorconfig can work
 if [ -d ~/.dotfiles/.vim/bundle/editorconfig-vim ]; then
   if [ ! -L ~/.dotfiles/.vim/plugin/editorconfig.vim ]; then
