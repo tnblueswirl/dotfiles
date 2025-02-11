@@ -2,6 +2,7 @@ return {
   -- Git commands
   {
     "tpope/vim-fugitive",
+    lazy = false,
     keys = {
       { "<Leader>gb", ":Git blame<CR>", desc = "Git blame" },
       { "<Leader>gs", ":Git<CR>", desc = "Git status" },
