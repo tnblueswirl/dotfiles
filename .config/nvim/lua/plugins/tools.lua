@@ -145,4 +145,10 @@ return {
       })
     end,
   },
+
+  -- Python/PHP debugging
+  {
+    "joonty/vdebug",
+    ft = { "php", "python" },
+  },
 }

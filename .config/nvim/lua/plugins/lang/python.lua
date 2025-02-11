@@ -21,10 +21,4 @@ return {
     "jimf/vim-pep8-text-width",
     ft = "python",
   },
-
-  -- Python/PHP debugging
-  {
-    "joonty/vdebug",
-    ft = { "php", "python" },
-  },
 }
