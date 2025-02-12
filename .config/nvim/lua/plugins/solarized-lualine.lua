@@ -17,32 +17,32 @@ local colors = {
 }
 return {
   normal = {
-    a = { bg = colors.lightgray, fg = colors.base02, gui = "bold" },
+    a = { bg = colors.gray, fg = colors.base03, gui = "bold" },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base03, fg = colors.gray },
   },
   insert = {
-    a = { bg = colors.blue, fg = colors.base02, gui = "bold" },
+    a = { bg = colors.blue, fg = colors.base03, gui = "bold" },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base03, fg = colors.gray },
   },
   visual = {
-    a = { bg = colors.magenta, fg = colors.base02, gui = "bold" },
+    a = { bg = colors.magenta, fg = colors.base03, gui = "bold" },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base03, fg = colors.gray },
   },
   replace = {
-    a = { bg = colors.red, fg = colors.base02, gui = "bold" },
+    a = { bg = colors.red, fg = colors.base03, gui = "bold" },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base03, fg = colors.gray },
   },
   command = {
-    a = { bg = colors.green, fg = colors.base02, gui = "bold" },
+    a = { bg = colors.green, fg = colors.base03, gui = "bold" },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base03, fg = colors.gray },
   },
   inactive = {
-    a = { bg = colors.darkgray, fg = colors.base02 },
+    a = { bg = colors.darkgray, fg = colors.base03 },
     b = { bg = colors.base02, fg = colors.lightgray },
     c = { bg = colors.base02, fg = colors.gray },
   },
