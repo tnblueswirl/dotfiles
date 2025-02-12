@@ -37,7 +37,7 @@ return {
     c = { bg = colors.base02, fg = colors.gray },
   },
   command = {
-    a = { bg = colors.blue, fg = colors.base0, gui = "bold" },
+    a = { bg = colors.lightgray, fg = colors.base0, gui = "bold" },
     b = { bg = colors.gray, fg = colors.base0 },
     c = { bg = colors.base02, fg = colors.gray },
   },
