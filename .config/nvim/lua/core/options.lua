@@ -5,6 +5,7 @@
 vim.opt.number = true
 vim.opt.splitright = false
 vim.opt.splitbelow = false
+vim.opt.showmode = false
 
 ----------------------------------------
 -- FILE HANDLING
