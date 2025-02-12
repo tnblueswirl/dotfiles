@@ -19,8 +19,18 @@ return {
   {
     "preservim/nerdtree",
     keys = {
-      { "<Leader>d", ":NERDTreeToggle<CR>:redraw!<CR>", desc = "Toggle NERDTree" },
-      { "<Leader>f", ":NERDTreeFind<CR>:redraw!<CR>", desc = "Find in NERDTree" },
+      {
+        "<Leader>d",
+        ":NERDTreeToggle<CR>:redraw!<CR>",
+        desc = "Toggle NERDTree",
+        silent = true,
+      },
+      {
+        "<Leader>f",
+        ":NERDTreeFind<CR>:redraw!<CR>",
+        desc = "Find in NERDTree",
+        silent = true,
+      },
     },
     config = function()
       vim.g.NERDTreeShowHidden = 1
