@@ -12,38 +12,38 @@ local colors = {
   violet = 13,
   gray = 11,
   darkgray = 10,
-  lightgray = 12,
-  inactivegray = 11,
+  lightgray = 14,
 }
 return {
   normal = {
-    a = { bg = colors.gray, fg = colors.base03, gui = "bold" },
-    b = { bg = colors.base02, fg = colors.lightgray },
-    c = { bg = colors.base03, fg = colors.gray },
+    a = { bg = colors.lightgray, fg = colors.base0, gui = "bold" },
+    b = { bg = colors.gray, fg = colors.base0 },
+    c = { bg = colors.base02, fg = colors.gray },
   },
+
   insert = {
-    a = { bg = colors.blue, fg = colors.base03, gui = "bold" },
-    b = { bg = colors.base02, fg = colors.lightgray },
-    c = { bg = colors.base03, fg = colors.gray },
+    a = { bg = colors.yellow, fg = colors.base0, gui = "bold" },
+    b = { bg = colors.gray, fg = colors.base0 },
+    c = { bg = colors.base02, fg = colors.gray },
   },
   visual = {
-    a = { bg = colors.magenta, fg = colors.base03, gui = "bold" },
-    b = { bg = colors.base02, fg = colors.lightgray },
-    c = { bg = colors.base03, fg = colors.gray },
+    a = { bg = colors.magenta, fg = colors.base0, gui = "bold" },
+    b = { bg = colors.gray, fg = colors.base0 },
+    c = { bg = colors.base02, fg = colors.gray },
   },
   replace = {
-    a = { bg = colors.red, fg = colors.base03, gui = "bold" },
-    b = { bg = colors.base02, fg = colors.lightgray },
-    c = { bg = colors.base03, fg = colors.gray },
+    a = { bg = colors.red, fg = colors.base0, gui = "bold" },
+    b = { bg = colors.gray, fg = colors.base0 },
+    c = { bg = colors.base02, fg = colors.gray },
   },
   command = {
-    a = { bg = colors.green, fg = colors.base03, gui = "bold" },
-    b = { bg = colors.base02, fg = colors.lightgray },
-    c = { bg = colors.base03, fg = colors.gray },
+    a = { bg = colors.orange, fg = colors.base0, gui = "bold" },
+    b = { bg = colors.gray, fg = colors.base0 },
+    c = { bg = colors.base02, fg = colors.gray },
   },
   inactive = {
-    a = { bg = colors.darkgray, fg = colors.base03 },
-    b = { bg = colors.base02, fg = colors.lightgray },
+    a = { bg = colors.darkgray, fg = colors.base0 },
+    b = { bg = colors.gray, fg = colors.base0 },
     c = { bg = colors.base02, fg = colors.gray },
   },
 }

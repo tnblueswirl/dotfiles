@@ -89,9 +89,9 @@ return {
               "diff",
               colored = true,
               diff_color = {
-                added = { fg = 2 },
-                modified = { fg = 3 },
-                removed = { fg = 1 },
+                added = { fg = 15 },
+                modified = { fg = 15 },
+                removed = { fg = 15 },
               },
             },
             { "diagnostics", sources = { "coc", "ale" } },
