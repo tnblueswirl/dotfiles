@@ -40,31 +40,74 @@ return {
 
   -- Status Line
   {
-    "vim-airline/vim-airline",
-    dependencies = { "vim-airline/vim-airline-themes" },
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
     config = function()
-      vim.g.airline_powerline_fonts = 1
-      vim.g.airline_theme = "solarized"
-      vim.g["airline_extensions_whitespace_enabled"] = 0
-      vim.g["airline_extensions_whitespace_mixed_indent_algo"] = 2
-      vim.g["airline_extensions_whitespace_checks"] =
-        { "indent", "trailing", "mixed-indent-file" }
-
-      -- Airline symbols
-      if vim.fn.exists("g:airline_symbols") == 0 then
-        vim.g.airline_symbols = {}
+      local function obsession_on()
+        if vim.g.this_obsession then
+          return "$"
+        else
+          return ""
+        end
       end
-      vim.g["airline_left_sep"] = "⮀"
-      vim.g["airline_left_alt_sep"] = "⮁"
-      vim.g["airline_right_sep"] = "⮂"
-      vim.g["airline_right_alt_sep"] = "⮃"
-      vim.g["airline_symbols"]["branch"] = "⭠  "
-      vim.g["airline_symbols"]["readonly"] = "⭤"
-      vim.g["airline_symbols"]["linenr"] = "⭡"
-      vim.g["airline_symbols"]["maxlinenr"] = "☰ "
-      vim.g["airline_symbols"]["dirty"] = "*"
-      vim.g["airline_symbols"]["whitespace"] = "Ξ"
-      vim.g["airline_symbols"]["colnr"] = " ℅:"
+      local custom_solarized = require("plugins.solarized-lualine")
+      require("lualine").setup({
+        options = {
+          icons_enabled = true,
+          theme = custom_solarized,
+          component_separators = { left = "⮁", right = "⮃" },
+          section_separators = { left = "⮀  ", right = "⮂" },
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = { "fugitiveblame", "fzf", "help" },
+          always_divide_middle = true,
+          always_show_tabline = true,
+          globalstatus = false,
+          refresh = {
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
+          },
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {
+            { "branch", icon = "⭠" },
+            {
+              "diff",
+              colored = true,
+              diff_color = {
+                added = { fg = 2 },
+                modified = { fg = 3 },
+                removed = { fg = 1 },
+              },
+            },
+            { "diagnostics", sources = { "coc", "ale" } },
+          },
+          lualine_c = { { "filename", symbols = { readonly = "⭤" } } },
+          lualine_x = {
+            "encoding",
+            { obsession_on },
+            { "filetype", icons_enabled = false },
+          },
+          lualine_y = { "progress" },
+          lualine_z = { "location", "searchcount", "selectioncount" },
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { { "filename", symbols = { readonly = "⭤" } } },
+          lualine_x = { "location" },
+          lualine_y = {},
+          lualine_z = {},
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = { "fugitive", "fzf", "lazy", "man", "nerdtree" },
+      })
     end,
   },
 
