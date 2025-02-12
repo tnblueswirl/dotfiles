@@ -37,13 +37,13 @@ return {
     c = { bg = colors.base02, fg = colors.gray },
   },
   command = {
-    a = { bg = colors.orange, fg = colors.base0, gui = "bold" },
+    a = { bg = colors.blue, fg = colors.base0, gui = "bold" },
     b = { bg = colors.gray, fg = colors.base0 },
     c = { bg = colors.base02, fg = colors.gray },
   },
   inactive = {
     a = { bg = colors.darkgray, fg = colors.base0 },
     b = { bg = colors.gray, fg = colors.base0 },
-    c = { bg = colors.base02, fg = colors.gray },
+    c = { bg = colors.darkgray, fg = colors.base03 },
   },
 }

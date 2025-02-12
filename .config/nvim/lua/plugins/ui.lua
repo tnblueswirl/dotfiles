@@ -94,7 +94,17 @@ return {
                 removed = { fg = 15 },
               },
             },
-            { "diagnostics", sources = { "coc", "ale" } },
+            {
+              "diagnostics",
+              sources = { "coc", "ale" },
+              diagnostics_color = {
+                error = { fg = 1 },
+                warning = { fg = 3 },
+                info = { fg = 4 },
+                hint = { fg = 6 },
+              },
+              symbols = { error = "✗", warn = "⚠", info = "ℹ", hint = "⚑" },
+            },
           },
           lualine_c = { { "filename", symbols = { readonly = "⭤" } } },
           lualine_x = {
