@@ -23,8 +23,8 @@ fi
 
 export LSCOLORS=exfxcxdxbxegedabagacad
 
-# Let bash know we want to use Vim for everything!
-EDITOR="vim"
+# Let bash know we want to use NeoVim for everything!
+EDITOR="nvim"
 export EDITOR
 
 if [ -f ~/Library/Preferences/WebIde100/phpstorm.vmoptions ]; then

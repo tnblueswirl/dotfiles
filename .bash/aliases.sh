@@ -15,6 +15,7 @@ alias solardark="source ~/.dotfiles/myscripts/darkbkgnd.sh ; export ITERM_PROFIL
 alias toggle_solarized='source ~/.dotfiles/myscripts/toggle_solarized.sh'
 # alias nvimbranch is defined in `functions.sh`
 # alias vimbranch is defined in `functions.sh`
+alias nvimdfm='nvim $(git dfm --name-only)'
 alias nvimselect='select session in $(ls -1 | grep -E "Session.*\.vim") ; do nvim -S "$session" ; break ; done'
 alias vimselect='select session in $(ls -1 | grep -E "Session.*\.vim") ; do vim -S "$session" ; break ; done'
 
@@ -44,6 +45,7 @@ alias rm='rm -i'
 alias tmux='tmux -2'
 alias tree='tree -CF'
 alias tree-nopyc='tree -CFI "*.pyc"'
+alias vimdiff='nvim -d'
 alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
   alias mysql='/Applications/MAMP/Library/bin/mysql -u root -p'
