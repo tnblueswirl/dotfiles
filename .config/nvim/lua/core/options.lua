@@ -24,6 +24,7 @@ vim.opt.cursorline = true
 vim.opt.hidden = true
 vim.opt.mouse = "a"
 vim.opt.shortmess:append("c")
+vim.opt.virtualedit = "block"
 
 -- Search settings
 vim.opt.hlsearch = true
