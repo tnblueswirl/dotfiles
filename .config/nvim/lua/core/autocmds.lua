@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter" }, {
       call SyntaxRange#Include('^\s*```json', '^\s*```', 'json', 'Comment')
       call SyntaxRange#Include('^\s*```jsx', '^\s*```', 'javascript', 'Comment')
       call SyntaxRange#Include('^\s*```python', '^\s*```', 'python', 'Comment')
-      call SyntaxRange#Include('^\s*```bash', '^\s*```', 'bash', 'Comment')
+      call SyntaxRange#Include('^\s*```sh', '^\s*```', 'bash', 'Comment')
       call SyntaxRange#Include('^\s*```sql', '^\s*```', 'sql', 'Comment')
       call SyntaxRange#Include('^\s*```vim', '^\s*```', 'vim', 'Comment')
       call SyntaxRange#Include('^\s*```xml', '^\s*```', 'xml', 'Comment')
