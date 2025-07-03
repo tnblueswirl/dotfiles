@@ -1,1 +1,1 @@
-.vim/colors/solarized.vim
+/Users/adamdaniels/.vim/colors/solarized.vim
