@@ -38,11 +38,13 @@
 	cov = commit -v
 	conflicts = diff --name-only --diff-filter=U
 	df = diff
-	dfm = !git diff $(git merge-base master HEAD)..
+	dfm = !git diff $(git merge-base `basename $(git symbolic-ref refs/remotes/origin/HEAD)` HEAD)
 	dfs = diff --staged
+	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
 	la = log --oneline --graph --decorate --all
 	lo = log --oneline
 	lom = log --oneline --merges
+	lomf = log --oneline --merges --first-parent
 	lon = log --oneline --no-merges
 	lor = log --oneline --reverse
 	lot = log --oneline --topo-order --graph --decorate
