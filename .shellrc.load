@@ -9,7 +9,7 @@ fi
 
 PATH=$_DOTFILES_INITIAL_PATH
 
-export PATH=$PATH:$HOME/bin:$HOME/.dotfiles/bin
+export PATH=/opt/homebrew/bin:$PATH:$HOME/bin:$HOME/.dotfiles/bin:$HOME/.local/bin
 
 if [ -f ~/.env.sh ]; then
   . ~/.env.sh

@@ -72,7 +72,7 @@ vim_branch_arg() {
   local sessions
   if [[ "$1" == "zsh" ]]; then
     # zsh populates arrays differently than bash
-    sessions=($(ls -1 | grep -E 'Session.*\.vim'))
+    sessions=("${(@f)$(ls -1 | grep -E 'Session.*\.vim')}")
   else
     sessions=$(ls -1 | grep -E 'Session.*\.vim')
   fi
