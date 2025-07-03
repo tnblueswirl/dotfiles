@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH_PYENV_QUIET=true
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -118,6 +119,11 @@ unset LESS
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # pyenv init (needs to be here to avoid attempted re-install)
+if [ -d "$HOME/.pyenv" ] && command -v pyenv 2>&1 >/dev/null ; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+fi
 
 source ~/.shellrc.load
 export VOLTA_HOME="$HOME/.volta"
