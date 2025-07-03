@@ -97,6 +97,7 @@ return {
             {
               "diagnostics",
               sources = { "coc", "ale" },
+              -- sections = { "error" }, -- "warn", "info", "hint"
               diagnostics_color = {
                 error = { fg = 88 },
                 warning = { fg = 3 },

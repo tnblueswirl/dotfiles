@@ -143,7 +143,7 @@ map("v", "<F1>", "<ESC>")
 -- SEARCH
 ---
 -- Ack/Ag search commands
-map("n", "<Leader>a", ":silent! Ack!<Space>-F<Space>", { silent = false })
+-- map("n", "<Leader>a", ":silent! Ack!<Space>-F<Space>", { silent = false })
 map("n", "<Leader>A", ":tabe<CR>:silent! Ack<Space>-F<Space>", { silent = false })
 
 -- Highlight `= f"""` in python strings as SQL

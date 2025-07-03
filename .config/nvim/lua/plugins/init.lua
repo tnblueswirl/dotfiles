@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Load plugin specifications
 require("lazy").setup({
   -- Load plugin specs from separate files
+  { import = "plugins.ai" }, -- AI tools
   { import = "plugins.ui" }, -- UI enhancements (NERDTree, airline, etc.)
   { import = "plugins.git" }, -- Git-related plugins
   { import = "plugins.editing" }, -- Editor enhancements (surround, repeat, etc.)
