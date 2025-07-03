@@ -58,6 +58,10 @@ Plug 'junegunn/fzf.vim'
 " Note that this requires ack (`brew install ack`)
 Plug 'mileszs/ack.vim'
 
+" Copilot
+" Note that this requires Node 18 or above
+Plug 'github/copilot.vim'
+
 " Debugger (supports DBGP protocol)
 Plug 'joonty/vdebug', { 'for': ['php', 'python'] }
 
@@ -100,12 +104,15 @@ Plug 'GutenYe/json5.vim', { 'for': ['json', 'json5'] }
 
 " vim-prettier to automatically format (html requires prettier ^1.15)
 Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': [
   \     'css',
   \     'graphql',
   \     'html',
   \     'javascript',
+  \     'js',
   \     'json',
+  \     'jsx',
   \     'less',
   \     'markdown',
   \     'scss',
@@ -520,7 +527,7 @@ nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:noh<CR>:AirlineRefresh<CR>
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Show the highlighting groups for the text under the cursor
-noremap <S-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <LocalLeader>hl :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -671,6 +678,26 @@ function! ToggleTextWidth(new_width = 72)
 endfunc
 nnoremap <silent> <LocalLeader>tw :call ToggleTextWidth()<CR>
 
+" View the diff of the current file compared to the provided branch;
+" master if no arg
+function! DiffBranchFile(...)
+    let diff_branch = get(a:, 1, "master")
+    " Set the diff on the current window
+    execute "diffthis"
+
+    " Call Fugitive's vsplit edit of the branch for the current file
+    execute "Gvsplit " .. diff_branch .. ":%"
+
+    " Set the diff on for the new split
+    execute "diffthis"
+
+    " Return to the original window
+    execute "normal! w"
+endfunction
+
+nnoremap <LocalLeader>db :call DiffBranchFile()<CR>
+
+
 " Load Local Settings ----------------------------------------------------- {{{1
 if filereadable(expand("~/.dotfiles/.vim/.vimrc_add_ons"))
     source ~/.dotfiles/.vim/.vimrc_add_ons
@@ -739,8 +766,8 @@ let g:ale_open_list = 1
 " Make the default window height 5 lines
 let g:ale_list_window_size = 5
 
-" Lint when text has changed, but only when in normal mode
-let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
 
 " Configure linters for specific filetypes
 let g:ale_linters = {
@@ -748,6 +775,15 @@ let g:ale_linters = {
   \ 'graphql': [],
   \ 'javascript': ['eslint'],
   \}
+
+function! TogglePylint()
+  if (!has_key(g:ale_linters_ignore, 'python') || g:ale_linters_ignore["python"] == [])
+    execute 'let g:ale_linters_ignore["python"] = ["pylint"]'
+  else
+    execute 'let g:ale_linters_ignore["python"] = []'
+  endif
+endfunction
+nnoremap <silent> <Leader>pl :call TogglePylint()<CR>:e!<CR>
 
 let g:ale_python_flake8_options = '--ignore=E501'
 nnoremap <silent> <Leader>p3 :let g:ale_python_flake8_executable = 'python3'<CR>:e!<CR>
@@ -803,6 +839,15 @@ endfunction
 command! -nargs=0 Format :call CocAction('format')
 
 
+" CoPilot Settings -------------------------------------------------------- {{{2
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+let g:copilot_filetypes = {
+  \   'markdown': v:false,
+  \ }
+
+
 " Editor Config ----------------------------------------------------------- {{{2
 "
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -813,10 +858,10 @@ let g:EditorConfig_exec_path = '~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/
 " Set emmet leader key to <Leader>m; mnemonic is Markup
 let g:user_emmet_leader_key='<Leader>m'
 let g:user_emmet_settings = {
-  \ 'html' : {
-  \     'quote_char': "'",
-  \ },
-  \}
+  \   'html': {
+  \       'quote_char': "'",
+  \   },
+  \ }
 
 " Fugitive Settings ------------------------------------------------------- {{{2
 "
@@ -848,7 +893,7 @@ endif
 
 if executable('ag')
     " Add .agignore for more global excludes; .ignore for per-project
-    let $FZF_DEFAULT_COMMAND = 'ag -U --hidden --ignore node_modules --ignore .git --ignore __pycache__ -g ""'
+    let $FZF_DEFAULT_COMMAND = 'ag -U --hidden --ignore node_modules --ignore worktrees --ignore .git --ignore __pycache__ -g ""'
 endif
 
 if executable('bat')
