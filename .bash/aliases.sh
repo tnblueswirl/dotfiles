@@ -45,6 +45,7 @@ alias rm='rm -i'
 alias tmux='tmux -2'
 alias tree='tree -CF'
 alias tree-nopyc='tree -CFI "*.pyc"'
+alias vi='nvim'
 alias vimdiff='nvim -d'
 alias webphantomjs='phantomjs --webdriver=4444'
 if [ -e /Applications/MAMP/Library/bin/mysql ]; then
